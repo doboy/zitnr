@@ -1,1 +1,97 @@
-Hello world
+<!DOCTYPE html>
+<html>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+
+  <body>
+    <br/>
+
+    <div id="root"></div>
+
+
+
+    <script type="text/babel" data-presets="react,stage-3">
+      const classnames = (args) => {
+        return args.map((arg) => {
+          if (typeof arg == "string") {
+            return arg;
+          } else {
+            return Object.keys(arg).map((key) => {
+              if (arg[key]) {
+                return key;
+              } else {
+                return "";
+              }
+            }).join(" ");
+          }
+        }).join(" ");
+      };
+
+      const Menu = ({selectedMenuItem, setSelectedMenuItem}) => {
+        return (
+          <div className="ui container">
+            <div className="ui secondary pointing menu">
+              <a className={classnames(["header", {active: selectedMenuItem == "zitnr"}, "item"])} onClick={() => {setSelectedMenuItem("zitnr")}}>
+                zitnr
+              </a>
+
+              <div className="right menu">
+                <a className={classnames(["header", {active: selectedMenuItem == "reservations"}, "item"])} onClick={() => {setSelectedMenuItem("reservations")}}>
+                  reservations
+                </a>
+                <a className={classnames(["header", {active: selectedMenuItem == "transactions"}, "item"])} onClick={() => {setSelectedMenuItem("transactions")}}>
+                  transactions
+                </a>
+                <a className={classnames(["header", {active: selectedMenuItem == "donate"}, "item"])} onClick={() => {setSelectedMenuItem("donate")}}>
+                  donate
+                </a>
+              </div>
+            </div>
+            {selectedMenuItem == "zitnr" && <ZitnrTab />}
+            {selectedMenuItem == "reservations" && <ReservationsTab />}
+            {selectedMenuItem == "transactions" && <TransactionsTab />}
+            {selectedMenuItem == "donate" && <DonateTab />}
+          </div>
+        )
+      }
+
+      const ZitnrTab = () => {
+        return <div className="ui basic segment">Welcome to Zitnr! Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.</div>
+      };
+
+      const ReservationsTab = () => {
+        return <div className="ui center aligned basic segment">Under construction</div>
+      };
+
+      const TransactionsTab = () => {
+        return <div className="ui center aligned basic segment">Under construction</div>
+      };
+
+
+      const DonateTab = () => {
+        return (
+          <div className="ui center aligned basic segment">
+            <a href="https://account.venmo.com/pay?recipients=zack-do" className="ui primary button">venmo @zack-do (5062)</a><br/><br/>
+          </div>
+        );
+      }
+
+      const App = () => {
+        const [selectedMenuItem, setSelectedMenuItem] = React.useState("zitnr");
+
+        return <Menu selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"))
+      root.render(<App />);
+    </script>
+  </body>
+</html>
