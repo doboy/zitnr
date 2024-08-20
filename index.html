@@ -9,6 +9,8 @@
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin></script>
+
 <style>
   a,
   span {
@@ -63,28 +65,34 @@
       return (
         <div className="ui container">
           <div className="ui secondary pointing menu">
-            <a className={classnames(["header", { active: selectedMenuItem == "zitnr" }, "item"])} onClick={() => { setSelectedMenuItem("zitnr") }}>
+            <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "zitnr" }, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
               zitnr
             </a>
 
             <div className="right menu">
-              <a className={classnames(["header", { active: selectedMenuItem == "calendar" }, "item"])} onClick={() => { setSelectedMenuItem("calendar") }}>
+              <a href="#calendar" className={classnames(["header", { active: selectedMenuItem == "calendar" }, "item"])} onClick={() => { setSelectedMenuItem("#calendar") }}>
                 calendar
               </a>
-              <a className={classnames(["header", { active: selectedMenuItem == "transactions" }, "item"])} onClick={() => { setSelectedMenuItem("transactions") }}>
+              <a href="#transactions" className={classnames(["header", { active: selectedMenuItem == "transactions" }, "item"])} onClick={() => { setSelectedMenuItem("#transactions") }}>
                 transactions
               </a>
-              <a className={classnames(["header", { active: selectedMenuItem == "donate" }, "item"])} onClick={() => { setSelectedMenuItem("donate") }}>
+              <a href="#donate" className={classnames(["header", { active: selectedMenuItem == "donate" }, "item"])} onClick={() => { setSelectedMenuItem("#donate") }}>
                 donate
               </a>
             </div>
           </div>
           <br />
-          <CalendarTab />
-          {selectedMenuItem == "zitnr" && <ZitnrTab />}
-          {selectedMenuItem == "calendar" && <CalendarTab />}
-          {selectedMenuItem == "transactions" && <TransactionsTab />}
-          {selectedMenuItem == "donate" && <DonateTab />}
+          {(() => {
+            if (selectedMenuItem == "#calendar") {
+              return <CalendarTab />;
+            } else if (selectedMenuItem == "#transactions") {
+              return <TransactionsTab />;
+            } else if (selectedMenuItem == "#donate") {
+              return <DonateTab />
+            } else {
+              return <ZitnrTab />;
+            }
+          })()}
         </div>
       )
     }
@@ -99,70 +107,115 @@
 
     const CalendarTab = () => {
       const [isLoading, setIsLoading] = React.useState(true);
+      const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
+      const [park, setPark] = React.useState("1374");
+      const [unreservedData, setUnreservedData] = React.useState({});
+      const [securedData, setSecuredData] = React.useState({});
 
       React.useEffect(() => {
         const db = window.firebaseApp.firestore();
-        const docRef = db.collection("unreserved").doc("1378-2024-08-29");
-        docRef.get().then((doc) => {
+        const unreservedDocRef = db.collection("unreserved").doc(`${park}-${date}`);
+        const securedDocRef = db.collection("secured").doc(`${park}-${date}`);
+
+        const promise1 = unreservedDocRef.get().then((doc) => {
           if (doc.exists) {
-            console.log("Document data:", doc.data());
+            setUnreservedData(doc.data());
           } else {
-            console.log("No such document!");
+            setUnreservedData({times: []})
           }
+        });
+
+        const promise2 = securedDocRef.get().then((doc) => {
+          if (doc.exists) {
+            setSecuredData(doc.data());
+          } else {
+            setSecuredData({times: []})
+          }
+        });
+
+        Promise.all([promise1, promise2]).then(() => {
           setIsLoading(false);
+        });
+      }, [date, park]);
+
+      const timeFormat = "LT";
+
+      const calendar = React.useMemo(() => {
+        const entries = [];
+
+        if (unreservedData.times) {
+          unreservedData.times.forEach((time) => {
+            entries.push({
+              icon: "green check",
+              description: "Not reserved",
+              startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
+              endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
+              sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+            })
+          });
+        }
+
+        if (securedData.times) {
+          securedData.times.forEach((time) => {
+            entries.push({
+              icon: "green check",
+              description: "Reserved by Zitnr",
+              startTime: moment(time.startTime).format(timeFormat),
+              endTime: moment(time.endTime).format(timeFormat),
+              sortKey: moment(time.startTime).format("HH:mm"),
+            })
+          })
+        }
+
+        entries.sort((a, b) => {
+          if (a.sortKey < b.sortKey) {
+            return -1;
+          } else {
+            return 1;
+          }
         })
-      }, []);
+
+        return entries;
+      }, [unreservedData, securedData]);
 
       return (
-        <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
+        <div className={classnames(["ui basic segment"])}>
           <form className="ui form">
-            <div className="fields">
+            <div className="two fields">
 
               <div className="field">
                 <label>Park</label>
-                <div className="ui selection dropdown">
-                  <input type="hidden" name="park" />
-                  <i className="dropdown icon"></i>
-                  <div className="default text">Park</div>
-                  <div className="menu">
-                    <div className="item" data-value="1">Miller</div>
-                    <div className="item" data-value="0">Baker</div>
-                    <div className="item" data-value="0">Beacon Hill</div>
-                  </div>
-                </div>
+                <select onChange={(e) => setPark(e.target.value)}>
+                  <option value="1374">Miller</option>
+                  <option value="1378">Baker</option>
+                  <option value="1319">Beacon Hill</option>
+                </select>
               </div>
 
               <div className="field">
                 <label>Date</label>
                 <div className="ui input">
-                  <input type="date" placeholder="Search..." />
+                  <input type="date" value={date} placeholder="Search..." onChange={(e) => {
+                    console.log(e.target.value);
+                    setDate(e.target.value);
+                  }} />
                 </div>
               </div>
             </div>
           </form>
 
+          <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
 
           <div className="ui relaxed list">
-            <div className="item">
-              <i className="green check icon"></i>
-              <div className="content">
-                <div className="header">Not reserved</div>
-                <div className="description">10:20AM - 11:30AM</div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="red x icon"></i>
-              <div className="content">
-                <div className="header">Unknown reservation</div>
-                <div className="description">11:30AM - 12:00PM</div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="green check icon"></i>
-              <div className="content">
-                <div className="header">Reserved for open play</div>
-                <div className="description">Greenpoint's best choice for quick and delicious sushi.</div>
-              </div>
+            {calendar.map((entry) => {
+              return (<div key={entry.startTime} className="item">
+                <i className={`${entry.icon} icon`}></i>
+                <div className="content">
+                  <div className="header">{entry.description}</div>
+                  <div className="description">{entry.startTime} - {entry.endTime}</div>
+                </div>
+              </div>)
+            })}
             </div>
           </div>
 
@@ -186,7 +239,7 @@
     }
 
     const App = () => {
-      const [selectedMenuItem, setSelectedMenuItem] = React.useState("zitnr");
+      const [selectedMenuItem, setSelectedMenuItem] = React.useState(window.location.hash);
 
       return <Menu selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
     };
