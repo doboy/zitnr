@@ -1,106 +1,199 @@
 <!DOCTYPE html>
 <html>
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
-  <style>
-    a, span {
-      font-size: 18px;
-    }
-  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+<style>
+  a,
+  span {
+    font-size: 18px;
+  }
 
-  <body>
-    <br/>
+  menu,
+  a {
+    font-size: 15px;
+  }
+</style>
 
-    <div id="root"></div>
+<body>
+  <br />
 
-    <script type="text/babel" data-presets="react,stage-3">
-      const classnames = (args) => {
-        return args.map((arg) => {
-          if (typeof arg == "string") {
-            return arg;
-          } else {
-            return Object.keys(arg).map((key) => {
-              if (arg[key]) {
-                return key;
-              } else {
-                return "";
-              }
-            }).join(" ");
-          }
-        }).join(" ");
-      };
+  <div id="root"></div>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
 
-      const Menu = ({selectedMenuItem, setSelectedMenuItem}) => {
-        return (
-          <div className="ui container">
-            <div className="ui secondary pointing menu">
-              <a className={classnames(["header", {active: selectedMenuItem == "zitnr"}, "item"])} onClick={() => {setSelectedMenuItem("zitnr")}}>
-                zitnr
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5M4VMuWCj1CTwbcRt7uRGjghvIHWWJkg",
+      authDomain: "zitnr-f1493.firebaseapp.com",
+      projectId: "zitnr-f1493",
+      storageBucket: "zitnr-f1493.appspot.com",
+      messagingSenderId: "761238336755",
+      appId: "1:761238336755:web:bc5d77b195a07ed2b47386"
+    };
+
+    window.firebaseApp = firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+  <script type="text/babel" data-presets="react,stage-3">
+    const classnames = (args) => {
+      return args.map((arg) => {
+        if (typeof arg == "string") {
+          return arg;
+        } else {
+          return Object.keys(arg).map((key) => {
+            if (arg[key]) {
+              return key;
+            } else {
+              return "";
+            }
+          }).join(" ");
+        }
+      }).join(" ");
+    };
+
+    const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
+      return (
+        <div className="ui container">
+          <div className="ui secondary pointing menu">
+            <a className={classnames(["header", { active: selectedMenuItem == "zitnr" }, "item"])} onClick={() => { setSelectedMenuItem("zitnr") }}>
+              zitnr
+            </a>
+
+            <div className="right menu">
+              <a className={classnames(["header", { active: selectedMenuItem == "calendar" }, "item"])} onClick={() => { setSelectedMenuItem("calendar") }}>
+                calendar
               </a>
+              <a className={classnames(["header", { active: selectedMenuItem == "transactions" }, "item"])} onClick={() => { setSelectedMenuItem("transactions") }}>
+                transactions
+              </a>
+              <a className={classnames(["header", { active: selectedMenuItem == "donate" }, "item"])} onClick={() => { setSelectedMenuItem("donate") }}>
+                donate
+              </a>
+            </div>
+          </div>
+          <br />
+          <CalendarTab />
+          {selectedMenuItem == "zitnr" && <ZitnrTab />}
+          {selectedMenuItem == "calendar" && <CalendarTab />}
+          {selectedMenuItem == "transactions" && <TransactionsTab />}
+          {selectedMenuItem == "donate" && <DonateTab />}
+        </div>
+      )
+    }
 
-              <div className="right menu">
-                <a className={classnames(["header", {active: selectedMenuItem == "reservations"}, "item"])} onClick={() => {setSelectedMenuItem("reservations")}}>
-                  reservations
-                </a>
-                <a className={classnames(["header", {active: selectedMenuItem == "transactions"}, "item"])} onClick={() => {setSelectedMenuItem("transactions")}}>
-                  transactions
-                </a>
-                <a className={classnames(["header", {active: selectedMenuItem == "donate"}, "item"])} onClick={() => {setSelectedMenuItem("donate")}}>
-                  donate
-                </a>
+    const ZitnrTab = () => {
+      return <div className="ui basic segment">
+        <span>
+          Welcome to Zitnr! <br /><br />Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
+        </span>
+      </div>
+    };
+
+    const CalendarTab = () => {
+      const [isLoading, setIsLoading] = React.useState(true);
+
+      React.useEffect(() => {
+        const db = window.firebaseApp.firestore();
+        const docRef = db.collection("unreserved").doc("1378-2024-08-29");
+        docRef.get().then((doc) => {
+          if (doc.exists) {
+            console.log("Document data:", doc.data());
+          } else {
+            console.log("No such document!");
+          }
+          setIsLoading(false);
+        })
+      }, []);
+
+      return (
+        <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
+          <form className="ui form">
+            <div className="fields">
+
+              <div className="field">
+                <label>Park</label>
+                <div className="ui selection dropdown">
+                  <input type="hidden" name="park" />
+                  <i className="dropdown icon"></i>
+                  <div className="default text">Park</div>
+                  <div className="menu">
+                    <div className="item" data-value="1">Miller</div>
+                    <div className="item" data-value="0">Baker</div>
+                    <div className="item" data-value="0">Beacon Hill</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="field">
+                <label>Date</label>
+                <div className="ui input">
+                  <input type="date" placeholder="Search..." />
+                </div>
               </div>
             </div>
-            <br/>
-            {selectedMenuItem == "zitnr" && <ZitnrTab />}
-            {selectedMenuItem == "reservations" && <ReservationsTab />}
-            {selectedMenuItem == "transactions" && <TransactionsTab />}
-            {selectedMenuItem == "donate" && <DonateTab />}
-          </div>
-        )
-      }
+          </form>
 
-      const ZitnrTab = () => {
-        return <div className="ui basic segment">
-          <span>
-            Welcome to Zitnr! <br/><br/>Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
-          </span>
+
+          <div className="ui relaxed list">
+            <div className="item">
+              <i className="green check icon"></i>
+              <div className="content">
+                <div className="header">Not reserved</div>
+                <div className="description">10:20AM - 11:30AM</div>
+              </div>
+            </div>
+            <div className="item">
+              <i className="red x icon"></i>
+              <div className="content">
+                <div className="header">Unknown reservation</div>
+                <div className="description">11:30AM - 12:00PM</div>
+              </div>
+            </div>
+            <div className="item">
+              <i className="green check icon"></i>
+              <div className="content">
+                <div className="header">Reserved for open play</div>
+                <div className="description">Greenpoint's best choice for quick and delicious sushi.</div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-      };
+      )
+    };
 
-      const ReservationsTab = () => {
-        return <div className="ui center aligned basic segment">Under construction</div>
-      };
-
-      const TransactionsTab = () => {
-        return <div className="ui center aligned basic segment">Under construction</div>
-      };
+    const TransactionsTab = () => {
+      return <div className="ui center aligned basic segment">Under construction</div>
+    };
 
 
-      const DonateTab = () => {
-        return (
-          <div className="ui center aligned basic segment">
-            <a href="https://account.venmo.com/pay?recipients=zack-do" className="ui primary button">Venmo @zack-do (5062)</a><br/><br/>
-          </div>
-        );
-      }
+    const DonateTab = () => {
+      return (
+        <div className="ui center aligned basic segment">
+          <img className="ui segment large centered image" src="./venmo-qr-code.png" />
+          <a href="https://account.venmo.com/pay?recipients=zack-do" className="ui primary button">Venmo @zack-do (5062)</a><br /><br />
+        </div>
+      );
+    }
 
-      const App = () => {
-        const [selectedMenuItem, setSelectedMenuItem] = React.useState("zitnr");
+    const App = () => {
+      const [selectedMenuItem, setSelectedMenuItem] = React.useState("zitnr");
 
-        return <Menu selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
-      };
+      return <Menu selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
+    };
 
-      const root = ReactDOM.createRoot(document.getElementById("root"))
-      root.render(<App />);
-    </script>
-  </body>
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />);
+  </script>
+</body>
+
 </html>
