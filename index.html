@@ -106,9 +106,10 @@
     };
 
     const CalendarTab = () => {
+      const millerParkId = "1374";
       const [isLoading, setIsLoading] = React.useState(true);
       const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
-      const [park, setPark] = React.useState("1374");
+      const [park, setPark] = React.useState(millerParkId);
       const [unreservedData, setUnreservedData] = React.useState({});
       const [securedData, setSecuredData] = React.useState({});
 
@@ -179,6 +180,17 @@
           })
         }
 
+        const dayOfWeek = moment(date).day();
+        if (park == millerParkId && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
+          entries.push({
+            icon: "green check",
+            description: "City drop-in hours",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            sortKey: "10:00",
+          })
+        }
+
         entries.sort((a, b) => {
           if (a.sortKey < b.sortKey) {
             return -1;
@@ -188,7 +200,7 @@
         })
 
         return entries;
-      }, [unreservedData, securedData]);
+      }, [unreservedData, securedData, park]);
 
       return (
         <div className={classnames(["ui basic segment"])}>
@@ -208,7 +220,6 @@
                 <label>Date</label>
                 <div className="ui input">
                   <input type="date" value={date} placeholder="Search..." onChange={(e) => {
-                    console.log(e.target.value);
                     setDate(e.target.value);
                   }} />
                 </div>
@@ -292,13 +303,13 @@
                 <td>{transaction.transactionDateIso}</td>
                 <td>{transaction.permitNumber}</td>
                 <td>
-                    {transaction.bookings.map((booking) => {
-                      return (<div>
-                          {moment(booking.startDateTime).format(dateFormat)} - {moment(booking.endDateTime).format(dateFormat)}
-                      </div>)
-                    })}
-                  </td>
-                  <td>${transaction.totalCost}</td>
+                  {transaction.bookings.map((booking) => {
+                    return (<div>
+                      {moment(booking.startDateTime).format(dateFormat)} - {moment(booking.endDateTime).format(dateFormat)}
+                    </div>)
+                  })}
+                </td>
+                <td>${transaction.totalCost}</td>
               </tr>);
             })}
             <tr>
@@ -306,7 +317,7 @@
               <td></td>
               <td></td>
               <td><strong>Total: ${totalCost}</strong></td>
-              </tr>
+            </tr>
           </tbody>
         </table>
       </div>)
