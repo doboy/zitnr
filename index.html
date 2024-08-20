@@ -4,19 +4,23 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+  <style>
+    a, span {
+      font-size: 18px;
+    }
+  </style>
 
   <body>
     <br/>
 
     <div id="root"></div>
-
-
 
     <script type="text/babel" data-presets="react,stage-3">
       const classnames = (args) => {
@@ -55,6 +59,7 @@
                 </a>
               </div>
             </div>
+            <br/>
             {selectedMenuItem == "zitnr" && <ZitnrTab />}
             {selectedMenuItem == "reservations" && <ReservationsTab />}
             {selectedMenuItem == "transactions" && <TransactionsTab />}
@@ -64,7 +69,11 @@
       }
 
       const ZitnrTab = () => {
-        return <div className="ui basic segment">Welcome to Zitnr! Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.</div>
+        return <div className="ui basic segment">
+          <span>
+            Welcome to Zitnr! <br/><br/>Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
+          </span>
+        </div>
       };
 
       const ReservationsTab = () => {
