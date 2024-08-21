@@ -363,14 +363,14 @@
                         </div>)
                       })}
                     </td>
-                    <td>${transaction.totalCost}</td>
+                    <td>${transaction.totalCost.toFixed(2)}</td>
                   </tr>);
                 })}
                 <tr>
                   <td><strong>Total</strong></td>
                   <td></td>
                   <td></td>
-                  <td><strong> ${totalCost}</strong></td>
+                  <td><strong> ${totalCost.toFixed(2)}</strong></td>
                 </tr>
               </tbody>
             </table>
