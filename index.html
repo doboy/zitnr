@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>zitnr</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin></script>
 
-<style>
-  a,
-  span {
-    font-size: 18px;
-  }
+  <style>
+    a,
+    span {
+      font-size: 18px;
+    }
 
-  menu,
-  a {
-    font-size: 15px;
-  }
-</style>
+    menu,
+    a {
+      font-size: 15px;
+    }
+  </style>
+</head>
 
 <body>
   <br />
@@ -45,19 +48,10 @@
 
 
   <script type="text/babel" data-presets="react,stage-3">
-    const updateQueryStringParameter = (key, value) => {
-      const uri = window.location.href;
-      const re = new RegExp("([?&])" + key + "=.*?(&|$|#)", "i");
-      const separator = uri.indexOf('?') !== -1 ? "&" : "?";
-
-      let newUri;
-      if (uri.match(re)) {
-        newUri = uri.replace(re, '$1' + key + "=" + value + '$2');
-      } else {
-        newUri = uri + separator + key + "=" + value;
-      }
-
-      window.history.replaceState({}, "Zitnr", newUri);
+    const updateQueryStringParameter = (key, val) => {
+      const uri = new URL(window.location.href);
+      uri.searchParams.set(key, val);
+      window.history.replaceState({}, "Zitnr", uri.href);
     };
 
     const classnames = (args) => {
