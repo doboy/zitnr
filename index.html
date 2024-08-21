@@ -262,14 +262,23 @@
 
                 <div className="field">
                   <label>park</label>
-                  <select onChange={(e) => {
-                    setPark(e.target.value);
-                    updateQueryStringParameter("parkId", e.target.value);
+                  <div className="ui selection dropdown" ref={(ref) => {
+                    $(ref).dropdown({
+                      onChange: function(value) {
+                        setPark(value);
+                        updateQueryStringParameter("parkId", value);
+                      }
+                    });
                   }}>
-                    <option value="1374">Miller</option>
-                    <option value="1378">Baker</option>
-                    <option value="1319">Beacon Hill</option>
-                  </select>
+                    <input type="hidden" name="parkId" value={park} />
+                    <i className="dropdown icon"></i>
+                    <div className="default text">park</div>
+                    <div className="menu">
+                      <div className="item" data-value="1374">Miller</div>
+                      <div className="item" data-value="1378">Baker</div>
+                      <div className="item" data-value="1319">Beacon Hill</div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="field">
