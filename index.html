@@ -73,19 +73,18 @@
               <a href="#calendar" className={classnames(["header", { active: selectedMenuItem == "calendar" }, "item"])} onClick={() => { setSelectedMenuItem("#calendar") }}>
                 calendar
               </a>
-              <a href="#transactions" className={classnames(["header", { active: selectedMenuItem == "transactions" }, "item"])} onClick={() => { setSelectedMenuItem("#transactions") }}>
-                transactions
+              <a href="#reservations" className={classnames(["header", { active: selectedMenuItem == "reservations" }, "item"])} onClick={() => { setSelectedMenuItem("#reservations") }}>
+                reservations
               </a>
               <a href="#donate" className={classnames(["header", { active: selectedMenuItem == "donate" }, "item"])} onClick={() => { setSelectedMenuItem("#donate") }}>
                 donate
               </a>
             </div>
           </div>
-          <br />
           {(() => {
             if (selectedMenuItem == "#calendar") {
               return <CalendarTab />;
-            } else if (selectedMenuItem == "#transactions") {
+            } else if (selectedMenuItem == "#reservations") {
               return <TransactionsTab />;
             } else if (selectedMenuItem == "#donate") {
               return <DonateTab />
@@ -155,7 +154,7 @@
 
             entries.push({
               icon: "green check",
-              description: "Not reserved",
+              description: "not reserved",
               startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
               endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
               sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
@@ -172,7 +171,7 @@
 
             entries.push({
               icon: "green check",
-              description: "Reserved by Zitnr",
+              description: "reserved for open play - zitnr",
               startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
               endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
               sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
@@ -184,7 +183,7 @@
         if (park == millerParkId && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
           entries.push({
             icon: "green check",
-            description: "City drop-in hours",
+            description: "city drop-in hours",
             startTime: "10:00 AM",
             endTime: "12:00 PM",
             sortKey: "10:00",
@@ -197,18 +196,62 @@
           } else {
             return 1;
           }
-        })
+        });
 
-        return entries;
+        const finalEntries = [];
+
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          if (i == 0) {
+            finalEntries.push(entry)
+          } else {
+            const lastEntry = entries[i - 1];
+            if (lastEntry.endTime != entry.startTime) {
+              // There is a gap, probably a reservation
+              finalEntries.push({
+                icon: "red x",
+                description: "unknown reservation(s)",
+                startTime: lastEntry.endTime,
+                endTime: entry.startTime,
+              });
+            }
+
+            finalEntries.push(entry);
+          }
+
+          if (i == entries.length - 1) {
+            if (entry.endTime != "10:00 PM") {
+              finalEntries.push({
+                icon: "red x",
+                description: "unknown reservation(s)",
+                startTime: entry.endTime,
+                endTime: "10:00 PM",
+              });
+            }
+          }
+        }
+
+        return finalEntries;
       }, [unreservedData, securedData, park]);
 
       return (
+        <>
+        <h2 className="ui header">
+            <i className="calendar alternate icon"></i>
+            <div className="content">
+              Calendar
+              <div className="sub header">
+                Query when courts are available for open play
+              </div>
+            </div>
+          </h2>
+
         <div className={classnames(["ui basic segment"])}>
           <form className="ui form">
             <div className="two fields">
 
               <div className="field">
-                <label>Park</label>
+                <label>park</label>
                 <select onChange={(e) => setPark(e.target.value)}>
                   <option value="1374">Miller</option>
                   <option value="1378">Baker</option>
@@ -217,7 +260,7 @@
               </div>
 
               <div className="field">
-                <label>Date</label>
+                <label>date</label>
                 <div className="ui input">
                   <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                     setDate(e.target.value);
@@ -229,6 +272,7 @@
 
           <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
 
+            {calendar.length == 0 && <div className="ui center aligned basic segment">No results found</div>}
             <div className="ui relaxed list">
               {calendar.map((entry) => {
                 return (<div key={entry.startTime} className="item">
@@ -241,9 +285,8 @@
               })}
             </div>
           </div>
-
-
         </div>
+        </>
       )
     };
 
@@ -287,49 +330,76 @@
       const dateFormat = "ddd, MMM Do h:mma";
 
 
-      return (<div className={classnames(["ui", { loading: isLoading }, "very basic segment"])}>
-        <table className="ui very basic table">
-          <thead>
-            <tr>
-              <th>Transaction date</th>
-              <th>Permit No.</th>
-              <th>Bookings</th>
-              <th>Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactionsData.map((transaction) => {
-              return (<tr key={transaction.permitCode}>
-                <td>{transaction.transactionDateIso}</td>
-                <td>{transaction.permitNumber}</td>
-                <td>
-                  {transaction.bookings.map((booking) => {
-                    return (<div>
-                      {moment(booking.startDateTime).format(dateFormat)} - {moment(booking.endDateTime).format(dateFormat)}
-                    </div>)
-                  })}
-                </td>
-                <td>${transaction.totalCost}</td>
-              </tr>);
-            })}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><strong>Total: ${totalCost}</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>)
+      return (
+        <>
+          <h2 className="ui header">
+            <i className="file alternate icon"></i>
+            <div className="content">
+              Reservations
+              <div className="sub header">
+                Table of all reservations made by zitnr for open play
+              </div>
+            </div>
+          </h2>
+          <div className={classnames(["ui", { loading: isLoading }, "very basic segment"])}>
+            <table className="ui very basic table">
+              <thead>
+                <tr>
+                  <th>transaction date</th>
+                  <th>permit no.</th>
+                  <th>bookings</th>
+                  <th>cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactionsData.map((transaction) => {
+                  return (<tr key={transaction.permitCode}>
+                    <td>{transaction.transactionDateIso}</td>
+                    <td>{transaction.permitNumber}</td>
+                    <td>
+                      {transaction.bookings.map((booking) => {
+                        return (<div key={booking.startDateTime}>
+                          {moment(booking.startDateTime).format(dateFormat)} - {moment(booking.endDateTime).format(dateFormat)}
+                        </div>)
+                      })}
+                    </td>
+                    <td>${transaction.totalCost}</td>
+                  </tr>);
+                })}
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td></td>
+                  <td></td>
+                  <td><strong> ${totalCost}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </>
+      )
     };
 
 
     const DonateTab = () => {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const link = isMobile ? "venmo://users/zack-do" : "https://account.venmo.com/pay?recipients=zack-do"
+
       return (
+        <>
+        <h2 className="ui header">
+            <i className="money bill alternate icon"></i>
+            <div className="content">
+              Donations
+              <div className="sub header">
+                Donations allow us to continue to reserve courts for open play
+              </div>
+            </div>
+          </h2>
         <div className="ui center aligned basic segment">
           <img className="ui segment large centered image" src="./venmo-qr-code.png" />
-          <a href="https://account.venmo.com/pay?recipients=zack-do" className="ui primary button">Venmo @zack-do (5062)</a><br /><br />
+          <a href={link} className="ui primary button">Venmo</a><br /><br />
         </div>
+        </>
       );
     }
 
