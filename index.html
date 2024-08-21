@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
@@ -45,6 +45,21 @@
 
 
   <script type="text/babel" data-presets="react,stage-3">
+    const updateQueryStringParameter = (key, value) => {
+      const uri = window.location.href;
+      const re = new RegExp("([?&])" + key + "=.*?(&|$|#)", "i");
+      const separator = uri.indexOf('?') !== -1 ? "&" : "?";
+
+      let newUri;
+      if (uri.match(re)) {
+        newUri = uri.replace(re, '$1' + key + "=" + value + '$2');
+      } else {
+        newUri = uri + separator + key + "=" + value;
+      }
+
+      window.history.replaceState({}, "Zitnr", newUri);
+    };
+
     const classnames = (args) => {
       return args.map((arg) => {
         if (typeof arg == "string") {
@@ -106,9 +121,10 @@
 
     const CalendarTab = () => {
       const millerParkId = "1374";
+      const params = new URL(window.location.href).searchParams;
       const [isLoading, setIsLoading] = React.useState(true);
-      const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
-      const [park, setPark] = React.useState(millerParkId);
+      const [date, setDate] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
+      const [park, setPark] = React.useState(params.get("parkId") || millerParkId);
       const [unreservedData, setUnreservedData] = React.useState({});
       const [securedData, setSecuredData] = React.useState({});
 
@@ -236,7 +252,7 @@
 
       return (
         <>
-        <h2 className="ui header">
+          <h2 className="ui header">
             <i className="calendar alternate icon"></i>
             <div className="content">
               Calendar
@@ -246,46 +262,50 @@
             </div>
           </h2>
 
-        <div className={classnames(["ui basic segment"])}>
-          <form className="ui form">
-            <div className="two fields">
+          <div className={classnames(["ui basic segment"])}>
+            <form className="ui form">
+              <div className="two fields">
 
-              <div className="field">
-                <label>park</label>
-                <select onChange={(e) => setPark(e.target.value)}>
-                  <option value="1374">Miller</option>
-                  <option value="1378">Baker</option>
-                  <option value="1319">Beacon Hill</option>
-                </select>
-              </div>
+                <div className="field">
+                  <label>park</label>
+                  <select onChange={(e) => {
+                    setPark(e.target.value);
+                    updateQueryStringParameter("parkId", e.target.value);
+                  }}>
+                    <option value="1374">Miller</option>
+                    <option value="1378">Baker</option>
+                    <option value="1319">Beacon Hill</option>
+                  </select>
+                </div>
 
-              <div className="field">
-                <label>date</label>
-                <div className="ui input">
-                  <input type="date" value={date} placeholder="Search..." onChange={(e) => {
-                    setDate(e.target.value);
-                  }} />
+                <div className="field">
+                  <label>date</label>
+                  <div className="ui input">
+                    <input type="date" value={date} placeholder="Search..." onChange={(e) => {
+                      setDate(e.target.value);
+                      updateQueryStringParameter("date", e.target.value);
+                    }} />
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
 
-          <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
+            <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
 
-            {calendar.length == 0 && <div className="ui center aligned basic segment">No results found</div>}
-            <div className="ui relaxed list">
-              {calendar.map((entry) => {
-                return (<div key={entry.startTime} className="item">
-                  <i className={`${entry.icon} icon`}></i>
-                  <div className="content">
-                    <div className="header">{entry.description}</div>
-                    <div className="description">{entry.startTime} - {entry.endTime}</div>
-                  </div>
-                </div>)
-              })}
+              {calendar.length == 0 && <div className="ui center aligned basic segment">No results found</div>}
+              <div className="ui relaxed list">
+                {calendar.map((entry) => {
+                  return (<div key={entry.startTime} className="item">
+                    <i className={`${entry.icon} icon`}></i>
+                    <div className="content">
+                      <div className="header">{entry.description}</div>
+                      <div className="description">{entry.startTime} - {entry.endTime}</div>
+                    </div>
+                  </div>)
+                })}
+              </div>
             </div>
           </div>
-        </div>
         </>
       )
     };
@@ -328,7 +348,6 @@
       }, []);
 
       const dateFormat = "ddd, MMM Do h:mma";
-
 
       return (
         <>
@@ -386,7 +405,7 @@
 
       return (
         <>
-        <h2 className="ui header">
+          <h2 className="ui header">
             <i className="money bill alternate icon"></i>
             <div className="content">
               Donations
@@ -395,10 +414,10 @@
               </div>
             </div>
           </h2>
-        <div className="ui center aligned basic segment">
-          <img className="ui segment large centered image" src="./zitnr-venmo.png" />
-          <a href={link} className="ui primary button">Venmo</a><br /><br />
-        </div>
+          <div className="ui center aligned basic segment">
+            <img className="ui segment large centered image" src="./zitnr-venmo.png" />
+            <a href={link} className="ui primary button">Venmo</a><br /><br />
+          </div>
         </>
       );
     }
