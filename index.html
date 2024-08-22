@@ -87,7 +87,7 @@
                 reservations
               </a>
               <a href="#donate" className={classnames(["header", { active: selectedMenuItem == "#donate" }, "item"])} onClick={() => { setSelectedMenuItem("#donate") }}>
-                donate
+                beer
               </a>
             </div>
           </div>
@@ -346,7 +346,7 @@
 
       }, []);
 
-      const dateFormat = "dddd, MMM Do";
+      const dateFormat = "dddd, MMMM Do";
       const timeFormat = "h:mma";
 
       const sortedBookingDates = Object.keys(bookingsData).sort();
@@ -401,8 +401,9 @@
 
 
     const DonateTab = () => {
+      const venmoUsername = "zack-do";
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const link = isMobile ? "venmo://users/zitnr" : "https://account.venmo.com/pay?recipients=zitnr"
+      const link = isMobile ? `venmo://users/${venmoUsername}` : `https://account.venmo.com/pay?recipients=${venmoUsername}`
 
       return (
         <>
@@ -416,7 +417,7 @@
             </div>
           </h2>
           <div className="ui center aligned basic segment">
-            <img className="ui segment large centered image" src="./zitnr-venmo.png" />
+            <img className="ui segment large centered image" src={`./${venmoUsername}-venmo.png`} />
             <a href={link} className="ui primary button">Venmo</a><br /><br />
           </div>
         </>
