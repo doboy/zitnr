@@ -316,42 +316,40 @@
 
     const TransactionsTab = () => {
       const [isLoading, setIsLoading] = React.useState(true);
-      const [transactionsData, setTransactionsData] = React.useState([]);
+      const [bookingsData, setBookingsData] = React.useState({});
       const [totalCost, setTotalCost] = React.useState(0);
 
       React.useEffect(() => {
         const db = window.firebaseApp.firestore();
         const transactionsRef = db.collection("transactions");
 
-        let transactions = [];
-
-        const promise1 = transactionsRef.get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            const entries = Object.values(doc.data());
-            transactions = transactions.concat(entries)
-          });
-
-          transactions.sort((a, b) => {
-            if (a.transactionDateIso > b.transactionDateIso) {
-              return -1;
-            } else {
-              return 1;
-            }
-          })
-
+        transactionsRef.get().then((querySnapshot) => {
+          const bookingsByDate = {};
           let totalCost = 0;
 
-          transactions.forEach((transaction) => {
-            totalCost += transaction.totalCost;
-          })
+          querySnapshot.forEach((doc) => {
+            const transactions = Object.values(doc.data());
+            transactions.forEach((transaction) => {
+              totalCost += transaction.totalCost;
+              transaction.bookings.forEach((booking) => {
+                const bookingDate = booking.startDateTime.substring(0, 10);
+                bookingsByDate[bookingDate] ||= []
+                bookingsByDate[bookingDate].push(booking);
+              });
+            });
+          });
 
-          setTransactionsData(transactions)
+          setBookingsData(bookingsByDate);
           setTotalCost(totalCost)
           setIsLoading(false);
         });
+
       }, []);
 
-      const dateFormat = "ddd, MMM Do h:mma";
+      const dateFormat = "dddd, MMM Do";
+      const timeFormat = "h:mma";
+
+      const sortedBookingDates = Object.keys(bookingsData).sort();
 
       return (
         <>
@@ -368,23 +366,25 @@
             <table className="ui very basic table">
               <thead>
                 <tr>
-                  <th>permit no.</th>
-                  <th>bookings</th>
+                  <th>date</th>
+                  <th>times</th>
                   <th>cost</th>
                 </tr>
               </thead>
               <tbody>
-                {transactionsData.map((transaction) => {
-                  return (<tr key={transaction.permitCode}>
-                    <td>{transaction.permitNumber}</td>
+                {sortedBookingDates.map((bookingDate) => {
+                  return (<tr key={bookingDate}>
+                    <td>{moment(bookingDate).format(dateFormat)}</td>
                     <td>
-                      {transaction.bookings.map((booking) => {
+                      {bookingsData[bookingDate].map((booking) => {
                         return (<div key={booking.startDateTime}>
-                          {moment(booking.startDateTime).format(dateFormat)} - {moment(booking.endDateTime).format(dateFormat)}
+                          {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
                         </div>)
                       })}
                     </td>
-                    <td>${transaction.totalCost.toFixed(2)}</td>
+                    <td>${bookingsData[bookingDate].reduce((total, booking) => {
+                      return total + booking.cost;
+                    }, 0).toFixed(2)}</td>
                   </tr>);
                 })}
                 <tr>
