@@ -368,7 +368,6 @@
             <table className="ui very basic table">
               <thead>
                 <tr>
-                  <th>transaction date</th>
                   <th>permit no.</th>
                   <th>bookings</th>
                   <th>cost</th>
@@ -377,7 +376,6 @@
               <tbody>
                 {transactionsData.map((transaction) => {
                   return (<tr key={transaction.permitCode}>
-                    <td>{transaction.transactionDateIso}</td>
                     <td>{transaction.permitNumber}</td>
                     <td>
                       {transaction.bookings.map((booking) => {
@@ -391,7 +389,6 @@
                 })}
                 <tr>
                   <td><strong>Total</strong></td>
-                  <td></td>
                   <td></td>
                   <td><strong> ${totalCost.toFixed(2)}</strong></td>
                 </tr>
