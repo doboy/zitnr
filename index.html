@@ -36,6 +36,12 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
 
   <script>
+    document.addEventListener('touchmove', function (event) {
+      if (event.scale !== 1) { event.preventDefault(); }
+    }, { passive: false });
+  </script>
+
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyD5M4VMuWCj1CTwbcRt7uRGjghvIHWWJkg",
       authDomain: "zitnr-f1493.firebaseapp.com",
