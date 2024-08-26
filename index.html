@@ -457,7 +457,7 @@
           </h2>
           <div className="ui center aligned basic segment">
             <div className="ui two statistics">
-              <div className="large statistic">
+              <div className="statistic">
                 <div className="value">
                   {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
                 </div>
@@ -465,7 +465,7 @@
                   total cost
                 </div>
               </div>
-              <div className={classnames([{red: totalDonations < totalCost, green: totalDonations > totalCost}, "large statistic"])}>
+              <div className={classnames([{red: totalDonations < totalCost, green: totalDonations > totalCost}, "statistic"])}>
                 <div className="value">
                   {isLoading ? <div className="ui active inline loader"></div> :  <>${totalDonations.toFixed(2)}</>}
                 </div>
