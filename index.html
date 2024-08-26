@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>zitnr</title>
+  <title>z.i.t.n.r.</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -82,8 +82,8 @@
       return (
         <div className="ui container">
           <div className="ui secondary pointing menu">
-            <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" }, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
-              zitnr
+            <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" || selectedMenuItem == ""}, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
+              z.i.t.n.r.
             </a>
 
             <div className="right menu">
@@ -116,7 +116,7 @@
     const ZitnrTab = () => {
       return <div className="ui basic segment">
         <span>
-          Welcome to Zitnr! <br /><br />Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
+          Welcome to Z.i.t.n.r.! <br /><br />Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
         </span>
       </div>
     };
@@ -375,6 +375,7 @@
                 <tr>
                   <th>date</th>
                   <th>times</th>
+                  <th>park</th>
                   <th>cost</th>
                 </tr>
               </thead>
@@ -389,6 +390,7 @@
                         </div>)
                       })}
                     </td>
+                    <td>Miller</td>
                     <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
                       return total + booking.cost;
                     }, 0).toFixed(2)}</td>
@@ -457,7 +459,7 @@
             <div className="content">
               Donations
               <div className="sub header">
-                Donations allow us to continue to reserve courts for open play
+                Your donations help us continue reserving courts for open play.
               </div>
             </div>
           </h2>
