@@ -59,7 +59,7 @@
     const updateQueryStringParameter = (key, val) => {
       const uri = new URL(window.location.href);
       uri.searchParams.set(key, val);
-      window.history.replaceState({}, "Zitnr", uri.href);
+      window.history.replaceState({}, "z.i.t.n.r", uri.href);
     };
 
     const classnames = (args) => {
@@ -116,7 +116,7 @@
     const ZitnrTab = () => {
       return <div className="ui basic segment">
         <span>
-          Welcome to Z.i.t.n.r.! <br /><br />Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
+          Welcome to z.i.t.n.r.! <br /><br />Our project aims to enhance your pickleball experience at Miller Park in Seattle. We do this by reserving courts for open play during peak hours and providing reservations information. If you find this service helpful, please consider supporting us with a donation so we can continue to secure court access for everyone.
         </span>
       </div>
     };
@@ -189,7 +189,7 @@
 
             entries.push({
               icon: "green check",
-              description: "reserved for open play - zitnr",
+              description: "reserved for open play by z.i.t.n.r.",
               startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
               endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
               sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
@@ -228,7 +228,7 @@
               // There is a gap, probably a reservation
               finalEntries.push({
                 icon: "red x",
-                description: "unknown reservation(s)",
+                description: "other reservation(s)",
                 startTime: lastEntry.endTime,
                 endTime: entry.startTime,
               });
@@ -241,7 +241,7 @@
             if (entry.endTime != "10:00 PM") {
               finalEntries.push({
                 icon: "red x",
-                description: "unknown reservation(s)",
+                description: "other reservation(s)",
                 startTime: entry.endTime,
                 endTime: "10:00 PM",
               });
@@ -365,7 +365,7 @@
             <div className="content">
               Reservations
               <div className="sub header">
-                Table of all reservations made by zitnr for open play
+                Table of all reservations made by z.i.t.n.r. for open play
               </div>
             </div>
           </h2>
