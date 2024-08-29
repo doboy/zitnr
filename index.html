@@ -82,7 +82,7 @@
       return (
         <div className="ui container">
           <div className="ui secondary pointing menu">
-            <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" || selectedMenuItem == ""}, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
+            <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" || selectedMenuItem == "" }, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
               z.i.t.n.r.
             </a>
 
@@ -105,6 +105,8 @@
               return <TransactionsTab />;
             } else if (selectedMenuItem == "#donate") {
               return <DonateTab />
+            } else if (selectedMenuItem == "#overview") {
+              return <OverviewTab />
             } else {
               return <ZitnrTab />;
             }
@@ -302,7 +304,6 @@
             </form>
 
             <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
-
               {calendar.length == 0 && <div className="ui center aligned basic segment">No results found</div>}
               <div className="ui relaxed list">
                 {calendar.map((entry) => {
@@ -411,7 +412,6 @@
       )
     };
 
-
     const DonateTab = () => {
       const venmoUsername = "zack-do";
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -472,8 +472,8 @@
               <div className="label">
                 total cost
               </div>
-            </div><br/>
-            <div className={classnames([{red: totalDonations < totalCost, green: totalDonations > totalCost}, "ui small statistic"])}>
+            </div><br />
+            <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
               <div className="value">
                 {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(2)}</>}
               </div>
@@ -484,6 +484,234 @@
 
             <img className="ui segment large centered image" src={`./${venmoUsername}-venmo.png`} />
             <a href={link} className="ui primary button">Venmo</a><br /><br />
+          </div>
+        </>
+      );
+    }
+
+    const OverviewTab = () => {
+      const venmoUsername = "zack-do";
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const link = isMobile ? `venmo://users/${venmoUsername}` : `https://account.venmo.com/pay?recipients=${venmoUsername}`
+
+      const [totalCost, setTotalCost] = React.useState(0);
+      const [totalDonations, setTotalDonations] = React.useState(0);
+      const [donations, setDonations] = React.useState([]);
+
+
+      const millerParkId = "1374";
+      const params = new URL(window.location.href).searchParams;
+      const [isLoading, setIsLoading] = React.useState(true);
+      const [date, setDate] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
+      const [park, setPark] = React.useState(params.get("parkId") || millerParkId);
+      const [unreservedData, setUnreservedData] = React.useState({});
+      const [securedData, setSecuredData] = React.useState({});
+
+      const timeFormat = "LT";
+
+      React.useEffect(() => {
+        const db = window.firebaseApp.firestore();
+        const transactionsRef = db.collection("transactions");
+        const donationsRef = db.collection("donations");
+        const unreservedDocRef = db.collection("unreserved").doc(`${park}-${date}`);
+        const securedDocRef = db.collection("secured").doc(`${park}-${date}`);
+
+        const promise1 = unreservedDocRef.get().then((doc) => {
+          if (doc.exists) {
+            setUnreservedData(doc.data());
+          } else {
+            setUnreservedData({ times: [] })
+          }
+        });
+
+        const promise2 = securedDocRef.get().then((doc) => {
+          if (doc.exists) {
+            setSecuredData(doc.data());
+          } else {
+            setSecuredData({ times: [] })
+          }
+        });
+
+        Promise.all([
+          transactionsRef.get(),
+          donationsRef.get(),
+          promise1,
+          promise2,
+        ]).then((results) => {
+          let totalCost = 0;
+          let totalDonations = 0;
+          const donations = [];
+
+          results[0].forEach((doc) => {
+            Object.values(doc.data()).forEach((doc) => {
+              totalCost += doc.totalCost;
+            })
+          });
+
+          results[1].forEach((doc) => {
+            donation = doc.data();
+            totalDonations += donation.amount;
+            donations.push(donation);
+          });
+
+          setIsLoading(false);
+          setTotalCost(totalCost);
+          setTotalDonations(totalDonations);
+        });
+      }, []);
+
+      const calendar = React.useMemo(() => {
+        const entries = [];
+
+        const seen = {};
+
+        if (unreservedData.times) {
+          unreservedData.times.forEach((time) => {
+            if (seen[time.startTime]) {
+              return;
+            }
+            seen[time.startTime] = true;
+
+            entries.push({
+              icon: "green check",
+              description: "not reserved",
+              startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
+              endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
+              sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+            })
+          });
+        }
+
+        if (securedData.times) {
+          securedData.times.forEach((time) => {
+            if (seen[time.startTime]) {
+              return;
+            }
+            seen[time.startTime] = true;
+
+            entries.push({
+              icon: "green check",
+              description: "reserved for open play by z.i.t.n.r.",
+              startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
+              endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
+              sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+            })
+          })
+        }
+
+        const dayOfWeek = moment(date).day();
+        if (park == millerParkId && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
+          entries.push({
+            icon: "green check",
+            description: "city drop-in hours",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            sortKey: "10:00",
+          })
+        }
+
+        entries.sort((a, b) => {
+          if (a.sortKey < b.sortKey) {
+            return -1;
+          } else {
+            return 1;
+          }
+        });
+
+        const finalEntries = [];
+
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          if (i == 0) {
+            finalEntries.push(entry)
+          } else {
+            const lastEntry = entries[i - 1];
+            if (lastEntry.endTime != entry.startTime) {
+              // There is a gap, probably a reservation
+              finalEntries.push({
+                icon: "red x",
+                description: "other reservation(s)",
+                startTime: lastEntry.endTime,
+                endTime: entry.startTime,
+              });
+            }
+
+            finalEntries.push(entry);
+          }
+
+          if (i == entries.length - 1) {
+            if (entry.endTime != "10:00 PM") {
+              finalEntries.push({
+                icon: "red x",
+                description: "other reservation(s)",
+                startTime: entry.endTime,
+                endTime: "10:00 PM",
+              });
+            }
+          }
+        }
+
+        return finalEntries;
+      }, [unreservedData, securedData, park]);
+
+      return (
+        <>
+          <h2 className="ui header">
+            <i className="table tennis icon"></i>
+            <div className="content">
+              Miller park
+              <div className="sub header">
+                {moment().format("L")}
+              </div>
+
+            </div>
+          </h2>
+
+          <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
+            {calendar.length == 0 && <div className="ui center aligned basic segment">No results found</div>}
+            <div className="ui relaxed list">
+              {calendar.map((entry) => {
+                return (<div key={entry.startTime} className="item">
+                  <i className={`${entry.icon} icon`}></i>
+                  <div className="content">
+                    <div className="header">{entry.description}</div>
+                    <div className="description">{entry.startTime} - {entry.endTime}</div>
+                  </div>
+                </div>)
+              })}
+            </div>
+          </div>
+
+          <div className="ui center aligned basic segment">
+            <div className="ui grid">
+              <div className="one wide column" />
+              <div className="six wide column">
+                <div className="ui small statistic">
+                  <div className="value">
+                    {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
+                  </div>
+                  <div className="label">
+                    total cost
+                  </div>
+                </div>
+                <img className="ui centered image" src={`./website-qr.png`} />
+                <span>website</span>
+              </div>
+              <div className="two wide column" />
+              <div className="six wide column">
+                <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
+                  <div className="value">
+                    {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(2)}</>}
+                  </div>
+                  <div className="label">
+                    total donations
+                  </div>
+                </div>
+                <img className="ui centered image" src={`./${venmoUsername}-venmo.png`} />
+                <span>venmo</span>
+              </div>
+              <div className="one wide column" />
+            </div>
           </div>
         </>
       );
