@@ -355,7 +355,7 @@ const TransactionsTab = () => {
   const dateFormat = "ddd, MMM Do";
   const timeFormat = "h:mma";
 
-  const sortedBookingDates = Object.keys(bookingsData).sort();
+  const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
   return (
     <>
