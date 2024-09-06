@@ -168,7 +168,7 @@ const computeCalendar = (date, unreservedData, securedData, park) => {
 const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
   return (
     <div>
-      <div className="ui container">
+      <div className="ui container" style={{paddingBottom: 50}}>
         <div className="ui secondary pointing menu">
           <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" || selectedMenuItem == "" }, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
             z.i.t.n.r.
@@ -263,7 +263,7 @@ const CalendarTab = () => {
         <div className="content">
           Calendar
           <div className="sub header">
-            Query when courts are available for open play
+            Query court's reservation schedule
           </div>
         </div>
       </h2>
