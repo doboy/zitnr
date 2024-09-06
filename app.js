@@ -1,3 +1,40 @@
+
+const MILLER_PARK_ID = "1374";
+const BAKER_PARK_ID = "1378";
+const BEACON_HILL_ID = "1319";
+const BITTER_LAKE_1_ID = "1315";
+const BITTER_LAKE_2_ID = "1316";
+const BITTER_LAKE_3_ID = "1317";
+
+const START_TIME_BY_PARK_ID = {
+  [MILLER_PARK_ID]: "7:00 AM",
+  [BAKER_PARK_ID]: "6:00 AM",
+  [BEACON_HILL_ID]: "7:00 AM",
+  [BITTER_LAKE_1_ID]: "7:00 AM",
+  [BITTER_LAKE_2_ID]: "7:00 AM",
+  [BITTER_LAKE_3_ID]: "7:00 AM",
+};
+
+const PARKS = [{
+  id: MILLER_PARK_ID,
+  name: "Miller Park",
+}, {
+  id: BAKER_PARK_ID,
+  name: "Baker Park",
+}, {
+  id: BEACON_HILL_ID,
+  name: "Beacon Hill Park",
+}, {
+  id: BITTER_LAKE_1_ID,
+  name: "Bitter Lake Court 1",
+}, {
+  id: BITTER_LAKE_2_ID,
+  name: "Bitter Lake Court 2",
+}, {
+  id: BITTER_LAKE_3_ID,
+  name: "Bitter Lake Court 3",
+}]
+
 const updateQueryStringParameter = (key, val) => {
   const uri = new URL(window.location.href);
   uri.searchParams.set(key, val);
@@ -19,6 +56,114 @@ const classnames = (args) => {
     }
   }).join(" ");
 };
+
+const computeCalendar = (date, unreservedData, securedData, park) => {
+  const timeFormat = "LT";
+  const entries = [];
+  const seen = {};
+
+  if (unreservedData.times) {
+    unreservedData.times.forEach((time) => {
+      if (seen[time.startTime]) {
+        return;
+      }
+      seen[time.startTime] = true;
+
+      entries.push({
+        icon: "green check",
+        description: "not reserved",
+        startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
+        endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
+        sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+      })
+    });
+  }
+
+  if (securedData.times) {
+    securedData.times.forEach((time) => {
+      if (seen[time.startTime]) {
+        return;
+      }
+      seen[time.startTime] = true;
+
+      entries.push({
+        icon: "green check",
+        description: "reserved for open play by z.i.t.n.r.",
+        startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
+        endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
+        sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+      })
+    })
+  }
+
+  const dayOfWeek = moment(date).day();
+  if (park == MILLER_PARK_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
+    entries.push({
+      icon: "green check",
+      description: "city drop-in hours",
+      startTime: "10:00 AM",
+      endTime: "12:00 PM",
+      sortKey: "10:00",
+    })
+  }
+
+  entries.sort((a, b) => {
+    if (a.sortKey < b.sortKey) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+
+  const finalEntries = [];
+
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    if (i == 0) {
+      if (START_TIME_BY_PARK_ID[park]) {
+        // There is a reservation before
+        if (entry.startTime != START_TIME_BY_PARK_ID[park]) {
+          finalEntries.push({
+            icon: "red x",
+            description: "other reservation(s)",
+            startTime: START_TIME_BY_PARK_ID[park],
+            endTime: entry.startTime,
+          })
+        }
+      } else {
+        console.error("START_TIME_BY_PARK_ID for park ${park} is not found");
+      }
+
+      finalEntries.push(entry)
+    } else {
+      const lastEntry = entries[i - 1];
+      if (lastEntry.endTime != entry.startTime) {
+        // There is a gap, probably a reservation
+        finalEntries.push({
+          icon: "red x",
+          description: "other reservation(s)",
+          startTime: lastEntry.endTime,
+          endTime: entry.startTime,
+        });
+      }
+
+      finalEntries.push(entry);
+    }
+
+    if (i == entries.length - 1) {
+      if (entry.endTime != "10:00 PM") {
+        finalEntries.push({
+          icon: "red x",
+          description: "other reservation(s)",
+          startTime: entry.endTime,
+          endTime: "10:00 PM",
+        });
+      }
+    }
+  }
+
+  return finalEntries;
+}
 
 const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
   return (
@@ -66,11 +211,10 @@ const ZitnrTab = () => {
 };
 
 const CalendarTab = () => {
-  const millerParkId = "1374";
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
-  const [park, setPark] = React.useState(params.get("parkId") || millerParkId);
+  const [park, setPark] = React.useState(params.get("parkId") || MILLER_PARK_ID);
   const [unreservedData, setUnreservedData] = React.useState({});
   const [securedData, setSecuredData] = React.useState({});
 
@@ -100,101 +244,10 @@ const CalendarTab = () => {
     });
   }, [date, park]);
 
-  const timeFormat = "LT";
 
   const calendar = React.useMemo(() => {
-    const entries = [];
-
-    const seen = {};
-
-    if (unreservedData.times) {
-      unreservedData.times.forEach((time) => {
-        if (seen[time.startTime]) {
-          return;
-        }
-        seen[time.startTime] = true;
-
-        entries.push({
-          icon: "green check",
-          description: "not reserved",
-          startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-          endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-          sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
-        })
-      });
-    }
-
-    if (securedData.times) {
-      securedData.times.forEach((time) => {
-        if (seen[time.startTime]) {
-          return;
-        }
-        seen[time.startTime] = true;
-
-        entries.push({
-          icon: "green check",
-          description: "reserved for open play by z.i.t.n.r.",
-          startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-          endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-          sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
-        })
-      })
-    }
-
-    const dayOfWeek = moment(date).day();
-    if (park == millerParkId && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
-      entries.push({
-        icon: "green check",
-        description: "city drop-in hours",
-        startTime: "10:00 AM",
-        endTime: "12:00 PM",
-        sortKey: "10:00",
-      })
-    }
-
-    entries.sort((a, b) => {
-      if (a.sortKey < b.sortKey) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
-
-    const finalEntries = [];
-
-    for (let i = 0; i < entries.length; i++) {
-      const entry = entries[i];
-      if (i == 0) {
-        finalEntries.push(entry)
-      } else {
-        const lastEntry = entries[i - 1];
-        if (lastEntry.endTime != entry.startTime) {
-          // There is a gap, probably a reservation
-          finalEntries.push({
-            icon: "red x",
-            description: "other reservation(s)",
-            startTime: lastEntry.endTime,
-            endTime: entry.startTime,
-          });
-        }
-
-        finalEntries.push(entry);
-      }
-
-      if (i == entries.length - 1) {
-        if (entry.endTime != "10:00 PM") {
-          finalEntries.push({
-            icon: "red x",
-            description: "other reservation(s)",
-            startTime: entry.endTime,
-            endTime: "10:00 PM",
-          });
-        }
-      }
-    }
-
-    return finalEntries;
-  }, [unreservedData, securedData, park]);
+    return computeCalendar(date, unreservedData, securedData, park);
+  }, [date, unreservedData, securedData, park]);
 
   return (
     <>
@@ -226,9 +279,9 @@ const CalendarTab = () => {
                 <i className="dropdown icon"></i>
                 <div className="default text">park</div>
                 <div className="menu">
-                  <div className="item" data-value="1374">Miller</div>
-                  <div className="item" data-value="1378">Baker</div>
-                  <div className="item" data-value="1319">Beacon Hill</div>
+                  {PARKS.map((park) => {
+                    return <div className="item" data-value={park.id}>{park.name}</div>
+                  })}
                 </div>
               </div>
             </div>
@@ -362,7 +415,6 @@ const DonateTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [totalCost, setTotalCost] = React.useState(0);
   const [totalDonations, setTotalDonations] = React.useState(0);
-  const [donations, setDonations] = React.useState([]);
 
   React.useEffect(() => {
     const db = window.firebaseApp.firestore();
@@ -433,23 +485,18 @@ const DonateTab = () => {
 
 const OverviewTab = () => {
   const venmoUsername = "zack-do";
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const link = isMobile ? `venmo://users/${venmoUsername}` : `https://account.venmo.com/pay?recipients=${venmoUsername}`
 
   const [totalCost, setTotalCost] = React.useState(0);
   const [totalDonations, setTotalDonations] = React.useState(0);
-  const [donations, setDonations] = React.useState([]);
 
 
-  const millerParkId = "1374";
+  const MILLER_PARK_ID = "1374";
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
-  const [park, setPark] = React.useState(params.get("parkId") || millerParkId);
+  const [date] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
+  const [park] = React.useState(params.get("parkId") || MILLER_PARK_ID);
   const [unreservedData, setUnreservedData] = React.useState({});
   const [securedData, setSecuredData] = React.useState({});
-
-  const timeFormat = "LT";
 
   React.useEffect(() => {
     const db = window.firebaseApp.firestore();
@@ -503,98 +550,8 @@ const OverviewTab = () => {
   }, []);
 
   const calendar = React.useMemo(() => {
-    const entries = [];
-
-    const seen = {};
-
-    if (unreservedData.times) {
-      unreservedData.times.forEach((time) => {
-        if (seen[time.startTime]) {
-          return;
-        }
-        seen[time.startTime] = true;
-
-        entries.push({
-          icon: "green check",
-          description: "not reserved",
-          startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-          endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-          sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
-        })
-      });
-    }
-
-    if (securedData.times) {
-      securedData.times.forEach((time) => {
-        if (seen[time.startTime]) {
-          return;
-        }
-        seen[time.startTime] = true;
-
-        entries.push({
-          icon: "green check",
-          description: "reserved for open play by z.i.t.n.r.",
-          startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-          endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-          sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
-        })
-      })
-    }
-
-    const dayOfWeek = moment(date).day();
-    if (park == millerParkId && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
-      entries.push({
-        icon: "green check",
-        description: "city drop-in hours",
-        startTime: "10:00 AM",
-        endTime: "12:00 PM",
-        sortKey: "10:00",
-      })
-    }
-
-    entries.sort((a, b) => {
-      if (a.sortKey < b.sortKey) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
-
-    const finalEntries = [];
-
-    for (let i = 0; i < entries.length; i++) {
-      const entry = entries[i];
-      if (i == 0) {
-        finalEntries.push(entry)
-      } else {
-        const lastEntry = entries[i - 1];
-        if (lastEntry.endTime != entry.startTime) {
-          // There is a gap, probably a reservation
-          finalEntries.push({
-            icon: "red x",
-            description: "other reservation(s)",
-            startTime: lastEntry.endTime,
-            endTime: entry.startTime,
-          });
-        }
-
-        finalEntries.push(entry);
-      }
-
-      if (i == entries.length - 1) {
-        if (entry.endTime != "10:00 PM") {
-          finalEntries.push({
-            icon: "red x",
-            description: "other reservation(s)",
-            startTime: entry.endTime,
-            endTime: "10:00 PM",
-          });
-        }
-      }
-    }
-
-    return finalEntries;
-  }, [unreservedData, securedData, park]);
+    return computeCalendar(date, unreservedData, securedData, park);
+  }, [date, unreservedData, securedData, park]);
 
   return (
     <>
