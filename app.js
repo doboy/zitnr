@@ -362,6 +362,24 @@ const TransactionsTab = () => {
   const pastBookings = sortedBookingDates.slice(indexOfToday + 1, sortedBookingDates.length)
   const upcomingBookings = sortedBookingDates.slice(0, indexOfToday).reverse()
 
+  function bookingsToTable(bookings) {
+    return bookings.map((bookingDate) => {
+      return (<tr key={bookingDate}>
+        <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
+        <td>
+          {bookingsData[bookingDate].map((booking) => {
+            return (<div key={booking.startDateTime}>
+              {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
+            </div>)
+          })}
+        </td>
+        <td>Miller</td>
+        <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
+          return total + booking.cost;
+        }, 0).toFixed(2)}</td>
+      </tr>);
+    });
+  }
 
   return (
     <>
@@ -384,58 +402,13 @@ const TransactionsTab = () => {
               <th>cost</th>
             </tr>
           </thead>
-          <h3>Today</h3>
-          {todaysBookings.map((bookingDate) => {
-              return (<tr key={bookingDate}>
-                <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
-                <td>
-                  {bookingsData[bookingDate].map((booking) => {
-                    return (<div key={booking.startDateTime}>
-                      {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
-                    </div>)
-                  })}
-                </td>
-                <td>Miller</td>
-                <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
-                  return total + booking.cost;
-                }, 0).toFixed(2)}</td>
-              </tr>);
-            })}
-          <h3>Upcoming</h3>
           <tbody>
-            {upcomingBookings.map((bookingDate) => {
-              return (<tr key={bookingDate}>
-                <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
-                <td>
-                  {bookingsData[bookingDate].map((booking) => {
-                    return (<div key={booking.startDateTime}>
-                      {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
-                    </div>)
-                  })}
-                </td>
-                <td>Miller</td>
-                <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
-                  return total + booking.cost;
-                }, 0).toFixed(2)}</td>
-              </tr>);
-            })}
+            <h3>Today</h3>
+            {bookingsToTable(todaysBookings)}
+            <h3>Upcoming</h3>
+            {bookingsToTable(upcomingBookings)}
             <h3>Past</h3>
-            {pastBookings.map((bookingDate) => {
-              return (<tr key={bookingDate}>
-                <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
-                <td>
-                  {bookingsData[bookingDate].map((booking) => {
-                    return (<div key={booking.startDateTime}>
-                      {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
-                    </div>)
-                  })}
-                </td>
-                <td>Miller</td>
-                <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
-                  return total + booking.cost;
-                }, 0).toFixed(2)}</td>
-              </tr>);
-            })}
+            {bookingsToTable(pastBookings)}
             <tr>
               <td></td>
               <td></td>
