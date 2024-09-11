@@ -356,7 +356,7 @@ const TransactionsTab = () => {
   const timeFormat = "h:mma";
   const todayDate = moment().format("YYYY-MM-DD")
 
-  var sortedBookingDates = Object.keys(bookingsData).sort().reverse();
+  const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
   var todaysBookings = []
   var pastBookings = []
