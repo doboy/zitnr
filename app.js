@@ -356,11 +356,21 @@ const TransactionsTab = () => {
   const timeFormat = "h:mma";
   const todayDate = moment().format("YYYY-MM-DD")
 
-  const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
-  const indexOfToday = sortedBookingDates.indexOf(todayDate)
-  const todaysBookings = sortedBookingDates.slice(indexOfToday, indexOfToday + 1)
-  const pastBookings = sortedBookingDates.slice(indexOfToday + 1, sortedBookingDates.length)
-  const upcomingBookings = sortedBookingDates.slice(0, indexOfToday).reverse()
+  var sortedBookingDates = Object.keys(bookingsData).sort().reverse();
+
+  var todaysBookings = []
+  var pastBookings = []
+  var upcomingBookings = []
+
+  sortedBookingDates.forEach((bookingDate) => {
+    if (bookingDate < todayDate) {
+      pastBookings.push(bookingDate)
+    } else if (bookingDate > todayDate) {
+      upcomingBookings.unshift(bookingDate)
+    } else {
+      todaysBookings.push(bookingDate)
+    }
+  })
 
   function bookingsToTable(bookings) {
     return bookings.map((bookingDate) => {
