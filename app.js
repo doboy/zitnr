@@ -382,8 +382,42 @@ const TransactionsTab = () => {
 
   const dateFormat = "ddd, MMM Do";
   const timeFormat = "h:mma";
+  const todayDate = moment().format("YYYY-MM-DD")
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
+
+  var todaysBookings = []
+  var pastBookings = []
+  var upcomingBookings = []
+
+  sortedBookingDates.forEach((bookingDate) => {
+    if (bookingDate < todayDate) {
+      pastBookings.push(bookingDate)
+    } else if (bookingDate > todayDate) {
+      upcomingBookings.unshift(bookingDate)
+    } else {
+      todaysBookings.push(bookingDate)
+    }
+  })
+
+  function bookingsToTable(bookings) {
+    return bookings.map((bookingDate) => {
+      return (<tr key={bookingDate}>
+        <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
+        <td>
+          {bookingsData[bookingDate].map((booking) => {
+            return (<div key={booking.startDateTime}>
+              {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
+            </div>)
+          })}
+        </td>
+        <td>Miller</td>
+        <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
+          return total + booking.cost;
+        }, 0).toFixed(2)}</td>
+      </tr>);
+    });
+  }
 
   return (
     <>
@@ -407,22 +441,12 @@ const TransactionsTab = () => {
             </tr>
           </thead>
           <tbody>
-            {sortedBookingDates.map((bookingDate) => {
-              return (<tr key={bookingDate}>
-                <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
-                <td>
-                  {bookingsData[bookingDate].map((booking) => {
-                    return (<div key={booking.startDateTime}>
-                      {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
-                    </div>)
-                  })}
-                </td>
-                <td>Miller</td>
-                <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
-                  return total + booking.cost;
-                }, 0).toFixed(2)}</td>
-              </tr>);
-            })}
+            <h3>Today</h3>
+            {bookingsToTable(todaysBookings)}
+            <h3>Upcoming</h3>
+            {bookingsToTable(upcomingBookings)}
+            <h3>Past</h3>
+            {bookingsToTable(pastBookings)}
             <tr>
               <td></td>
               <td></td>
