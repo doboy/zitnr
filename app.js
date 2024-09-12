@@ -8,9 +8,6 @@ const BITTER_LAKE_3_ID = "1317";
 const RAINIER_BEACH_1_ID = "1379";
 const RAINIER_BEACH_2_ID = "1380";
 const RAINIER_BEACH_3_ID = "1381";
-const RAINIER_1_ID = "1383";
-const RAINIER_2_ID = "1384";
-const RAINIER_3_ID = "1385";
 
 const START_TIME_BY_PARK_ID = {
   [MILLER_PARK_ID]: "7:00 AM",
@@ -22,9 +19,18 @@ const START_TIME_BY_PARK_ID = {
   [RAINIER_BEACH_1_ID]: "8:30 AM",
   [RAINIER_BEACH_2_ID]: "8:30 AM",
   [RAINIER_BEACH_3_ID]: "8:30 AM",
-  [RAINIER_1_ID]: "7:00 AM",
-  [RAINIER_2_ID]: "7:00 AM",
-  [RAINIER_3_ID]: "7:00 AM",
+};
+
+const END_TIME_BY_PARK_ID = {
+  [MILLER_PARK_ID]: "10:00 PM",
+  [BAKER_PARK_ID]: "10:00 PM",
+  [BEACON_HILL_ID]: "9:00 PM",
+  [BITTER_LAKE_1_ID]: "9:45 PM",
+  [BITTER_LAKE_2_ID]: "9:45 PM",
+  [BITTER_LAKE_3_ID]: "9:45 PM",
+  [RAINIER_BEACH_1_ID]: "11:00 PM",
+  [RAINIER_BEACH_2_ID]: "11:00 PM",
+  [RAINIER_BEACH_3_ID]: "11:00 PM",
 };
 
 const PARKS = [{
@@ -54,15 +60,6 @@ const PARKS = [{
 }, {
   id: RAINIER_BEACH_3_ID,
   name: "Rainier Beach Court 3",
-}, {
-  id: RAINIER_1_ID,
-  name: "Rainier Court 1",
-}, {
-  id: RAINIER_2_ID,
-  name: "Rainier Court 2",
-}, {
-  id: RAINIER_3_ID,
-  name: "Rainier Court 3",
 }]
 
 const updateQueryStringParameter = (key, val) => {
@@ -146,6 +143,7 @@ const computeCalendar = (date, unreservedData, securedData, park) => {
   });
 
   const finalEntries = [];
+  const finalEndTime = END_TIME_BY_PARK_ID[park];
 
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
@@ -181,12 +179,12 @@ const computeCalendar = (date, unreservedData, securedData, park) => {
     }
 
     if (i == entries.length - 1) {
-      if (entry.endTime != "10:00 PM") {
+      if (entry.endTime != finalEndTime) {
         finalEntries.push({
           icon: "red x",
           description: "other reservation(s)",
           startTime: entry.endTime,
-          endTime: "10:00 PM",
+          endTime: finalEndTime,
         });
       }
     }
