@@ -405,7 +405,7 @@ const TransactionsTab = () => {
         <td>Miller</td>
         <td className="collapsing">${bookingsData[bookingDate].reduce((total, booking) => {
           return total + booking.cost;
-        }, 0).toFixed(2)}</td>
+        }, 0).toFixed(0)}</td>
       </tr>);
     });
   }
@@ -444,7 +444,7 @@ const TransactionsTab = () => {
               <td className="right aligned">
                 <strong>Total</strong>
               </td>
-              <td><strong> ${totalCost.toFixed(2)}</strong></td>
+              <td><strong> ${totalCost.toFixed(0)}</strong></td>
             </tr>
           </tbody>
         </table>
@@ -507,7 +507,7 @@ const DonateTab = () => {
       <div className="ui center aligned basic segment">
         <div className="ui small statistic">
           <div className="value">
-            {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
+            {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(0)}</>}
           </div>
           <div className="label">
             total court reservation costs
@@ -515,7 +515,7 @@ const DonateTab = () => {
         </div><br />
         <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
           <div className="value">
-            {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(2)}</>}
+            {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(0)}</>}
           </div>
           <div className="label">
             total donations
@@ -632,7 +632,7 @@ const OverviewTab = () => {
           <div className="six wide column">
             <div className="ui small statistic">
               <div className="value">
-                {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
+                {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(0)}</>}
               </div>
               <div className="label">
                 total court reservation costs
@@ -645,7 +645,7 @@ const OverviewTab = () => {
           <div className="six wide column">
             <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
               <div className="value">
-                {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(2)}</>}
+                {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(0)}</>}
               </div>
               <div className="label">
                 total donations
