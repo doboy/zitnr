@@ -635,7 +635,7 @@ const OverviewTab = () => {
                 {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
               </div>
               <div className="label">
-                total cost
+                total court reservation costs
               </div>
             </div>
             <img className="ui centered image" src={`./website-qr.png`} />
