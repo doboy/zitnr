@@ -62,12 +62,6 @@ const PARKS = [{
   name: "Rainier Beach Court 3",
 }]
 
-const updateQueryStringParameter = (key, val) => {
-  const uri = new URL(window.location.href);
-  uri.searchParams.set(key, val);
-  window.history.replaceState({}, "z.i.t.n.r", uri.href);
-};
-
 const classnames = (args) => {
   return args.map((arg) => {
     if (typeof arg == "string") {
@@ -242,10 +236,9 @@ const ZitnrTab = () => {
 };
 
 const CalendarTab = () => {
-  const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
-  const [park, setPark] = React.useState(params.get("parkId") || MILLER_PARK_ID);
+  const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
+  const [park, setPark] = React.useState(MILLER_PARK_ID);
   const [unreservedData, setUnreservedData] = React.useState({});
   const [securedData, setSecuredData] = React.useState({});
 
@@ -302,7 +295,6 @@ const CalendarTab = () => {
                 $(ref).dropdown({
                   onChange: function (value) {
                     setPark(value);
-                    updateQueryStringParameter("parkId", value);
                   }
                 });
               }}>
@@ -322,7 +314,6 @@ const CalendarTab = () => {
               <div className="ui input">
                 <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                   setDate(e.target.value);
-                  updateQueryStringParameter("date", e.target.value);
                 }} />
               </div>
             </div>
@@ -546,10 +537,9 @@ const OverviewTab = () => {
 
 
   const MILLER_PARK_ID = "1374";
-  const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date] = React.useState(params.get("date") || moment().format("YYYY-MM-DD"));
-  const [park] = React.useState(params.get("parkId") || MILLER_PARK_ID);
+  const [date] = React.useState(moment().format("YYYY-MM-DD"));
+  const [park] = React.useState(MILLER_PARK_ID);
   const [unreservedData, setUnreservedData] = React.useState({});
   const [securedData, setSecuredData] = React.useState({});
 
