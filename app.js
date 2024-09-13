@@ -510,7 +510,7 @@ const DonateTab = () => {
             {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(2)}</>}
           </div>
           <div className="label">
-            total cost
+            total court reservation costs
           </div>
         </div><br />
         <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
