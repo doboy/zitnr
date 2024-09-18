@@ -121,7 +121,15 @@ const computeCalendar = (date, unreservedData, securedData, park) => {
   if (park == MILLER_PARK_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
     entries.push({
       icon: "green check",
-      description: "city drop-in hours",
+      description: "reserved for open play by LifeLong Recreation",
+      startTime: "10:00 AM",
+      endTime: "12:00 PM",
+      sortKey: "10:00",
+    })
+  } else if (park == BAKER_PARK_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
+    entries.push({
+      icon: "green check",
+      description: "reserved for open play by LifeLong Recreation",
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       sortKey: "10:00",
@@ -158,13 +166,13 @@ const computeCalendar = (date, unreservedData, securedData, park) => {
 
       finalEntries.push(entry)
     } else {
-      const lastEntry = entries[i - 1];
-      if (lastEntry.endTime != entry.startTime) {
+      const previousEntry = entries[i - 1];
+      if (previousEntry.endTime != entry.startTime) {
         // There is a gap, probably a reservation
         finalEntries.push({
           icon: "red x",
           description: "other reservation(s)",
-          startTime: lastEntry.endTime,
+          startTime: previousEntry.endTime,
           endTime: entry.startTime,
         });
       }
@@ -295,6 +303,9 @@ const CalendarTab = () => {
                 $(ref).dropdown({
                   onChange: function (value) {
                     setPark(value);
+                    setUnreservedData({});
+                    setSecuredData({});
+                    setIsLoading(true);
                   }
                 });
               }}>
@@ -314,6 +325,9 @@ const CalendarTab = () => {
               <div className="ui input">
                 <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                   setDate(e.target.value);
+                  setUnreservedData({});
+                  setSecuredData({});
+                  setIsLoading(true);
                 }} />
               </div>
             </div>
