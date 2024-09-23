@@ -293,6 +293,11 @@ const CalendarTab = () => {
         </div>
       </h2>
 
+      <div class="ui visible yellow message">
+        <p>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
+      </div>
+
+
       <div className={classnames(["ui basic segment"])}>
         <form className="ui form">
           <div className="two fields">
