@@ -1,3 +1,5 @@
 export const App = () => {
-  return <div>hello world</div>
+  const [selectedMenuItem, setSelectedMenuItem] = React.useState(window.location.hash);
+
+  return <Menu selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
 }
