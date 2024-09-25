@@ -541,7 +541,7 @@ const DonateTab = () => {
           </div>
         </div>
 
-        <img className="ui segment large centered image" src={`./${venmoUsername}-venmo.png`} />
+        <img className="ui segment large centered image" src={`./public/${venmoUsername}-venmo.png`} />
         <a href={link} className="ui primary button">Venmo</a><br /><br />
       </div>
     </>
@@ -657,7 +657,7 @@ const OverviewTab = () => {
                 total court reservation costs
               </div>
             </div>
-            <img className="ui centered image" src={`./website-qr.png`} />
+            <img className="ui centered image" src={`./public/website-qr.png`} />
             <span>website</span>
           </div>
           <div className="two wide column" />
@@ -670,7 +670,7 @@ const OverviewTab = () => {
                 total donations
               </div>
             </div>
-            <img className="ui centered image" src={`./${venmoUsername}-venmo.png`} />
+            <img className="ui centered image" src={`./public/${venmoUsername}-venmo.png`} />
             <span>venmo</span>
           </div>
           <div className="one wide column" />
