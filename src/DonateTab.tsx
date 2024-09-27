@@ -1,6 +1,9 @@
 import React from "react";
+import classnames from "classnames";
 
-import firebaseApp from "./firebaseApp";
+import { Donation } from "./types";
+import { firebaseApp } from "./firebaseApp";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 export const DonateTab = () => {
   const venmoUsername = "zack-do";
@@ -12,17 +15,17 @@ export const DonateTab = () => {
   const [totalDonations, setTotalDonations] = React.useState(0);
 
   React.useEffect(() => {
-    const db = firebaseApp.firestore();
-    const transactionsRef = db.collection("transactions");
-    const donationsRef = db.collection("donations");
+    const db = getFirestore(firebaseApp);
+    const transactionsCol = collection(db, "transactions");
+    const donationsCol = collection(db, "donations");
 
     Promise.all([
-      transactionsRef.get(),
-      donationsRef.get(),
+      getDocs(transactionsCol),
+      getDocs(donationsCol),
     ]).then((results) => {
       let totalCost = 0;
       let totalDonations = 0;
-      const donations = [];
+      const donations: Array<Donation> = [];
 
       results[0].forEach((doc) => {
         Object.values(doc.data()).forEach((doc) => {
@@ -31,7 +34,7 @@ export const DonateTab = () => {
       });
 
       results[1].forEach((doc) => {
-        const donation = doc.data();
+        const donation: Donation = doc.data() as Donation;
         totalDonations += donation.amount;
         donations.push(donation);
       });

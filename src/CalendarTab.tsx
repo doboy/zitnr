@@ -1,30 +1,34 @@
 import React from "react";
-import moment from "moment";
+import { DateTime } from "luxon";
+import classnames from "classnames";
 
-import firebaseApp from "./firebaseApp";
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
+
+import { computeCalendar, MILLER_PARK_ID, PARKS } from "../public/utils";
+import { firebaseApp } from "./firebaseApp";
 
 export const CalendarTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
+  const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
   const [park, setPark] = React.useState(MILLER_PARK_ID);
   const [unreservedData, setUnreservedData] = React.useState({});
   const [securedData, setSecuredData] = React.useState({});
 
   React.useEffect(() => {
-    const db = firebaseApp.firestore();
-    const unreservedDocRef = db.collection("unreserved").doc(`${park}-${date}`);
-    const securedDocRef = db.collection("secured").doc(`${park}-${date}`);
+    const db = getFirestore(firebaseApp);
+    const unreservedRef = doc(db, "unreserved", `${park}-${date}`);
+    const securedDocRef = doc(db, "secured", `${park}-${date}`);
 
-    const promise1 = unreservedDocRef.get().then((doc) => {
-      if (doc.exists) {
+    const promise1 = getDoc(unreservedRef).then((doc) => {
+      if (doc.exists()) {
         setUnreservedData(doc.data());
       } else {
         setUnreservedData({ times: [] })
       }
     });
 
-    const promise2 = securedDocRef.get().then((doc) => {
-      if (doc.exists) {
+    const promise2 = getDoc(securedDocRef).then((doc) => {
+      if (doc.exists()) {
         setSecuredData(doc.data());
       } else {
         setSecuredData({ times: [] })
@@ -53,27 +57,30 @@ export const CalendarTab = () => {
         </div>
       </h2>
 
-      <div class="ui visible yellow message">
+      <div className="ui visible yellow message">
         <p>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
       </div>
 
 
-      <div className={classnames(["ui basic segment"])}>
+      <div className={classnames("ui basic segment")}>
         <form className="ui form">
           <div className="two fields">
 
             <div className="field">
               <label>park</label>
-              <div className="ui selection dropdown" ref={(ref) => {
-                $(ref).dropdown({
-                  onChange: function (value) {
-                    setPark(value);
-                    setUnreservedData({});
-                    setSecuredData({});
-                    setIsLoading(true);
-                  }
-                });
-              }}>
+              <div className="ui selection dropdown"
+              // ref={(ref) => {
+                // @ts-ignore
+              //   $(ref).dropdown({
+              //     onChange: function (value) {
+              //       setPark(value);
+              //       setUnreservedData({});
+              //       setSecuredData({});
+              //       setIsLoading(true);
+              //     }
+              //   });
+              // }}
+              >
                 <input type="hidden" name="parkId" value={park} />
                 <i className="dropdown icon"></i>
                 <div className="default text">park</div>

@@ -1,4 +1,4 @@
-import moment from "moment";
+import { DateTime } from "luxon";
 
 export const MILLER_PARK_ID = "1374";
 export const BAKER_PARK_ID = "1378";
@@ -86,9 +86,9 @@ export const computeCalendar = (date, unreservedData, securedData, park) => {
       entries.push({
         icon: "green check",
         description: "not reserved",
-        startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-        endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-        sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+        startTime: DateTime.fromISO(`${date} ${time.startTime}`).toFormat(timeFormat),
+        endTime: DateTime.fromISO(`${date} ${time.endTime}`).toFormat(timeFormat),
+        sortKey: DateTime.fromISO(`${date} ${time.startTime}`).toFormat("HH:mm"),
       })
     });
   }
@@ -103,14 +103,14 @@ export const computeCalendar = (date, unreservedData, securedData, park) => {
       entries.push({
         icon: "green check",
         description: "reserved for open play by z.i.t.n.r.",
-        startTime: moment(`${date} ${time.startTime}`).format(timeFormat),
-        endTime: moment(`${date} ${time.endTime}`).format(timeFormat),
-        sortKey: moment(`${date} ${time.startTime}`).format("HH:mm"),
+        startTime: DateTime.fromISO(`${date} ${time.startTime}`).toFormat(timeFormat),
+        endTime: DateTime.fromISO(`${date} ${time.endTime}`).toFormat(timeFormat),
+        sortKey: DateTime.fromISO(`${date} ${time.startTime}`).toFormat("HH:mm"),
       })
     })
   }
 
-  const dayOfWeek = moment(date).day();
+  const dayOfWeek = DateTime.fromISO(date).day;
   if (park == MILLER_PARK_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
     entries.push({
       icon: "green check",

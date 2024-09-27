@@ -4,7 +4,6 @@ import classnames from "classnames";
 import { CalendarTab } from "./CalendarTab";
 import { TransactionsTab } from "./TransactionsTab";
 import { DonateTab } from "./DonateTab";
-import { OverviewTab } from "./OverviewTab";
 import { HomeTab } from "./HomeTab";
 
 export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
@@ -37,8 +36,6 @@ export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
           return <TransactionsTab />;
         } else if (selectedMenuItem == "#donate") {
           return <DonateTab />
-        } else if (selectedMenuItem == "#overview") {
-          return <OverviewTab />
         } else {
           return <HomeTab />;
         }

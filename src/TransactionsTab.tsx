@@ -1,7 +1,10 @@
 import React from "react";
-import moment from "moment";
+import { DateTime } from "luxon";
+import classnames from "classnames";
 
-import firebaseApp from "./firebaseApp";
+import { firebaseApp } from "./firebaseApp";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { Transaction } from "./types";
 
 export const TransactionsTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -9,15 +12,15 @@ export const TransactionsTab = () => {
   const [totalCost, setTotalCost] = React.useState(0);
 
   React.useEffect(() => {
-    const db = firebaseApp.firestore();
-    const transactionsRef = db.collection("transactions");
+    const db = getFirestore(firebaseApp);
+    const transactionsCol = collection(db, "transactions");
 
-    transactionsRef.get().then((querySnapshot) => {
+    getDocs(transactionsCol).then((querySnapshot) => {
       const bookingsByDate = {};
       let totalCost = 0;
 
       querySnapshot.forEach((doc) => {
-        const transactions = Object.values(doc.data());
+        const transactions: Array<Transaction> = Object.values(doc.data());
         transactions.forEach((transaction) => {
           totalCost += transaction.totalCost;
           transaction.bookings.forEach((booking) => {
@@ -37,7 +40,7 @@ export const TransactionsTab = () => {
 
   const dateFormat = "ddd, MMM Do";
   const timeFormat = "h:mma";
-  const todayDate = moment().format("YYYY-MM-DD")
+  const todayDate = DateTime.now().toFormat("yyyy-MM-dd");
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
@@ -58,11 +61,11 @@ export const TransactionsTab = () => {
   function bookingsToTable(bookings) {
     return bookings.map((bookingDate) => {
       return (<tr key={bookingDate}>
-        <td className="collapsing">{moment(bookingDate).format(dateFormat)}</td>
+        <td className="collapsing">{DateTime.fromISO(bookingDate).toFormat(dateFormat)}</td>
         <td>
           {bookingsData[bookingDate].map((booking) => {
             return (<div key={booking.startDateTime}>
-              {moment(booking.startDateTime).format(timeFormat)} - {moment(booking.endDateTime).format(timeFormat)}
+              {DateTime.fromISO(booking.startDateTime).toFormat(timeFormat)} - {DateTime.fromISO(booking.endDateTime).toFormat(timeFormat)}
             </div>)
           })}
         </td>
