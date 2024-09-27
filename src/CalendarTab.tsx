@@ -69,17 +69,17 @@ export const CalendarTab = () => {
             <div className="field">
               <label>park</label>
               <div className="ui selection dropdown"
-              // ref={(ref) => {
+              ref={(ref) => {
                 // @ts-ignore
-              //   $(ref).dropdown({
-              //     onChange: function (value) {
-              //       setPark(value);
-              //       setUnreservedData({});
-              //       setSecuredData({});
-              //       setIsLoading(true);
-              //     }
-              //   });
-              // }}
+                $(ref).dropdown({
+                  onChange: function (value) {
+                    setPark(value);
+                    setUnreservedData({});
+                    setSecuredData({});
+                    setIsLoading(true);
+                  }
+                });
+              }}
               >
                 <input type="hidden" name="parkId" value={park} />
                 <i className="dropdown icon"></i>

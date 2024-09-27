@@ -72,7 +72,8 @@ export interface CalendarEntry {
 };
 
 export const computeCalendar = (date, unreservedData, securedData, park) => {
-  const timeFormat = "LT";
+  const timeFormat = "h:mm a";
+  const sortTimeFormat = "HH";
   const entries: Array<CalendarEntry> = [];
   const seen = {};
 
@@ -86,9 +87,9 @@ export const computeCalendar = (date, unreservedData, securedData, park) => {
       entries.push({
         icon: "green check",
         description: "not reserved",
-        startTime: DateTime.fromISO(`${date} ${time.startTime}`).toFormat(timeFormat),
-        endTime: DateTime.fromISO(`${date} ${time.endTime}`).toFormat(timeFormat),
-        sortKey: DateTime.fromISO(`${date} ${time.startTime}`).toFormat("HH:mm"),
+        startTime: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(timeFormat),
+        endTime: DateTime.fromISO(`${date}T${time.endTime}`).toFormat(timeFormat),
+        sortKey: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(sortTimeFormat),
       })
     });
   }
@@ -103,14 +104,14 @@ export const computeCalendar = (date, unreservedData, securedData, park) => {
       entries.push({
         icon: "green check",
         description: "reserved for open play by z.i.t.n.r.",
-        startTime: DateTime.fromISO(`${date} ${time.startTime}`).toFormat(timeFormat),
-        endTime: DateTime.fromISO(`${date} ${time.endTime}`).toFormat(timeFormat),
-        sortKey: DateTime.fromISO(`${date} ${time.startTime}`).toFormat("HH:mm"),
+        startTime: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(timeFormat),
+        endTime: DateTime.fromISO(`${date}T${time.endTime}`).toFormat(timeFormat),
+        sortKey: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(sortTimeFormat),
       })
     })
   }
 
-  const dayOfWeek = DateTime.fromISO(date).day;
+  const dayOfWeek = DateTime.fromISO(date).weekday;
   if (park == MILLER_PARK_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
     entries.push({
       icon: "green check",

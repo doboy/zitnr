@@ -38,7 +38,12 @@ export const TransactionsTab = () => {
 
   }, []);
 
-  const dateFormat = "ddd, MMM Do";
+  const localeFormat = {
+    month: 'short' as 'short',
+    day: 'numeric' as 'numeric',
+    weekday: 'short' as 'short',
+  };
+
   const timeFormat = "h:mma";
   const todayDate = DateTime.now().toFormat("yyyy-MM-dd");
 
@@ -61,11 +66,13 @@ export const TransactionsTab = () => {
   function bookingsToTable(bookings) {
     return bookings.map((bookingDate) => {
       return (<tr key={bookingDate}>
-        <td className="collapsing">{DateTime.fromISO(bookingDate).toFormat(dateFormat)}</td>
+        <td className="collapsing">{DateTime.fromISO(bookingDate).toLocaleString(localeFormat)}</td>
         <td>
           {bookingsData[bookingDate].map((booking) => {
             return (<div key={booking.startDateTime}>
-              {DateTime.fromISO(booking.startDateTime).toFormat(timeFormat)} - {DateTime.fromISO(booking.endDateTime).toFormat(timeFormat)}
+              {DateTime.fromISO(booking.startDateTime.replace(" ", "T")).toFormat(timeFormat)}
+              &nbsp;-&nbsp;
+              {DateTime.fromISO(booking.endDateTime.replace(" ", "T")).toFormat(timeFormat)}
             </div>)
           })}
         </td>
