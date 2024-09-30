@@ -2,9 +2,10 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
-import { firebaseApp } from "../utils/firebaseApp";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { Transaction } from "../types";
+// import { firebaseApp } from "../utils/firebaseApp";
+// import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { Booking, Transaction } from "../types";
+import { getAllTransactions } from "./getAllTransactions";
 
 export const TransactionsTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -12,30 +13,11 @@ export const TransactionsTab = () => {
   const [totalCost, setTotalCost] = React.useState(0);
 
   React.useEffect(() => {
-    const db = getFirestore(firebaseApp);
-    const transactionsCol = collection(db, "transactions");
-
-    getDocs(transactionsCol).then((querySnapshot) => {
-      const bookingsByDate = {};
-      let totalCost = 0;
-
-      querySnapshot.forEach((doc) => {
-        const transactions: Transaction[] = Object.values(doc.data());
-        transactions.forEach((transaction) => {
-          totalCost += transaction.totalCost;
-          transaction.bookings.forEach((booking) => {
-            const bookingDate = booking.startDateTime.substring(0, 10);
-            bookingsByDate[bookingDate] ||= []
-            bookingsByDate[bookingDate].push(booking);
-          });
-        });
-      });
-
+    getAllTransactions().then(({bookingsByDate, totalCost}) => {
       setBookingsData(bookingsByDate);
-      setTotalCost(totalCost)
+      setTotalCost(totalCost);
       setIsLoading(false);
     });
-
   }, []);
 
   const localeFormat = {
@@ -63,12 +45,15 @@ export const TransactionsTab = () => {
     }
   })
 
-  function bookingsToTable(bookings) {
-    return bookings.map((bookingDate) => {
+  function bookingsToTable(label: string, bookingDates: string[]) {
+    return bookingDates.map((bookingDate, idx) => {
       return (<tr key={bookingDate}>
+        <td className="collapsing">
+          <strong>{idx == 0 && label}</strong>
+        </td>
         <td className="collapsing">{DateTime.fromISO(bookingDate).toLocaleString(localeFormat)}</td>
         <td>
-          {bookingsData[bookingDate].map((booking) => {
+          {bookingsData[bookingDate].map((booking: Booking) => {
             return (<div key={booking.startDateTime}>
               {DateTime.fromISO(booking.startDateTime.replace(" ", "T")).toFormat(timeFormat)}
               &nbsp;-&nbsp;
@@ -99,20 +84,19 @@ export const TransactionsTab = () => {
         <table className="ui very basic table">
           <thead>
             <tr>
-              <th>date</th>
-              <th>times</th>
-              <th>park</th>
-              <th>cost</th>
+              <th></th>
+              <th>Date</th>
+              <th>Times</th>
+              <th>Park</th>
+              <th>Cost</th>
             </tr>
           </thead>
           <tbody>
-            <h3>Today</h3>
-            {bookingsToTable(todaysBookings)}
-            <h3>Upcoming</h3>
-            {bookingsToTable(upcomingBookings)}
-            <h3>Past</h3>
-            {bookingsToTable(pastBookings)}
+            {bookingsToTable("Today", todaysBookings)}
+            {bookingsToTable("Upcoming", upcomingBookings)}
+            {bookingsToTable("Past", pastBookings)}
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td className="right aligned">

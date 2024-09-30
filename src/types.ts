@@ -5,6 +5,7 @@ export interface Transaction {
 
 export interface Booking {
   startDateTime: string;
+  endDateTime: string;
 };
 
 export interface Donation {
