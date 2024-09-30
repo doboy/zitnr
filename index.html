@@ -6,20 +6,15 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
-  <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin></script>
+
+  <link rel="icon" type="image/png" href="public/favicon.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM861WX28D"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-BM861WX28D');
   </script>
 
@@ -40,34 +35,8 @@
   <br />
 
   <div id="root"></div>
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
 
-  <script>
-    // document.addEventListener('touchmove', function (event) {
-    //   if (event.scale !== 1) { event.preventDefault(); }
-    // }, { passive: false });
-  </script>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyD5M4VMuWCj1CTwbcRt7uRGjghvIHWWJkg",
-      authDomain: "zitnr-f1493.firebaseapp.com",
-      projectId: "zitnr-f1493",
-      storageBucket: "zitnr-f1493.appspot.com",
-      messagingSenderId: "761238336755",
-      appId: "1:761238336755:web:bc5d77b195a07ed2b47386"
-    };
-
-    window.firebaseApp = firebase.initializeApp(firebaseConfig);
-  </script>
-
-  <script type="text/babel" data-presets="react,stage-3" src="./app.js" ></script>
-
-  <script type="text/babel" data-presets="react,stage-3">
-    const root = ReactDOM.createRoot(document.getElementById("root"))
-    root.render(<App />);
-  </script>
+  <script src="./dist/bundle.js" ></script>
 </body>
 
 </html>
