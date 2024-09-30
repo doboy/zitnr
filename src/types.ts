@@ -1,5 +1,5 @@
 export interface Transaction {
-  bookings: Array<Booking>;
+  bookings: Booking[];
   totalCost: number;
 };
 
@@ -10,3 +10,17 @@ export interface Booking {
 export interface Donation {
   amount: number;
 }
+
+export interface TimeArray {
+  times: {
+    startTime: string;
+    endTime: string;
+  }[]
+}
+export interface CalendarEntry {
+  icon: string,
+  description: string,
+  startTime: string,
+  endTime: string,
+  sortKey: string,
+};

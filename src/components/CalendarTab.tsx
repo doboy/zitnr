@@ -2,48 +2,27 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
-import { getFirestore, getDoc, doc } from 'firebase/firestore';
-
-import { computeCalendar, MILLER_PARK_ID, PARKS } from "../public/utils";
-import { firebaseApp } from "./firebaseApp";
+import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByDate";
+import { getUnreservedByDate } from "../utils/getUnreservedByDate";
+import { computeCalendar } from "../utils/computeCalendar";
+import { MILLER_PARK_ID, PARKS } from "../utils/constants";
 
 export const CalendarTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
   const [park, setPark] = React.useState(MILLER_PARK_ID);
-  const [unreservedData, setUnreservedData] = React.useState({});
-  const [securedData, setSecuredData] = React.useState({});
+  const [calendar, setCalendar] = React.useState([]);
+
 
   React.useEffect(() => {
-    const db = getFirestore(firebaseApp);
-    const unreservedRef = doc(db, "unreserved", `${park}-${date}`);
-    const securedDocRef = doc(db, "secured", `${park}-${date}`);
-
-    const promise1 = getDoc(unreservedRef).then((doc) => {
-      if (doc.exists()) {
-        setUnreservedData(doc.data());
-      } else {
-        setUnreservedData({ times: [] })
-      }
-    });
-
-    const promise2 = getDoc(securedDocRef).then((doc) => {
-      if (doc.exists()) {
-        setSecuredData(doc.data());
-      } else {
-        setSecuredData({ times: [] })
-      }
-    });
-
-    Promise.all([promise1, promise2]).then(() => {
+    Promise.all([
+      getSecuredReservationsByDate(park, date),
+      getUnreservedByDate(park, date)
+    ]).then(([securedData, unreservedData]) => {
       setIsLoading(false);
+      setCalendar(computeCalendar(date, unreservedData, securedData, park));
     });
   }, [date, park]);
-
-
-  const calendar = React.useMemo(() => {
-    return computeCalendar(date, unreservedData, securedData, park);
-  }, [date, unreservedData, securedData, park]);
 
   return (
     <>
@@ -74,8 +53,7 @@ export const CalendarTab = () => {
                 $(ref).dropdown({
                   onChange: function (value) {
                     setPark(value);
-                    setUnreservedData({});
-                    setSecuredData({});
+                    setCalendar([]);
                     setIsLoading(true);
                   }
                 });
@@ -86,7 +64,7 @@ export const CalendarTab = () => {
                 <div className="default text">park</div>
                 <div className="menu">
                   {PARKS.map((park) => {
-                    return <div className="item" data-value={park.id}>{park.name}</div>
+                    return <div key={park.id} className="item" data-value={park.id}>{park.name}</div>
                   })}
                 </div>
               </div>
@@ -97,8 +75,7 @@ export const CalendarTab = () => {
               <div className="ui input">
                 <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                   setDate(e.target.value);
-                  setUnreservedData({});
-                  setSecuredData({});
+                  setCalendar([]);
                   setIsLoading(true);
                 }} />
               </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
 
-import { Donation } from "./types";
-import { firebaseApp } from "./firebaseApp";
+import { Donation } from "../types";
+import { firebaseApp } from "../utils/firebaseApp";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 export const DonateTab = () => {
@@ -25,7 +25,7 @@ export const DonateTab = () => {
     ]).then((results) => {
       let totalCost = 0;
       let totalDonations = 0;
-      const donations: Array<Donation> = [];
+      const donations: Donation[] = [];
 
       results[0].forEach((doc) => {
         Object.values(doc.data()).forEach((doc) => {

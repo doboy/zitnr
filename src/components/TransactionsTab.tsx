@@ -2,9 +2,9 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
-import { firebaseApp } from "./firebaseApp";
+import { firebaseApp } from "../utils/firebaseApp";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { Transaction } from "./types";
+import { Transaction } from "../types";
 
 export const TransactionsTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -20,7 +20,7 @@ export const TransactionsTab = () => {
       let totalCost = 0;
 
       querySnapshot.forEach((doc) => {
-        const transactions: Array<Transaction> = Object.values(doc.data());
+        const transactions: Transaction[] = Object.values(doc.data());
         transactions.forEach((transaction) => {
           totalCost += transaction.totalCost;
           transaction.bookings.forEach((booking) => {
@@ -49,9 +49,9 @@ export const TransactionsTab = () => {
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
-  var todaysBookings: Array<string> = []
-  var pastBookings: Array<string> = []
-  var upcomingBookings: Array<string> = []
+  var todaysBookings: string[] = [];
+  var pastBookings: string[] = [];
+  var upcomingBookings: string[] = [];
 
   sortedBookingDates.forEach((bookingDate) => {
     if (bookingDate < todayDate) {
