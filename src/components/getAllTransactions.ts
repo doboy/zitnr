@@ -17,12 +17,16 @@ export const getAllTransactions = async () : Promise<{
   querySnapshot.forEach((doc) => {
       const transactions: Transaction[] = Object.values(doc.data());
       transactions.forEach((transaction) => {
-      totalCost += transaction.totalCost;
-      transaction.bookings.forEach((booking) => {
-          const bookingDate = booking.startDateTime.substring(0, 10);
-          bookingsByDate[bookingDate] ||= []
-          bookingsByDate[bookingDate].push(booking);
-      });
+        if (transaction.transactionDateIso > "2024-10-01") {
+          return;
+        }
+
+        totalCost += transaction.totalCost;
+        transaction.bookings.forEach((booking) => {
+            const bookingDate = booking.startDateTime.substring(0, 10);
+            bookingsByDate[bookingDate] ||= []
+            bookingsByDate[bookingDate].push(booking);
+        });
       });
   });
 
