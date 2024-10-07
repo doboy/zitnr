@@ -7,6 +7,7 @@ export const BITTER_LAKE_3_ID = "1317";
 export const RAINIER_BEACH_1_ID = "1379";
 export const RAINIER_BEACH_2_ID = "1380";
 export const RAINIER_BEACH_3_ID = "1381";
+export const MAGNOLIA_PARK_02 = "1362";
 
 export const START_TIME_BY_PARK_ID = {
   [MILLER_PARK_ID]: "7:00 AM",
@@ -18,6 +19,7 @@ export const START_TIME_BY_PARK_ID = {
   [RAINIER_BEACH_1_ID]: "8:30 AM",
   [RAINIER_BEACH_2_ID]: "8:30 AM",
   [RAINIER_BEACH_3_ID]: "8:30 AM",
+  [MAGNOLIA_PARK_02]: "4:00 AM"
 };
 
 export const END_TIME_BY_PARK_ID = {
@@ -30,6 +32,7 @@ export const END_TIME_BY_PARK_ID = {
   [RAINIER_BEACH_1_ID]: "11:00 PM",
   [RAINIER_BEACH_2_ID]: "11:00 PM",
   [RAINIER_BEACH_3_ID]: "11:00 PM",
+  [MAGNOLIA_PARK_02]: "11:30 PM"
 };
 
 export const PARKS = [{
@@ -59,4 +62,7 @@ export const PARKS = [{
 }, {
   id: RAINIER_BEACH_3_ID,
   name: "Rainier Beach Court 3",
+}, {
+  id: MAGNOLIA_PARK_02,
+  name: "Magnolia Park Court 02"
 }];
