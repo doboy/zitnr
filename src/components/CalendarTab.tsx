@@ -5,24 +5,31 @@ import classnames from "classnames";
 import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByDate";
 import { getUnreservedByDate } from "../utils/getUnreservedByDate";
 import { computeCalendar } from "../utils/computeCalendar";
-import { MILLER_PARK_ID, PARKS } from "../utils/constants";
+import COURTS from "../utils/courts";
+
+const MILLER_PARK_COURT_ID = "1374";
+
+const readableTime = (time) => {
+  const [hour, minute]= time.split(":");
+  const amOrPm = parseInt(hour) < 12 ? "AM" : "PM"
+  return `${parseInt(hour) % 12}:${minute} ${amOrPm}`;
+}
 
 export const CalendarTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
-  const [park, setPark] = React.useState(MILLER_PARK_ID);
+  const [courtId, setCourtId] = React.useState(MILLER_PARK_COURT_ID);
   const [calendar, setCalendar] = React.useState([]);
-
 
   React.useEffect(() => {
     Promise.all([
-      getSecuredReservationsByDate(park, date),
-      getUnreservedByDate(park, date)
+      getSecuredReservationsByDate(courtId, date),
+      getUnreservedByDate(courtId, date)
     ]).then(([securedData, unreservedData]) => {
       setIsLoading(false);
-      setCalendar(computeCalendar(date, unreservedData, securedData, park));
+      setCalendar(computeCalendar(date, unreservedData, securedData, courtId));
     });
-  }, [date, park]);
+  }, [date, courtId]);
 
   return (
     <>
@@ -52,19 +59,19 @@ export const CalendarTab = () => {
                 // @ts-ignore
                 $(ref).dropdown({
                   onChange: function (value) {
-                    setPark(value);
+                    setCourtId(value.toString());
                     setCalendar([]);
                     setIsLoading(true);
                   }
                 });
               }}
               >
-                <input type="hidden" name="parkId" value={park} />
+                <input type="hidden" name="courtId" value={courtId} />
                 <i className="dropdown icon"></i>
-                <div className="default text">park</div>
+                <div className="default text">court</div>
                 <div className="menu">
-                  {PARKS.map((park) => {
-                    return <div key={park.id} className="item" data-value={park.id}>{park.name}</div>
+                  {COURTS.map((court) => {
+                    return <div key={court.id} className="item" data-value={court.id}>{court.name}</div>
                   })}
                 </div>
               </div>
@@ -91,7 +98,7 @@ export const CalendarTab = () => {
                 <i className={`${entry.icon} icon`}></i>
                 <div className="content">
                   <div className="header">{entry.description}</div>
-                  <div className="description">{entry.startTime} - {entry.endTime}</div>
+                  <div className="description">{readableTime(entry.startTime)} - {readableTime(entry.endTime)}</div>
                 </div>
               </div>)
             })}
