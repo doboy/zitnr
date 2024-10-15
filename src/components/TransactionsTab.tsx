@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 // import { firebaseApp } from "../utils/firebaseApp";
 // import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { Booking, Transaction } from "../types";
+import { Booking } from "../types";
 import { getAllTransactions } from "./getAllTransactions";
 
 export const TransactionsTab = () => {

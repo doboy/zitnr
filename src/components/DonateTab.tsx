@@ -29,6 +29,10 @@ export const DonateTab = () => {
 
       results[0].forEach((doc) => {
         Object.values(doc.data()).forEach((doc) => {
+          if (doc.transactionDateIso > "2024-10-01") {
+            return;
+          }
+
           totalCost += doc.totalCost;
         })
       });

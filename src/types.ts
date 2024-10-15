@@ -1,5 +1,6 @@
 export interface Transaction {
   bookings: Booking[];
+  transactionDateIso: string;
   totalCost: number;
 };
 

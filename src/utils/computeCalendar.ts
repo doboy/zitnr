@@ -1,10 +1,21 @@
 import { DateTime } from "luxon";
 import { CalendarEntry, TimeArray } from "../types";
-import { MILLER_PARK_ID, BAKER_PARK_ID, START_TIME_BY_PARK_ID, END_TIME_BY_PARK_ID } from "../utils/constants";
+import { MILLER_PARK_COURT_ID, BAKER_PARK_COURT_ID } from "../utils/constants";
+import COURTS from "./courts";
 
-export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, park: string) : CalendarEntry[] => {
-  const timeFormat = "h:mm a";
-  const sortTimeFormat = "HH";
+export interface Court {
+  id: number;
+  name: string;
+  startTime: string;
+  endTime: string;
+};
+
+export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, courtId: string) : CalendarEntry[] => {
+  const courts_by_id : Record<string, Court> = {};
+  COURTS.forEach((court) => {
+    courts_by_id[court.id] = court;
+  })
+
   const entries: CalendarEntry[] = [];
   const seen = {};
 
@@ -18,9 +29,9 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       entries.push({
         icon: "green check",
         description: "not reserved",
-        startTime: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(timeFormat),
-        endTime: DateTime.fromISO(`${date}T${time.endTime}`).toFormat(timeFormat),
-        sortKey: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(sortTimeFormat),
+        startTime: `${time.startTime}`,
+        endTime: `${time.endTime}`,
+        sortKey: `${time.startTime}`,
       })
     });
   }
@@ -35,29 +46,29 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       entries.push({
         icon: "green check",
         description: "reserved for open play by z.i.t.n.r.",
-        startTime: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(timeFormat),
-        endTime: DateTime.fromISO(`${date}T${time.endTime}`).toFormat(timeFormat),
-        sortKey: DateTime.fromISO(`${date}T${time.startTime}`).toFormat(sortTimeFormat),
+        startTime: `${time.startTime}`,
+        endTime: `${time.endTime}`,
+        sortKey: `${time.startTime}`,
       })
     })
   }
 
   const dayOfWeek = DateTime.fromISO(date).weekday;
-  if (park == MILLER_PARK_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
+  if (courtId == MILLER_PARK_COURT_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
     entries.push({
       icon: "green check",
       description: "reserved for open play by LifeLong Recreation",
-      startTime: "10:00 AM",
-      endTime: "12:00 PM",
-      sortKey: "10:00",
+      startTime: `10:00:00`,
+      endTime: `12:00:00`,
+      sortKey: `10:00:00`,
     })
-  } else if (park == BAKER_PARK_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
+  } else if (courtId == BAKER_PARK_COURT_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
     entries.push({
       icon: "green check",
       description: "reserved for open play by LifeLong Recreation",
-      startTime: "10:00 AM",
-      endTime: "12:00 PM",
-      sortKey: "10:00",
+      startTime: `10:00:00`,
+      endTime: `12:00:00`,
+      sortKey: `10:00:00`,
     })
   }
 
@@ -70,24 +81,24 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
   });
 
   const finalEntries: CalendarEntry[] = [];
-  const finalEndTime = END_TIME_BY_PARK_ID[park];
+  const finalEndTime = courts_by_id[courtId].endTime;
 
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
     if (i == 0) {
-      if (START_TIME_BY_PARK_ID[park]) {
+      if (courts_by_id[courtId]) {
         // There is a reservation before
-        if (entry.startTime != START_TIME_BY_PARK_ID[park]) {
+        if (entry.startTime != courts_by_id[courtId].startTime) {
           finalEntries.push({
             icon: "red x",
             description: "other reservation(s)",
-            startTime: START_TIME_BY_PARK_ID[park],
+            startTime: courts_by_id[courtId].startTime,
             endTime: entry.startTime,
             sortKey: "n/a",
           })
         }
       } else {
-        console.error("START_TIME_BY_PARK_ID for park ${park} is not found");
+        console.error("courts_by_id for park ${park} is not found");
       }
 
       finalEntries.push(entry)
