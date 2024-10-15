@@ -9,10 +9,11 @@ import COURTS from "../utils/courts";
 
 const MILLER_PARK_COURT_ID = "1374";
 
-const readableTime = (time) => {
+const readableTime = (time: string) => {
   const [hour, minute]= time.split(":");
   const amOrPm = parseInt(hour) < 12 ? "AM" : "PM"
-  return `${parseInt(hour) % 12}:${minute} ${amOrPm}`;
+  const normalizedHour = parseInt(hour) == 12 ? 12 : parseInt(hour) % 12;
+  return `${normalizedHour}:${minute} ${amOrPm}`;
 }
 
 export const CalendarTab = () => {
