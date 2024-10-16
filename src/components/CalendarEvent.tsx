@@ -1,4 +1,5 @@
 import React from 'react';
+import { PIXELS_PER_HOUR } from './DayCalendar';
 
 export interface CalendarEventProps {
   start: number;
@@ -11,8 +12,8 @@ export interface CalendarEventProps {
 
 export const CalendarEvent = ({ start, end, title, location, widthDivisor, position }: CalendarEventProps) => {
   const eventStyle = {
-    height: `${end - start}px`,
-    top: `${start}px`,
+    height: `${(end - start) * PIXELS_PER_HOUR - 5}px`,
+    top: `${start * PIXELS_PER_HOUR}px`,
     left: `${(100 / widthDivisor) * position}%`,
     width: `calc(${100 / widthDivisor}% - 8px`,
   };

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { CalendarDivisors } from './CalendarDivisors';
 import { CalendarEvent } from './CalendarEvent';
 
+export const PIXELS_PER_HOUR = 30;
 export interface DayOfCalendaryProps {
   events: {
     title: string;
@@ -12,25 +13,23 @@ export interface DayOfCalendaryProps {
     widthDivisor: number;
     key: string;
   }[];
-  toHour: number;
-  fromHour: number;
+  start: number;
+  end: number;
 }
 
-export const DayCalendar = ({events, toHour, fromHour} : DayOfCalendaryProps) => {
-  const totalMinutesPerDivisor = 60;
-  const totalMinutes = (toHour - fromHour) * totalMinutesPerDivisor;
+export const DayCalendar = ({events, start, end} : DayOfCalendaryProps) => {
   const calendarStyle = {
-    height: `${totalMinutes}px`,
+    height: `${(end - start) * PIXELS_PER_HOUR}px`,
   };
 
   const eventElements = useMemo(() => {
     return events.map((event, key) => {
       return (
         <CalendarEvent
-          title="title"
-          location="location"
-          start={event.start}
-          end={event.end}
+          title={event.title}
+          location={event.location}
+          start={event.start - start}
+          end={event.end - start}
           widthDivisor={event.widthDivisor}
           position={event.position}
           key={key}
@@ -40,13 +39,12 @@ export const DayCalendar = ({events, toHour, fromHour} : DayOfCalendaryProps) =>
   }, [events]);
 
   return (
-    <div style={{marginTop: 50}} className="agenda__calendar">
+    <div className="agenda__calendar">
     <div style={calendarStyle} className="calendar__container">
       { eventElements }
       <CalendarDivisors
-        fromHour={fromHour}
-        totalMinutes={totalMinutes}
-        totalMinutesPerDivisor={totalMinutesPerDivisor}
+        end={end}
+        start={start}
       />
     </div>
     </div>

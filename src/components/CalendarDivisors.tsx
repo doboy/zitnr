@@ -1,22 +1,20 @@
 import React from 'react';
-import { DateTime } from 'luxon';
+import { readableTime } from '../utils/readableTime';
+import { PIXELS_PER_HOUR } from './DayCalendar';
 
 export interface CalendarDivisorsProps {
-  fromHour: number; // hour
-  totalMinutes: number;
-  totalMinutesPerDivisor: number;
+  start: number;
+  end: number;
 }
 
-export const CalendarDivisors = ({ totalMinutes, totalMinutesPerDivisor, fromHour }: CalendarDivisorsProps) => {
-  const totalDivisors = totalMinutes / totalMinutesPerDivisor;
+export const CalendarDivisors = ({ start, end }: CalendarDivisorsProps) => {
+  const totalHours = end - start;
   const divisors = [];
   const times = [];
 
-  DateTime
-
-  for (let i = 1; i < totalDivisors; i += 1) {
+  for (let i = 0; i < totalHours; i += 1) {
     const positionStyle = {
-      top: `${i * totalMinutesPerDivisor}px`,
+      top: `${i * PIXELS_PER_HOUR}px`,
     };
 
     divisors.push(
@@ -26,18 +24,16 @@ export const CalendarDivisors = ({ totalMinutes, totalMinutesPerDivisor, fromHou
     );
   }
 
-  const totalMinutesPerTime = totalMinutesPerDivisor / 2;
-  const totalTimes = totalMinutes / totalMinutesPerTime;
-  for (let i = 0; i <= totalTimes; i += 1) {
+  for (let i = 0; i <= totalHours; i += 1) {
     const positionStyle = {
-      top: `${i * totalMinutesPerTime}px`,
-      fontWeight: (i * totalMinutesPerTime) % totalMinutesPerDivisor === 0 ? 'bold' : 'regular',
+      top: `${i * PIXELS_PER_HOUR}px`,
+      fontWeight: 'bold',
     };
 
     times.push(
       (
         <div key={i} style={positionStyle} className="calendar__divisor__time" >
-          hh:mm a
+          {readableTime(`${start + i}:00`)}
         </div>
       )
     );
