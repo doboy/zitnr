@@ -6,6 +6,7 @@ import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByD
 import { getUnreservedByDate } from "../utils/getUnreservedByDate";
 import { computeCalendar } from "../utils/computeCalendar";
 import COURTS from "../utils/courts";
+import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
 
 const MILLER_PARK_COURT_ID = "1374";
 
@@ -17,9 +18,10 @@ const readableTime = (time: string) => {
 }
 
 export const CalendarTab = () => {
+  const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
-  const [courtId, setCourtId] = React.useState(MILLER_PARK_COURT_ID);
+  const [courtId, setCourtId] = React.useState(params.get("courtId") || MILLER_PARK_COURT_ID);
   const [calendar, setCalendar] = React.useState([]);
 
   React.useEffect(() => {
@@ -61,6 +63,7 @@ export const CalendarTab = () => {
                 $(ref).dropdown({
                   onChange: function (value) {
                     setCourtId(value.toString());
+                    updateQueryStringParameter("courtId", value.toString());
                     setCalendar([]);
                     setIsLoading(true);
                   }
