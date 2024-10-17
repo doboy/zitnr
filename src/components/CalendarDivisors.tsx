@@ -12,9 +12,9 @@ export const CalendarDivisors = ({ start, end }: CalendarDivisorsProps) => {
   const divisors = [];
   const times = [];
 
-  for (let i = 0; i < totalHours; i += 1) {
+  for (let i = 0; i < totalHours * 2; i += 1) {
     const positionStyle = {
-      top: `${i * PIXELS_PER_HOUR}px`,
+      top: `${i * PIXELS_PER_HOUR / 2}px`,
     };
 
     divisors.push(
