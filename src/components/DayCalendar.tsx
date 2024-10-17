@@ -28,8 +28,9 @@ export const DayCalendar = ({events, start, end} : DayOfCalendaryProps) => {
         <CalendarEvent
           title={event.title}
           location={event.location}
-          start={event.start - start}
-          end={event.end - start}
+          offset={start}
+          start={event.start}
+          end={event.end}
           widthDivisor={event.widthDivisor}
           position={event.position}
           key={key}
