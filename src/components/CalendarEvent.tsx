@@ -12,7 +12,7 @@ export interface CalendarEventProps {
 
 export const CalendarEvent = ({ start, end, title, location, widthDivisor, position }: CalendarEventProps) => {
   const eventStyle = {
-    height: `${(end - start) * PIXELS_PER_HOUR - 5}px`,
+    height: `${(end - start) * PIXELS_PER_HOUR - 2}px`,
     top: `${start * PIXELS_PER_HOUR}px`,
     left: `${(100 / widthDivisor) * position}%`,
     width: `calc(${100 / widthDivisor}% - 8px`,

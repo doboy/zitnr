@@ -33,7 +33,7 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
 
       entries.push({
         icon: "green check",
-        description: "reserved for open play by z.i.t.n.r.",
+        description: "open play - z.i.t.n.r.",
         startTime: `${time.startTime}`,
         endTime: `${time.endTime}`,
         sortKey: `${time.startTime}`,
@@ -45,7 +45,7 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
   if (courtId == MILLER_PARK_COURT_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
     entries.push({
       icon: "green check",
-      description: "reserved for open play by LifeLong Recreation",
+      description: "open play - LifeLong Recreation",
       startTime: `10:00:00`,
       endTime: `12:00:00`,
       sortKey: `10:00:00`,
@@ -53,7 +53,7 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
   } else if (courtId == BAKER_PARK_COURT_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
     entries.push({
       icon: "green check",
-      description: "reserved for open play by LifeLong Recreation",
+      description: "open play - LifeLong Recreation",
       startTime: `10:00:00`,
       endTime: `12:00:00`,
       sortKey: `10:00:00`,

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { CalendarDivisors } from './CalendarDivisors';
 import { CalendarEvent } from './CalendarEvent';
 
-export const PIXELS_PER_HOUR = 30;
+export const PIXELS_PER_HOUR = 60;
 export interface DayOfCalendaryProps {
   events: {
     title: string;

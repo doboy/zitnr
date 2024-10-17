@@ -11,9 +11,10 @@ import { DayCalendar } from "./DayCalendar";
 import { readableTime } from "../utils/readableTime";
 import { timeToNumber } from "../utils/timeToNumber";
 import { courtsById } from "../utils/courtsById";
+import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
 
 const MILLER_PARK_COURT_ID = "1374";
-const USE_DAY_CALENDAR = false;
+const USE_DAY_CALENDAR = true;
 
 const DayCalendarWrapper = ({calendar, start, end} : {start: number, end: number, calendar: CalendarEntry[]}) => {
   if (calendar.length == 0) {
@@ -52,11 +53,11 @@ const DayCalendarWrapper = ({calendar, start, end} : {start: number, end: number
 }
 
 export const CalendarTab = () => {
-  const [isLoading, setIsLoading] = React.useState(false); // <<<<<<<<<<<<<<<<
+  const params = new URL(window.location.href).searchParams;
+  const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
-  const [courtId, setCourtId] = React.useState(MILLER_PARK_COURT_ID);
-  const [calendar, setCalendar] = React.useState<CalendarEntry[]>([]);
-
+  const [courtId, setCourtId] = React.useState(params.get("courtId") || MILLER_PARK_COURT_ID);
+  const [calendar, setCalendar] = React.useState([]);
 
   React.useEffect(() => {
     Promise.all([
@@ -96,6 +97,7 @@ export const CalendarTab = () => {
                 $(ref).dropdown({
                   onChange: function (value) {
                     setCourtId(value.toString());
+                    updateQueryStringParameter("courtId", value.toString());
                     setCalendar([]);
                     setIsLoading(true);
                   }

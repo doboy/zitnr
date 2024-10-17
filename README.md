@@ -1,8 +1,9 @@
 # zitnr
+https://doboy.github.io/zitnr/
 
-run the server
+# run the server
 python3 -m http.server
 
-build the code
+# build the code
 npx webpack --watch --mode development
 
