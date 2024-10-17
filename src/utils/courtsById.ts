@@ -3,6 +3,7 @@ import COURTS from "./courts";
 export interface Court {
     id: number;
     name: string;
+    courtNo: string;
     startTime: string;
     endTime: string;
   };

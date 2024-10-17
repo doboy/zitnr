@@ -2,10 +2,14 @@ import { DateTime } from "luxon";
 import { CalendarEntry, TimeArray } from "../types";
 import { MILLER_PARK_COURT_ID, BAKER_PARK_COURT_ID } from "../utils/constants";
 import { courtsById } from "./courtsById";
+import { Park } from "./parksById";
 
-export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, courtId: string) : CalendarEntry[] => {
+export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, park: Park, courtId: number) : CalendarEntry[] => {
   const entries: CalendarEntry[] = [];
   const seen = {};
+  const widthDivisor = park.courtIds.length;
+  const index = park.courtIds.indexOf(courtId);
+  const location = park.courtIds.length == 1 ? " " : courtsById[courtId].courtNo;
 
   if (unreservedData.times) {
     unreservedData.times.forEach((time) => {
@@ -17,9 +21,12 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       entries.push({
         icon: "green check",
         description: "not reserved",
-        startTime: `${time.startTime}`,
-        endTime: `${time.endTime}`,
-        sortKey: `${time.startTime}`,
+        startTime: time.startTime,
+        endTime: time.endTime,
+        sortKey: time.startTime,
+        widthDivisor,
+        index,
+        location,
       })
     });
   }
@@ -34,9 +41,12 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       entries.push({
         icon: "green check",
         description: "open play - z.i.t.n.r.",
-        startTime: `${time.startTime}`,
-        endTime: `${time.endTime}`,
-        sortKey: `${time.startTime}`,
+        startTime: time.startTime,
+        endTime: time.endTime,
+        sortKey: time.startTime,
+        widthDivisor,
+        index,
+        location,
       })
     })
   }
@@ -46,17 +56,23 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
     entries.push({
       icon: "green check",
       description: "open play - LifeLong Recreation",
-      startTime: `10:00:00`,
-      endTime: `12:00:00`,
-      sortKey: `10:00:00`,
+      startTime: "10:00:00",
+      endTime: "12:00:00",
+      sortKey: "10:00:00",
+      widthDivisor,
+        index,
+        location,
     })
   } else if (courtId == BAKER_PARK_COURT_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
     entries.push({
       icon: "green check",
       description: "open play - LifeLong Recreation",
-      startTime: `10:00:00`,
-      endTime: `12:00:00`,
-      sortKey: `10:00:00`,
+      startTime: "10:00:00",
+      endTime: "12:00:00",
+      sortKey: "10:00:00",
+      widthDivisor,
+        index,
+        location,
     })
   }
 
@@ -83,6 +99,9 @@ const finalEndTime = courtsById[courtId].endTime;
             startTime: courtsById[courtId].startTime,
             endTime: entry.startTime,
             sortKey: "n/a",
+            widthDivisor,
+        index,
+        location,
           })
         }
       } else {
@@ -100,6 +119,9 @@ const finalEndTime = courtsById[courtId].endTime;
           startTime: previousEntry.endTime,
           endTime: entry.startTime,
           sortKey: "n/a",
+          widthDivisor,
+        index,
+        location,
         });
       }
 
@@ -113,7 +135,10 @@ const finalEndTime = courtsById[courtId].endTime;
           description: "other reservation(s)",
           startTime: entry.endTime,
           endTime: finalEndTime,
-          sortKey: "n/a"
+          sortKey: "n/a",
+          widthDivisor,
+        index,
+        location,
         });
       }
     }

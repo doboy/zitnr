@@ -20,9 +20,12 @@ export interface TimeArray {
   }[]
 }
 export interface CalendarEntry {
-  icon: string,
-  description: string,
-  startTime: string,
-  endTime: string,
-  sortKey: string,
+  icon: string;
+  description: string;
+  location: string;
+  startTime: string;
+  endTime: string;
+  sortKey: string;
+  widthDivisor: number;
+  index: number;
 };

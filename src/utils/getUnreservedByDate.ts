@@ -3,7 +3,7 @@ import { firebaseApp } from "./firebaseApp";
 
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
 
-export const getUnreservedByDate = async (parkId: string, dateString: string) : Promise<TimeArray> => {
+export const getUnreservedByDate = async (parkId: number, dateString: string) : Promise<TimeArray> => {
   const db = getFirestore(firebaseApp);
   const unreservedRef = doc(db, "unreserved", `${parkId}-${dateString}`);
   const document = await getDoc(unreservedRef);

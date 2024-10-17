@@ -5,15 +5,14 @@ import classnames from "classnames";
 import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByDate";
 import { getUnreservedByDate } from "../utils/getUnreservedByDate";
 import { computeCalendar } from "../utils/computeCalendar";
-import COURTS from "../utils/courts";
+import PARKS from "../utils/parks";
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
 import { readableTime } from "../utils/readableTime";
 import { timeToNumber } from "../utils/timeToNumber";
-import { courtsById } from "../utils/courtsById";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
+import { parksById } from "../utils/parksById";
 
-const MILLER_PARK_COURT_ID = "1374";
 const USE_DAY_CALENDAR = true;
 
 const DayCalendarWrapper = ({calendar, start, end} : {start: number, end: number, calendar: CalendarEntry[]}) => {
@@ -25,11 +24,11 @@ const DayCalendarWrapper = ({calendar, start, end} : {start: number, end: number
     const events = calendar.filter((entry) => entry.description != "not reserved").map((entry) => {
       return {
         title: entry.description,
-        location: "Court",
+        location: entry.location,
         start: timeToNumber(entry.startTime),
         end: timeToNumber(entry.endTime),
-        position: 0,
-        widthDivisor: 1,
+        position: entry.index,
+        widthDivisor: entry.widthDivisor,
         key: entry.sortKey,
       }
     });
@@ -56,18 +55,30 @@ export const CalendarTab = () => {
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
-  const [courtId, setCourtId] = React.useState(params.get("courtId") || MILLER_PARK_COURT_ID);
+  const [parkId, setParkId] = React.useState(params.get("parkId") || PARKS[0].id);
   const [calendar, setCalendar] = React.useState([]);
 
   React.useEffect(() => {
-    Promise.all([
-      getSecuredReservationsByDate(courtId, date),
-      getUnreservedByDate(courtId, date)
-    ]).then(([securedData, unreservedData]) => {
+    const park = parksById[parkId];
+
+    const parkPromises = park.courtIds.map((courtId) => {
+      return Promise.all([
+        courtId,
+        getSecuredReservationsByDate(courtId, date),
+        getUnreservedByDate(courtId, date)
+      ]);
+    })
+
+    Promise.all(parkPromises).then((parkDatas) => {
+      let calendars = [];
+      parkDatas.forEach(([courtId, securedData, unreservedData]) => {
+        calendars = calendars.concat(computeCalendar(date, unreservedData, securedData, park, courtId));
+      });
+
       setIsLoading(false);
-      setCalendar(computeCalendar(date, unreservedData, securedData, courtId));
+      setCalendar(calendars);
     });
-  }, [date, courtId]);
+  }, [date, parkId]);
 
   return (
     <>
@@ -96,20 +107,20 @@ export const CalendarTab = () => {
                 // @ts-ignore
                 $(ref).dropdown({
                   onChange: function (value) {
-                    setCourtId(value.toString());
-                    updateQueryStringParameter("courtId", value.toString());
+                    setParkId(value.toString());
+                    updateQueryStringParameter("parkId", value.toString());
                     setCalendar([]);
                     setIsLoading(true);
                   }
                 });
               }}
               >
-                <input type="hidden" name="courtId" value={courtId} />
+                <input type="hidden" name="parkId" value={parkId} />
                 <i className="dropdown icon"></i>
-                <div className="default text">court</div>
+                <div className="default text">park</div>
                 <div className="menu">
-                  {COURTS.map((court) => {
-                    return <div key={court.id} className="item" data-value={court.id}>{court.name}</div>
+                  {PARKS.map((park) => {
+                    return <div key={park.id} className="item" data-value={park.id}>{park.name}</div>
                   })}
                 </div>
               </div>
@@ -131,8 +142,8 @@ export const CalendarTab = () => {
         <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
           <DayCalendarWrapper
             calendar={calendar}
-            start={timeToNumber(courtsById[courtId].startTime)}
-            end={timeToNumber(courtsById[courtId].endTime)}
+            start={timeToNumber(parksById[parkId].startTime)}
+            end={timeToNumber(parksById[parkId].endTime)}
           />
         </div>
       </div>
