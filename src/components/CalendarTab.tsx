@@ -143,7 +143,7 @@ export const CalendarTab = () => {
           <DayCalendarWrapper
             calendar={calendar}
             start={timeToNumber(parksById[parkId].startTime)}
-            end={timeToNumber(parksById[parkId].endTime)}
+            end={parksById[parkId].endTime == "00:00:00" ? 24 : timeToNumber(parksById[parkId].endTime)}
           />
         </div>
       </div>

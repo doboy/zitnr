@@ -54,6 +54,13 @@ const PARKS = [
     "courtIds": [2906, 2907, 2908],
     "startTime": "07:00:00",
     "endTime": "21:00:00"
+  },
+  {
+    "id": 369,
+    "name": "Lower Woodland Playfield Upper",
+    "courtIds": [369, 370, 371],
+    "startTime": "07:00:00",
+    "endTime": "21:00:00"
   }
 ]
 
