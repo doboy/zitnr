@@ -15,17 +15,21 @@ export interface DayOfCalendaryProps {
   }[];
   start: number;
   end: number;
+  compact: boolean;
 }
 
-export const DayCalendar = ({events, start, end} : DayOfCalendaryProps) => {
+export const DayCalendar = ({events, start, end, compact} : DayOfCalendaryProps) => {
+  const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
+
   const calendarStyle = {
-    height: `${(end - start) * PIXELS_PER_HOUR}px`,
+    height: `${(end - start) * pixelsPerHour}px`,
   };
 
   const eventElements = useMemo(() => {
     return events.map((event, key) => {
       return (
         <CalendarEvent
+          compact={compact}
           title={event.title}
           location={event.location}
           offset={start}
@@ -46,6 +50,7 @@ export const DayCalendar = ({events, start, end} : DayOfCalendaryProps) => {
       <CalendarDivisors
         end={end}
         start={start}
+        compact={compact}
       />
     </div>
     </div>

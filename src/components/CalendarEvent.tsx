@@ -10,12 +10,15 @@ export interface CalendarEventProps {
   location: string;
   widthDivisor: number;
   position: number;
+  compact: boolean;
 }
 
-export const CalendarEvent = ({ offset, start, end, title, location, widthDivisor, position }: CalendarEventProps) => {
+export const CalendarEvent = ({ offset, start, end, title, location, widthDivisor, position, compact }: CalendarEventProps) => {
+  const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
+
   const eventStyle = {
-    height: `${(end - start) * PIXELS_PER_HOUR - 1}px`,
-    top: `${(start - offset) * PIXELS_PER_HOUR}px`,
+    height: `${(end - start) * pixelsPerHour - 1}px`,
+    top: `${(start - offset) * pixelsPerHour}px`,
     left: `${(100 / widthDivisor) * position}%`,
     width: `calc(${100 / widthDivisor}% - 8px`,
   };
