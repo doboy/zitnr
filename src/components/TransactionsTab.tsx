@@ -71,7 +71,7 @@ export const TransactionsTab = () => {
 
   return (
     <>
-      <h2 className="ui header">
+      <h2 className="ui small header">
         <i className="file alternate icon"></i>
         <div className="content">
           Reservations

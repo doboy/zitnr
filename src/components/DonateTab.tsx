@@ -51,7 +51,7 @@ export const DonateTab = () => {
 
   return (
     <>
-      <h2 className="ui header">
+      <h2 className="ui small header">
         <i className="money bill alternate icon"></i>
         <div className="content">
           Donations
@@ -60,7 +60,7 @@ export const DonateTab = () => {
           </div>
         </div>
       </h2>
-      <div className="ui center aligned basic segment">
+      <div className="ui center aligned very basic segment">
         <div className="ui small statistic">
           <div className="value">
             {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(0)}</>}

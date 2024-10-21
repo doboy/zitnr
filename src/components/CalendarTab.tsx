@@ -83,7 +83,7 @@ export const CalendarTab = () => {
 
   return (
     <>
-      <h2 className="ui header">
+      <h2 className="ui small header">
         <i className="calendar alternate icon"></i>
         <div className="content">
           Calendar
@@ -101,7 +101,7 @@ export const CalendarTab = () => {
         <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
       </div>}
 
-      <div className={classnames("ui basic segment")}>
+      <div className={classnames("very basic segment")}>
         <form className="ui form">
           <div className="two fields">
 
