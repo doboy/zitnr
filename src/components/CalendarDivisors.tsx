@@ -1,6 +1,7 @@
 import React from 'react';
 import { readableTime } from '../utils/readableTime';
 import { PIXELS_PER_HOUR } from './DayCalendar';
+import { numberToTime } from '../utils/numberToTime';
 
 export interface CalendarDivisorsProps {
   start: number;
@@ -35,7 +36,7 @@ export const CalendarDivisors = ({ start, end, compact }: CalendarDivisorsProps)
     times.push(
       (
         <div key={i} style={positionStyle} className="calendar__divisor__time" >
-          {readableTime(`${start + i}:00`)}
+          {numberToTime(start + i)}
         </div>
       )
     );

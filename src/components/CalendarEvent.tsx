@@ -27,7 +27,6 @@ export const CalendarEvent = ({ offset, start, end, title, location, widthDiviso
     <div style={eventStyle}
       className="calendar__event"
       data-content={`${numberToTime(start)} - ${numberToTime(end)}`}
-      title="asdf"
       ref={(ref) => {
         // @ts-ignore
         $(ref).popup();
