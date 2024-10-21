@@ -15,7 +15,7 @@ import { parksById } from "../utils/parksById";
 
 const USE_DAY_CALENDAR = true;
 
-const DayCalendarWrapper = ({calendar, start, end, compact} : {start: number, end: number, calendar: CalendarEntry[], compact: boolean}) => {
+const DayCalendarWrapper = ({calendar, start, end, compact, showTimeline} : {start: number, end: number, calendar: CalendarEntry[], compact: boolean, showTimeline: boolean}) => {
   if (calendar.length == 0) {
     return <div className="ui center aligned basic segment">No results found</div>;
   }
@@ -33,7 +33,7 @@ const DayCalendarWrapper = ({calendar, start, end, compact} : {start: number, en
       }
     });
 
-    return <DayCalendar events={events} start={start} end={end} compact={compact} />
+    return <DayCalendar events={events} start={start} end={end} compact={compact} showTimeline={showTimeline} />
   } else {
     return (
       <div className="ui relaxed list">
@@ -150,6 +150,7 @@ export const CalendarTab = () => {
             start={timeToNumber(parksById[parkId].startTime)}
             end={parksById[parkId].endTime == "00:00:00" ? 24 : timeToNumber(parksById[parkId].endTime)}
             compact={parksById[parkId].courtIds.length == 1}
+            showTimeline={date == DateTime.now().toFormat("yyyy-MM-dd")}
           />
         </div>
       </div>
