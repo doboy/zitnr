@@ -98,7 +98,7 @@ export const CalendarTab = () => {
           localStorage.setItem('m1', '1')
           setShowMessage1(false);
         }}></i>
-        <p>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
+        <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
       </div>}
 
       <div className={classnames("ui basic segment")}>
