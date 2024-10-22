@@ -26,7 +26,7 @@ export const CalendarEvent = ({ offset, start, end, title, location, widthDiviso
   return (
     <div style={eventStyle}
       className="calendar__event"
-      data-content={`${numberToTime(start)} - ${numberToTime(end)}`}
+      data-content={location.trim() ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}` : `${numberToTime(start)} - ${numberToTime(end)}`}
       ref={(ref) => {
         // @ts-ignore
         $(ref).popup();

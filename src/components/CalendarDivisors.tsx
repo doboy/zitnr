@@ -1,5 +1,4 @@
 import React from 'react';
-import { readableTime } from '../utils/readableTime';
 import { PIXELS_PER_HOUR } from './DayCalendar';
 import { numberToTime } from '../utils/numberToTime';
 
@@ -15,7 +14,7 @@ export const CalendarDivisors = ({ start, end, compact }: CalendarDivisorsProps)
   const divisors = [];
   const times = [];
 
-  for (let i = 0; i < totalHours; i += 1) {
+  for (let i = 0; i <= totalHours; i += 1) {
     const positionStyle = {
       top: `${i * pixelsPerHour}px`,
     };

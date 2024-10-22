@@ -145,10 +145,10 @@ export const CalendarTab = () => {
 
         <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
           <DayCalendarWrapper
+            compact
             calendar={calendar}
             start={timeToNumber(parksById[parkId].startTime)}
             end={parksById[parkId].endTime == "00:00:00" ? 24 : timeToNumber(parksById[parkId].endTime)}
-            compact={parksById[parkId].courtIds.length == 1}
             showTimeline={date == DateTime.now().toFormat("yyyy-MM-dd")}
           />
         </div>
