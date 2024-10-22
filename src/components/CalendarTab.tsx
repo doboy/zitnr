@@ -106,7 +106,6 @@ export const CalendarTab = () => {
           <div className="fields">
 
             <div className="inline field">
-              <label>Park</label>
               <div className="ui selection dropdown"
               ref={(ref) => {
                 // @ts-ignore
@@ -122,7 +121,8 @@ export const CalendarTab = () => {
               >
                 <input type="hidden" name="parkId" value={parkId} />
                 <i className="dropdown icon"></i>
-                <div className="default text">park</div>
+                <i className="tree icon"></i>
+                <div className="default text">Park</div>
                 <div className="menu">
                   {PARKS.map((park) => {
                     return <div key={park.id} className="item" data-value={park.id}>{park.name}</div>
@@ -132,7 +132,6 @@ export const CalendarTab = () => {
             </div>
 
             <div className="inline field">
-              <label>Date</label>
               <div className="ui input">
                 <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                   setDate(e.target.value);
