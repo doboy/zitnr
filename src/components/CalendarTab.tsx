@@ -101,12 +101,12 @@ export const CalendarTab = () => {
         <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
       </div>}
 
-      <div className={classnames("very basic segment")}>
-        <form className="ui form">
-          <div className="two fields">
+      <div className="very basic segment">
+        <form className="ui small form">
+          <div className="fields">
 
-            <div className="field">
-              <label>park</label>
+            <div className="inline field">
+              <label>Park</label>
               <div className="ui selection dropdown"
               ref={(ref) => {
                 // @ts-ignore
@@ -131,8 +131,8 @@ export const CalendarTab = () => {
               </div>
             </div>
 
-            <div className="field">
-              <label>date</label>
+            <div className="inline field">
+              <label>Date</label>
               <div className="ui input">
                 <input type="date" value={date} placeholder="Search..." onChange={(e) => {
                   setDate(e.target.value);
