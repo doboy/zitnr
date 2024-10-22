@@ -121,7 +121,7 @@ export const CalendarTab = () => {
               >
                 <input type="hidden" name="parkId" value={parkId} />
                 <i className="dropdown icon"></i>
-                <i className="tree icon"></i>
+                <i className="map marker alternate icon"></i>
                 <div className="default text">Park</div>
                 <div className="menu">
                   {PARKS.map((park) => {
