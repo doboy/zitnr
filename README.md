@@ -1,4 +1,5 @@
 # zitnr
+https://zitnr.com
 https://doboy.github.io/zitnr/
 
 # run the server
