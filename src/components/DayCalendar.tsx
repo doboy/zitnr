@@ -63,7 +63,7 @@ export const DayCalendar = ({events, start, end, compact, showTimeline} : DayOfC
         start={start}
         compact={compact}
       />
-      {showTimeline && currentTimeToNumber < end && (
+      {showTimeline && currentTimeToNumber > start && currentTimeToNumber < end && (
         <>
           <div className="timeline" style={{top: (currentTimeToNumber - start) * pixelsPerHour}} />
           <div className="timeline-dot" style={{top: (currentTimeToNumber - start) * pixelsPerHour - 3}} />
