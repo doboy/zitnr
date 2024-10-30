@@ -117,6 +117,48 @@ const COURTS = [
     "courtNo": "Court 03",
     "startTime": "07:00:00",
     "endTime": "21:00:00"
+  },
+  {
+    "id": 1098,
+    "name": "Ingraham HS Tennis Court 4",
+    "courtNo": "Court 04",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
+  },
+  {
+    "id": 1095,
+    "name": "Ingraham HS Tennis Court 1",
+    "courtNo": "Court 01",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
+  },
+  {
+    "id": 1096,
+    "name": "Ingraham HS Tennis Court 2",
+    "courtNo": "Court 02",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
+  },
+  {
+    "id": 1097,
+    "name": "Ingraham HS Tennis Court 3",
+    "courtNo": "Court 03",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
+  },
+  {
+    "id": 2695,
+    "name": "Ingraham HS Tennis Court 5",
+    "courtNo": "Court 05",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
+  },
+  {
+    "id": 2696,
+    "name": "Ingraham HS Tennis Court 6",
+    "courtNo": "Court 06",
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
   }
 ]
 

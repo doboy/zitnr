@@ -61,6 +61,13 @@ const PARKS = [
     "courtIds": [369, 370, 371],
     "startTime": "07:00:00",
     "endTime": "21:00:00"
+  },
+  {
+    "id": 1095,
+    "name": "Ingraham HS",
+    "courtIds": [1095, 1096, 1097, 1098, 2695, 2696],
+    "startTime": "08:30:00",
+    "endTime": "23:15:00"
   }
 ]
 
