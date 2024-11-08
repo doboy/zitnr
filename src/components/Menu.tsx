@@ -9,7 +9,7 @@ import { HomeTab } from "./HomeTab";
 export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
   return (
     <div className="ui container">
-      <div className="ui secondary pointing menu">
+      <div className="ui secondary pointing menu" style={{marginBottom: ".5rem"}}>
         <a href="#zitnr" className={classnames(["header", { active: selectedMenuItem == "#zitnr" || selectedMenuItem == "" }, "item"])} onClick={() => { setSelectedMenuItem("#zitnr") }}>
           z.i.t.n.r.
         </a>

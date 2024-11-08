@@ -57,7 +57,8 @@ export const CalendarTab = () => {
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
   const [parkId, setParkId] = React.useState(params.get("parkId") || PARKS[0].id);
   const [calendar, setCalendar] = React.useState([]);
-  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem('m1.1'));
+  const message1StorageKey = "m1.1";
+  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem(message1StorageKey));
 
   React.useEffect(() => {
     const park = parksById[parkId];
@@ -83,7 +84,7 @@ export const CalendarTab = () => {
 
   return (
     <>
-      <h2 className="ui small header">
+      <h5 className="ui small header" style={{marginTop: ".5rem", marginBottom: ".5rem"}}>
         <i className="calendar alternate icon"></i>
         <div className="content">
           Calendar
@@ -91,11 +92,11 @@ export const CalendarTab = () => {
             Query court's reservation schedule
           </div>
         </div>
-      </h2>
+      </h5>
 
       {showMessage1 && <div className="ui visible blue message">
         <i className="close icon" onClick={() => {
-          localStorage.setItem('m1', '1')
+          localStorage.setItem(message1StorageKey, '1')
           setShowMessage1(false);
         }}></i>
         <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming 🌧️ 💦 😅. We will start reserving the courts again next year.</p>
@@ -143,7 +144,7 @@ export const CalendarTab = () => {
           </div>
         </form>
 
-        <div className={classnames(["ui", { loading: isLoading }, "basic segment"])}>
+        <div className={classnames(["ui", { loading: isLoading }, "basic segment"])} style={{marginTop: 0}}>
           <DayCalendarWrapper
             compact
             calendar={calendar}
