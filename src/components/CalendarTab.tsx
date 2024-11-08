@@ -57,7 +57,7 @@ export const CalendarTab = () => {
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
   const [parkId, setParkId] = React.useState(params.get("parkId") || PARKS[0].id);
   const [calendar, setCalendar] = React.useState([]);
-  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem('m1'));
+  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem('m1.1'));
 
   React.useEffect(() => {
     const park = parksById[parkId];
@@ -93,12 +93,12 @@ export const CalendarTab = () => {
         </div>
       </h2>
 
-      {showMessage1 && <div className="ui visible yellow message">
+      {showMessage1 && <div className="ui visible blue message">
         <i className="close icon" onClick={() => {
           localStorage.setItem('m1', '1')
           setShowMessage1(false);
         }}></i>
-        <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming. We will start reserving the courts again next year.</p>
+        <p style={{marginTop: 0}}>The last day that z.i.t.n.r. will be reserving the courts is September 30th since rainy season is coming 🌧️ 💦 😅. We will start reserving the courts again next year.</p>
       </div>}
 
       <div className="very basic segment">
