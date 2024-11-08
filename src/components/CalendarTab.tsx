@@ -57,7 +57,7 @@ export const CalendarTab = () => {
   const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
   const [parkId, setParkId] = React.useState(params.get("parkId") || PARKS[0].id);
   const [calendar, setCalendar] = React.useState([]);
-  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem('m1'));
+  const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem('m1.1'));
 
   React.useEffect(() => {
     const park = parksById[parkId];
