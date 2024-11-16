@@ -1,4 +1,6 @@
-const COURTS = [
+import { Court } from "../types";
+
+const COURTS: Court[] = [
   {
     "id": 1374,
     "name": "Miller Playfield Tennis Court 02",

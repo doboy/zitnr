@@ -5,6 +5,7 @@ import { CalendarTab } from "./CalendarTab";
 import { TransactionsTab } from "./TransactionsTab";
 import { DonateTab } from "./DonateTab";
 import { HomeTab } from "./HomeTab";
+import CourtStatusReportTab from "./CourtStatusReportTab";
 
 export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
   return (
@@ -27,16 +28,22 @@ export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
           <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform?usp=sf_link" className={classnames(["header item"])}>
             <i className="mail icon"></i>
           </a>
+          <a href="#court-status" className={classnames(["header", { active: selectedMenuItem == "#court-status" }, "item"])} onClick={() => { setSelectedMenuItem("#court-status") }}>
+            <i className="stack exchange icon"></i>
+          </a>
         </div>
       </div>
       {(() => {
-        if (selectedMenuItem == "#calendar") {
+        if (selectedMenuItem === "#calendar") {
           return <CalendarTab />;
-        } else if (selectedMenuItem == "#reservations") {
+        } else if (selectedMenuItem === "#reservations") {
           return <TransactionsTab />;
-        } else if (selectedMenuItem == "#donate") {
+        } else if (selectedMenuItem === "#donate") {
           return <DonateTab />
-        } else {
+        } else if(selectedMenuItem === "#court-status") {
+          return <CourtStatusReportTab />;
+        }
+        else {
           return <HomeTab />;
         }
       })()}
