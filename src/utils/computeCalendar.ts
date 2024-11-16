@@ -1,8 +1,7 @@
 import { DateTime } from "luxon";
-import { CalendarEntry, TimeArray } from "../types";
+import { CalendarEntry, Park, TimeArray } from "../types";
 import { MILLER_PARK_COURT_ID, BAKER_PARK_COURT_ID } from "../utils/constants";
 import { courtsById } from "./courtsById";
-import { Park } from "./parksById";
 
 export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, park: Park, courtId: number) : CalendarEntry[] => {
   const entries: CalendarEntry[] = [];
