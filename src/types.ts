@@ -34,7 +34,7 @@ export type CourtStatus = "Wet" | "Dry"
 
 export interface CourtReport {
   parkId: number;
-  timestamp: string;
+  reportedAtISO: string;
   stacks: number;
   status: CourtStatus;
   reservedCourts: number;
