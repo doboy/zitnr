@@ -8,7 +8,7 @@ export const getCourtReportByParkId = async (db: Firestore): Promise<CourtReport
 
   // Filter reports to only include those for the selected park and within the last day
   const recentReports = reports.filter(report => {
-    const reportDate = new Date(report.reportedAtISO);
+    const reportDate = new Date(report.timestamp);
     const now = new Date();
     const oneDayInMillis = 24 * 60 * 60 * 1000; // 1 day in milliseconds
     return (now.getTime() - reportDate.getTime()) <= oneDayInMillis;
