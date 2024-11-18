@@ -28,9 +28,9 @@ export const Menu = ({ selectedMenuItem, setSelectedMenuItem }) => {
           <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform?usp=sf_link" className={classnames(["header item"])}>
             <i className="mail icon"></i>
           </a>
-          <a href="#court-status" className={classnames(["header", { active: selectedMenuItem == "#court-status" }, "item"])} onClick={() => { setSelectedMenuItem("#court-status") }}>
+          {/* <a href="#court-status" className={classnames(["header", { active: selectedMenuItem == "#court-status" }, "item"])} onClick={() => { setSelectedMenuItem("#court-status") }}>
             <i className="stack exchange icon"></i>
-          </a>
+          </a> */}
         </div>
       </div>
       {(() => {
