@@ -1,8 +1,9 @@
 import { collection, Firestore, getDocs } from "firebase/firestore";
 import { CourtReport } from "../types";
+import { COURT_STATUS_DATABASE_NAME } from "./constants";
 
 export const getCourtReportByParkId = async (db: Firestore): Promise<CourtReport | undefined> => {
-  const querySnapshot = await getDocs(collection(db, 'courtStatus'));
+  const querySnapshot = await getDocs(collection(db, COURT_STATUS_DATABASE_NAME));
   const reports: CourtReport[] = querySnapshot.docs.map(doc => doc.data() as CourtReport);
 
   // Filter reports to only include those for the selected park and within the last day

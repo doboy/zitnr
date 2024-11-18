@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { firebaseApp } from '../utils/firebaseApp';
 import { parksById } from '../utils/parksById';
+import { COURT_STATUS_DATABASE_NAME } from '../utils/constants';
 
 const CourtStatusReportForm = ({ parkId, fetchLastReport, setError, setShowReportForm }) => {
   const [status, setStatus] = useState('');
@@ -27,7 +28,7 @@ const CourtStatusReportForm = ({ parkId, fetchLastReport, setError, setShowRepor
       }
 
       try {
-        await addDoc(collection(getFirestore(firebaseApp), 'courtStatus'), {
+        await addDoc(collection(getFirestore(firebaseApp), COURT_STATUS_DATABASE_NAME), {
           status,
           stacks,
           reservedCourts,
