@@ -3,9 +3,10 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { firebaseApp } from '../utils/firebaseApp';
 import { parksById } from '../utils/parksById';
 import { COURT_STATUS_DATABASE_NAME } from '../utils/constants';
+import { CourtReport, CourtStatus } from '../types';
 
 const CourtStatusReportForm = ({ parkId, fetchLastReport, setError, setShowReportForm }) => {
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState<CourtStatus>();
   const [stacks, setStacks] = useState(0);
   const [reservedCourts, setReservedCourts] = useState(0);
   const [submissionMessage, setSubmissionMessage] = useState('');
@@ -28,17 +29,19 @@ const CourtStatusReportForm = ({ parkId, fetchLastReport, setError, setShowRepor
       }
 
       try {
-        await addDoc(collection(getFirestore(firebaseApp), COURT_STATUS_DATABASE_NAME), {
+        const report: CourtReport = {
           status,
           stacks,
           reservedCourts,
-          timestamp: new Date().toISOString(),
+          reportedAtISO: new Date().toISOString(),
           parkId // Include parkId in the report
-        });
+        };
+
+        await addDoc(collection(getFirestore(firebaseApp), COURT_STATUS_DATABASE_NAME), report);
 
         setSubmissionMessage('Report submitted successfully!');
         setShowReportForm(false);
-        setStatus('');
+        setStatus(undefined);
         setStacks(0);
         setReservedCourts(0);
         setError('');
@@ -70,8 +73,8 @@ const CourtStatusReportForm = ({ parkId, fetchLastReport, setError, setShowRepor
         <label>What are the court conditions?</label>
         <select
           className="ui dropdown"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
+          value={status || ""}
+          onChange={(e) => setStatus(e.target.value as CourtStatus)}
           required
         >
           <option value="" disabled>Wet/Dry</option>
