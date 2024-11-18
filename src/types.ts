@@ -29,3 +29,35 @@ export interface CalendarEntry {
   widthDivisor: number;
   index: number;
 };
+
+export type CourtStatus = "Wet" | "Dry"
+
+export interface CourtReport {
+  parkId: number;
+  reportedAtISO: string;
+  stacks: number;
+  status: CourtStatus;
+  reservedCourts: number;
+}
+
+export type Location = {
+  latitude: number
+  longitude: number
+}
+
+export interface Park {
+  id: number;
+  name: string;
+  courtIds: number[];
+  startTime: string;
+  endTime: string;
+  location: Location;
+};
+
+export interface Court {
+  id: number;
+  name: string;
+  courtNo: string;
+  startTime: string;
+  endTime: string;
+};
