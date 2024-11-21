@@ -35,7 +35,6 @@ const ReservationStatus: React.FC<ReservationStatusProps> = ({ calendarEvents })
                     <div className="ui header">
                         {upcomingEvent.description} until {readableTime(upcomingEvent.endTime)}
                     </div>
-                    <a href="/#calendar" rel="noopener noreferrer">View Calendar</a>
                 </div>
             ) : (
                 <div className="ui message green">
