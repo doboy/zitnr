@@ -30,7 +30,14 @@ export interface CalendarEntry {
   index: number;
 };
 
-export type CourtStatus = "Wet" | "Dry"
+export const COURT_STATUS_STRINGS = [
+  "Wet / not playable",
+  "Wet / somewhat playable",
+  "Wet / very playable",
+  "Dry",
+]
+
+export type CourtStatus = typeof COURT_STATUS_STRINGS[number];
 
 export interface CourtReport {
   parkId: number;

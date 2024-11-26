@@ -22,7 +22,7 @@ export type SubmissionStatus = {
 const CourtStatusReportTab = () => {
   const [lastReport, setLastReport] = useState<CourtReport | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const defaultParkId = Object.values(parksById).find(park => park.name === "Miller Park")?.id || PARKS[0].id;
   const [parkId, setParkId] = useState(defaultParkId.toString());
   const [calendarEvents, setCalendarEvents] = useState<CalendarEntry[]>([]);
@@ -101,7 +101,7 @@ const CourtStatusReportTab = () => {
       const { location: parkLocation } = parksById[parkId];
       const distance = calculateDistanceBetweenCoordsInMiles(userLatitude, userLongitude, parkLocation.latitude, parkLocation.longitude);
 
-      if (distance > 1) {
+      if (window.location.hostname == "zitnr.com" && distance > 1) {
         throw new Error('You must be within 1 mile of the park to report status.');
       }
 
@@ -136,8 +136,8 @@ const CourtStatusReportTab = () => {
 
   return (
     <div className="ui container">
-      <h5 className="ui small header" style={{marginTop: ".5rem", marginBottom: ".5rem"}}>
-        <i className="stack exchange alternate icon"></i>
+      <h5 className="ui small header" style={{ marginTop: ".5rem", marginBottom: ".5rem" }}>
+        <i className="cloud icon"></i>
         <div className="content">
           Court Conditions and Stack Status
           <div className="sub header">
@@ -170,53 +170,54 @@ const CourtStatusReportTab = () => {
       </div>
 
       <div className={classnames(["ui", { loading: isLoading }, "very basic segment"])}>
-        <div className="ui container" style={{ marginTop: "1rem", width: "500px" }}>
-          <div>
-            <h5 className="ui header">Reservation Status</h5>
-            <ReservationStatus calendarEvents={calendarEvents} />
+        {/* Submission Status Message */}
+        {submissionStatus && submissionStatus.show && (
+          <div className={`ui message ${submissionStatus.success ? 'green' : 'red'}`}>
+            <i className="close icon" onClick={() => updateReportSubmissionStatus({ message: '', success: true, show: false })}></i>
+            {submissionStatus.message}
           </div>
+        )}
 
-          <div className="divided grid" />
-
-          <div style={{ marginTop: "2rem" }}>
-            <h5 className="ui header">Court Status</h5>
-            <div className="ui center aligned">
-              <CourtStatus lastReport={lastReport} />
+        {!showReportForm && <>
+          <div className="ui container" style={{ marginTop: "1rem", width: "500px" }}>
+            <div>
+              <h5 className="ui header">Reservation Status</h5>
+              <ReservationStatus calendarEvents={calendarEvents} />
             </div>
 
-            {showReportForm && (
-              <div style={{ marginTop: "2rem" }}>
-                <CourtStatusReportForm
-                  onSubmit={handleFormSubmit}
-                />
+            <div className="divided grid" />
+
+            <div style={{ marginTop: "2rem" }}>
+              <h5 className="ui header">Court Status</h5>
+              <div className="ui center aligned">
+                <CourtStatus lastReport={lastReport} />
               </div>
-            )}
-
-              {!isLocationWarningDismissed && !showReportForm && (
-                <div className="ui warning message">
-                  <i className="close icon" onClick={() => {
-                    localStorage.setItem(locationWarningStorageKey, "true");
-                    setIsLocationWarningDismissed(true);
-                  }}></i>
-                    Note: You need to allow location access to report court status. You must be within 1 mile of the court.
-                </div>
-              )}
-
-              {/* Submission Status Message */}
-              {submissionStatus && submissionStatus.show && (
-                <div className={`ui message ${submissionStatus.success ? 'green' : 'red'}`}>
-                  <i className="close icon" onClick={() => updateReportSubmissionStatus({ message: '', success: true, show: false })}></i>
-                  {submissionStatus.message}
-                </div>
-              )}
-
-              <div className='ui center aligned container very basic segment'>
-                <button className="ui button primary" onClick={handleShowReportForm}>
-                  {showReportForm ? 'Cancel Report' : 'Submit a Report'}
-                </button>
-              </div>
+            </div>
           </div>
+
+          <div className='ui center aligned container very basic segment'>
+            <button className="ui button primary" onClick={handleShowReportForm}>
+              {showReportForm ? 'Cancel Report' : 'Add a report'}
+            </button>
+          </div>
+        </>}
+        {showReportForm && <div>
+          {!isLocationWarningDismissed && (
+            <div className="ui warning message">
+              <i className="close icon" onClick={() => {
+                localStorage.setItem(locationWarningStorageKey, "true");
+                setIsLocationWarningDismissed(true);
+              }}></i>
+              Note: You need to allow location access to report court status. You must be within 1 mile of the court.
+            </div>
+          )}
+
+          <CourtStatusReportForm
+            onSubmit={handleFormSubmit}
+            onCancel={() => setShowReportForm(false)}
+          />
         </div>
+        }
       </div>
     </div>
   );

@@ -1,30 +1,40 @@
+import classnames from "classnames";
 import React, { useState } from 'react';
-import { CourtStatus } from '../types';
+import { COURT_STATUS_STRINGS, CourtStatus } from '../types';
 
-const CourtStatusReportForm = ({ onSubmit }) => {
-  const [status, setStatus] = useState('');
+const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
+  const [status, setStatus] = useState<CourtStatus>(undefined);
   const [stacks, setStacks] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(status, stacks);
+    setIsLoading(true);
+    await onSubmit(status, stacks);
+    setIsLoading(false);
   };
 
   return (
-    <form className="ui form" onSubmit={handleSubmit}>
-      <h5 className="ui header">Report Court Status</h5>
+    <form className={classnames("ui form", { loading: isLoading })} onSubmit={handleSubmit}>
       <div className="field">
         <label>What are the court conditions?</label>
-        <select
-          className="ui dropdown"
-          value={status || ""}
-          onChange={(e) => setStatus(e.target.value as CourtStatus)}
-          required
-        >
-          <option value="" disabled>Wet/Dry</option>
-          <option value="Wet">Wet</option>
-          <option value="Dry">Dry</option>
-        </select>
+        <div className="grouped fields" onChange={(event) => {
+          // @ts-ignore
+          setStatus(event.target.value);
+        }}>
+          {COURT_STATUS_STRINGS.map((statusOption) => {
+            return (
+              <div className="field" key={statusOption}>
+                <div className="ui radio checkbox">
+                  <input id={`status-${statusOption}`} type="radio" value={statusOption} checked={status == statusOption} />
+                  <label htmlFor={`status-${statusOption}`}>
+                    {statusOption}
+                  </label>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="field">
         <label>How many stacks are there?</label>
@@ -36,7 +46,8 @@ const CourtStatusReportForm = ({ onSubmit }) => {
           required
         />
       </div>
-      <button className="ui button primary" type="submit">Submit</button>
+      <button className="ui right floated button primary" type="submit">Submit</button>
+      <button className="ui right floated black button" onClick={onCancel}>Cancel</button>
     </form>
   );
 };

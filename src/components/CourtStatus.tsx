@@ -10,7 +10,7 @@ const CourtStatus = ({ lastReport }: { lastReport: CourtReport | null }) => {
     <div className="ui center aligned container">
       {lastReport ? (
         <div className="ui message">
-          <div className="ui header">{lastReport.stacks} {lastReport.stacks === 1 ? 'stack' : 'stacks'} and courts are {lastReport.status.toLowerCase()}</div>
+          <div className="ui header">{lastReport.stacks} {lastReport.stacks === 1 ? 'stack' : 'stacks'} and courts are "{lastReport.status.toLowerCase()}"</div>
           <p>Reported At: {readableTime(reportTime.toFormat('HH:mm'))}</p>
         </div>
       ) : (
