@@ -37,7 +37,6 @@ export interface CourtReport {
   reportedAtISO: string;
   stacks: number;
   status: CourtStatus;
-  reservedCourts: number;
 }
 
 export type Location = {
