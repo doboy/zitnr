@@ -60,8 +60,16 @@ export const CalendarTab = () => {
   const message1StorageKey = "m1.1";
   const [showMessage1, setShowMessage1] = React.useState(!localStorage.getItem(message1StorageKey));
 
+  const park = React.useMemo(() => {
+    return parksById[parkId];
+  }, [parkId])
+
   React.useEffect(() => {
-    const park = parksById[parkId];
+    if (!park) {
+      setIsLoading(false);
+      setCalendar([]);
+      return;
+    }
 
     const parkPromises = park.courtIds.map((courtId) => {
       return Promise.all([
@@ -80,7 +88,7 @@ export const CalendarTab = () => {
       setIsLoading(false);
       setCalendar(calendars);
     });
-  }, [date, parkId]);
+  }, [date, park]);
 
   return (
     <>
@@ -145,13 +153,13 @@ export const CalendarTab = () => {
         </form>
 
         <div className={classnames(["ui", { loading: isLoading }, "basic segment"])} style={{marginTop: 0}}>
-          <DayCalendarWrapper
+          {park && <DayCalendarWrapper
             compact
             calendar={calendar}
-            start={timeToNumber(parksById[parkId].startTime)}
-            end={parksById[parkId].endTime == "00:00:00" ? 24 : timeToNumber(parksById[parkId].endTime)}
+            start={timeToNumber(park.startTime)}
+            end={park.endTime == "00:00:00" ? 24 : timeToNumber(park.endTime)}
             showTimeline={date == DateTime.now().toFormat("yyyy-MM-dd")}
-          />
+          />}
         </div>
       </div>
     </>
