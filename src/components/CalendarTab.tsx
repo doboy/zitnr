@@ -8,47 +8,28 @@ import { computeCalendar } from "../utils/computeCalendar";
 import PARKS from "../utils/parks";
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
-import { readableTime } from "../utils/readableTime";
 import { timeToNumber } from "../utils/timeToNumber";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
 import { parksById } from "../utils/parksById";
-
-const USE_DAY_CALENDAR = true;
 
 const DayCalendarWrapper = ({calendar, start, end, compact, showTimeline} : {start: number, end: number, calendar: CalendarEntry[], compact: boolean, showTimeline: boolean}) => {
   if (calendar.length == 0) {
     return <div className="ui center aligned basic segment">No results found</div>;
   }
 
-  if (USE_DAY_CALENDAR) {
-    const events = calendar.filter((entry) => entry.description != "not reserved").map((entry) => {
-      return {
-        title: entry.description,
-        location: entry.location,
-        start: timeToNumber(entry.startTime),
-        end: timeToNumber(entry.endTime),
-        position: entry.index,
-        widthDivisor: entry.widthDivisor,
-        key: entry.sortKey,
-      }
-    });
+  const events = calendar.filter((entry) => entry.description != "not reserved").map((entry) => {
+    return {
+      title: entry.description,
+      location: entry.location,
+      start: timeToNumber(entry.startTime),
+      end: timeToNumber(entry.endTime),
+      position: entry.index,
+      widthDivisor: entry.widthDivisor,
+      key: entry.sortKey,
+    }
+  });
 
-    return <DayCalendar events={events} start={start} end={end} compact={compact} showTimeline={showTimeline} />
-  } else {
-    return (
-      <div className="ui relaxed list">
-        {calendar.map((entry) => {
-          return (<div key={entry.startTime} className="item">
-            <i className={`${entry.icon} icon`}></i>
-            <div className="content">
-              <div className="header">{entry.description}</div>
-              <div className="description">{readableTime(entry.startTime)} - {readableTime(entry.endTime)}</div>
-            </div>
-          </div>)
-        })}
-      </div>
-    );
-  }
+  return <DayCalendar events={events} start={start} end={end} compact={compact} showTimeline={showTimeline} />
 }
 
 export const CalendarTab = () => {
