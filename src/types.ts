@@ -2,12 +2,12 @@ export interface Transaction {
   bookings: Booking[];
   transactionDateIso: string;
   totalCost: number;
-};
+}
 
 export interface Booking {
   startDateTime: string;
   endDateTime: string;
-};
+}
 
 export interface Donation {
   amount: number;
@@ -17,7 +17,7 @@ export interface TimeArray {
   times: {
     startTime: string;
     endTime: string;
-  }[]
+  }[];
 }
 export interface CalendarEntry {
   icon: string;
@@ -28,16 +28,16 @@ export interface CalendarEntry {
   sortKey: string;
   widthDivisor: number;
   index: number;
-};
+}
 
 export const COURT_STATUS_STRINGS = [
   "Wet / not playable",
   "Wet / somewhat playable",
   "Wet / very playable",
   "Dry",
-]
+];
 
-export type CourtStatus = typeof COURT_STATUS_STRINGS[number];
+export type CourtStatus = (typeof COURT_STATUS_STRINGS)[number];
 
 export interface CourtReport {
   parkId: number;
@@ -47,9 +47,9 @@ export interface CourtReport {
 }
 
 export type Location = {
-  latitude: number
-  longitude: number
-}
+  latitude: number;
+  longitude: number;
+};
 
 export interface Park {
   id: number;
@@ -58,7 +58,7 @@ export interface Park {
   startTime: string;
   endTime: string;
   location: Location;
-};
+}
 
 export interface Court {
   id: number;
@@ -66,4 +66,4 @@ export interface Court {
   courtNo: string;
   startTime: string;
   endTime: string;
-};
+}

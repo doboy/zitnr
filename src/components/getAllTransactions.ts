@@ -2,7 +2,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { firebaseApp } from "../utils/firebaseApp";
 import { Transaction } from "../types";
 
-export const getAllTransactions = async () : Promise<{
+export const getAllTransactions = async (): Promise<{
   totalCost: number;
   bookingsByDate: {};
 }> => {
@@ -15,23 +15,23 @@ export const getAllTransactions = async () : Promise<{
   let totalCost = 0;
 
   querySnapshot.forEach((doc) => {
-      const transactions: Transaction[] = Object.values(doc.data());
-      transactions.forEach((transaction) => {
-        if (transaction.transactionDateIso > "2024-10-01") {
-          return;
-        }
+    const transactions: Transaction[] = Object.values(doc.data());
+    transactions.forEach((transaction) => {
+      if (transaction.transactionDateIso > "2024-10-01") {
+        return;
+      }
 
-        totalCost += transaction.totalCost;
-        transaction.bookings.forEach((booking) => {
-            const bookingDate = booking.startDateTime.substring(0, 10);
-            bookingsByDate[bookingDate] ||= []
-            bookingsByDate[bookingDate].push(booking);
-        });
+      totalCost += transaction.totalCost;
+      transaction.bookings.forEach((booking) => {
+        const bookingDate = booking.startDateTime.substring(0, 10);
+        bookingsByDate[bookingDate] ||= [];
+        bookingsByDate[bookingDate].push(booking);
       });
+    });
   });
 
   return {
     totalCost,
-    bookingsByDate
-  }
+    bookingsByDate,
+  };
 };

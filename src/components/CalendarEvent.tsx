@@ -1,6 +1,6 @@
-import React from 'react';
-import { PIXELS_PER_HOUR } from './DayCalendar';
-import { numberToTime } from '../utils/numberToTime';
+import React from "react";
+import { PIXELS_PER_HOUR } from "./DayCalendar";
+import { numberToTime } from "../utils/numberToTime";
 
 export interface CalendarEventProps {
   offset: number;
@@ -13,7 +13,16 @@ export interface CalendarEventProps {
   compact: boolean;
 }
 
-export const CalendarEvent = ({ offset, start, end, title, location, widthDivisor, position, compact }: CalendarEventProps) => {
+export const CalendarEvent = ({
+  offset,
+  start,
+  end,
+  title,
+  location,
+  widthDivisor,
+  position,
+  compact,
+}: CalendarEventProps) => {
   const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
 
   const eventStyle = {
@@ -24,23 +33,23 @@ export const CalendarEvent = ({ offset, start, end, title, location, widthDiviso
   };
 
   return (
-    <div style={eventStyle}
+    <div
+      style={eventStyle}
       className="calendar__event"
-      data-content={location.trim() ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}` : `${numberToTime(start)} - ${numberToTime(end)}`}
+      data-content={
+        location.trim()
+          ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}`
+          : `${numberToTime(start)} - ${numberToTime(end)}`
+      }
       ref={(ref) => {
         // @ts-ignore
         $(ref).popup();
       }}
     >
       <div className="calendar__event__content">
-        <div className="calendar__event__content__title">
-          { title }
-        </div>
-        <div className="calendar__event__content__location">
-          { location }
-        </div>
+        <div className="calendar__event__content__title">{title}</div>
+        <div className="calendar__event__content__location">{location}</div>
       </div>
     </div>
   );
 };
-

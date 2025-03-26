@@ -3,12 +3,14 @@ import classnames from "classnames";
 
 import { Donation } from "../types";
 import { firebaseApp } from "../utils/firebaseApp";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export const DonateTab = () => {
   const venmoUsername = "zack-do";
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const link = isMobile ? `venmo://users/${venmoUsername}` : `https://account.venmo.com/pay?recipients=${venmoUsername}`
+  const link = isMobile
+    ? `venmo://users/${venmoUsername}`
+    : `https://account.venmo.com/pay?recipients=${venmoUsername}`;
 
   const [isLoading, setIsLoading] = React.useState(true);
   const [totalCost, setTotalCost] = React.useState(0);
@@ -19,34 +21,33 @@ export const DonateTab = () => {
     const transactionsCol = collection(db, "transactions");
     const donationsCol = collection(db, "donations");
 
-    Promise.all([
-      getDocs(transactionsCol),
-      getDocs(donationsCol),
-    ]).then((results) => {
-      let totalCost = 0;
-      let totalDonations = 0;
-      const donations: Donation[] = [];
+    Promise.all([getDocs(transactionsCol), getDocs(donationsCol)]).then(
+      (results) => {
+        let totalCost = 0;
+        let totalDonations = 0;
+        const donations: Donation[] = [];
 
-      results[0].forEach((doc) => {
-        Object.values(doc.data()).forEach((doc) => {
-          if (doc.transactionDateIso > "2024-10-01") {
-            return;
-          }
+        results[0].forEach((doc) => {
+          Object.values(doc.data()).forEach((doc) => {
+            if (doc.transactionDateIso > "2024-10-01") {
+              return;
+            }
 
-          totalCost += doc.totalCost;
-        })
-      });
+            totalCost += doc.totalCost;
+          });
+        });
 
-      results[1].forEach((doc) => {
-        const donation: Donation = doc.data() as Donation;
-        totalDonations += donation.amount;
-        donations.push(donation);
-      });
+        results[1].forEach((doc) => {
+          const donation: Donation = doc.data() as Donation;
+          totalDonations += donation.amount;
+          donations.push(donation);
+        });
 
-      setIsLoading(false);
-      setTotalCost(totalCost);
-      setTotalDonations(totalDonations);
-    });
+        setIsLoading(false);
+        setTotalCost(totalCost);
+        setTotalDonations(totalDonations);
+      },
+    );
   }, []);
 
   return (
@@ -63,24 +64,44 @@ export const DonateTab = () => {
       <div className="ui center aligned very basic segment">
         <div className="ui small statistic">
           <div className="value">
-            {isLoading ? <div className="ui active inline loader"></div> : <>${totalCost.toFixed(0)}</>}
+            {isLoading ? (
+              <div className="ui active inline loader"></div>
+            ) : (
+              <>${totalCost.toFixed(0)}</>
+            )}
           </div>
-          <div className="label">
-            total court reservation costs
-          </div>
-        </div><br />
-        <div className={classnames([{ red: totalDonations < totalCost, green: totalDonations > totalCost }, "ui small statistic"])}>
+          <div className="label">total court reservation costs</div>
+        </div>
+        <br />
+        <div
+          className={classnames([
+            {
+              red: totalDonations < totalCost,
+              green: totalDonations > totalCost,
+            },
+            "ui small statistic",
+          ])}
+        >
           <div className="value">
-            {isLoading ? <div className="ui active inline loader"></div> : <>${totalDonations.toFixed(0)}</>}
+            {isLoading ? (
+              <div className="ui active inline loader"></div>
+            ) : (
+              <>${totalDonations.toFixed(0)}</>
+            )}
           </div>
-          <div className="label">
-            total donations
-          </div>
+          <div className="label">total donations</div>
         </div>
 
-        <img className="ui segment large centered image" src={`./public/${venmoUsername}-venmo.png`} />
-        <a href={link} className="ui primary button">Venmo</a><br /><br />
+        <img
+          className="ui segment large centered image"
+          src={`./public/${venmoUsername}-venmo.png`}
+        />
+        <a href={link} className="ui primary button">
+          Venmo
+        </a>
+        <br />
+        <br />
       </div>
     </>
   );
-}
+};

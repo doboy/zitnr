@@ -1,6 +1,6 @@
 import classnames from "classnames";
-import React, { useState } from 'react';
-import { COURT_STATUS_STRINGS, CourtStatus } from '../types';
+import React, { useState } from "react";
+import { COURT_STATUS_STRINGS, CourtStatus } from "../types";
 
 const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
   const [status, setStatus] = useState<CourtStatus>(undefined);
@@ -15,18 +15,29 @@ const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
   };
 
   return (
-    <form className={classnames("ui form", { loading: isLoading })} onSubmit={handleSubmit}>
+    <form
+      className={classnames("ui form", { loading: isLoading })}
+      onSubmit={handleSubmit}
+    >
       <div className="field">
         <label>What are the court conditions?</label>
-        <div className="grouped fields" onChange={(event) => {
-          // @ts-ignore
-          setStatus(event.target.value);
-        }}>
+        <div
+          className="grouped fields"
+          onChange={(event) => {
+            // @ts-ignore
+            setStatus(event.target.value);
+          }}
+        >
           {COURT_STATUS_STRINGS.map((statusOption) => {
             return (
               <div className="field" key={statusOption}>
                 <div className="ui radio checkbox">
-                  <input id={`status-${statusOption}`} type="radio" value={statusOption} checked={status == statusOption} />
+                  <input
+                    id={`status-${statusOption}`}
+                    type="radio"
+                    value={statusOption}
+                    checked={status == statusOption}
+                  />
                   <label htmlFor={`status-${statusOption}`}>
                     {statusOption}
                   </label>
@@ -46,8 +57,12 @@ const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
           required
         />
       </div>
-      <button className="ui right floated button primary" type="submit">Submit</button>
-      <button className="ui right floated black button" onClick={onCancel}>Cancel</button>
+      <button className="ui right floated button primary" type="submit">
+        Submit
+      </button>
+      <button className="ui right floated black button" onClick={onCancel}>
+        Cancel
+      </button>
     </form>
   );
 };

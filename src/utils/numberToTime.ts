@@ -7,4 +7,4 @@ export const numberToTime = (number: number) => {
   const minuteString = minute < 10 ? `0${minute}` : minute.toString();
 
   return readableTime(`${hour}:${minuteString}`);
-}
+};

@@ -3,12 +3,19 @@ import { CalendarEntry, Park, TimeArray } from "../types";
 import { MILLER_PARK_COURT_ID, BAKER_PARK_COURT_ID } from "../utils/constants";
 import { courtsById } from "./courtsById";
 
-export const computeCalendar = (date: string, unreservedData: TimeArray, securedData: TimeArray, park: Park, courtId: number) : CalendarEntry[] => {
+export const computeCalendar = (
+  date: string,
+  unreservedData: TimeArray,
+  securedData: TimeArray,
+  park: Park,
+  courtId: number,
+): CalendarEntry[] => {
   const entries: CalendarEntry[] = [];
   const seen = {};
   const widthDivisor = park.courtIds.length;
   const index = park.courtIds.indexOf(courtId);
-  const location = park.courtIds.length == 1 ? " " : courtsById[courtId].courtNo;
+  const location =
+    park.courtIds.length == 1 ? " " : courtsById[courtId].courtNo;
 
   if (unreservedData.times) {
     unreservedData.times.forEach((time) => {
@@ -26,7 +33,7 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
         widthDivisor,
         index,
         location,
-      })
+      });
     });
   }
 
@@ -46,12 +53,15 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
         widthDivisor,
         index,
         location,
-      })
-    })
+      });
+    });
   }
 
   const dayOfWeek = DateTime.fromISO(date).weekday;
-  if (courtId == MILLER_PARK_COURT_ID && (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)) {
+  if (
+    courtId == MILLER_PARK_COURT_ID &&
+    (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)
+  ) {
     entries.push({
       icon: "green check",
       description: "open play - LifeLong Recreation",
@@ -59,10 +69,13 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       endTime: "12:00:00",
       sortKey: "10:00:00",
       widthDivisor,
-        index,
-        location,
-    })
-  } else if (courtId == BAKER_PARK_COURT_ID && (dayOfWeek == 2 || dayOfWeek == 4)) {
+      index,
+      location,
+    });
+  } else if (
+    courtId == BAKER_PARK_COURT_ID &&
+    (dayOfWeek == 2 || dayOfWeek == 4)
+  ) {
     entries.push({
       icon: "green check",
       description: "open play - LifeLong Recreation",
@@ -70,9 +83,9 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
       endTime: "12:00:00",
       sortKey: "10:00:00",
       widthDivisor,
-        index,
-        location,
-    })
+      index,
+      location,
+    });
   }
 
   entries.sort((a, b) => {
@@ -84,7 +97,7 @@ export const computeCalendar = (date: string, unreservedData: TimeArray, secured
   });
 
   const finalEntries: CalendarEntry[] = [];
-const finalEndTime = courtsById[courtId].endTime;
+  const finalEndTime = courtsById[courtId].endTime;
 
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
@@ -99,15 +112,15 @@ const finalEndTime = courtsById[courtId].endTime;
             endTime: entry.startTime,
             sortKey: "n/a",
             widthDivisor,
-        index,
-        location,
-          })
+            index,
+            location,
+          });
         }
       } else {
         console.error("courtsById for park ${park} is not found");
       }
 
-      finalEntries.push(entry)
+      finalEntries.push(entry);
     } else {
       const previousEntry = entries[i - 1];
       if (previousEntry.endTime != entry.startTime) {
@@ -119,8 +132,8 @@ const finalEndTime = courtsById[courtId].endTime;
           endTime: entry.startTime,
           sortKey: "n/a",
           widthDivisor,
-        index,
-        location,
+          index,
+          location,
         });
       }
 
@@ -136,8 +149,8 @@ const finalEndTime = courtsById[courtId].endTime;
           endTime: finalEndTime,
           sortKey: "n/a",
           widthDivisor,
-        index,
-        location,
+          index,
+          location,
         });
       }
     }
