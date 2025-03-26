@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack --watch --mode development"
+    "start": "npx webpack --watch --mode development",
+    "server": "python3 -m http.server"
   },
   "author": "",
   "license": "ISC",

@@ -28,11 +28,11 @@ export const DayCalendar = ({events, start, end, compact, showTimeline} : DayOfC
     height: `${(end - start) * pixelsPerHour}px`,
   };
 
-  const [currentTime, setCurrentTime] = useState(DateTime.now());
+  const [currentTime, setCurrentTime] = useState(DateTime.now().setZone('America/Los_Angeles'));
   const currentTimeToNumber = timeToNumber(currentTime.toFormat("HH:mm:ss"));
 
   useEffect(() => {
-    const timerId = setInterval(() => setCurrentTime(DateTime.now()), 1000 * 60);
+    const timerId = setInterval(() => setCurrentTime(DateTime.now().setZone('America/Los_Angeles')), 1000 * 60);
     return () => clearInterval(timerId);
   });
 
