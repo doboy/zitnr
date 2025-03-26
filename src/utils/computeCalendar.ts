@@ -10,6 +10,10 @@ export const computeCalendar = (
   park: Park,
   courtId: number,
 ): CalendarEntry[] => {
+  if (unreservedData.times.length == 0 && securedData.times.length == 0) {
+    return [];
+  }
+
   const entries: CalendarEntry[] = [];
   const seen = {};
   const widthDivisor = park.courtIds.length;
@@ -25,7 +29,6 @@ export const computeCalendar = (
       seen[time.startTime] = true;
 
       entries.push({
-        icon: "green check",
         description: "not reserved",
         startTime: time.startTime,
         endTime: time.endTime,
@@ -45,7 +48,6 @@ export const computeCalendar = (
       seen[time.startTime] = true;
 
       entries.push({
-        icon: "green check",
         description: "open play - z.i.t.n.r.",
         startTime: time.startTime,
         endTime: time.endTime,
@@ -63,7 +65,6 @@ export const computeCalendar = (
     (dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 5)
   ) {
     entries.push({
-      icon: "green check",
       description: "open play - LifeLong Recreation",
       startTime: "10:00:00",
       endTime: "12:00:00",
@@ -77,7 +78,6 @@ export const computeCalendar = (
     (dayOfWeek == 2 || dayOfWeek == 4)
   ) {
     entries.push({
-      icon: "green check",
       description: "open play - LifeLong Recreation",
       startTime: "10:00:00",
       endTime: "12:00:00",
@@ -106,7 +106,6 @@ export const computeCalendar = (
         // There is a reservation before
         if (entry.startTime != courtsById[courtId].startTime) {
           finalEntries.push({
-            icon: "red x",
             description: "other reservation(s)",
             startTime: courtsById[courtId].startTime,
             endTime: entry.startTime,
@@ -126,7 +125,6 @@ export const computeCalendar = (
       if (previousEntry.endTime != entry.startTime) {
         // There is a gap, probably a reservation
         finalEntries.push({
-          icon: "red x",
           description: "other reservation(s)",
           startTime: previousEntry.endTime,
           endTime: entry.startTime,
@@ -143,7 +141,6 @@ export const computeCalendar = (
     if (i == entries.length - 1) {
       if (entry.endTime != finalEndTime) {
         finalEntries.push({
-          icon: "red x",
           description: "other reservation(s)",
           startTime: entry.endTime,
           endTime: finalEndTime,

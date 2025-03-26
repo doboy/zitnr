@@ -20,7 +20,6 @@ export interface TimeArray {
   }[];
 }
 export interface CalendarEntry {
-  icon: string;
   description: string;
   location: string;
   startTime: string;
