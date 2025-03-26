@@ -1,6 +1,8 @@
 import { doc, Firestore, getDoc } from "firebase/firestore";
+
+import { parksById } from "zitnr-utils";
+
 import { CalendarEntry, TimeArray } from "../types";
-import { parksById } from "./parksById";
 import { computeCalendar } from "./computeCalendar";
 
 export const getReservationsByParkId = async (

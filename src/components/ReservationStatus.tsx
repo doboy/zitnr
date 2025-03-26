@@ -6,7 +6,6 @@ interface ReservationStatusProps {
     description: string;
     startTime: string;
     endTime: string;
-    icon: string;
   }>;
 }
 
@@ -32,7 +31,7 @@ const ReservationStatus: React.FC<ReservationStatusProps> = ({
     <div className="ui center aligned container">
       {upcomingEvent ? (
         <div
-          className={`ui message ${upcomingEvent.description === "open play - z.i.t.n.r." || upcomingEvent.icon === "green check" ? "green" : "red"}`}
+          className={`ui message ${upcomingEvent.description === "open play - z.i.t.n.r." ? "green" : "red"}`}
         >
           <div className="ui header">
             {upcomingEvent.description} until{" "}

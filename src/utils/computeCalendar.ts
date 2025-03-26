@@ -1,7 +1,9 @@
 import { DateTime } from "luxon";
-import { CalendarEntry, Park, TimeArray } from "../types";
+
+import { Park, courtsById } from "zitnr-utils";
+
+import { CalendarEntry, TimeArray } from "../types";
 import { MILLER_PARK_COURT_ID, BAKER_PARK_COURT_ID } from "../utils/constants";
-import { courtsById } from "./courtsById";
 
 export const computeCalendar = (
   date: string,

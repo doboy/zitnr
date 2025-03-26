@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
+
+import { MillerPark, PARKS, parksById } from "zitnr-utils";
+
 import { firebaseApp } from "../utils/firebaseApp";
 import CourtStatus from "./CourtStatus";
 import { CalendarEntry, CourtReport } from "../types";
-import PARKS from "../utils/parks";
-import { parksById } from "../utils/parksById";
 import CourtStatusReportForm from "./CourtStatusReportForm";
 import { getTodaysLatestCourtReportByParkId } from "../utils/getTodaysLatestCourtReportByParkId";
 import ReservationStatus from "./ReservationStatus";
@@ -23,9 +24,7 @@ const CourtStatusReportTab = () => {
   const [lastReport, setLastReport] = useState<CourtReport | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const defaultParkId =
-    Object.values(parksById).find((park) => park.name === "Miller Park")?.id ||
-    PARKS[0].id;
+  const defaultParkId = MillerPark.id;
   const [parkId, setParkId] = useState(defaultParkId.toString());
   const [calendarEvents, setCalendarEvents] = useState<CalendarEntry[]>([]);
   const [showReportForm, setShowReportForm] = useState(false);

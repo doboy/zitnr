@@ -2,15 +2,15 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
+import { PARKS, parksById } from "zitnr-utils";
+
 import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByDate";
 import { getUnreservedByDate } from "../utils/getUnreservedByDate";
 import { computeCalendar } from "../utils/computeCalendar";
-import PARKS from "../utils/parks";
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
 import { timeToNumber } from "../utils/timeToNumber";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
-import { parksById } from "../utils/parksById";
 
 const DayCalendarWrapper = ({
   calendar,

@@ -50,15 +50,6 @@ export type Location = {
   longitude: number;
 };
 
-export interface Park {
-  id: number;
-  name: string;
-  courtIds: number[];
-  startTime: string;
-  endTime: string;
-  location: Location;
-}
-
 export interface Court {
   id: number;
   name: string;
