@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sentry/react": "^9.9.0",
     "classnames": "^2.5.1",
     "firebase": "^10.13.2",
     "fomantic-ui": "^2.9.3",
