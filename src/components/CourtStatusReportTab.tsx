@@ -50,7 +50,10 @@ const CourtStatusReportTab = () => {
   };
 
   const fetchCurrentReservations = async () => {
-    const response = await getReservationsByParkId(Number(parkId), nowDateString());
+    const response = await getReservationsByParkId(
+      Number(parkId),
+      nowDateString(),
+    );
     setCalendarEvents(response);
   };
 
