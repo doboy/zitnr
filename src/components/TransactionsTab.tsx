@@ -6,6 +6,7 @@ import classnames from "classnames";
 // import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { Booking } from "../types";
 import { getAllTransactions } from "./getAllTransactions";
+import { nowDateString } from "zitnr-utils";
 
 export const TransactionsTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -27,7 +28,7 @@ export const TransactionsTab = () => {
   };
 
   const timeFormat = "h:mma";
-  const todayDate = DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd");
+  const todayDate = nowDateString();
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 

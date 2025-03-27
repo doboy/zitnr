@@ -1,17 +1,23 @@
 import { DateTime } from "luxon";
 
-import { Park, combineTimes, courtsById } from "zitnr-utils";
+import {
+  Park,
+  TimeRange,
+  TimeRangeWithOwner,
+  combineTimes,
+  courtsById,
+} from "zitnr-utils";
 
-import { CalendarEntry, TimeArray } from "../types";
+import { CalendarEntry } from "../types";
 
 export const computeCalendar = (
   date: string,
-  unreservedData: TimeArray,
-  securedData: TimeArray,
+  unreservedTimes: Array<TimeRange>,
+  securedTimes: Array<TimeRangeWithOwner>,
   park: Park,
   courtId: number,
 ): CalendarEntry[] => {
-  if (unreservedData.times.length == 0 && securedData.times.length == 0) {
+  if (unreservedTimes.length == 0 && securedTimes.length == 0) {
     return [];
   }
 
@@ -20,8 +26,16 @@ export const computeCalendar = (
   const location =
     park.courtIds.length == 1 ? " " : courtsById[courtId].courtNo;
 
-  const entries: CalendarEntry[] = combineTimes(date, park, unreservedData.times, securedData.times).map((time) => {
-    const description = time.owner == "zitnr" || time.owner == "LifeLong Recreation" ? `open play - ${time.owner}` : time.owner;
+  const entries: CalendarEntry[] = combineTimes(
+    date,
+    park,
+    unreservedTimes,
+    securedTimes,
+  ).map((time) => {
+    const description =
+      time.owner == "zitnr" || time.owner == "LifeLong Recreation"
+        ? `open play - ${time.owner}`
+        : time.owner;
 
     return {
       startTime: time.startTime,

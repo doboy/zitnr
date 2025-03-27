@@ -13,12 +13,6 @@ export interface Donation {
   amount: number;
 }
 
-export interface TimeArray {
-  times: {
-    startTime: string;
-    endTime: string;
-  }[];
-}
 export interface CalendarEntry {
   description: string;
   location: string;

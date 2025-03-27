@@ -1,48 +1,30 @@
-import { doc, Firestore, getDoc } from "firebase/firestore";
-
 import { parksById } from "zitnr-utils";
 
-import { CalendarEntry, TimeArray } from "../types";
 import { computeCalendar } from "./computeCalendar";
+import { getUnreservedTimes } from "./getUnreservedTimes";
+import { getSecuredTimes } from "./getSecuredTimes";
+import { CalendarEntry } from "../types";
 
 export const getReservationsByParkId = async (
-  db: Firestore,
   parkId: number,
-) => {
+): Promise<CalendarEntry[]> => {
   const today = new Date();
   const dateString = today.toISOString().split("T")[0];
-
-  // Get unreserved times for today
-  const unreservedRef = doc(db, "unreserved", `${parkId}-${dateString}`);
-  const unreservedDoc = await getDoc(unreservedRef);
-  const unreservedData = unreservedDoc.exists()
-    ? (unreservedDoc.data() as TimeArray)
-    : { times: [] };
-
-  // Get secured times for today
-  const securedRef = doc(db, "secured", `${parkId}-${dateString}`);
-  const securedDoc = await getDoc(securedRef);
-  const securedData = securedDoc.exists()
-    ? (securedDoc.data() as TimeArray)
-    : { times: [] };
-
   const park = parksById[parkId];
-  if (!park) {
-    throw new Error(`Park with id ${parkId} not found`);
-  }
 
-  // Compute calendar entries for each court
-  const allEntries: CalendarEntry[] = [];
-  for (const courtId of park.courtIds) {
-    const courtEntries = computeCalendar(
-      dateString,
-      unreservedData,
-      securedData,
-      park,
-      courtId,
-    );
-    allEntries.push(...courtEntries);
-  }
+  const allEntries = await Promise.all(
+    park.courtIds.map(async (courtId) => {
+      const unreservedTimes = await getUnreservedTimes(courtId, dateString);
+      const securedTimes = await getSecuredTimes(courtId, dateString);
+      return computeCalendar(
+        dateString,
+        unreservedTimes,
+        securedTimes,
+        park,
+        courtId,
+      );
+    }),
+  );
 
-  return allEntries;
+  return allEntries.flat();
 };

@@ -2,16 +2,13 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
-import { PARKS, parksById } from "zitnr-utils";
+import { PARKS, parksById, nowDateString, Park } from "zitnr-utils";
 
-import { getSecuredReservationsByDate } from "../utils/getSecuredReservationsByDate";
-import { getUnreservedByDate } from "../utils/getUnreservedByDate";
-import { computeCalendar } from "../utils/computeCalendar";
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
 import { timeToNumber } from "../utils/timeToNumber";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
-import { nowDateString } from "../utils/nowDateString";
+import { getReservationsByParkId } from "../utils/getReservationsByParkId";
 
 const DayCalendarWrapper = ({
   calendar,
@@ -60,9 +57,11 @@ const DayCalendarWrapper = ({
 export const CalendarTab = () => {
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd"));
+  const [date, setDate] = React.useState(
+    DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd"),
+  );
   const [parkId, setParkId] = React.useState(
-    params.get("parkId") || PARKS[0].id,
+    params.get("parkId") ? parseInt(params.get("parkId")) : PARKS[0].id,
   );
   const [calendar, setCalendar] = React.useState([]);
   const message1StorageKey = "m1.1";
@@ -70,7 +69,7 @@ export const CalendarTab = () => {
     !localStorage.getItem(message1StorageKey),
   );
 
-  const park = React.useMemo(() => {
+  const park: Park = React.useMemo(() => {
     return parksById[parkId];
   }, [parkId]);
 
@@ -81,22 +80,7 @@ export const CalendarTab = () => {
       return;
     }
 
-    const parkPromises = park.courtIds.map((courtId) => {
-      return Promise.all([
-        courtId,
-        getSecuredReservationsByDate(courtId, date),
-        getUnreservedByDate(courtId, date),
-      ]);
-    });
-
-    Promise.all(parkPromises).then((parkDatas) => {
-      let calendars = [];
-      parkDatas.forEach(([courtId, securedData, unreservedData]) => {
-        calendars = calendars.concat(
-          computeCalendar(date, unreservedData, securedData, park, courtId),
-        );
-      });
-
+    getReservationsByParkId(park.id).then((calendars) => {
       setIsLoading(false);
       setCalendar(calendars);
     });
@@ -180,7 +164,7 @@ export const CalendarTab = () => {
               </div>
             </div>
 
-            {date != nowDateString() && 
+            {date != nowDateString() && (
               <div className="inline field">
                 <button
                   type="button"
@@ -199,8 +183,8 @@ export const CalendarTab = () => {
                 >
                   Set to Today
                 </button>
-            </div>
-            }
+              </div>
+            )}
           </div>
         </form>
 
@@ -218,7 +202,12 @@ export const CalendarTab = () => {
               calendar={calendar}
               start={timeToNumber(park.startTime)}
               end={park.endTime == "00:00:00" ? 24 : timeToNumber(park.endTime)}
-              showTimeline={date == DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd")}
+              showTimeline={
+                date ==
+                DateTime.now()
+                  .setZone("America/Los_Angeles")
+                  .toFormat("yyyy-MM-dd")
+              }
             />
           )}
         </div>

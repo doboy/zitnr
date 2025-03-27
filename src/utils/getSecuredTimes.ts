@@ -1,5 +1,4 @@
-import { TimeRange, TimeRangeWithOwner } from "zitnr-utils";
-import { TimeArray } from "../types";
+import { TimeRangeWithOwner } from "zitnr-utils";
 import { firebaseApp } from "./firebaseApp";
 
 import { getFirestore, getDoc, doc } from "firebase/firestore";
