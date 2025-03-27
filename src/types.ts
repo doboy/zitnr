@@ -24,7 +24,6 @@ export interface CalendarEntry {
   location: string;
   startTime: string;
   endTime: string;
-  sortKey: string;
   widthDivisor: number;
   index: number;
 }

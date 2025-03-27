@@ -4,5 +4,6 @@ export const timeToNumber = (time: string) => {
 
   const hourComponent = parseInt(hour);
   const minuteComponent = parseInt(minute) / 60;
+
   return hourComponent + minuteComponent;
 };

@@ -11,6 +11,7 @@ import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
 import { timeToNumber } from "../utils/timeToNumber";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
+import { nowDateString } from "../utils/nowDateString";
 
 const DayCalendarWrapper = ({
   calendar,
@@ -41,7 +42,7 @@ const DayCalendarWrapper = ({
         end: timeToNumber(entry.endTime),
         position: entry.index,
         widthDivisor: entry.widthDivisor,
-        key: entry.sortKey,
+        key: entry.startTime,
       };
     });
 
@@ -59,7 +60,7 @@ const DayCalendarWrapper = ({
 export const CalendarTab = () => {
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(DateTime.now().toFormat("yyyy-MM-dd"));
+  const [date, setDate] = React.useState(DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd"));
   const [parkId, setParkId] = React.useState(
     params.get("parkId") || PARKS[0].id,
   );
@@ -170,7 +171,6 @@ export const CalendarTab = () => {
                 <input
                   type="date"
                   value={date}
-                  placeholder="Search..."
                   onChange={(e) => {
                     setDate(e.target.value);
                     setCalendar([]);
@@ -179,6 +179,28 @@ export const CalendarTab = () => {
                 />
               </div>
             </div>
+
+            {date != nowDateString() && 
+              <div className="inline field">
+                <button
+                  type="button"
+                  className="ui button"
+                  onClick={() => {
+                    const today = nowDateString();
+
+                    if (date == today) {
+                      return;
+                    }
+
+                    setDate(today);
+                    setCalendar([]);
+                    setIsLoading(true);
+                  }}
+                >
+                  Set to Today
+                </button>
+            </div>
+            }
           </div>
         </form>
 
@@ -196,7 +218,7 @@ export const CalendarTab = () => {
               calendar={calendar}
               start={timeToNumber(park.startTime)}
               end={park.endTime == "00:00:00" ? 24 : timeToNumber(park.endTime)}
-              showTimeline={date == DateTime.now().toFormat("yyyy-MM-dd")}
+              showTimeline={date == DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd")}
             />
           )}
         </div>

@@ -27,7 +27,7 @@ export const TransactionsTab = () => {
   };
 
   const timeFormat = "h:mma";
-  const todayDate = DateTime.now().toFormat("yyyy-MM-dd");
+  const todayDate = DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd");
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
