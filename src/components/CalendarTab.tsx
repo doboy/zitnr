@@ -2,7 +2,7 @@ import React from "react";
 import { DateTime } from "luxon";
 import classnames from "classnames";
 
-import { PARKS, parksById, nowDateString, Park } from "zitnr-utils";
+import { PARKS, parksById, Park, nowDateString } from "zitnr-utils";
 
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
@@ -80,7 +80,7 @@ export const CalendarTab = () => {
       return;
     }
 
-    getReservationsByParkId(park.id).then((calendars) => {
+    getReservationsByParkId(park.id, date).then((calendars) => {
       setIsLoading(false);
       setCalendar(calendars);
     });

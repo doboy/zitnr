@@ -7,15 +7,15 @@ import { CalendarEntry } from "../types";
 
 export const getReservationsByParkId = async (
   parkId: number,
+  dateString: string,
 ): Promise<CalendarEntry[]> => {
-  const today = new Date();
-  const dateString = today.toISOString().split("T")[0];
   const park = parksById[parkId];
 
   const allEntries = await Promise.all(
     park.courtIds.map(async (courtId) => {
       const unreservedTimes = await getUnreservedTimes(courtId, dateString);
       const securedTimes = await getSecuredTimes(courtId, dateString);
+
       return computeCalendar(
         dateString,
         unreservedTimes,

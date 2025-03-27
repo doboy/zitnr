@@ -8,6 +8,7 @@ export const getUnreservedTimes = async (
   dateString: string,
 ): Promise<Array<TimeRange>> => {
   const db = getFirestore(firebaseApp);
+
   const unreservedRef = doc(db, "unreserved", `${courtId}-${dateString}`);
   const document = await getDoc(unreservedRef);
   if (document.exists()) {
