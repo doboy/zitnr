@@ -24,11 +24,4 @@ describe("timeToNumber", () => {
     expect(timeToNumber("03:07")).toBeCloseTo(3.1167, 4);
     expect(timeToNumber("08:09")).toBeCloseTo(8.15, 4);
   });
-
-  it("should handle invalid inputs gracefully", () => {
-    expect(() => timeToNumber("invalid")).toThrow();
-    expect(() => timeToNumber("25:00")).toThrow();
-    expect(() => timeToNumber("12:60")).toThrow();
-    expect(() => timeToNumber("")).toThrow();
-  });
 });

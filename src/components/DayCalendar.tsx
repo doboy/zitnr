@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { CalendarDivisors } from "./CalendarDivisors";
 import { CalendarEvent } from "./CalendarEvent";
-import { DateTime } from "luxon";
 import { timeToNumber } from "../utils/timeToNumber";
+import { dateToTime } from "zitnr-utils";
 
 export const PIXELS_PER_HOUR = 60;
 export interface DayOfCalendaryProps {
@@ -35,13 +35,16 @@ export const DayCalendar = ({
   };
 
   const [currentTime, setCurrentTime] = useState(
-    DateTime.now().setZone("America/Los_Angeles"),
+    dateToTime(new Date())
   );
-  const currentTimeToNumber = timeToNumber(currentTime.toFormat("HH:mm:ss"));
+
+  const currentTimeToNumber = useMemo(() => {
+    return timeToNumber(currentTime);
+  }, [currentTime]);
 
   useEffect(() => {
     const timerId = setInterval(
-      () => setCurrentTime(DateTime.now().setZone("America/Los_Angeles")),
+      () => setCurrentTime(dateToTime(new Date())),
       1000 * 60,
     );
     return () => clearInterval(timerId);

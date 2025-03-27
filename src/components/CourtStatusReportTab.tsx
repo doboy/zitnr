@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 
-import { MillerPark, nowDateString, PARKS, parksById } from "zitnr-utils";
+import { dateToString, MillerPark, PARKS, parksById } from "zitnr-utils";
 
 import { firebaseApp } from "../utils/firebaseApp";
 import CourtStatus from "./CourtStatus";
@@ -52,7 +52,7 @@ const CourtStatusReportTab = () => {
   const fetchCurrentReservations = async () => {
     const response = await getReservationsByParkId(
       Number(parkId),
-      nowDateString(),
+      dateToString(new Date()),
     );
     setCalendarEvents(response);
   };

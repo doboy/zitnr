@@ -17,19 +17,15 @@
     "firebase": "^10.13.2",
     "fomantic-ui": "^2.9.3",
     "jquery": "^3.7.1",
-    "luxon": "^3.5.0",
-    "moment": "2.18.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "zitnr-utils": "^1.0.3"
+    "zitnr-utils": "^1.0.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1",
     "@types/firebase": "^3.2.1",
     "@types/jest": "^29.5.14",
     "@types/jquery": "^3.5.31",
-    "@types/luxon": "^3.4.2",
-    "@types/moment": "^2.13.0",
     "@types/react": "^18.3.9",
     "prettier": "^3.5.3",
     "ts-loader": "^9.5.1",

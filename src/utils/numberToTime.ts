@@ -7,7 +7,6 @@
  */
 import { readableTime } from "./readableTime";
 
-/** Converts a number to a string 12.5 =>  12:30 PM */
 export const numberToTime = (number: number) => {
   const hour = Math.floor(number);
   const minute = Math.round((number - hour) * 60);

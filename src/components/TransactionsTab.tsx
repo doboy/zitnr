@@ -1,12 +1,10 @@
 import React from "react";
-import { DateTime } from "luxon";
 import classnames from "classnames";
 
-// import { firebaseApp } from "../utils/firebaseApp";
-// import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { dateToString } from "zitnr-utils";
+
 import { Booking } from "../types";
 import { getAllTransactions } from "./getAllTransactions";
-import { nowDateString } from "zitnr-utils";
 
 export const TransactionsTab = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -21,14 +19,8 @@ export const TransactionsTab = () => {
     });
   }, []);
 
-  const localeFormat = {
-    month: "short" as "short",
-    day: "numeric" as "numeric",
-    weekday: "short" as "short",
-  };
-
   const timeFormat = "h:mma";
-  const todayDate = nowDateString();
+  const todayDate = dateToString(new Date());
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
 
@@ -54,19 +46,15 @@ export const TransactionsTab = () => {
             <strong>{idx == 0 && label}</strong>
           </td>
           <td className="collapsing">
-            {DateTime.fromISO(bookingDate).toLocaleString(localeFormat)}
+            {dateToString(new Date(bookingDate))}
           </td>
           <td>
             {bookingsData[bookingDate].map((booking: Booking) => {
               return (
                 <div key={booking.startDateTime}>
-                  {DateTime.fromISO(
-                    booking.startDateTime.replace(" ", "T"),
-                  ).toFormat(timeFormat)}
+                  {booking.startDateTime}
                   &nbsp;-&nbsp;
-                  {DateTime.fromISO(
-                    booking.endDateTime.replace(" ", "T"),
-                  ).toFormat(timeFormat)}
+                  {booking.endDateTime}
                 </div>
               );
             })}
@@ -75,7 +63,7 @@ export const TransactionsTab = () => {
           <td className="collapsing">
             $
             {bookingsData[bookingDate]
-              .reduce((total, booking) => {
+              .reduce((total: number, booking: {cost: number}) => {
                 return total + booking.cost;
               }, 0)
               .toFixed(0)}

@@ -1,8 +1,7 @@
-import React from "react";
-import { DateTime } from "luxon";
+import React, { useMemo } from "react";
 import classnames from "classnames";
 
-import { PARKS, parksById, Park, nowDateString } from "zitnr-utils";
+import { PARKS, parksById, Park, dateToString } from "zitnr-utils";
 
 import { CalendarEntry } from "../types";
 import { DayCalendar } from "./DayCalendar";
@@ -57,9 +56,8 @@ const DayCalendarWrapper = ({
 export const CalendarTab = () => {
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
-  const [date, setDate] = React.useState(
-    DateTime.now().setZone("America/Los_Angeles").toFormat("yyyy-MM-dd"),
-  );
+  const [date, setDate] = React.useState(dateToString(new Date()));
+
   const [parkId, setParkId] = React.useState(
     params.get("parkId") ? parseInt(params.get("parkId")) : PARKS[0].id,
   );
@@ -72,6 +70,10 @@ export const CalendarTab = () => {
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
   }, [parkId]);
+
+  const isDateToday = useMemo(() => {
+    return date == dateToString(new Date());
+  }, [date]);
 
   React.useEffect(() => {
     if (!park) {
@@ -164,14 +166,16 @@ export const CalendarTab = () => {
               </div>
             </div>
 
-            {date != nowDateString() && (
+            {!isDateToday && (
               <div className="inline field">
                 <button
                   type="button"
                   className="ui button"
                   onClick={() => {
-                    const today = nowDateString();
+                    const today = dateToString(new Date());
 
+                    // Important to not use isDateToday because that value
+                    // might be stale
                     if (date == today) {
                       return;
                     }
@@ -202,12 +206,7 @@ export const CalendarTab = () => {
               calendar={calendar}
               start={timeToNumber(park.startTime)}
               end={park.endTime == "00:00:00" ? 24 : timeToNumber(park.endTime)}
-              showTimeline={
-                date ==
-                DateTime.now()
-                  .setZone("America/Los_Angeles")
-                  .toFormat("yyyy-MM-dd")
-              }
+              showTimeline={isDateToday}
             />
           )}
         </div>
