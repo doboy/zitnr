@@ -19,10 +19,10 @@ export const computeCalendar = (
     return [];
   }
 
-  const widthDivisor = park.courtIds.length;
-  const index = park.courtIds.indexOf(courtId);
+  const widthDivisor = park.courts.length;
+  const index = park.courts.findIndex((court) => court.id == courtId);
   const location =
-    park.courtIds.length == 1 ? " " : courtsById[courtId].courtNo;
+    park.courts.length == 1 ? " " : `Court ${courtsById[courtId].courtNo}`;
 
   const entries: CalendarEntry[] = combineTimes(
     date,

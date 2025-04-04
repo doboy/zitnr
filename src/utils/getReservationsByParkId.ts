@@ -12,16 +12,16 @@ export const getReservationsByParkId = async (
   const park = parksById[parkId];
 
   const allEntries = await Promise.all(
-    park.courtIds.map(async (courtId) => {
-      const unreservedTimes = await getUnreservedTimes(courtId, dateString);
-      const securedTimes = await getSecuredTimes(courtId, dateString);
+    park.courts.map(async (court) => {
+      const unreservedTimes = await getUnreservedTimes(court.id, dateString);
+      const securedTimes = await getSecuredTimes(court.id, dateString);
 
       return computeCalendar(
         dateString,
         unreservedTimes,
         securedTimes,
         park,
-        courtId,
+        court.id,
       );
     }),
   );
