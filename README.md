@@ -3,6 +3,9 @@ https://zitnr.com
 
 https://doboy.github.io/zitnr/
 
+# install dependencies
+yarn install
+
 # run the server
 python3 -m http.server
 
