@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "build": "npx webpack --mode production",
     "start": "npx webpack --watch --mode development",
     "server": "python3 -m http.server",
     "prettier": "prettier src --write"
