@@ -23,8 +23,15 @@ jobs:
       - name: Build Project
         run: yarn build  # Adjust this based on your build process
 
+      - name: Prepare Deploy Directory
+        run: |
+          mkdir -p deploy/dist
+          cp index.html deploy/
+          cp -R public deploy/
+          cp dist/bundle.js deploy/dist/
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Target branch
-
+          folder: deploy
