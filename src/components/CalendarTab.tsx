@@ -63,10 +63,6 @@ export const CalendarTab = () => {
   );
 
   const [calendar, setCalendar] = React.useState([]);
-  const message1StorageKey = "m1.1";
-  const [showMessage1, setShowMessage1] = React.useState(
-    !localStorage.getItem(message1StorageKey),
-  );
 
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
@@ -101,23 +97,6 @@ export const CalendarTab = () => {
           <div className="sub header">Query court's reservation schedule</div>
         </div>
       </h5>
-
-      {showMessage1 && (
-        <div className="ui visible blue message">
-          <i
-            className="close icon"
-            onClick={() => {
-              localStorage.setItem(message1StorageKey, "1");
-              setShowMessage1(false);
-            }}
-          ></i>
-          <p style={{ marginTop: 0 }}>
-            The last day that z.i.t.n.r. will be reserving the courts is
-            September 30th since rainy season is coming 🌧️ 💦 😅. We will start
-            reserving the courts again next year.
-          </p>
-        </div>
-      )}
 
       <div className="very basic segment">
         <form className="ui small form">
