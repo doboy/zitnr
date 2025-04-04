@@ -29,7 +29,7 @@ jobs:
       - name: Prepare Deploy Directory
         run: |
           mkdir -p deploy/dist
-          cp index.html deploy/
+          cp CNAME index.html deploy/
           cp -R public deploy/
           cp dist/bundle.js deploy/dist/
 
