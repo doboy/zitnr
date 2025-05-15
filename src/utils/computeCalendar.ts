@@ -31,7 +31,9 @@ export const computeCalendar = (
     securedTimes,
   ).map((time) => {
     const description =
-      time.owner == "zitnr" || time.owner == "LifeLong Recreation"
+      time.owner == "zitnr" ||
+      time.owner == "z.i.t.n.r." ||
+      time.owner == "LifeLong Recreation"
         ? `open play - ${time.owner}`
         : time.owner;
 

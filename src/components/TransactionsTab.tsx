@@ -45,9 +45,7 @@ export const TransactionsTab = () => {
           <td className="collapsing">
             <strong>{idx == 0 && label}</strong>
           </td>
-          <td className="collapsing">
-            {dateToString(new Date(bookingDate))}
-          </td>
+          <td className="collapsing">{dateToString(new Date(bookingDate))}</td>
           <td>
             {bookingsData[bookingDate].map((booking: Booking) => {
               return (
@@ -63,7 +61,7 @@ export const TransactionsTab = () => {
           <td className="collapsing">
             $
             {bookingsData[bookingDate]
-              .reduce((total: number, booking: {cost: number}) => {
+              .reduce((total: number, booking: { cost: number }) => {
                 return total + booking.cost;
               }, 0)
               .toFixed(0)}

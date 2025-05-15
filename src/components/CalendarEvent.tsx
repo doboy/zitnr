@@ -11,6 +11,7 @@ export interface CalendarEventProps {
   widthDivisor: number;
   position: number;
   compact: boolean;
+  open: boolean;
 }
 
 export const CalendarEvent = ({
@@ -22,6 +23,7 @@ export const CalendarEvent = ({
   widthDivisor,
   position,
   compact,
+  open,
 }: CalendarEventProps) => {
   const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
 
@@ -35,7 +37,7 @@ export const CalendarEvent = ({
   return (
     <div
       style={eventStyle}
-      className="calendar__event"
+      className={"calendar__event" + (open ? " open" : "")}
       data-content={
         location.trim()
           ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}`
@@ -47,7 +49,11 @@ export const CalendarEvent = ({
       }}
     >
       <div className="calendar__event__content">
-        <div className="calendar__event__content__title">{title}</div>
+        <div
+          className={"calendar__event__content__title" + (open ? " open" : "")}
+        >
+          {title}
+        </div>
         <div className="calendar__event__content__location">{location}</div>
       </div>
     </div>

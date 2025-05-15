@@ -34,9 +34,7 @@ export const DayCalendar = ({
     height: `${(end - start) * pixelsPerHour}px`,
   };
 
-  const [currentTime, setCurrentTime] = useState(
-    dateToTime(new Date())
-  );
+  const [currentTime, setCurrentTime] = useState(dateToTime(new Date()));
 
   const currentTimeToNumber = useMemo(() => {
     return timeToNumber(currentTime);
@@ -63,6 +61,7 @@ export const DayCalendar = ({
           widthDivisor={event.widthDivisor}
           position={event.position}
           key={key}
+          open={event.title.startsWith("open play")}
         />
       );
     });
