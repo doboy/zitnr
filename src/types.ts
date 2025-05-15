@@ -4,6 +4,12 @@ export interface Transaction {
   totalCost: number;
 }
 
+export interface TransactionRecord {
+  date: string;
+  amount: number;
+  type: "charge" | "donation" | "refund";
+}
+
 export interface Booking {
   startDateTime: string;
   endDateTime: string;

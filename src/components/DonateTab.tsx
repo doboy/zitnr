@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classnames from "classnames";
 
-import { Donation } from "../types";
-import { firebaseApp } from "../utils/firebaseApp";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { TransactionRecord } from "../types";
+import { getTransactions } from "../utils/getTransactions";
+import BalanceChart from "./BalanceChart";
 
 export const DonateTab = () => {
   const venmoUsername = "zack-do";
@@ -13,41 +13,28 @@ export const DonateTab = () => {
     : `https://account.venmo.com/pay?recipients=${venmoUsername}`;
 
   const [isLoading, setIsLoading] = React.useState(true);
-  const [totalCost, setTotalCost] = React.useState(0);
-  const [totalDonations, setTotalDonations] = React.useState(0);
+
+  const [transactions, setTransactions] = React.useState<TransactionRecord[]>([]);
+
+  const totalCost = useMemo(() => {
+    return transactions.filter((txn) => txn.type === "charge" || txn.type == "refund").reduce(
+      (acc, txn) => acc + txn.amount,
+      0,
+    );
+  }, [transactions]);
+
+  const totalDonations = useMemo(() => {
+    return transactions.filter((txn) => txn.type === "donation").reduce(
+      (acc, txn) => acc + txn.amount,
+      0,
+    ) * -1;
+  }, [transactions]);
 
   React.useEffect(() => {
-    const db = getFirestore(firebaseApp);
-    const transactionsCol = collection(db, "transactions");
-    const donationsCol = collection(db, "donations");
-
-    Promise.all([getDocs(transactionsCol), getDocs(donationsCol)]).then(
-      (results) => {
-        let totalCost = 0;
-        let totalDonations = 0;
-        const donations: Donation[] = [];
-
-        results[0].forEach((doc) => {
-          Object.values(doc.data()).forEach((doc) => {
-            if (doc.transactionDateIso > "2024-10-01") {
-              return;
-            }
-
-            totalCost += doc.totalCost;
-          });
-        });
-
-        results[1].forEach((doc) => {
-          const donation: Donation = doc.data() as Donation;
-          totalDonations += donation.amount;
-          donations.push(donation);
-        });
-
-        setIsLoading(false);
-        setTotalCost(totalCost);
-        setTotalDonations(totalDonations);
-      },
-    );
+    getTransactions().then((transactions) => {
+      setTransactions(transactions);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
@@ -61,46 +48,22 @@ export const DonateTab = () => {
           </div>
         </div>
       </h2>
-      <div className="ui center aligned very basic segment">
-        <div className="ui small statistic">
-          <div className="value">
-            {isLoading ? (
-              <div className="ui active inline loader"></div>
-            ) : (
-              <>${totalCost.toFixed(0)}</>
-            )}
-          </div>
-          <div className="label">total court reservation costs</div>
-        </div>
-        <br />
-        <div
-          className={classnames([
-            {
-              red: totalDonations < totalCost,
-              green: totalDonations > totalCost,
-            },
-            "ui small statistic",
-          ])}
-        >
-          <div className="value">
-            {isLoading ? (
-              <div className="ui active inline loader"></div>
-            ) : (
-              <>${totalDonations.toFixed(0)}</>
-            )}
-          </div>
-          <div className="label">total donations</div>
+      <div className={classnames("ui center aligned very basic segment")}>
+        <div className={classnames("ui center aligned very basic segment", {loading: isLoading})}>
+          {isLoading ? <div className="ui loader" /> : <BalanceChart transactions={transactions} />}
         </div>
 
-        <img
-          className="ui segment large centered image"
-          src={`./public/${venmoUsername}-venmo.png`}
-        />
         <a href={link} className="ui primary button">
-          Venmo
+          Donate via Venmo
         </a>
         <br />
         <br />
+        <img
+          onClick={() => window.open(link)}
+          style={{cursor: "pointer"}}
+          className="ui segment medium centered image"
+          src={`./public/${venmoUsername}-venmo.png`}
+        />
       </div>
     </>
   );
