@@ -58,7 +58,7 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
                 handlePageChange("#donate");
               }}
             >
-              <i className="money bill alternate icon"></i>
+              <i className="beer icon"></i>
             </a>
             <a
               target="_blank"
