@@ -58,7 +58,6 @@ export const BalanceChart: React.FC<BalanceChartProps> = ({ transactions }) => {
           </linearGradient>
         </defs>
 
-        <YAxis label={{ value: 'Balance', angle: -90, position: 'insideLeft' }} />
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="date"
