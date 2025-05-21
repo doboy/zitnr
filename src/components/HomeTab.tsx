@@ -70,7 +70,7 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
             </div>
 
             <br />
-            <button className="ui black button">DONATE</button>
+            <button onClick={() => handlePageChange("#donate")} className="ui black button">DONATE</button>
           </div>
         </div>
       </div>
