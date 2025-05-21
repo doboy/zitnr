@@ -39,9 +39,6 @@ export const BalanceChart: React.FC<BalanceChartProps> = ({ transactions }) => {
     }
   });
 
-  const firstTime = new Date(sorted[0].date).getTime();
-  const lastTime = new Date(sorted[sorted.length - 1].date).getTime();
-
   return (
     <ResponsiveContainer height={400} style={{margin: "auto"}}>
       <LineChart data={data}>

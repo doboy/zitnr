@@ -3,11 +3,13 @@ import classnames from "classnames";
 
 import { PARKS, parksById, Park, dateToString } from "zitnr-utils";
 
-import { CalendarEntry } from "../types";
+import { CalendarEntry, HandlePageChangeType } from "../types";
 import { DayCalendar } from "./DayCalendar";
 import { timeToNumber } from "../utils/timeToNumber";
 import { updateQueryStringParameter } from "../utils/updateQueryStringParameter";
 import { getReservationsByParkId } from "../utils/getReservationsByParkId";
+import { BalanceWarningMessage } from "./BalanceWarningMessage";
+import { useTransactions } from "../hooks/useTransactions";
 
 const DayCalendarWrapper = ({
   calendar,
@@ -53,7 +55,11 @@ const DayCalendarWrapper = ({
   );
 };
 
-export const CalendarTab = () => {
+export const CalendarTab = ({
+  handlePageChange
+}: {
+  handlePageChange: HandlePageChangeType;
+}) => {
   const params = new URL(window.location.href).searchParams;
   const [isLoading, setIsLoading] = React.useState(true);
   const [date, setDate] = React.useState(dateToString(new Date()));
@@ -63,6 +69,8 @@ export const CalendarTab = () => {
   );
 
   const [calendar, setCalendar] = React.useState([]);
+
+  const [_, totalCost, totalDonations] = useTransactions();
 
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
@@ -86,7 +94,7 @@ export const CalendarTab = () => {
   }, [date, park]);
 
   return (
-    <>
+    <div className="ui container">
       <h5
         className="ui small header"
         style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
@@ -99,6 +107,9 @@ export const CalendarTab = () => {
       </h5>
 
       <div className="very basic segment">
+        <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} 
+        handlePageChange={handlePageChange} />
+
         <form className="ui small form">
           <div className="fields">
             <div className="inline field">
@@ -191,6 +202,6 @@ export const CalendarTab = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };

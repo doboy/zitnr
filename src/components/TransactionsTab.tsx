@@ -19,7 +19,6 @@ export const TransactionsTab = () => {
     });
   }, []);
 
-  const timeFormat = "h:mma";
   const todayDate = dateToString(new Date());
 
   const sortedBookingDates = Object.keys(bookingsData).sort().reverse();
@@ -72,7 +71,7 @@ export const TransactionsTab = () => {
   }
 
   return (
-    <>
+    <div className="ui container">
       <h2 className="ui small header">
         <i className="file alternate icon"></i>
         <div className="content">
@@ -117,6 +116,6 @@ export const TransactionsTab = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };

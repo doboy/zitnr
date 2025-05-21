@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Menu } from "./Menu";
 
 export const App = () => {
@@ -6,10 +6,15 @@ export const App = () => {
     window.location.hash,
   );
 
+  const handlePageChange = useCallback((page: "#zitnr" | "#calendar" | "#donate") => {
+    setSelectedMenuItem(page);
+    window.history.pushState({}, "", page);
+  }, [selectedMenuItem]);
+
   return (
     <Menu
       selectedMenuItem={selectedMenuItem}
-      setSelectedMenuItem={setSelectedMenuItem}
+      handlePageChange={handlePageChange}
     />
   );
 };
