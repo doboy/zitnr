@@ -14,8 +14,11 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
             Welcome to z.i.t.n.r.!
           </h1>
           <div>
-            A non-profit project aiming to enhance Seattle's Pickleball experience. <br />
-            Donations are used to reserve courts for open play at <strong>Capitol Hill, Miller Park</strong>.
+            We're a non-profit using donations to reserve courts for open play at <strong>Miller Park</strong><br /><br/>
+            Open play schedule is <br/>
+            <strong>Monday-Friday: 5:45-8:15 PM.</strong><br />
+            <strong>Monday, Wednesday, Friday: 10:00-12:00 PM.</strong><br /><br/>
+            It costs <strong>$37.50</strong> per day — help keep the games going by donating today.
           </div>
           <br />
           <button onClick={() => handlePageChange("#donate")} className="ui black button">DONATE</button>

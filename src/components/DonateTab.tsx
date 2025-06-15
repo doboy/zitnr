@@ -54,6 +54,11 @@ export const DonateTab = ({
         </div>
       </h2>
       <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} handlePageChange={handlePageChange}/>
+
+      <h2 className="ui center aligned text container">
+        Reservation costs <strong>$37.50</strong> per day — help keep the games going by donating today.
+      </h2>
+
       <div className={classnames("ui center aligned very basic segment")}>
         <a href={link} className="ui primary button">
           Donate via Venmo
