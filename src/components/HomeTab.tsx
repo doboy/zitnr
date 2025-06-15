@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { HandlePageChangeType, TransactionRecord } from "../types";
+import React from "react";
+import { HandlePageChangeType } from "../types";
 import { BalanceStats } from "./BalanceStats";
 import { useTransactions } from "../hooks/useTransactions";
 

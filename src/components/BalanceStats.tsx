@@ -12,7 +12,7 @@ export const BalanceStats = ({
         red: totalDonations - totalCost < 0,
       })}>
         <div className="value">
-          ${isLoading ? <div className="ui loader" /> : (totalDonations - totalCost).toFixed(0)}
+          ${isLoading ? <div className="ui active inline loader"></div> : (totalDonations - totalCost).toFixed(0)}
         </div>
         <div className="label">
           Balance
@@ -20,7 +20,7 @@ export const BalanceStats = ({
       </div>
       <div className="statistic">
         <div className="value">
-        ${isLoading ? <div className="ui loader" /> : totalDonations.toFixed(0)}
+        ${isLoading ? <div className="ui active inline loader"></div> : totalDonations.toFixed(0)}
         </div>
         <div className="label">
           Donations received
@@ -28,7 +28,7 @@ export const BalanceStats = ({
       </div>
       <div className="statistic">
         <div className="value">
-        ${isLoading ? <div className="ui loader" /> : totalCost.toFixed(0)}
+        ${isLoading ? <div className="ui active inline loader"></div> : totalCost.toFixed(0)}
         </div>
         <div className="label">
           Total cost
