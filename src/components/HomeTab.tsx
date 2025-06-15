@@ -4,7 +4,7 @@ import { BalanceStats } from "./BalanceStats";
 import { useTransactions } from "../hooks/useTransactions";
 
 export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChangeType }) => {
-  const [_, totalCost, totalDonations] = useTransactions();
+  const [isLoadingTransactions, totalCost, totalDonations] = useTransactions();
 
   return (
     <>
@@ -59,7 +59,7 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
 
             <div className="ui stackable two column grid">
               <div className="column">
-                <BalanceStats totalCost={totalCost} totalDonations={totalDonations} />
+                <BalanceStats isLoading={isLoadingTransactions} totalCost={totalCost} totalDonations={totalDonations} />
               </div>
               <div className="column">
                 <div>

@@ -38,12 +38,6 @@ export const DonateTab = ({
   React.useEffect(() => {
     getTransactions().then((transactions) => {
       setTransactions(transactions);
-    });
-  }, []);
-
-  React.useEffect(() => {
-    getTransactions().then((transactions) => {
-      setTransactions(transactions);
       setIsLoading(false);
     });
   }, []);
@@ -77,7 +71,7 @@ export const DonateTab = ({
         <div className="ui stackable grid">
           <div className="four wide column">
           <span className="ui header">Balance stats</span>
-            <BalanceStats totalCost={totalCost} totalDonations={totalDonations} />
+            <BalanceStats isLoading={isLoading} totalCost={totalCost} totalDonations={totalDonations} />
           </div>
           <div className="twelve wide column">
           <span className="ui header">Balance over time</span>
