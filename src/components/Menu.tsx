@@ -6,6 +6,7 @@ import { TransactionsTab } from "./TransactionsTab";
 import { DonateTab } from "./DonateTab";
 import { HomeTab } from "./HomeTab";
 import CourtStatusReportTab from "./CourtStatusReportTab";
+import { LedgerTab } from "./LedgerTab";
 
 export const Menu = ({ selectedMenuItem, handlePageChange }) => {
   return (
@@ -76,6 +77,8 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
             return <CalendarTab handlePageChange={handlePageChange} />;
           } else if (selectedMenuItem === "#reservations") {
             return <TransactionsTab />;
+          } else if (selectedMenuItem === "#ledger") {
+            return <LedgerTab />;
           } else if (selectedMenuItem === "#donate") {
             return <DonateTab handlePageChange={handlePageChange} />;
           } else if (selectedMenuItem === "#court-status") {

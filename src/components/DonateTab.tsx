@@ -36,7 +36,7 @@ export const DonateTab = ({
   }, [transactions]);
 
   React.useEffect(() => {
-    getTransactions().then((transactions) => {
+    getTransactions("transactions-za1b2c3d4e5f6g7h8i9j0k1l2").then((transactions) => {
       setTransactions(transactions);
       setIsLoading(false);
     });
