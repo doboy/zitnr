@@ -15,6 +15,8 @@ export const getTransactions = async (
         date: record.fields.date,
         amount: record.fields.amount,
         type: record.fields.id,
+        info: record.fields.info || "",
+        permit: record.fields.permit || "",
       }
     });
   } else {

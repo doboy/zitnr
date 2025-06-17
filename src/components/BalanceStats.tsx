@@ -35,6 +35,5 @@ export const BalanceStats = ({
         </div>
       </div>
     </div>
-
   )
 }

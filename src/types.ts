@@ -8,6 +8,8 @@ export interface TransactionRecord {
   date: string;
   amount: number;
   type: "charge" | "donation" | "refund";
+  info: string;
+  permit: string;
 }
 
 export interface Booking {
