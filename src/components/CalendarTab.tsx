@@ -77,8 +77,7 @@ export const CalendarTab = ({
   }, [parkId]);
 
   const isDateToday = useMemo(() => {
-    return true;
-    // return date == dateToString(new Date());
+    return date == dateToString(new Date());
   }, [date]);
 
   React.useEffect(() => {
