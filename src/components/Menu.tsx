@@ -72,7 +72,7 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
       </div>
 
       {(() => {
-          if (selectedMenuItem === "#calendar") {
+          if (selectedMenuItem === "#calendar" || selectedMenuItem == "#cal") {
             return <CalendarTab handlePageChange={handlePageChange} />;
           } else if (selectedMenuItem === "#reservations") {
             return <TransactionsTab />;
