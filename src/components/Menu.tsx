@@ -44,7 +44,6 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
             </a>
             <a href="#court-status" className={classnames(["header", { active: selectedMenuItem == "#court-status" }, "item"])} onClick={() => { handlePageChange("#court-status") }}>
               <i className="cloud icon"></i>
-              <div className="floating ui red label" style={{left: "70%", top: "2.5rem" }}>new</div>
             </a>
             <a
               className={classnames([

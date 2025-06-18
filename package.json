@@ -21,7 +21,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.15.3",
-    "zitnr-utils": "^1.0.13"
+    "zitnr-utils": "1.0.15"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.4",

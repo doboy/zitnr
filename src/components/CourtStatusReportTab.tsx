@@ -216,7 +216,7 @@ const CourtStatusReportTab = () => {
           <i className="dropdown icon"></i>
           <div className="default text">Select Park</div>
           <div className="menu">
-            {PARKS.map((park) => (
+            {PARKS.filter((park) => !!park.location).map((park) => (
               <div
                 key={park.id}
                 className="item"
