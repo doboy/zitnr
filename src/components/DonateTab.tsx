@@ -6,6 +6,7 @@ import { getTransactions } from "../utils/getTransactions";
 import BalanceChart from "./BalanceChart";
 import { BalanceStats } from "./BalanceStats";
 import { BalanceWarningMessage } from "./BalanceWarningMessage";
+import classNames from "classnames";
 
 export const DonateTab = ({
   handlePageChange
@@ -19,6 +20,7 @@ export const DonateTab = ({
     : `https://account.venmo.com/pay?recipients=${venmoUsername}`;
 
   const [isLoading, setIsLoading] = React.useState(true);
+  const [activeTab, setActiveTab] = React.useState("balance-stats");
   const [transactions, setTransactions] = React.useState<TransactionRecord[]>([]);
 
   const totalCost = useMemo(() => {
@@ -37,7 +39,10 @@ export const DonateTab = ({
 
   React.useEffect(() => {
     getTransactions("transactions-za1b2c3d4e5f6g7h8i9j0k1l2").then((transactions) => {
-      setTransactions(transactions);
+      const sortedTransactions = transactions.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+      setTransactions(sortedTransactions);
       setIsLoading(false);
     });
   }, []);
@@ -61,30 +66,68 @@ export const DonateTab = ({
 
       <div className={classnames("ui center aligned very basic segment")}>
         <a href={link} className="ui primary button">
-          Donate via Venmo
+          Donate with Venmo
         </a>
-        <br />
-            <img
-              onClick={() => window.open(link)}
-              style={{ cursor: "pointer" }}
-              className="ui segment medium centered image"
-              src={`./public/${venmoUsername}-venmo.png`}
-            />
       </div>
 
-      <div className={classnames("ui center aligned very basic segment")}>
-        <div className="ui stackable grid">
-          <div className="four wide column">
-          <span className="ui header">Balance stats</span>
+      <div className="ui top attached tabular menu">
+        <div onClick={() => { setActiveTab("balance-stats") }} className={classNames({ active: activeTab == "balance-stats" }, "item")}>Balance stats</div>
+        <div onClick={() => { setActiveTab("balance-graph") }} className={classNames({ active: activeTab == "balance-graph" }, "item")}>Balance graph</div>
+        <div onClick={() => { setActiveTab("permits-donations") }} className={classNames({ active: activeTab == "permits-donations" }, "item")}>Permits & donations</div>
+      </div>
+      <div className={classnames("ui bottom attached active tab", { loading: isLoading }, "segment")}>
+        {activeTab === "balance-stats" && (
+          <div className="ui center aligned very basic segment">
             <BalanceStats isLoading={isLoading} totalCost={totalCost} totalDonations={totalDonations} />
           </div>
-          <div className="twelve wide column">
-          <span className="ui header">Balance over time</span>
-            <div className={classnames("ui center aligned very basic segment", { loading: isLoading })}>
-              {isLoading ? <div className="ui loader" /> : <BalanceChart transactions={transactions} />}
-            </div>
+        )}
+        {activeTab === "balance-graph" && (
+          <div className={classnames("ui center aligned very basic segment", { loading: isLoading })}>
+            <BalanceChart transactions={transactions} />
           </div>
-        </div>
+        )}
+        {activeTab === "permits-donations" && (
+          <div className="ui center aligned very basic segment">
+            <table className="ui very basic table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Reservation Date & Time</th>
+                  <th>Permit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactions.map((txn, index) => (
+                  <tr key={index}>
+                    <td>{txn.type}</td>
+                    <td className="right aligned">
+                      {txn.amount.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                      })}
+                    </td>
+                    <td>{txn.info}</td>
+                    <td>{txn.permit ? <a href={txn.permit}><i className="file alternate icon"></i></a> : "-"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+
+      <div className={classnames("ui center aligned very basic segment")}>
+        <img
+          onClick={() => window.open(link)}
+          style={{ cursor: "pointer" }}
+          className="ui segment medium centered image"
+          src={`./public/${venmoUsername}-venmo.png`}
+        />
+        <a href={link} className="ui primary button">
+          Donate with Venmo
+        </a>
       </div>
     </div>
   );
