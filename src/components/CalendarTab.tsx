@@ -10,6 +10,7 @@ import { updateQueryStringParameter } from "../utils/updateQueryStringParameter"
 import { getReservationsByParkId } from "../utils/getReservationsByParkId";
 import { BalanceWarningMessage } from "./BalanceWarningMessage";
 import { useTransactions } from "../hooks/useTransactions";
+import { FundraiserMessage } from "./FundraiserMessage";
 
 const DayCalendarWrapper = ({
   calendar,
@@ -107,8 +108,8 @@ export const CalendarTab = ({
       </h5>
 
       <div className="very basic segment">
-        <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} 
-        handlePageChange={handlePageChange} />
+        <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} handlePageChange={handlePageChange} />
+        <FundraiserMessage />
 
         <form className="ui small form">
           <div className="fields">
