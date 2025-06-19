@@ -6,6 +6,8 @@ export const App = () => {
     window.location.hash,
   );
 
+  window.addEventListener("hashchange", () => setSelectedMenuItem(window.location.hash));
+
   const handlePageChange = useCallback((page: "#zitnr" | "#calendar" | "#donate") => {
     setSelectedMenuItem(page);
     window.history.pushState({}, "", page);
