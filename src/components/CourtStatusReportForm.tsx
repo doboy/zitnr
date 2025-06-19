@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { COURT_STATUS_STRINGS, CourtStatus } from "../types";
 
 const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
-  const [status, setStatus] = useState<CourtStatus>(undefined);
-  const [stacks, setStacks] = useState(0);
+  const [status, setStatus] = useState<CourtStatus>("Dry");
+  const [stacks, setStacks] = useState<number | undefined>(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,10 +23,6 @@ const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
         <label>What are the court conditions?</label>
         <div
           className="grouped fields"
-          onChange={(event) => {
-            // @ts-ignore
-            setStatus(event.target.value);
-          }}
         >
           {COURT_STATUS_STRINGS.map((statusOption) => {
             return (
@@ -37,6 +33,11 @@ const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
                     type="radio"
                     value={statusOption}
                     checked={status == statusOption}
+                    required
+                    onChange={(event) => {
+                      // @ts-ignore
+                      setStatus(event.target.value);
+                    }}
                   />
                   <label htmlFor={`status-${statusOption}`}>
                     {statusOption}
@@ -53,7 +54,7 @@ const CourtStatusReportForm = ({ onSubmit, onCancel }) => {
           type="number"
           value={stacks}
           min={1}
-          onChange={(e) => setStacks(Number(e.target.value))}
+          onChange={(e) => setStacks(e.target.value ? parseInt(e.target.value) : undefined)}
           required
         />
       </div>

@@ -68,38 +68,38 @@ const CourtStatusReportTab = () => {
       return;
     }
 
-    if (!position) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude: userlatitude, longitude: userLongitude } =
-            position.coords;
-          const { location: parkLocation } = parksById[parkId];
-          const distance = calculateDistanceBetweenCoordsInMiles(
-            userlatitude,
-            userLongitude,
-            parkLocation.latitude,
-            parkLocation.longitude,
-          );
-          setPosition(position);
-          if (distance > 1) {
-            updateReportSubmissionStatus({
-              success: false,
-              message:
-                "You must be within 1 mile of the park to report status.",
-              show: true,
-            });
-            return;
-          }
-        },
-        (error) => {
-          updateReportSubmissionStatus({
-            success: false,
-            message: `Unable to retrieve your location. ${error.message}`,
-            show: true,
-          });
-        },
-      );
-    }
+    // if (!position) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     async (position) => {
+    //       const { latitude: userlatitude, longitude: userLongitude } =
+    //         position.coords;
+    //       const { location: parkLocation } = parksById[parkId];
+    //       const distance = calculateDistanceBetweenCoordsInMiles(
+    //         userlatitude,
+    //         userLongitude,
+    //         parkLocation.latitude,
+    //         parkLocation.longitude,
+    //       );
+    //       setPosition(position);
+    //       if (distance > 1) {
+    //         updateReportSubmissionStatus({
+    //           success: false,
+    //           message:
+    //             "You must be within 1 mile of the park to report status.",
+    //           show: true,
+    //         });
+    //         return;
+    //       }
+    //     },
+    //     (error) => {
+    //       updateReportSubmissionStatus({
+    //         success: false,
+    //         message: `Unable to retrieve your location. ${error.message}`,
+    //         show: true,
+    //       });
+    //     },
+    //   );
+    // }
 
     setShowReportForm(!showReportForm);
     setSubmissionStatus(null); // Reset the submission status when reopening the form
@@ -123,25 +123,25 @@ const CourtStatusReportTab = () => {
 
   const handleFormSubmit = async (status: string, stacks: number) => {
     try {
-      if (!position) {
-        throw new Error("Unable to retrieve your location.");
-      }
+      // if (!position) {
+      //   throw new Error("Unable to retrieve your location.");
+      // }
 
-      const { latitude: userLatitude, longitude: userLongitude } =
-        position.coords;
-      const { location: parkLocation } = parksById[parkId];
-      const distance = calculateDistanceBetweenCoordsInMiles(
-        userLatitude,
-        userLongitude,
-        parkLocation.latitude,
-        parkLocation.longitude,
-      );
+      // const { latitude: userLatitude, longitude: userLongitude } =
+      //   position.coords;
+      // const { location: parkLocation } = parksById[parkId];
+      // const distance = calculateDistanceBetweenCoordsInMiles(
+      //   userLatitude,
+      //   userLongitude,
+      //   parkLocation.latitude,
+      //   parkLocation.longitude,
+      // );
 
-      if (window.location.hostname == "zitnr.com" && distance > 1) {
-        throw new Error(
-          "You must be within 1 mile of the park to report status.",
-        );
-      }
+      // if (window.location.hostname == "zitnr.com" && distance > 1) {
+      //   throw new Error(
+      //     "You must be within 1 mile of the park to report status.",
+      //   );
+      // }
 
       await addDoc(
         collection(getFirestore(firebaseApp), COURT_STATUS_DATABASE_NAME),
@@ -262,12 +262,12 @@ const CourtStatusReportTab = () => {
               className="ui container"
               style={{ marginTop: "1rem", width: "500px" }}
             >
-              <div>
+              {/* <div>
                 <h5 className="ui header">Reservation Status</h5>
                 <ReservationStatus calendarEvents={calendarEvents} />
               </div>
 
-              <div className="divided grid" />
+              <div className="divided grid" /> */}
 
               <div style={{ marginTop: "2rem" }}>
                 <h5 className="ui header">Court Status</h5>
@@ -289,7 +289,7 @@ const CourtStatusReportTab = () => {
         )}
         {showReportForm && (
           <div>
-            {!isLocationWarningDismissed && (
+            {/* {!isLocationWarningDismissed && (
               <div className="ui warning message">
                 <i
                   className="close icon"
@@ -301,8 +301,7 @@ const CourtStatusReportTab = () => {
                 Note: You need to allow location access to report court status.
                 You must be within 1 mile of the court.
               </div>
-            )}
-
+            )} */}
             <CourtStatusReportForm
               onSubmit={handleFormSubmit}
               onCancel={() => setShowReportForm(false)}
