@@ -33,8 +33,12 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
               Join us for our fundraiser!
             </h1>
             <span>
-              <img
-                className="ui segment large centered image" src="./public/fundraiser-7-9.png" />
+              <div className="ui medium images">
+                <img
+                  className="ui bordered image" src="./public/fundraiser-7-9.png" />
+                <img
+                  className="ui bordered image" src="./public/prize-paddle.jpg" />
+                </div>
             </span>
           </div>
         </div>
