@@ -71,36 +71,39 @@ export const DonateTab = ({
       </div>
 
       <div className="ui top attached tabular menu">
-        <div onClick={() => { setActiveTab("balance-stats") }} className={classNames({ active: activeTab == "balance-stats" }, "item")}>Balance stats</div>
-        <div onClick={() => { setActiveTab("balance-graph") }} className={classNames({ active: activeTab == "balance-graph" }, "item")}>Balance graph</div>
-        <div onClick={() => { setActiveTab("permits-donations") }} className={classNames({ active: activeTab == "permits-donations" }, "item")}>Permits & donations</div>
+        <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("balance-stats") }} className={classNames({ active: activeTab == "balance-stats" }, "item")}><i className="hashtag icon" /></div>
+        <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("balance-graph") }} className={classNames({ active: activeTab == "balance-graph" }, "item")}><i className="chart line icon" /></div>
+        <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("permits-donations") }} className={classNames({ active: activeTab == "permits-donations" }, "item")}><i className="file alternate icon"></i></div>
       </div>
       <div className={classnames("ui bottom attached active tab", { loading: isLoading }, "segment")}>
         {activeTab === "balance-stats" && (
           <div className="ui center aligned very basic segment">
+            <h2>Balance stats</h2>
             <BalanceStats isLoading={isLoading} totalCost={totalCost} totalDonations={totalDonations} />
           </div>
         )}
         {activeTab === "balance-graph" && (
           <div className={classnames("ui center aligned very basic segment", { loading: isLoading })}>
+            <h2>Balance over time</h2>
             <BalanceChart transactions={transactions} />
           </div>
         )}
         {activeTab === "permits-donations" && (
           <div className="ui center aligned very basic segment">
+            <h2>Permits and donations</h2>
             <table className="ui very basic table">
               <thead>
                 <tr>
                   <th>Type</th>
                   <th>Amount</th>
-                  <th>Reservation Date & Time</th>
+                  <th>Info</th>
                   <th>Permit</th>
                 </tr>
               </thead>
               <tbody>
                 {transactions.map((txn, index) => (
                   <tr key={index}>
-                    <td>{txn.type}</td>
+                    <td>{txn.type == "charge" ? "permit" : txn.type}</td>
                     <td className="right aligned">
                       {txn.amount.toLocaleString("en-US", {
                         style: "currency",
