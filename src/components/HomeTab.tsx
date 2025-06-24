@@ -40,6 +40,7 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
                   className="ui bordered image" src="./public/prize-paddle.jpg" />
                 </div>
             </span>
+            {/* <button onClick={() => handlePageChange("#fundraiser")} className="ui black button">Learn more</button> */}
           </div>
         </div>
 

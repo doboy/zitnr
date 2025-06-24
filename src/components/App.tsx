@@ -8,7 +8,7 @@ export const App = () => {
 
   window.addEventListener("hashchange", () => setSelectedMenuItem(window.location.hash));
 
-  const handlePageChange = useCallback((page: "#zitnr" | "#calendar" | "#donate") => {
+  const handlePageChange = useCallback((page: "#zitnr" | "#calendar" | "#donate" | "#fundraiser") => {
     setSelectedMenuItem(page);
     window.history.pushState({}, "", page);
   }, [selectedMenuItem]);

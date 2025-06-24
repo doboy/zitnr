@@ -59,4 +59,6 @@ export interface Court {
   endTime: string;
 }
 
-export type HandlePageChangeType = (page: "#zitnr" | "#calendar" | "#donate") => void;
+export type Page = "#zitnr" | "#calendar" | "#donate" | "fundraiser";
+
+export type HandlePageChangeType = (page: Page) => void;

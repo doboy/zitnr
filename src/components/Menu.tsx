@@ -7,6 +7,7 @@ import { DonateTab } from "./DonateTab";
 import { HomeTab } from "./HomeTab";
 import CourtStatusReportTab from "./CourtStatusReportTab";
 import { LedgerTab } from "./LedgerTab";
+import { FundraiserPage } from "./FundraiserPage";
 
 export const Menu = ({ selectedMenuItem, handlePageChange }) => {
   return (
@@ -42,9 +43,10 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
             >
               <i className="calendar alternate icon"></i>
             </a>
-            <a href="#court-status" className={classnames(["header", { active: selectedMenuItem == "#court-status" }, "item"])} onClick={() => { handlePageChange("#court-status") }}>
-              <i className="cloud icon"></i>
-            </a>
+            {/* <a href="#fundraiser" className={classnames(["header", { active: selectedMenuItem == "#fundraiser" }, "item"])} onClick={() => { handlePageChange("#fundraiser") }}>
+              <i className="bomb icon"></i>
+              <div className="floating ui red label" style={{left: "70%", top: "2.5rem" }}>new</div>
+            </a> */}
             <a
               className={classnames([
                 "header",
@@ -79,6 +81,8 @@ export const Menu = ({ selectedMenuItem, handlePageChange }) => {
             return <DonateTab handlePageChange={handlePageChange} />;
           } else if (selectedMenuItem === "#court-status") {
             return <CourtStatusReportTab />;
+          } else if (selectedMenuItem === "#fundraiser") {
+            return <FundraiserPage />;
           } else {
             return <HomeTab handlePageChange={handlePageChange} />;
           }
