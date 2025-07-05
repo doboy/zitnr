@@ -7,6 +7,7 @@ import BalanceChart from "./BalanceChart";
 import { BalanceStats } from "./BalanceStats";
 import { BalanceWarningMessage } from "./BalanceWarningMessage";
 import classNames from "classnames";
+import { GoalProgress } from "./GoalProgress";
 
 export const DonateTab = ({
   handlePageChange
@@ -20,7 +21,7 @@ export const DonateTab = ({
     : `https://account.venmo.com/pay?recipients=${venmoUsername}`;
 
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeTab, setActiveTab] = React.useState("balance-stats");
+  const [activeTab, setActiveTab] = React.useState("fundraising-progress");
   const [transactions, setTransactions] = React.useState<TransactionRecord[]>([]);
 
   const totalCost = useMemo(() => {
@@ -60,9 +61,11 @@ export const DonateTab = ({
       </h2>
       <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} handlePageChange={handlePageChange}/>
 
-      <h2 className="ui center aligned text container">
-        Reservation costs <strong>$37.50</strong> per day — help keep the games going by donating today.
-      </h2>
+      <div className="ui center aligned text container">
+        <h3 className="ui header">
+          Reservation costs <strong>$37.50</strong> per day — help keep the games going by donating today. <br />
+        </h3>
+      </div>
 
       <div className={classnames("ui center aligned very basic segment")}>
         <a href={link} className="ui primary button">
@@ -71,15 +74,22 @@ export const DonateTab = ({
       </div>
 
       <div className="ui top attached tabular menu">
+        <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("fundraising-progress") }} className={classNames({ active: activeTab == "fundraising-progress" }, "item")}><i className="thermometer half icon" /></div>
         <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("balance-stats") }} className={classNames({ active: activeTab == "balance-stats" }, "item")}><i className="hashtag icon" /></div>
         <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("balance-graph") }} className={classNames({ active: activeTab == "balance-graph" }, "item")}><i className="chart line icon" /></div>
         <div style={{cursor: "pointer"}} onClick={() => { setActiveTab("permits-donations") }} className={classNames({ active: activeTab == "permits-donations" }, "item")}><i className="file alternate icon"></i></div>
       </div>
       <div className={classnames("ui bottom attached active tab", { loading: isLoading }, "segment")}>
+      {activeTab === "fundraising-progress" && (
+          <div className="ui center aligned very basic segment">
+            <h2>Fundraising Progress</h2>
+            {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations} />}
+          </div>
+        )}
         {activeTab === "balance-stats" && (
           <div className="ui center aligned very basic segment">
-            <h2>Balance stats</h2>
-            <BalanceStats isLoading={isLoading} totalCost={totalCost} totalDonations={totalDonations} />
+            <h2>Balance Stats</h2>
+            {isLoading ? <div className="ui active inline loader"></div> : <BalanceStats isLoading={isLoading} totalCost={totalCost} totalDonations={totalDonations} />}
           </div>
         )}
         {activeTab === "balance-graph" && (
