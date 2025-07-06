@@ -124,6 +124,10 @@ export const CalendarTab = ({
                       updateQueryStringParameter("parkId", value.toString());
                       setCalendar([]);
                       setIsLoading(true);
+                      // @ts-ignore
+                      gtag('event', 'select-park-in-calendar', {
+                        park: parksById[parkId].name,
+                      });
                     },
                   });
                 }}
