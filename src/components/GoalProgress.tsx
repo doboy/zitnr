@@ -32,7 +32,8 @@ export const GoalProgress = ({
       <h3 className="ui header">
         <div className="content">
           ${totalDonations} raised<br />
-          <div className="sub header">Season Goal: $3500 <i className="info circle icon" ref={popupRef} data-content="Goal for open play until Oct 1st!" />
+          <div className="sub header">
+            Goal to cover the season: <strong>$3,500</strong>
           </div>
         </div>
       </h3>
