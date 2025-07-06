@@ -71,9 +71,12 @@
       font-size: 12px;
       border-left: 4px solid #b24747;
       overflow: hidden;
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
+      -webkit-user-select: none;
+      /* Safari */
+      -ms-user-select: none;
+      /* IE 10 and IE 11 */
+      user-select: none;
+      /* Standard syntax */
     }
 
     .calendar__event.open {
@@ -124,6 +127,21 @@
 
     .white-bg {
       background-color: white !important;
+    }
+
+    .noselect {
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Old versions of Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     }
   </style>
 </head>
