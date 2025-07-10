@@ -26,24 +26,6 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
       </div>
 
       <div className="white-bg">
-      <div className="ui divider" />
-        <div className="ui basic center aligned segment">
-          <div className="ui center aligned text container">
-            <h1 className="ui header">
-              Join us for our fundraiser!
-            </h1>
-            <span>
-              <div className="ui medium images">
-                <img
-                  className="ui bordered image" src="./public/fundraiser-7-9.png" />
-                <img
-                  className="ui bordered image" src="./public/prize-paddle.jpg" />
-                </div>
-            </span>
-            {/* <button onClick={() => handlePageChange("#fundraiser")} className="ui black button">Learn more</button> */}
-          </div>
-        </div>
-
         <div className="ui divider" />
         <div className="ui basic center aligned segment">
           <div className="ui center aligned text container">
