@@ -29,9 +29,11 @@ export const computeCalendar = (
     park,
     unreservedTimes,
     securedTimes,
+    courtId,
   ).map((time) => {
     const description =
       time.owner == "zitnr" ||
+      time.owner == "GLP" ||
       time.owner == "z.i.t.n.r." ||
       time.owner == "LifeLong Recreation"
         ? `open play - ${time.owner}`

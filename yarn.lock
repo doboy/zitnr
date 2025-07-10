@@ -4809,7 +4809,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zitnr-utils@1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/zitnr-utils/-/zitnr-utils-1.0.15.tgz#ba5cc8993e0e84d75b28d4cc82ba3fd3e04056f9"
-  integrity sha512-rxTx9+wnRfG7wXgQgcF/3nkQ4t+CVgCBqbUCEl6yaZWD3LoacioUs7EWIvFlqa8WccXGNlY13+9qIefZcgkgvg==
+zitnr-utils@1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/zitnr-utils/-/zitnr-utils-1.0.17.tgz#911721109b36828fe8ff09f0de77bea9888a706f"
+  integrity sha512-OWsGFoBn8e3WVAzYY27zMmdGHTFVMKj3fGFQjfjWizE1nv/+Lpe0pNGRfqTFnt/HLpwXnq04NzB5jo3qmpRtYw==
