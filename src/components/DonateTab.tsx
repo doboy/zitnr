@@ -82,8 +82,11 @@ export const DonateTab = ({
       <div className={classnames("ui bottom attached active tab", { loading: isLoading }, "segment")}>
       {activeTab === "fundraising-progress" && (
           <div className="ui center aligned very basic segment">
-            <h2>Fundraising Progress</h2>
-            {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations} />}
+            <h2>Fundraising Progress 2026</h2>
+            {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations - 3500} goal={4125} />}
+            <div className="ui divider"></div>
+            <h2>Fundraising Progress 2025</h2>
+            {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations} goal={3500} />}
           </div>
         )}
         {activeTab === "balance-stats" && (
