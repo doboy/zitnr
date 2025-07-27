@@ -48,6 +48,10 @@ export const DonateTab = ({
     });
   }, []);
 
+  React.useEffect(() => {
+    document.title = 'Donate funds for open play';
+  }, []);
+
   return (
     <div className="ui container">
       <h2 className="ui small header">

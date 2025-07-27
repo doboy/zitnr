@@ -91,6 +91,8 @@ export const CalendarTab = ({
       setIsLoading(false);
       setCalendar(calendars);
     });
+
+    document.title = `${park.name} Reservation Calendar`;
   }, [date, park]);
 
   return (

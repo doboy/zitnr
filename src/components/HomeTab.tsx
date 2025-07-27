@@ -6,6 +6,10 @@ import { useTransactions } from "../hooks/useTransactions";
 export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChangeType }) => {
   const [isLoadingTransactions, totalCost, totalDonations] = useTransactions();
 
+  React.useEffect(() => {
+    document.title = 'Zack is the new Randy';
+  }, []);
+
   return (
     <>
       <div className="ui basic segment">
@@ -83,6 +87,33 @@ export const HomeTab = ({ handlePageChange }: { handlePageChange: HandlePageChan
             <Faqs />
           </div>
         </div>
+
+        {/* <div className="ui divider" />
+        <div className="ui  vertical footer segment">
+          <div className="ui center aligned container">
+            <div className="ui stackable grid">
+              <div className="three wide column">
+                <h4 className="ui header">Community</h4>
+                <div className="ui link list">
+                  <a className="item" href="https://www.transifex.com/organization/semantic-org/" target="_blank">Help Translate</a>
+                  <a className="item" href="https://github.com/Semantic-Org/Semantic-UI/issues" target="_blank">Submit an Issue</a>
+                  <a className="item" href="https://gitter.im/Semantic-Org/Semantic-UI" target="_blank">Join our Chat</a>
+                  <a className="item" href="/cla.html" target="_blank">CLA</a>
+                </div>
+              </div>
+              <div className="three wide column">
+                <h4 className="ui header">Calendar</h4>
+                <div className="ui link list">
+                  <a className="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Miller Playfield Reservation Calendar</a>
+                  <a className="item" href="http://forums.semantic-ui.com" target="_blank">Green Lake Park East Reservation Calendar</a>
+                  <a className="item" href="?parkId=1379#calendar" target="_blank">Rainier Beach Playfield Reservation Calendar</a>
+                  <a className="item" href="http://forums.semantic-ui.com" target="_blank">Beacon Hill Reservation Calendar</a>
+                  <a className="item" href="http://forums.semantic-ui.com" target="_blank">Bitter Lake Reservation Calendar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </div>
     </>
   );
@@ -108,7 +139,7 @@ const Faqs = () => {
       </h1>
 
       <div ref={ref} className="ui fluid styled accordion">
-      <div className="title">
+        <div className="title">
           <i className="dropdown icon"></i>
           Why are we fundraising?
         </div>
@@ -153,7 +184,7 @@ const Faqs = () => {
 
       <div>
       </div>
-      <br/><br/><br/><br/>
+      <br />
     </>
   )
 }
