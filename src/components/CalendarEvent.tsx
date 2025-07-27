@@ -1,6 +1,7 @@
 import React from "react";
 import { PIXELS_PER_HOUR } from "./DayCalendar";
 import { numberToTime } from "../utils/numberToTime";
+import { Popup } from "semantic-ui-react";
 
 export interface CalendarEventProps {
   offset: number;
@@ -34,19 +35,14 @@ export const CalendarEvent = ({
     width: `calc(${100 / widthDivisor}% - 8px`,
   };
 
+  const popupContent = location.trim()
+    ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}`
+    : `${numberToTime(start)} - ${numberToTime(end)}`;
+
   return (
-    <div
+    <Popup content={popupContent} trigger={<div
       style={eventStyle}
       className={"calendar__event" + (open ? " open" : "")}
-      data-content={
-        location.trim()
-          ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}`
-          : `${numberToTime(start)} - ${numberToTime(end)}`
-      }
-      ref={(ref) => {
-        // @ts-ignore
-        $(ref).popup();
-      }}
     >
       <div className="calendar__event__content">
         <div
@@ -56,6 +52,6 @@ export const CalendarEvent = ({
         </div>
         <div className="calendar__event__content__location">{location}</div>
       </div>
-    </div>
+    </div>} />
   );
 };

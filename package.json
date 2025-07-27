@@ -4,11 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "jest",
-    "build": "npx webpack --mode production",
-    "start": "npx webpack --watch --mode development",
-    "server": "python3 -m http.server",
-    "prettier": "prettier src --write"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "author": "",
   "license": "ISC",
@@ -17,11 +15,14 @@
     "classnames": "^2.5.1",
     "firebase": "^10.13.2",
     "fomantic-ui": "^2.9.3",
-    "jquery": "^3.7.1",
+    "jquery": "3.1.1",
+    "next": "^12.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.15.3",
-    "zitnr-utils": "1.0.20"
+    "semantic-ui-react": "^2.1.5",
+    "styled-components": "^6.1.19",
+    "zitnr-utils": "1.0.23"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.4",

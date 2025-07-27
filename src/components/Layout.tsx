@@ -1,12 +1,26 @@
 import React from "react";
 import { Menu } from "./Menu";
+import { MenuItem } from "../types";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children, title, selectedMenuItem }: { children: React.ReactNode, title: string, selectedMenuItem: MenuItem }) => {
+  React.useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   return (
-    <div className="off-white-bg">
+    <div>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css"
+      />
+      <div className="off-white-bg">
       <div className="ui container">
-        <Menu selectedMenuItem="home" />
+        <Menu selectedMenuItem={selectedMenuItem} />
+        {children}
       </div>
     </div>
+  </div>
   )
 };
+
+export default Layout;
