@@ -20,6 +20,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.15.3",
+    "semantic-ui-react": "^2.1.5",
     "styled-components": "^6.1.19",
     "zitnr-utils": "1.0.23"
   },
