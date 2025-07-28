@@ -98,10 +98,11 @@ const Home = ({ }: {}) => {
         </div>
 
         <div className="ui divider" />
-        <div className="ui  vertical footer segment">
-          <div className="ui center aligned container">
+        <div className="ui vertical footer segment">
+          <div className="ui container">
             <div className="ui grid">
-              <div className="eight wide column">
+              <div className="two wide column"></div>
+              <div className="six wide computer column sixteen wide mobile column">
                 <h4 className="ui header">Community</h4>
                 <div className="ui link list">
                   <a className="item" href="/donate">Donate</a>
@@ -109,36 +110,20 @@ const Home = ({ }: {}) => {
                   <a className="item" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform" target="_blank">Submit an issue</a>
                 </div>
               </div>
-              <div className="eight wide column">
-                <h4 className="ui header">Reservation Schedule</h4>
-                <div className="ui grid">
-                  <div className="eight wide column">
-                    <div className="ui link list">
-                      {PARKS.map((park, index) => {
-                        if (index <= 5 && index % 2 == 0) {
-                          return (
-                            <a key={index} className="item" href={`/calendar/${park.slug}`}>
-                              {park.name} Calendar
-                            </a>
-                          );
-                        }
-                      })}
-                    </div>
+
+              <div className="six wide computer column sixteen wide mobile column">
+                <h4 className="ui header">Reservation Calendar</h4>
+                  <div className="ui link list">
+                    {PARKS.map((park, index) => {
+                      if (index <= 4) {
+                        return (
+                          <a key={index} className="item" href={`/calendar/${park.slug}`}>
+                            {park.name} Calendar
+                          </a>
+                        );
+                      }
+                    })}
                   </div>
-                  <div className="eight wide column">
-                    <div className="ui link list">
-                      {PARKS.map((park, index) => {
-                        if (index <= 5  && index % 2 != 0) {
-                          return (
-                            <a key={index} className="item" href={`/calendar/${park.slug}`}>
-                              {park.name} Calendar
-                            </a>
-                          );
-                        }
-                      })}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
