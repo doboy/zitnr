@@ -1,20 +1,16 @@
 import React, { useMemo } from "react";
 import classnames from "classnames";
 
-import { HandlePageChangeType, TransactionRecord } from "../types";
+import { TransactionRecord } from "../types";
 import { getTransactions } from "../utils/getTransactions";
 import BalanceChart from "../components/BalanceChart";
 import { BalanceStats } from "../components/BalanceStats";
-import { BalanceWarningMessage } from "../components/BalanceWarningMessage";
 import classNames from "classnames";
 import { GoalProgress } from "../components/GoalProgress";
 import Layout from "../components/Layout";
+import Image from "next/image";
 
-export const Donate = ({
-  handlePageChange
-}: {
-  handlePageChange: HandlePageChangeType,
-}) => {
+export const Donate = () => {
   const venmoUsername = "zack-do";
 
   const isMobile = typeof navigator != "undefined" ? /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) : false;
@@ -50,12 +46,8 @@ export const Donate = ({
     });
   }, []);
 
-  React.useEffect(() => {
-    document.title = 'Donate funds for open play';
-  }, []);
-
   return (
-    <Layout selectedMenuItem="donate">
+    <Layout selectedMenuItem="donate" title="Donate funds for open play">
       <div className="ui container">
         <h2 className="ui small header">
           <i className="money bill alternate icon"></i>
@@ -66,8 +58,6 @@ export const Donate = ({
             </div>
           </div>
         </h2>
-        <BalanceWarningMessage totalCost={totalCost} totalDonations={totalDonations} handlePageChange={handlePageChange} />
-
         <div className="ui center aligned text container">
           <h3 className="ui header">
             Reservation costs <strong>$37.50</strong> per day — help keep the games going by donating today. <br />
@@ -142,12 +132,17 @@ export const Donate = ({
 
 
         <div className={classnames("ui center aligned very basic segment")}>
-          <img
-            onClick={() => window.open(link)}
-            style={{ cursor: "pointer" }}
-            className="ui segment medium centered image"
-            src={`./public/${venmoUsername}-venmo.png`}
-          />
+          <div className="ui segment medium centered image">
+            <a href={link}>
+              <Image
+                width={300}
+                height={323}
+                src={`/${venmoUsername}-venmo.png`}
+              />
+            </a>
+          </div>
+
+          <br />
           <a href={link} className="ui primary button">
             Donate with Venmo
           </a>

@@ -87,8 +87,6 @@ const Calendar = () => {
       setIsLoading(false);
       setCalendar(calendars);
     });
-
-    document.title = `${park.name} Reservation Calendar`;
   }, [date, park]);
 
   const dropdownOptions = useMemo(() => {
@@ -118,10 +116,10 @@ const Calendar = () => {
             <div className="fields">
               <div className="inline field">
                 <Dropdown selection options={dropdownOptions} value={park.id} onChange={(e, dropdownProps) => {
-                  // @ts-ignore
                   const parkId = dropdownProps.value;
                   if (parkId.toString() != park.id.toString()) {
-                    window.location.href = `/calendar/${parksById[parkId.toString()].slug}`;
+                    router.push(`/calendar/${parksById[parkId.toString()].slug}`)
+                    setIsLoading(true)
                   }
                 }}/>
               </div>

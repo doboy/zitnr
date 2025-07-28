@@ -61,4 +61,3 @@ export interface Court {
 
 export type MenuItem = "home" | "calendar" | "donate" ;
 
-export type HandlePageChangeType = (page: MenuItem) => void;

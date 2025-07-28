@@ -1,25 +1,27 @@
 import React from "react";
 import { Menu } from "./Menu";
 import { MenuItem } from "../types";
+import Head from "next/head";
 
-const Layout = ({ children, title, selectedMenuItem }: { children: React.ReactNode, title: string, selectedMenuItem: MenuItem }) => {
+const Layout = ({ children, title, description, selectedMenuItem }: { children: React.ReactNode, title: string, description?: string, selectedMenuItem: MenuItem }) => {
   React.useEffect(() => {
     document.title = title;
   }, [title]);
 
   return (
     <div>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css"
-      />
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={title || description} />
+      </Head>
+
       <div className="off-white-bg">
-      <div className="ui container">
-        <Menu selectedMenuItem={selectedMenuItem} />
-        {children}
+        <div className="ui container">
+          <Menu selectedMenuItem={selectedMenuItem} />
+          {children}
+        </div>
       </div>
     </div>
-  </div>
   )
 };
 
