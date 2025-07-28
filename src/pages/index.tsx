@@ -104,7 +104,6 @@ const Home = ({ }: {}) => {
               <div className="eight wide column">
                 <h4 className="ui header">Community</h4>
                 <div className="ui link list">
-                  <a className="item" href="/">About</a>
                   <a className="item" href="/donate">Donate</a>
                   <a className="item" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform" target="_blank">Contact Us</a>
                   <a className="item" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform" target="_blank">Submit an issue</a>
@@ -112,21 +111,38 @@ const Home = ({ }: {}) => {
               </div>
               <div className="eight wide column">
                 <h4 className="ui header">Reservation Schedule</h4>
-                <div className="ui link list">
-                  {PARKS.map((park, index) => {
-                    if (index < 5) {
-                      return (
-                        <a key={index} className="item" href={`/calendar/${park.slug}`}>
-                          {park.name} Calendar
-                        </a>
-                      );
-                    }
-                  })}
+                <div className="ui grid">
+                  <div className="eight wide column">
+                    <div className="ui link list">
+                      {PARKS.map((park, index) => {
+                        if (index <= 5 && index % 2 == 0) {
+                          return (
+                            <a key={index} className="item" href={`/calendar/${park.slug}`}>
+                              {park.name} Calendar
+                            </a>
+                          );
+                        }
+                      })}
+                    </div>
+                  </div>
+                  <div className="eight wide column">
+                    <div className="ui link list">
+                      {PARKS.map((park, index) => {
+                        if (index <= 5  && index % 2 != 0) {
+                          return (
+                            <a key={index} className="item" href={`/calendar/${park.slug}`}>
+                              {park.name} Calendar
+                            </a>
+                          );
+                        }
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        <br />
+          <br />
         </div>
       </div>
     </div>
