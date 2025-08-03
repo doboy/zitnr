@@ -135,6 +135,7 @@ export const Donate = () => {
           <div className="ui segment medium centered image">
             <a href={link}>
               <Image
+                alt="Donate with Venmo"
                 width={300}
                 height={323}
                 src={`/${venmoUsername}-venmo.png`}

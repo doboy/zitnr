@@ -11,8 +11,9 @@ export const Ledger = () => {
   const [transactions, setTransactions] = React.useState<Array<TransactionRecord>>([]);
   const [balance, setBalance] = React.useState<number>(0);
   const router = useRouter();
+  const match = router.asPath.match(/transactions-(\w){25}/);
 
-  const transactionCacheId = router.asPath.match(/transactions-(\w){25}/) && router.asPath.match(/transactions-(\w){25}/)[0];
+  const transactionCacheId = match && match[0];
 
   React.useEffect(() => {
     if (!transactionCacheId) {

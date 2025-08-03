@@ -3,7 +3,7 @@ import "./global.css";
 import { parksById } from 'zitnr-utils';
 import { useEffect } from 'react';
 
-const rerouteOldLinks = (router) : string | null => {
+const rerouteOldLinks = (router) : string | null | undefined => {
   // #calendar => /calendar/[slug]
   // #donate => /donate
   // #zitnr => /

@@ -15,8 +15,8 @@ export const CalendarDivisors = ({
 }: CalendarDivisorsProps) => {
   const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
   const totalHours = end - start;
-  const divisors = [];
-  const times = [];
+  const divisors: Array<React.ReactNode> = [];
+  const times: Array<React.ReactNode> = [];
 
   for (let i = 0; i <= totalHours; i += 1) {
     const positionStyle = {

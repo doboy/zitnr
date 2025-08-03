@@ -66,7 +66,7 @@ const Calendar = () => {
     return park ? park.id : PARKS[0].id;
   }, [router.query.slug]);
 
-  const [calendar, setCalendar] = React.useState([]);
+  const [calendar, setCalendar] = React.useState<Array<CalendarEntry>>([]);
 
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
@@ -117,7 +117,7 @@ const Calendar = () => {
               <div className="inline field">
                 <Dropdown selection options={dropdownOptions} value={park.id} onChange={(e, dropdownProps) => {
                   const parkId = dropdownProps.value;
-                  if (parkId.toString() != park.id.toString()) {
+                  if (parkId && parkId.toString() != park.id.toString()) {
                     router.push(`/calendar/${parksById[parkId.toString()].slug}`)
                     setIsLoading(true)
                   }

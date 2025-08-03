@@ -45,6 +45,7 @@ const Home = ({ }: {}) => {
             <div className="ui segment medium centered image">
               <a href="/calendar/miller-playfield">
                 <Image
+                  alt="Reservation Calendar"
                   width={270}
                   height={199}
                   style={{ border: "1px solid #ddd", borderRadius: "4px" }}
@@ -74,8 +75,8 @@ const Home = ({ }: {}) => {
               </div>
               <div className="column">
                 <div>
-
                   <Image
+                    alt="Miller Park"
                     width={300}
                     height={216}
                     style={{ border: "1px solid #ddd", borderRadius: "4px" }}
