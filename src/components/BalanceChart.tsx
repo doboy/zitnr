@@ -25,7 +25,7 @@ export const BalanceChart: React.FC<BalanceChartProps> = ({ transactions }) => {
 
   // Step 2: Calculate running balance for each transaction
   let balance = 0;
-  const data = [];
+  const data: Array<{date: string, balance: number}> = [];
 
   sorted.forEach((t) => {
     balance += (-t.amount);
