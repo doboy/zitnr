@@ -159,7 +159,7 @@ const Faqs = () => {
         Frequently Asked Questions
       </h1>
 
-      <Accordion panels={FACTS} exclusive={false} centered styled>
+      <Accordion panels={FACTS} exclusive={false} styled>
       </Accordion>
     </>
   )
