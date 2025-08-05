@@ -3,7 +3,15 @@ import { Menu } from "./Menu";
 import { MenuItem } from "../types";
 import Head from "next/head";
 
-const Layout = ({ children, title, description, selectedMenuItem }: { children: React.ReactNode, title: string, description?: string, selectedMenuItem: MenuItem }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+  title: string;
+  description?: string;
+  selectedMenuItem: MenuItem;
+  canonicalUrl?: string;
+};
+
+const Layout = ({ children, title, description, selectedMenuItem, canonicalUrl }: LayoutProps) => {
   React.useEffect(() => {
     document.title = title;
   }, [title]);
@@ -13,6 +21,7 @@ const Layout = ({ children, title, description, selectedMenuItem }: { children: 
       <Head>
         <title>{title}</title>
         <meta name="description" content={title || description} />
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       </Head>
 
       <div className="off-white-bg">
