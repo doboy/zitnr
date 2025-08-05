@@ -98,7 +98,7 @@ const Calendar = () => {
   }, []);
 
   return (
-    <Layout title={`${park.name} Reservation Calendar`} selectedMenuItem="calendar" canonicalUrl={`/calendar/${park.slug}`}>
+    <Layout title={`${park.name} Reservation Calendar`} selectedMenuItem="calendar" canonicalUrl={`http://zitnr.com/calendar/${park.slug}`}>
       <div className="ui container">
         <h5
           className="ui small header"

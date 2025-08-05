@@ -47,7 +47,7 @@ export const Donate = () => {
   }, []);
 
   return (
-    <Layout selectedMenuItem="donate" title="Donate funds for open play">
+    <Layout selectedMenuItem="donate" title="Donate funds for open play" canonicalUrl="https://zitnr.com/donate">
       <div className="ui container">
         <h2 className="ui small header">
           <i className="money bill alternate icon"></i>

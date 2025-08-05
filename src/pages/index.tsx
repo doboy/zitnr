@@ -11,7 +11,7 @@ const Home = ({ }: {}) => {
 
   return (
     <div>
-      <Layout title="Zack is the new Randy" selectedMenuItem="home">
+      <Layout title="Zack is the new Randy" selectedMenuItem="home" canonicalUrl="https://zitnr.com/">
         <div className="ui basic segment">
           <div className="ui center aligned text container">
             <h1 className="ui header">
