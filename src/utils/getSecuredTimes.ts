@@ -41,15 +41,44 @@ export const getSecuredTimes = async (
     });
   }
 
+  if (park.id == GreenLakeParkEast.id && month == 9 &&
+    (courtId == park.courts[0].id || courtId == park.courts[2].id)) {
+    if (dayOfMonth == 1) {
+      result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
+      result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
+    }
+
+    if (dayOfMonth == 2) {
+      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
+    }
+
+    if (dayOfMonth == 3) {
+      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
+    }
+
+    if (dayOfMonth == 4) {
+      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
+    }
+
+    if (dayOfMonth == 5) {
+      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
+    }
+  }
+
   if (
     park.id == GreenLakeParkEast.id &&
     month == 8 &&
     (courtId == park.courts[0].id || courtId == park.courts[2].id)
   ) {
-    if (dayOfWeek == 1) {
+    if (dayOfMonth == 1) {
       result.push({
-        startTime: "18:45:00",
-        endTime: "19:45:00",
+        startTime: "09:45:00",
+        endTime: "10:45:00",
+        owner: "GLP",
+      });
+      result.push({
+        startTime: "13:15:00",
+        endTime: "14:15:00",
         owner: "GLP",
       });
     }
