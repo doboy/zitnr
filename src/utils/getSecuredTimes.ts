@@ -67,7 +67,7 @@ export const getSecuredTimes = async (
       result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
       result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
     } else if (dayOfMonth >= 29) {
-      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
+      result.push({ startTime: "17:00:00", endTime: "18:00:00", owner: "GLP" });
     }
   }
 
