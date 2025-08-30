@@ -46,21 +46,27 @@ export const getSecuredTimes = async (
     if (dayOfMonth == 1) {
       result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
       result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
-    }
-
-    if (dayOfMonth == 2) {
+    } else if (dayOfMonth >= 2 && dayOfMonth <= 5) {
       result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
-    }
-
-    if (dayOfMonth == 3) {
+    } else if (dayOfMonth == 6 || dayOfMonth == 7) {
+      result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
+      result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
+    } else if (dayOfMonth >= 8 && dayOfMonth <= 12) {
       result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
-    }
-
-    if (dayOfMonth == 4) {
-      result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
-    }
-
-    if (dayOfMonth == 5) {
+    } else if (dayOfMonth == 13 || dayOfMonth == 14) {
+      result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
+      result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
+    } else if (dayOfMonth >= 15 && dayOfMonth <= 19) {
+      result.push({ startTime: "17:30:00", endTime: "18:30:00", owner: "GLP" });
+    } else if (dayOfMonth == 20 || dayOfMonth == 21) {
+      result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
+      result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
+    } else if (dayOfMonth >= 22 && dayOfMonth <= 26) {
+      result.push({ startTime: "17:15:00", endTime: "18:15:00", owner: "GLP" });
+    } else if (dayOfMonth == 27 || dayOfMonth == 28) {
+      result.push({ startTime: "09:45:00", endTime: "10:45:00", owner: "GLP" });
+      result.push({ startTime: "13:15:00", endTime: "14:15:00", owner: "GLP" });
+    } else if (dayOfMonth >= 29) {
       result.push({ startTime: "17:45:00", endTime: "18:45:00", owner: "GLP" });
     }
   }
