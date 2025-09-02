@@ -1,4 +1,6 @@
 import {
+  GreenLakeParkEast,
+  MillerPark,
   Park,
   TimeRange,
   TimeRangeWithOwner,
@@ -29,7 +31,10 @@ export const computeCalendar = (
     park,
     unreservedTimes,
     securedTimes,
-    reservedTimes
+    (
+      park.name == MillerPark.name ||
+      park.name == GreenLakeParkEast.name
+    ) ? reservedTimes : []
   );
 
   return entries.map((time) => {
