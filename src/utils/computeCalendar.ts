@@ -29,7 +29,7 @@ export const computeCalendar = (
     park,
     unreservedTimes,
     securedTimes,
-    [], // reservedTimes
+    reservedTimes
   );
 
   return entries.map((time) => {
