@@ -2,7 +2,61 @@ import React, { useMemo } from "react";
 import classnames from "classnames";
 import { useRouter } from 'next/router';
 
-import { PARKS, parksById, Park, dateToString } from "zitnr-utils";
+import { parksById, Park, dateToString, MillerPark, GreenLakeParkEast, BeaconHillPlayfield, MountBakerPark, BitterLakePlayfield, RainierBeachPlayfield, MagnoliaPark, GreenLakeParkWest, LowerWoodlandPlayfield, IngrahamHS, GarfieldPlayfield, VolunteerPark, MadronaPlayground, SamSmithPark, MontlakePlayfield, RogersPlayfield, AYTCOutdoor, MadisonPark, ObservatoryPark, DavidRodgersPark, JeffersonParkLid, WallingfordPlayfield, LaurelhurstPlayfield, RainierPlayfield, HiawathaPlayfield, SolsticePark, DelridgePlayfield, DearbornPark, BryantPlayground, AlkiPlayfield, BallardHS, SewardPark, RiverviewPlayfield, DiscoveryPark, SealthHSComplex, MeadowbrookPlayfield, WaltHundleyPlayfield, SoundviewPlayfield, MagnoliaPlayfield, GilmanPlayfield, FroulaPlayground, BrightonPlayfield, LowerWoodlandPlayfieldTennis } from "zitnr-utils";
+
+const MAIN_PARKS = [
+  MillerPark,
+  GreenLakeParkEast,
+  MountBakerPark,
+  BeaconHillPlayfield,
+  BitterLakePlayfield,
+  RainierBeachPlayfield,
+  MagnoliaPark,
+  GreenLakeParkWest,
+  LowerWoodlandPlayfield,
+]
+
+const OTHER_PARKS = [
+  IngrahamHS,
+  GarfieldPlayfield,
+  VolunteerPark,
+  MadronaPlayground,
+  SamSmithPark,
+  MontlakePlayfield,
+  RogersPlayfield,
+  AYTCOutdoor,
+  MadisonPark,
+  ObservatoryPark,
+  DavidRodgersPark,
+  JeffersonParkLid,
+  WallingfordPlayfield,
+  LaurelhurstPlayfield,
+  RainierPlayfield,
+  HiawathaPlayfield,
+  SolsticePark,
+  DelridgePlayfield,
+  DearbornPark,
+  BryantPlayground,
+  AlkiPlayfield,
+  BallardHS,
+  SewardPark,
+  RiverviewPlayfield,
+  DiscoveryPark,
+  SealthHSComplex,
+  MeadowbrookPlayfield,
+  WaltHundleyPlayfield,
+  SoundviewPlayfield,
+  MagnoliaPlayfield,
+  GilmanPlayfield,
+  FroulaPlayground,
+  BrightonPlayfield,
+  LowerWoodlandPlayfieldTennis,
+].sort((a, b) => a.name.localeCompare(b.name))
+
+export const PARKS: Park[] = [
+  ...MAIN_PARKS,
+  ...OTHER_PARKS
+]
 
 import { CalendarEntry } from "../../types";
 import { DayCalendar } from "../../components/DayCalendar";
