@@ -10,6 +10,16 @@ export const getReservationsByParkId = async (
   parkId: number,
   dateString: string,
 ): Promise<CalendarEntry[]> => {
+  // If the date string is more than 2 weeks return empty array
+  const date = new Date(dateString);
+  const now = new Date();
+  const pacificNow = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+  const twoWeeksFromNow = new Date(pacificNow);
+  twoWeeksFromNow.setDate(pacificNow.getDate() + 14);
+  if (date > twoWeeksFromNow) {
+    return [];
+  }
+
   const park = parksById[parkId];
 
   const allEntries = await Promise.all(
