@@ -4,6 +4,7 @@ import { computeCalendar } from "./computeCalendar";
 import { getUnreservedTimes } from "./getUnreservedTimes";
 import { getSecuredTimes } from "./getSecuredTimes";
 import { CalendarEntry } from "../types";
+import { getReservedTimes } from "./getReservedTimes";
 
 export const getReservationsByParkId = async (
   parkId: number,
@@ -15,11 +16,12 @@ export const getReservationsByParkId = async (
     park.courts.map(async (court) => {
       const unreservedTimes = await getUnreservedTimes(court.id, dateString);
       const securedTimes = await getSecuredTimes(court.id, dateString);
+      const reservedTimes = await getReservedTimes(court.id, dateString);
 
       return computeCalendar(
-        dateString,
         unreservedTimes,
         securedTimes,
+        reservedTimes,
         park,
         court.id,
       );
