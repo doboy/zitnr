@@ -1,6 +1,9 @@
 import {
+  BeaconHillPlayfield,
+  BitterLakePlayfield,
   GreenLakeParkEast,
   MillerPark,
+  MountBakerPark,
   Park,
   TimeRange,
   TimeRangeWithOwner,
@@ -33,7 +36,10 @@ export const computeCalendar = (
     securedTimes,
     (
       park.name == MillerPark.name ||
-      park.name == GreenLakeParkEast.name
+      park.name == GreenLakeParkEast.name ||
+      park.name == BitterLakePlayfield.name ||
+      park.name == BeaconHillPlayfield.name ||
+      park.name == MountBakerPark.name
     ) ? reservedTimes : []
   );
 
