@@ -35,6 +35,7 @@ body {
   position: absolute;
   border: 1px solid red;
   left: -10px;
+  z-index: 2;
 }
 
 .timeline-dot {
