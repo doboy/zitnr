@@ -14,6 +14,14 @@ import {
 
 import { CalendarEntry } from "../types";
 
+const courtStartTime = (park: Park, court: Park["courts"][0], dayOfWeek: number) => {
+  return court.startTime || park.startTime;
+}
+
+const courtEndTime = (park: Park, court: Park["courts"][0], dayOfWeek: number) => {
+  return court.endTime || park.endTime;
+}
+
 export const computeCalendar = (
   unreservedTimes: Array<TimeRange>,
   securedTimes: Array<TimeRangeWithOwner>,
@@ -31,7 +39,8 @@ export const computeCalendar = (
     park.courts.length == 1 ? " " : `Court ${courtsById[courtId].courtNo}`;
 
   const entries = combineTimes(
-    park,
+    courtStartTime(park, courtsById[courtId], (new Date()).getDay()),
+    courtEndTime(park, courtsById[courtId], (new Date()).getDay()),
     unreservedTimes,
     securedTimes,
     (

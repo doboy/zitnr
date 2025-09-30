@@ -1,7 +1,7 @@
 import React from "react";
 import { PIXELS_PER_HOUR } from "./DayCalendar";
 import { numberToTime } from "../utils/numberToTime";
-import { Popup } from "semantic-ui-react";
+import { Icon, Popup } from "semantic-ui-react";
 
 export interface CalendarEventProps {
   offset: number;
@@ -48,7 +48,7 @@ export const CalendarEvent = ({
         <div
           className={"calendar__event__content__title" + (open ? " open" : "")}
         >
-          {title}
+          {title} <Icon name="hand point up outline" />
         </div>
         <div className="calendar__event__content__location">{location}</div>
       </div>
