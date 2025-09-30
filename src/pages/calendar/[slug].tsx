@@ -110,8 +110,20 @@ const DayCalendarWrapper = ({
   );
 };
 
-const Calendar = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
+export async function getServerSideProps(context) {
+  const park = PARKS.find((p) => p.slug === context.slug);
+  const parkId = park ? park.id : PARKS[0].id;
+  const date = dateToString(new Date());
+
+  // Fetch data from external API
+  const res = await getReservationsByParkId(parkId, date);
+
+  // Pass data to the page via props
+  return { props: { initialEvents: res } };
+};
+
+const Calendar = ({initialEvents}) => {
+  const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
   const router = useRouter();
@@ -121,7 +133,7 @@ const Calendar = () => {
     return park ? park.id : PARKS[0].id;
   }, [router.query.slug]);
 
-  const [calendar, setCalendar] = React.useState<Array<CalendarEntry>>([]);
+  const [calendar, setCalendar] = React.useState<Array<CalendarEntry>>(initialEvents);
 
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
