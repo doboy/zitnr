@@ -64,6 +64,7 @@ import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
 import { Dropdown } from "semantic-ui-react";
 import Layout from "../../components/Layout";
+import { courtEndTime, courtStartTime } from "../../utils/courtStartAndEndTime";
 
 const DayCalendarWrapper = ({
   calendar,
@@ -129,6 +130,20 @@ const Calendar = () => {
   const isDateToday = useMemo(() => {
     return date == dateToString(new Date());
   }, [date]);
+
+  const dayOfWeek = useMemo(() => {
+    const d = new Date(date + "T00:00:00");
+    return d.getDay();
+  }, [date]);
+
+  const startTime = useMemo(() => {
+    return courtStartTime(park, park.courts[0], dayOfWeek);
+  }, [park, dayOfWeek]);
+
+  const endTime = useMemo(() => {
+    return courtEndTime(park, park.courts[0], dayOfWeek);
+  }, [park]);
+
 
   React.useEffect(() => {
     if (!park) {
@@ -230,8 +245,8 @@ const Calendar = () => {
               <DayCalendarWrapper
                 compact
                 calendar={calendar}
-                start={timeToNumber(park.startTime)}
-                end={park.endTime == "00:00:00" ? 24 : timeToNumber(park.endTime)}
+                start={timeToNumber(startTime)}
+                end={endTime == "00:00:00" ? 24 : timeToNumber(endTime)}
                 showTimeline={isDateToday}
               />
             )}

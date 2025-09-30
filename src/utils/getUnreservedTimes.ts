@@ -12,7 +12,10 @@ export const getUnreservedTimes = async (
   const unreservedRef = doc(db, "unreserved", `${courtId}-${dateString}`);
   const document = await getDoc(unreservedRef);
   if (document.exists()) {
-    return (document.data() as UnreservedDoc).times;
+    return (document.data() as UnreservedDoc).times.map((time) => ({
+      startTime: time.startTime,
+      endTime: time.endTime == "00:00:00" ? "23:59:00" : time.endTime,
+    }));
   } else {
     return [];
   }

@@ -11,7 +11,7 @@ export const getReservationsByParkId = async (
   dateString: string,
 ): Promise<CalendarEntry[]> => {
   // If the date string is more than 2 weeks return empty array
-  const date = new Date(dateString);
+  const date = new Date(dateString + "T00:00:00");
   const now = new Date();
   const pacificNow = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
   const twoWeeksFromNow = new Date(pacificNow);
@@ -21,6 +21,7 @@ export const getReservationsByParkId = async (
   }
 
   const park = parksById[parkId];
+  const dayOfWeek = date.getDay();
 
   const allEntries = await Promise.all(
     park.courts.map(async (court) => {
@@ -34,6 +35,7 @@ export const getReservationsByParkId = async (
         reservedTimes,
         park,
         court.id,
+        dayOfWeek,
       );
     }),
   );

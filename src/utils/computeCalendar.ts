@@ -13,14 +13,7 @@ import {
 } from "zitnr-utils";
 
 import { CalendarEntry } from "../types";
-
-const courtStartTime = (park: Park, court: Park["courts"][0], dayOfWeek: number) => {
-  return court.startTime || park.startTime;
-}
-
-const courtEndTime = (park: Park, court: Park["courts"][0], dayOfWeek: number) => {
-  return court.endTime || park.endTime;
-}
+import { courtEndTime, courtStartTime } from "./courtStartAndEndTime";
 
 export const computeCalendar = (
   unreservedTimes: Array<TimeRange>,
@@ -28,6 +21,7 @@ export const computeCalendar = (
   reservedTimes: Array<TimeRangeWithUsage>,
   park: Park,
   courtId: number,
+  dayOfWeek: number,
 ): CalendarEntry[] => {
   if (unreservedTimes.length == 0 && securedTimes.length == 0) {
     return [];
@@ -39,8 +33,8 @@ export const computeCalendar = (
     park.courts.length == 1 ? " " : `Court ${courtsById[courtId].courtNo}`;
 
   const entries = combineTimes(
-    courtStartTime(park, courtsById[courtId], (new Date()).getDay()),
-    courtEndTime(park, courtsById[courtId], (new Date()).getDay()),
+    courtStartTime(park, courtsById[courtId], dayOfWeek),
+    courtEndTime(park, courtsById[courtId], dayOfWeek),
     unreservedTimes,
     securedTimes,
     (
