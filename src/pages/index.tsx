@@ -42,14 +42,13 @@ const Home = ({ }: {}) => {
               See when courts are available for open play in <strong>40+ parks</strong>.<br />
             </div>
             <br />
-            <div className="ui segment medium centered image">
+            <div >
               <a href="/calendar/miller-playfield">
                 <Image
                   alt="Reservation Calendar"
-                  width={270}
-                  height={199}
-                  style={{ border: "1px solid #ddd", borderRadius: "4px" }}
-                  className="ui segment medium centered image"
+                  width={250}
+                  height={496}
+                  className="ui medium centered image"
                   src="/reservation-calendar.png" />
               </a>
             </div>
