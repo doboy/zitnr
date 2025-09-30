@@ -111,7 +111,7 @@ const DayCalendarWrapper = ({
 };
 
 export async function getServerSideProps(context) {
-  const park = PARKS.find((p) => p.slug === context.slug);
+  const park = PARKS.find((p) => p.slug === context.params.slug);
   const parkId = park ? park.id : PARKS[0].id;
   const date = dateToString(new Date());
 
