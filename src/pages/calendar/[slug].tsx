@@ -1,8 +1,55 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import classnames from "classnames";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
-import { parksById, Park, dateToString, MillerPark, GreenLakeParkEast, BeaconHillPlayfield, MountBakerPark, BitterLakePlayfield, RainierBeachPlayfield, MagnoliaPark, GreenLakeParkWest, LowerWoodlandPlayfield, IngrahamHS, GarfieldPlayfield, VolunteerPark, MadronaPlayground, SamSmithPark, MontlakePlayfield, RogersPlayfield, AYTCOutdoor, MadisonPark, ObservatoryPark, DavidRodgersPark, JeffersonParkLid, WallingfordPlayfield, LaurelhurstPlayfield, RainierPlayfield, HiawathaPlayfield, SolsticePark, DelridgePlayfield, DearbornPark, BryantPlayground, AlkiPlayfield, BallardHS, SewardPark, RiverviewPlayfield, DiscoveryPark, SealthHSComplex, MeadowbrookPlayfield, WaltHundleyPlayfield, SoundviewPlayfield, MagnoliaPlayfield, GilmanPlayfield, FroulaPlayground, BrightonPlayfield, LowerWoodlandPlayfieldTennis } from "zitnr-utils";
+import {
+  parksById,
+  Park,
+  dateToString,
+  MillerPark,
+  GreenLakeParkEast,
+  BeaconHillPlayfield,
+  MountBakerPark,
+  BitterLakePlayfield,
+  RainierBeachPlayfield,
+  MagnoliaPark,
+  GreenLakeParkWest,
+  LowerWoodlandPlayfield,
+  IngrahamHS,
+  GarfieldPlayfield,
+  VolunteerPark,
+  MadronaPlayground,
+  SamSmithPark,
+  MontlakePlayfield,
+  RogersPlayfield,
+  AYTCOutdoor,
+  MadisonPark,
+  ObservatoryPark,
+  DavidRodgersPark,
+  JeffersonParkLid,
+  WallingfordPlayfield,
+  LaurelhurstPlayfield,
+  RainierPlayfield,
+  HiawathaPlayfield,
+  SolsticePark,
+  DelridgePlayfield,
+  DearbornPark,
+  BryantPlayground,
+  AlkiPlayfield,
+  BallardHS,
+  SewardPark,
+  RiverviewPlayfield,
+  DiscoveryPark,
+  SealthHSComplex,
+  MeadowbrookPlayfield,
+  WaltHundleyPlayfield,
+  SoundviewPlayfield,
+  MagnoliaPlayfield,
+  GilmanPlayfield,
+  FroulaPlayground,
+  BrightonPlayfield,
+  LowerWoodlandPlayfieldTennis,
+} from "zitnr-utils";
 
 const MAIN_PARKS = [
   MillerPark,
@@ -14,7 +61,7 @@ const MAIN_PARKS = [
   MagnoliaPark,
   GreenLakeParkWest,
   LowerWoodlandPlayfield,
-]
+];
 
 const OTHER_PARKS = [
   IngrahamHS,
@@ -51,12 +98,9 @@ const OTHER_PARKS = [
   FroulaPlayground,
   BrightonPlayfield,
   LowerWoodlandPlayfieldTennis,
-].sort((a, b) => a.name.localeCompare(b.name))
+].sort((a, b) => a.name.localeCompare(b.name));
 
-export const PARKS: Park[] = [
-  ...MAIN_PARKS,
-  ...OTHER_PARKS
-]
+export const PARKS: Park[] = [...MAIN_PARKS, ...OTHER_PARKS];
 
 import { CalendarEntry } from "../../types";
 import { DayCalendar } from "../../components/DayCalendar";
@@ -120,9 +164,9 @@ export async function getServerSideProps(context) {
 
   // Pass data to the page via props
   return { props: { initialEvents: res } };
-};
+}
 
-const Calendar = ({initialEvents}) => {
+const Calendar = ({ initialEvents }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
@@ -133,7 +177,8 @@ const Calendar = ({initialEvents}) => {
     return park ? park.id : PARKS[0].id;
   }, [router.query.slug]);
 
-  const [calendar, setCalendar] = React.useState<Array<CalendarEntry>>(initialEvents);
+  const [calendar, setCalendar] =
+    React.useState<Array<CalendarEntry>>(initialEvents);
 
   const park: Park = React.useMemo(() => {
     return parksById[parkId];
@@ -156,6 +201,9 @@ const Calendar = ({initialEvents}) => {
     return courtEndTime(park, park.courts[0], dayOfWeek);
   }, [park]);
 
+  const showMessage2 = React.useMemo(() => {
+    return park.id == MillerPark.id
+  }, [park]);
 
   React.useEffect(() => {
     if (!park) {
@@ -179,7 +227,11 @@ const Calendar = ({initialEvents}) => {
   }, []);
 
   return (
-    <Layout title={`${park.name} Reservation Calendar`} selectedMenuItem="calendar" canonicalUrl={`http://zitnr.com/calendar/${park.slug}`}>
+    <Layout
+      title={`${park.name} Reservation Calendar`}
+      selectedMenuItem="calendar"
+      canonicalUrl={`http://zitnr.com/calendar/${park.slug}`}
+    >
       <div className="ui container">
         <h5
           className="ui small header"
@@ -196,13 +248,20 @@ const Calendar = ({initialEvents}) => {
           <form className="ui small form">
             <div className="fields">
               <div className="inline field">
-                <Dropdown selection options={dropdownOptions} value={park.id} onChange={(e, dropdownProps) => {
-                  const parkId = dropdownProps.value;
-                  if (parkId && parkId.toString() != park.id.toString()) {
-                    router.push(`/calendar/${parksById[parkId.toString()].slug}`)
-                    setIsLoading(true)
-                  }
-                }}/>
+                <Dropdown
+                  selection
+                  options={dropdownOptions}
+                  value={park.id}
+                  onChange={(e, dropdownProps) => {
+                    const parkId = dropdownProps.value;
+                    if (parkId && parkId.toString() != park.id.toString()) {
+                      router.push(
+                        `/calendar/${parksById[parkId.toString()].slug}`
+                      );
+                      setIsLoading(true);
+                    }
+                  }}
+                />
               </div>
 
               <div className="inline field">
@@ -244,6 +303,24 @@ const Calendar = ({initialEvents}) => {
               )}
             </div>
           </form>
+
+          {showMessage2 && (
+            <div className="ui visible blue message">
+              {/* <i
+                className="close icon"
+                onClick={() => {
+                  localStorage.setItem("m1", "1");
+                  setshowMessage2(false);
+                }}
+              /> */}
+
+              <p style={{ marginTop: 0 }}>
+                The last day that z.i.t.n.r. will be reserving the courts is
+                October 1st since rainy season is coming 🌧️ 💦 😅. We will
+                start reserving the courts again next year.
+              </p>
+            </div>
+          )}
 
           <div
             className={classnames([
