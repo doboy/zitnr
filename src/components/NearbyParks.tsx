@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export interface NearbyPark {
   name: string;
@@ -18,7 +19,7 @@ export const NearbyParks = ({ parks }: { parks: NearbyPark[] }) => {
       </h5>
       <div className="ui relaxed divided list">
         {parks.map((park) => (
-          <a
+          <Link
             key={park.slug}
             className="item"
             href={`/calendar/${park.slug}`}
@@ -30,7 +31,7 @@ export const NearbyParks = ({ parks }: { parks: NearbyPark[] }) => {
                 {park.courtCount === 1 ? "court" : "courts"}
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
