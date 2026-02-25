@@ -107,7 +107,7 @@ import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
 import Layout from "../../components/Layout";
-import ParksList from "../../components/ParksList";
+import { NearbyParks, NearbyPark } from "../../components/NearbyParks";
 import { calculateDistanceBetweenCoordsInMiles } from "../../utils/calculateDistanceBetweenCoordsInMiles";
 import { courtEndTime, courtStartTime } from "../../utils/courtStartAndEndTime";
 
@@ -252,12 +252,14 @@ const ParkDropdown = ({
 
 const NUM_NEARBY = 5;
 
-function getNearbyParks(park: Park): Park[] {
+function getNearbyParks(park: Park): NearbyPark[] {
   if (!park.location) return [];
 
   return PARKS.filter((p) => p.id !== park.id && p.location)
     .map((p) => ({
-      park: p,
+      name: p.name,
+      slug: p.slug,
+      courtCount: p.courts.length,
       distance: calculateDistanceBetweenCoordsInMiles(
         park.location!.latitude,
         park.location!.longitude,
@@ -266,8 +268,7 @@ function getNearbyParks(park: Park): Park[] {
       ),
     }))
     .sort((a, b) => a.distance - b.distance)
-    .slice(0, NUM_NEARBY)
-    .map((entry) => entry.park);
+    .slice(0, NUM_NEARBY);
 }
 
 export async function getServerSideProps(context) {
@@ -281,7 +282,7 @@ export async function getServerSideProps(context) {
   return { props: { initialEvents: res, nearbyParks } };
 }
 
-const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: Park[] }) => {
+const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: NearbyPark[] }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
@@ -462,11 +463,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
           </div>
         </div>
 
-        <h5 className="ui small header" style={{ marginTop: "1.5rem" }}>
-          <i className="map marker alternate icon"></i>
-          <div className="content">Nearby Parks</div>
-        </h5>
-        <ParksList parks={nearbyParks} />
+        <NearbyParks parks={nearbyParks} />
       </div>
     </Layout>
   );
