@@ -40,24 +40,26 @@ export const CalendarEvent = ({
     : `${numberToTime(start)} - ${numberToTime(end)}`;
 
   return (
-    <div
-      style={eventStyle}
-      className={"calendar__event" + (open ? " open" : "")}
-      onClick={() => setShowPopup(!showPopup)}
-    >
-      <div className="calendar__event__content">
-        <div
-          className={"calendar__event__content__title" + (open ? " open" : "")}
-        >
-          {title} <i className="hand point up outline icon" />
+    <>
+      <div
+        style={eventStyle}
+        className={"calendar__event" + (open ? " open" : "")}
+        onClick={() => setShowPopup(!showPopup)}
+      >
+        <div className="calendar__event__content">
+          <div
+            className={"calendar__event__content__title" + (open ? " open" : "")}
+          >
+            {title} <i className="hand point up outline icon" />
+          </div>
+          <div className="calendar__event__content__location">{location}</div>
         </div>
-        <div className="calendar__event__content__location">{location}</div>
       </div>
       {showPopup && (
-        <div className="calendar__event__popup">
+        <div className="calendar__event__popup" style={eventStyle}>
           {popupContent}
         </div>
       )}
-    </div>
+    </>
   );
 };

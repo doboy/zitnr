@@ -104,9 +104,7 @@ body {
 
 .calendar__event__popup {
   position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  transform: translateY(-100%);
   background: #fff;
   border: 1px solid #d4d4d5;
   border-radius: 4px;
