@@ -107,7 +107,8 @@ import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
 import Layout from "../../components/Layout";
-import { NearbyParks } from "../../components/NearbyParks";
+import { NearbyParks, NearbyPark } from "../../components/NearbyParks";
+import { calculateDistanceBetweenCoordsInMiles } from "../../utils/calculateDistanceBetweenCoordsInMiles";
 import { courtEndTime, courtStartTime } from "../../utils/courtStartAndEndTime";
 
 const DayCalendarWrapper = ({
@@ -249,19 +250,39 @@ const ParkDropdown = ({
   );
 };
 
-export async function getServerSideProps(context) {
-  const park = PARKS.find((p) => p.slug === context.params.slug);
-  const parkId = park ? park.id : PARKS[0].id;
-  const date = dateToString(new Date());
+const NUM_NEARBY = 5;
 
-  // Fetch data from external API
-  const res = await getReservationsByParkId(parkId, date);
+function getNearbyParks(park: Park): NearbyPark[] {
+  if (!park.location) return [];
 
-  // Pass data to the page via props
-  return { props: { initialEvents: res } };
+  return PARKS.filter((p) => p.id !== park.id && p.location)
+    .map((p) => ({
+      name: p.name,
+      slug: p.slug,
+      courtCount: p.courts.length,
+      distance: calculateDistanceBetweenCoordsInMiles(
+        park.location!.latitude,
+        park.location!.longitude,
+        p.location!.latitude,
+        p.location!.longitude
+      ),
+    }))
+    .sort((a, b) => a.distance - b.distance)
+    .slice(0, NUM_NEARBY);
 }
 
-const Calendar = ({ initialEvents }) => {
+export async function getServerSideProps(context) {
+  const park = PARKS.find((p) => p.slug === context.params.slug);
+  const resolvedPark = park ?? PARKS[0];
+  const date = dateToString(new Date());
+
+  const res = await getReservationsByParkId(resolvedPark.id, date);
+  const nearbyParks = getNearbyParks(resolvedPark);
+
+  return { props: { initialEvents: res, nearbyParks } };
+}
+
+const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: NearbyPark[] }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
@@ -442,7 +463,7 @@ const Calendar = ({ initialEvents }) => {
           </div>
         </div>
 
-        <NearbyParks currentPark={park} />
+        <NearbyParks parks={nearbyParks} />
       </div>
     </Layout>
   );

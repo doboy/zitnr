@@ -1,28 +1,14 @@
-import React, { useMemo } from "react";
-import { Park, PARKS } from "zitnr-utils";
-import { calculateDistanceBetweenCoordsInMiles } from "../utils/calculateDistanceBetweenCoordsInMiles";
+import React from "react";
 
-const NUM_NEARBY = 5;
+export interface NearbyPark {
+  name: string;
+  slug: string;
+  distance: number;
+  courtCount: number;
+}
 
-export const NearbyParks = ({ currentPark }: { currentPark: Park }) => {
-  const nearbyParks = useMemo(() => {
-    if (!currentPark.location) return [];
-
-    return PARKS.filter((p) => p.id !== currentPark.id && p.location)
-      .map((p) => ({
-        park: p,
-        distance: calculateDistanceBetweenCoordsInMiles(
-          currentPark.location!.latitude,
-          currentPark.location!.longitude,
-          p.location!.latitude,
-          p.location!.longitude
-        ),
-      }))
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, NUM_NEARBY);
-  }, [currentPark]);
-
-  if (nearbyParks.length === 0) return null;
+export const NearbyParks = ({ parks }: { parks: NearbyPark[] }) => {
+  if (parks.length === 0) return null;
 
   return (
     <div style={{ marginTop: "1.5rem" }}>
@@ -31,17 +17,17 @@ export const NearbyParks = ({ currentPark }: { currentPark: Park }) => {
         <div className="content">Nearby Parks</div>
       </h5>
       <div className="ui relaxed divided list">
-        {nearbyParks.map(({ park, distance }) => (
+        {parks.map((park) => (
           <a
-            key={park.id}
+            key={park.slug}
             className="item"
             href={`/calendar/${park.slug}`}
           >
             <div className="content">
               <div className="header">{park.name}</div>
               <div className="description">
-                {distance.toFixed(1)} miles away &middot; {park.courts.length}{" "}
-                {park.courts.length === 1 ? "court" : "courts"}
+                {park.distance.toFixed(1)} miles away &middot; {park.courtCount}{" "}
+                {park.courtCount === 1 ? "court" : "courts"}
               </div>
             </div>
           </a>
