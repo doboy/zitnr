@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Park } from "zitnr-utils";
 
 const REGIONS: { name: string; slugs: string[] }[] = [
@@ -85,57 +86,39 @@ const ParksList = ({ parks }: ParksListProps) => {
   });
 
   return (
-    <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-      <div className="ui stackable grid">
-        {REGIONS.map((region) => {
-          const regionParks = region.slugs
-            .map((slug) => parksBySlug[slug])
-            .filter(Boolean)
-            .sort((a, b) => a.name.localeCompare(b.name));
+    <div style={{ marginTop: "1rem" }}>
+      {REGIONS.map((region) => {
+        const regionParks = region.slugs
+          .map((slug) => parksBySlug[slug])
+          .filter(Boolean)
+          .sort((a, b) => a.name.localeCompare(b.name));
 
-          if (regionParks.length === 0) return null;
+        if (regionParks.length === 0) return null;
 
-          // Split parks into pairs for 2-column rows
-          const rows: Park[][] = [];
-          for (let i = 0; i < regionParks.length; i += 2) {
-            rows.push(regionParks.slice(i, i + 2));
-          }
-
-          return (
-            <React.Fragment key={region.name}>
-              <div className="row">
-                <div className="sixteen wide column">
-                  <h5
-                    className="ui tiny header"
-                    style={{ marginBottom: 0, color: "#555" }}
-                  >
-                    {region.name}
-                  </h5>
-                </div>
-              </div>
-              {rows.map((row, i) => (
-                <div className="row" key={i}>
-                  {row.map((park) => (
-                    <div className="eight wide column" key={park.id}>
-                      <i className="map pin icon"></i>
-                      <a href={`/calendar/${park.slug}`}>{park.name}</a>
-                      <span style={{ color: "#888", marginLeft: "0.5rem" }}>
-                        ({park.courts.length} court
-                        {park.courts.length !== 1 ? "s" : ""})
-                      </span>
+        return (
+          <div key={region.name}>
+            <h5 className="ui small header">
+              <i className="map marker alternate icon"></i>
+              <div className="content">{region.name}</div>
+            </h5>
+            <div className="ui relaxed divided list">
+              {regionParks.map((park) => (
+                <div key={park.id} className="item">
+                  <div className="content">
+                    <Link className="header" href={`/calendar/${park.slug}`}>
+                      {park.name}
+                    </Link>
+                    <div className="description">
+                      {park.courts.length} court
+                      {park.courts.length !== 1 ? "s" : ""}
                     </div>
-                  ))}
+                  </div>
                 </div>
               ))}
-              <div className="row">
-                <div className="sixteen wide column">
-                  <div className="ui divider"></div>
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-      </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
