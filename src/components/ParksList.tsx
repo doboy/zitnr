@@ -103,46 +103,50 @@ const ParksList = ({ parks }: ParksListProps) => {
 
           if (regionParks.length === 0) return null;
 
-          // Split parks into 3 columns
-          const colSize = Math.ceil(regionParks.length / 3);
-          const columns = [
-            regionParks.slice(0, colSize),
-            regionParks.slice(colSize, colSize * 2),
-            regionParks.slice(colSize * 2),
-          ].filter((col) => col.length > 0);
+          // Split parks into pairs for 2-column rows
+          const rows: Park[][] = [];
+          for (let i = 0; i < regionParks.length; i += 2) {
+            rows.push(regionParks.slice(i, i + 2));
+          }
 
           return (
-            <div className="row" key={region.name}>
-              <div className="sixteen wide column" style={{ paddingBottom: 0 }}>
-                <h5
-                  className="ui tiny header"
-                  style={{ marginBottom: 0, color: "#555" }}
-                >
-                  {region.name}
-                </h5>
+            <React.Fragment key={region.name}>
+              <div className="row" style={{ paddingBottom: 0 }}>
+                <div className="sixteen wide column" style={{ paddingBottom: 0 }}>
+                  <h5
+                    className="ui tiny header"
+                    style={{ marginBottom: 0, color: "#555" }}
+                  >
+                    {region.name}
+                  </h5>
+                </div>
               </div>
-              {columns.map((col, i) => (
-                <div className="five wide column" key={i} style={{ paddingTop: 0 }}>
-                  <div className="ui list" style={{ marginTop: 0 }}>
-                    {col.map((park) => (
-                      <div className="item" key={park.id}>
-                        <i className="map pin icon"></i>
-                        <div className="content">
-                          <a href={`/calendar/${park.slug}`}>{park.name}</a>
-                          <span style={{ color: "#888", marginLeft: "0.5rem" }}>
-                            ({park.courts.length} court
-                            {park.courts.length !== 1 ? "s" : ""})
-                          </span>
+              {rows.map((row, i) => (
+                <div className="row" key={i} style={{ paddingTop: 0, paddingBottom: 0 }}>
+                  {row.map((park) => (
+                    <div className="eight wide column" key={park.id} style={{ paddingTop: 0 }}>
+                      <div className="ui list" style={{ marginTop: 0, marginBottom: 0 }}>
+                        <div className="item">
+                          <i className="map pin icon"></i>
+                          <div className="content">
+                            <a href={`/calendar/${park.slug}`}>{park.name}</a>
+                            <span style={{ color: "#888", marginLeft: "0.5rem" }}>
+                              ({park.courts.length} court
+                              {park.courts.length !== 1 ? "s" : ""})
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               ))}
-              <div className="sixteen wide column" style={{ paddingTop: 0, paddingBottom: 0 }}>
-                <div className="ui divider"></div>
+              <div className="row" style={{ paddingTop: 0, paddingBottom: 0 }}>
+                <div className="sixteen wide column" style={{ paddingTop: 0, paddingBottom: 0 }}>
+                  <div className="ui divider"></div>
+                </div>
               </div>
-            </div>
+            </React.Fragment>
           );
         })}
       </div>
