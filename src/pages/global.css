@@ -102,6 +102,20 @@ body {
   font-style: italic;
 }
 
+.calendar__event__popup {
+  position: absolute;
+  transform: translateY(-100%);
+  background: #fff;
+  border: 1px solid #d4d4d5;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  pointer-events: none;
+}
+
 .calendar__divisor {
   position: absolute;
   left: 0;
