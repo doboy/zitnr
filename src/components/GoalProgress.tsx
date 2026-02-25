@@ -1,16 +1,18 @@
-import classNames from "classnames"
-import React, { useEffect, useMemo } from "react"
-import { Progress } from "semantic-ui-react";
+import React from "react"
 
 export const GoalProgress = ({
   totalDonations,
   goal
 }) => {
-  const progressRef = React.useRef<HTMLDivElement>(null);
+  const percent = Math.min(100, Math.round((totalDonations / goal) * 100));
 
   return (
     <div>
-      <Progress value={totalDonations} total={goal} indicating />
+      <div className={`ui ${percent >= 100 ? "success" : "indicating"} progress`} data-percent={percent}>
+        <div className="bar" style={{ width: `${percent}%`, transition: "width 0.3s ease" }}>
+          <div className="progress">{percent}%</div>
+        </div>
+      </div>
       <h3 className="ui header">
         <div className="content">
           ${Math.min(goal, totalDonations).toFixed(2)} raised<br />
