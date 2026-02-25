@@ -14,7 +14,7 @@ export default function sitemap() : MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://zitnr.com/map',
+      url: 'https://www.zitnr.com/map',
       changeFrequency: 'weekly',
       priority: 0.9,
     },
