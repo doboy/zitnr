@@ -230,7 +230,7 @@ const Calendar = ({ initialEvents }) => {
     <Layout
       title={`${park.name} Reservation Calendar`}
       selectedMenuItem="calendar"
-      canonicalUrl={`http://zitnr.com/calendar/${park.slug}`}
+      canonicalUrl={`https://www.zitnr.com/calendar/${park.slug}`}
     >
       <div className="ui container">
         <h5
