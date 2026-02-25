@@ -141,7 +141,7 @@ const ParksMap = ({ parks }: ParksMapProps) => {
 
       <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
         <h1 className="ui header">All Parks</h1>
-        <div className="ui three column stackable grid">
+        <div className="ui stackable grid">
           {REGIONS.map((region) => {
             const regionParks = region.slugs
               .map((slug) => parksBySlug[slug])
@@ -150,28 +150,42 @@ const ParksMap = ({ parks }: ParksMapProps) => {
 
             if (regionParks.length === 0) return null;
 
+            // Split parks into 3 columns
+            const colSize = Math.ceil(regionParks.length / 3);
+            const columns = [
+              regionParks.slice(0, colSize),
+              regionParks.slice(colSize, colSize * 2),
+              regionParks.slice(colSize * 2),
+            ].filter((col) => col.length > 0);
+
             return (
-              <div className="column" key={region.name}>
-                <h5
-                  className="ui tiny header"
-                  style={{ marginBottom: ".25rem", color: "#555" }}
-                >
-                  {region.name}
-                </h5>
-                <div className="ui list" style={{ marginTop: 0 }}>
-                  {regionParks.map((park) => (
-                    <div className="item" key={park.id}>
-                      <i className="map pin icon"></i>
-                      <div className="content">
-                        <a href={`/calendar/${park.slug}`}>{park.name}</a>
-                        <span style={{ color: "#888", marginLeft: "0.5rem" }}>
-                          ({park.courts.length} court
-                          {park.courts.length !== 1 ? "s" : ""})
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+              <div className="row" key={region.name}>
+                <div className="sixteen wide column" style={{ paddingBottom: 0 }}>
+                  <h5
+                    className="ui tiny header"
+                    style={{ marginBottom: 0, color: "#555" }}
+                  >
+                    {region.name}
+                  </h5>
                 </div>
+                {columns.map((col, i) => (
+                  <div className="five wide column" key={i} style={{ paddingTop: 0 }}>
+                    <div className="ui list" style={{ marginTop: 0 }}>
+                      {col.map((park) => (
+                        <div className="item" key={park.id}>
+                          <i className="map pin icon"></i>
+                          <div className="content">
+                            <a href={`/calendar/${park.slug}`}>{park.name}</a>
+                            <span style={{ color: "#888", marginLeft: "0.5rem" }}>
+                              ({park.courts.length} court
+                              {park.courts.length !== 1 ? "s" : ""})
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             );
           })}
