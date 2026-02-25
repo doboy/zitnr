@@ -15,7 +15,7 @@ const MapPage = () => {
     <Layout
       title="Parks Map"
       selectedMenuItem="map"
-      canonicalUrl="https://zitnr.com/map"
+      canonicalUrl="https://www.zitnr.com/map"
     >
       <div className="ui container">
         <h5
