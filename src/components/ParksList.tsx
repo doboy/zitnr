@@ -96,7 +96,7 @@ const ParksList = ({ parks }: ParksListProps) => {
         if (regionParks.length === 0) return null;
 
         return (
-          <div key={region.name}>
+          <div key={region.name} style={{ marginBottom: "1.5rem" }}>
             <h5 className="ui small header">
               <i className="map marker alternate icon"></i>
               <div className="content">{region.name}</div>
