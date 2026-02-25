@@ -3,7 +3,7 @@ import { Park } from "zitnr-utils";
 
 const REGIONS: { name: string; slugs: string[] }[] = [
   {
-    name: "NorthWest",
+    name: "North West Seattle",
     slugs: [
       "bitter-lake-playfield",
       "ingraham-hs",
@@ -14,7 +14,7 @@ const REGIONS: { name: string; slugs: string[] }[] = [
     ],
   },
   {
-    name: "NorthEast",
+    name: "North East Seattle",
     slugs: [
       "green-lake-park-east",
       "green-lake-park-west",
@@ -27,11 +27,11 @@ const REGIONS: { name: string; slugs: string[] }[] = [
     ],
   },
   {
-    name: "Magnolia & Queen Anne",
+    name: "Magnolia & Queen Anne Seattle",
     slugs: ["magnolia-park", "magnolia-playfield", "discovery-park"],
   },
   {
-    name: "Central",
+    name: "Central Seattle",
     slugs: [
       "miller-playfield",
       "volunteer-park",
@@ -44,11 +44,11 @@ const REGIONS: { name: string; slugs: string[] }[] = [
     ],
   },
   {
-    name: "Downtown",
+    name: "Downtown Seattle",
     slugs: ["sam-smith-park", "dearborn-park", "david-rodgers-park"],
   },
   {
-    name: "SouthEast",
+    name: "South East Seattle",
     slugs: [
       "beacon-hill-playfield",
       "mount-baker-park",
@@ -61,7 +61,7 @@ const REGIONS: { name: string; slugs: string[] }[] = [
     ],
   },
   {
-    name: "West & Delridge",
+    name: "West Seattle & Delridge",
     slugs: [
       "alki-playfield",
       "delridge-playfield",
