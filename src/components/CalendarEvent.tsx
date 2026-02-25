@@ -25,6 +25,7 @@ export const CalendarEvent = ({
   compact,
   open,
 }: CalendarEventProps) => {
+  const [showPopup, setShowPopup] = React.useState(false);
   const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
 
   const eventStyle = {
@@ -42,7 +43,7 @@ export const CalendarEvent = ({
     <div
       style={eventStyle}
       className={"calendar__event" + (open ? " open" : "")}
-      title={popupContent}
+      onClick={() => setShowPopup(!showPopup)}
     >
       <div className="calendar__event__content">
         <div
@@ -52,6 +53,11 @@ export const CalendarEvent = ({
         </div>
         <div className="calendar__event__content__location">{location}</div>
       </div>
+      {showPopup && (
+        <div className="calendar__event__popup">
+          {popupContent}
+        </div>
+      )}
     </div>
   );
 };
