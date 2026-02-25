@@ -11,7 +11,7 @@ export const NearbyParks = ({ parks }: { parks: NearbyPark[] }) => {
   if (parks.length === 0) return null;
 
   return (
-    <div style={{ marginTop: "1.5rem" }}>
+    <div>
       <h5 className="ui small header">
         <i className="map marker alternate icon"></i>
         <div className="content">Nearby Parks</div>
