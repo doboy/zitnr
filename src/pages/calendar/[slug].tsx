@@ -107,6 +107,7 @@ import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
 import Layout from "../../components/Layout";
+import { NearbyParks } from "../../components/NearbyParks";
 import { courtEndTime, courtStartTime } from "../../utils/courtStartAndEndTime";
 
 const DayCalendarWrapper = ({
@@ -440,6 +441,8 @@ const Calendar = ({ initialEvents }) => {
             )}
           </div>
         </div>
+
+        <NearbyParks currentPark={park} />
       </div>
     </Layout>
   );
