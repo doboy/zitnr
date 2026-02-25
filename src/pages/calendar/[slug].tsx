@@ -106,7 +106,6 @@ import { CalendarEntry } from "../../types";
 import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
-import { Dropdown } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import { courtEndTime, courtStartTime } from "../../utils/courtStartAndEndTime";
 
@@ -248,20 +247,25 @@ const Calendar = ({ initialEvents }) => {
           <form className="ui small form">
             <div className="fields">
               <div className="inline field">
-                <Dropdown
-                  selection
-                  options={dropdownOptions}
+                <select
+                  className="ui selection dropdown"
                   value={park.id}
-                  onChange={(e, dropdownProps) => {
-                    const parkId = dropdownProps.value;
-                    if (parkId && parkId.toString() != park.id.toString()) {
+                  onChange={(e) => {
+                    const parkId = e.target.value;
+                    if (parkId && parkId !== park.id.toString()) {
                       router.push(
-                        `/calendar/${parksById[parkId.toString()].slug}`
+                        `/calendar/${parksById[parkId].slug}`
                       );
                       setIsLoading(true);
                     }
                   }}
-                />
+                >
+                  {dropdownOptions.map((option) => (
+                    <option key={option.key} value={option.value}>
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="inline field">

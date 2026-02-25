@@ -1,7 +1,6 @@
 import React from "react";
 import { BalanceStats } from "../components/BalanceStats";
 import { useTransactions } from "../hooks/useTransactions";
-import { Accordion } from "semantic-ui-react";
 import Layout from "../components/Layout";
 import Image from 'next/image';
 import { PARKS } from "zitnr-utils";
@@ -152,14 +151,42 @@ const FACTS = [{
 
 
 const Faqs = () => {
+  const [openPanels, setOpenPanels] = React.useState<Set<number>>(new Set());
+
+  const togglePanel = (index: number) => {
+    setOpenPanels(prev => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
+
   return (
     <>
       <h1 className="ui centered aligned header">
         Frequently Asked Questions
       </h1>
 
-      <Accordion panels={FACTS} exclusive={false} styled>
-      </Accordion>
+      <div className="ui styled accordion">
+        {FACTS.map((fact, index) => (
+          <React.Fragment key={index}>
+            <div
+              className={`title${openPanels.has(index) ? " active" : ""}`}
+              onClick={() => togglePanel(index)}
+            >
+              <i className="dropdown icon" />
+              {fact.title}
+            </div>
+            <div className={`content${openPanels.has(index) ? " active" : ""}`}>
+              <p>{fact.content}</p>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
     </>
   )
 }
