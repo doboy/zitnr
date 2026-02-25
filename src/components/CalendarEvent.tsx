@@ -25,7 +25,6 @@ export const CalendarEvent = ({
   compact,
   open,
 }: CalendarEventProps) => {
-  const [showPopup, setShowPopup] = React.useState(false);
   const pixelsPerHour = compact ? PIXELS_PER_HOUR / 2 : PIXELS_PER_HOUR;
 
   const eventStyle = {
@@ -35,31 +34,19 @@ export const CalendarEvent = ({
     width: `calc(${100 / widthDivisor}% - 8px`,
   };
 
-  const popupContent = location.trim()
-    ? `${location}: ${numberToTime(start)} - ${numberToTime(end)}`
-    : `${numberToTime(start)} - ${numberToTime(end)}`;
-
   return (
-    <>
-      <div
-        style={eventStyle}
-        className={"calendar__event" + (open ? " open" : "")}
-        onClick={() => setShowPopup(!showPopup)}
-      >
-        <div className="calendar__event__content">
-          <div
-            className={"calendar__event__content__title" + (open ? " open" : "")}
-          >
-            {title} <i className="hand point up outline icon" />
-          </div>
-          <div className="calendar__event__content__location">{location}</div>
+    <div
+      style={eventStyle}
+      className={"calendar__event" + (open ? " open" : "")}
+    >
+      <div className="calendar__event__content">
+        <div
+          className={"calendar__event__content__title" + (open ? " open" : "")}
+        >
+          {title} <i className="hand point up outline icon" />
         </div>
+        <div className="calendar__event__content__location">{location}</div>
       </div>
-      {showPopup && (
-        <div className="calendar__event__popup" style={eventStyle}>
-          {popupContent}
-        </div>
-      )}
-    </>
+    </div>
   );
 };
