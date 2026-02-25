@@ -463,7 +463,9 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
           </div>
         </div>
 
-        <NearbyParks parks={nearbyParks} />
+        <div className="ui basic segment">
+          <NearbyParks parks={nearbyParks} />
+        </div>
       </div>
     </Layout>
   );
