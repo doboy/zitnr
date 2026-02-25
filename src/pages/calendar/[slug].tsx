@@ -338,6 +338,13 @@ const Calendar = ({ initialEvents }) => {
           </div>
         </h5>
 
+        {park.address && (
+          <div style={{ marginBottom: ".5rem", color: "gray" }}>
+            <i className="map marker alternate icon"></i>
+            {park.address}
+          </div>
+        )}
+
         <div className="very basic segment">
           <form className="ui small form">
             <div className="fields">

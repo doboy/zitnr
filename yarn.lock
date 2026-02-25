@@ -5249,7 +5249,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zitnr-utils@1.0.34:
-  version "1.0.34"
-  resolved "https://registry.npmjs.org/zitnr-utils/-/zitnr-utils-1.0.34.tgz"
-  integrity sha512-wTGbeMgFyXmWf6hBUZlyh1j8X4kmGrotENQqQmq/vRdtlQJnZ1N852eSzbvvUZ6wGuvZ8Zi3NrljRMTL6mPU1Q==
+zitnr-utils@1.0.35:
+  version "1.0.35"
+  resolved "https://registry.npmjs.org/zitnr-utils/-/zitnr-utils-1.0.35.tgz"
+  integrity sha512-5URLX7pBXq4tzBMvaOq2aJH40JOAheyT5/2E/dFepYRWvgkP+uMoZ20sSK9wyeV2dqbu3/fFgAIEUG2rM8ynow==
