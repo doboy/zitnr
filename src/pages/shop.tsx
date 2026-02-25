@@ -177,8 +177,8 @@ const ShopPage = () => {
     (p) => p.category === activeCategory
   );
 
-  const brands = [...new Set(categoryProducts.map((p) => p.brand))].sort();
-  const colors = [...new Set(categoryProducts.map((p) => p.color))].sort();
+  const brands = Array.from(new Set(categoryProducts.map((p) => p.brand))).sort();
+  const colors = Array.from(new Set(categoryProducts.map((p) => p.color))).sort();
 
   const filteredProducts = categoryProducts.filter(
     (p) =>
