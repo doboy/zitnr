@@ -125,18 +125,12 @@ const ParksList = ({ parks }: ParksListProps) => {
                 <div className="row" key={i} style={{ paddingTop: 0, paddingBottom: 0 }}>
                   {row.map((park) => (
                     <div className="eight wide column" key={park.id} style={{ paddingTop: 0 }}>
-                      <div className="ui list" style={{ marginTop: 0, marginBottom: 0 }}>
-                        <div className="item">
-                          <i className="map pin icon"></i>
-                          <div className="content">
-                            <a href={`/calendar/${park.slug}`}>{park.name}</a>
-                            <span style={{ color: "#888", marginLeft: "0.5rem" }}>
-                              ({park.courts.length} court
-                              {park.courts.length !== 1 ? "s" : ""})
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+                      <i className="map pin icon"></i>
+                      <a href={`/calendar/${park.slug}`}>{park.name}</a>
+                      <span style={{ color: "#888", marginLeft: "0.5rem" }}>
+                        ({park.courts.length} court
+                        {park.courts.length !== 1 ? "s" : ""})
+                      </span>
                     </div>
                   ))}
                 </div>
