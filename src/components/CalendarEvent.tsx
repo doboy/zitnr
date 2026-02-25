@@ -1,4 +1,5 @@
 import React from "react";
+import { Popup } from "semantic-ui-react";
 import { PIXELS_PER_HOUR } from "./DayCalendar";
 import { numberToTime } from "../utils/numberToTime";
 
@@ -34,19 +35,37 @@ export const CalendarEvent = ({
     width: `calc(${100 / widthDivisor}% - 8px`,
   };
 
+  const timeRange = `${numberToTime(start)} - ${numberToTime(end)}`;
+
   return (
-    <div
-      style={eventStyle}
-      className={"calendar__event" + (open ? " open" : "")}
-    >
-      <div className="calendar__event__content">
+    <Popup
+      trigger={
         <div
-          className={"calendar__event__content__title" + (open ? " open" : "")}
+          style={eventStyle}
+          className={"calendar__event" + (open ? " open" : "")}
         >
-          {title} <i className="hand point up outline icon" />
+          <div className="calendar__event__content">
+            <div
+              className={
+                "calendar__event__content__title" + (open ? " open" : "")
+              }
+            >
+              {title} <i className="hand point up outline icon" />
+            </div>
+            <div className="calendar__event__content__location">{location}</div>
+          </div>
         </div>
-        <div className="calendar__event__content__location">{location}</div>
-      </div>
-    </div>
+      }
+      content={
+        <div>
+          <strong>{title}</strong>
+          <div>{location}</div>
+          <div>{timeRange}</div>
+        </div>
+      }
+      position="top center"
+      size="small"
+      hoverable
+    />
   );
 };
