@@ -111,8 +111,8 @@ const ParksList = ({ parks }: ParksListProps) => {
 
           return (
             <React.Fragment key={region.name}>
-              <div className="row" style={{ paddingBottom: 0 }}>
-                <div className="sixteen wide column" style={{ paddingBottom: 0 }}>
+              <div className="row">
+                <div className="sixteen wide column">
                   <h5
                     className="ui tiny header"
                     style={{ marginBottom: 0, color: "#555" }}
@@ -122,9 +122,9 @@ const ParksList = ({ parks }: ParksListProps) => {
                 </div>
               </div>
               {rows.map((row, i) => (
-                <div className="row" key={i} style={{ paddingTop: 0, paddingBottom: 0 }}>
+                <div className="row" key={i}>
                   {row.map((park) => (
-                    <div className="eight wide column" key={park.id} style={{ paddingTop: 0 }}>
+                    <div className="eight wide column" key={park.id}>
                       <i className="map pin icon"></i>
                       <a href={`/calendar/${park.slug}`}>{park.name}</a>
                       <span style={{ color: "#888", marginLeft: "0.5rem" }}>
@@ -135,8 +135,8 @@ const ParksList = ({ parks }: ParksListProps) => {
                   ))}
                 </div>
               ))}
-              <div className="row" style={{ paddingTop: 0, paddingBottom: 0 }}>
-                <div className="sixteen wide column" style={{ paddingTop: 0, paddingBottom: 0 }}>
+              <div className="row">
+                <div className="sixteen wide column">
                   <div className="ui divider"></div>
                 </div>
               </div>
