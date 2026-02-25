@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useRef, useEffect, useCallback } from "react";
 import classnames from "classnames";
-import { Dropdown } from "semantic-ui-react";
 import { useRouter } from "next/router";
 
 import {
@@ -154,6 +153,101 @@ const DayCalendarWrapper = ({
   );
 };
 
+const ParkDropdown = ({
+  options,
+  value,
+  onChange,
+}: {
+  options: { key: string; text: string; value: string }[];
+  value: string;
+  onChange: (value: string) => void;
+}) => {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const ref = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  const selectedText = options.find((o) => o.value === value)?.text ?? "";
+
+  const filtered = useMemo(() => {
+    if (!search) return options;
+    const lower = search.toLowerCase();
+    return options.filter((o) => o.text.toLowerCase().includes(lower));
+  }, [options, search]);
+
+  const close = useCallback(() => {
+    setOpen(false);
+    setSearch("");
+  }, []);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        close();
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [close]);
+
+  useEffect(() => {
+    if (open && searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, [open]);
+
+  return (
+    <div
+      ref={ref}
+      className={classnames("ui selection search dropdown", {
+        "active visible": open,
+      })}
+      onClick={() => {
+        if (!open) {
+          setOpen(true);
+        }
+      }}
+    >
+      <input
+        ref={searchRef}
+        className="search"
+        autoComplete="off"
+        tabIndex={0}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            close();
+          }
+        }}
+      />
+      <div className={classnames("text", { filtered: search })}>
+        {selectedText}
+      </div>
+      <i className="dropdown icon" />
+      {open && (
+        <div className="menu transition visible" style={{ display: "block" }}>
+          {filtered.map((option) => (
+            <div
+              key={option.key}
+              className={classnames("item", {
+                active: option.value === value,
+              })}
+              onClick={(e) => {
+                e.stopPropagation();
+                onChange(option.value);
+                close();
+              }}
+            >
+              {option.text}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export async function getServerSideProps(context) {
   const park = PARKS.find((p) => p.slug === context.params.slug);
   const parkId = park ? park.id : PARKS[0].id;
@@ -248,15 +342,13 @@ const Calendar = ({ initialEvents }) => {
           <form className="ui small form">
             <div className="fields">
               <div className="inline field">
-                <Dropdown
-                  selection
-                  search
+                <ParkDropdown
                   options={dropdownOptions}
                   value={park.id}
-                  onChange={(_, { value: parkId }) => {
-                    if (parkId && parkId !== park.id) {
+                  onChange={(parkId) => {
+                    if (parkId !== park.id) {
                       router.push(
-                        `/calendar/${parksById[parkId as string].slug}`
+                        `/calendar/${parksById[parkId].slug}`
                       );
                       setIsLoading(true);
                     }
