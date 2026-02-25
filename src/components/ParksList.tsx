@@ -86,7 +86,15 @@ const ParksList = ({ parks }: ParksListProps) => {
 
   return (
     <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-      <div className="ui stackable grid">
+      <style>{`
+        @media only screen and (max-width: 767.98px) {
+          .parks-list-grid.ui.stackable.grid > .row > .column {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      `}</style>
+      <div className="ui stackable grid parks-list-grid">
         {REGIONS.map((region) => {
           const regionParks = region.slugs
             .map((slug) => parksBySlug[slug])
