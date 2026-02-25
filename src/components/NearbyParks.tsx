@@ -19,19 +19,17 @@ export const NearbyParks = ({ parks }: { parks: NearbyPark[] }) => {
       </h5>
       <div className="ui relaxed divided list">
         {parks.map((park) => (
-          <Link
-            key={park.slug}
-            className="item"
-            href={`/calendar/${park.slug}`}
-          >
+          <div key={park.slug} className="item">
             <div className="content">
-              <div className="header">{park.name}</div>
+              <Link className="header" href={`/calendar/${park.slug}`}>
+                {park.name}
+              </Link>
               <div className="description">
                 {park.distance.toFixed(1)} miles away &middot; {park.courtCount}{" "}
                 {park.courtCount === 1 ? "court" : "courts"}
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
