@@ -1,9 +1,12 @@
 import React from "react";
+import classnames from "classnames";
 import Layout from "../components/Layout";
+
+type Category = "Paddles" | "Shoes" | "Nets" | "Balls";
 
 interface Product {
   name: string;
-  category: "Paddles" | "Balls" | "Accessories";
+  category: Category;
   description: string;
   price: string;
   url: string;
@@ -48,6 +51,62 @@ const PRODUCTS: Product[] = [
     url: "https://www.amazon.com/Engage-Pickleball-Pursuit-MX-6-0/dp/B0BXNM8VGC",
     image: "https://m.media-amazon.com/images/I/61z-FLqJURL._AC_SL1500_.jpg",
   },
+  // Shoes
+  {
+    name: "ASICS Gel-Renma",
+    category: "Shoes",
+    description:
+      "Lightweight court shoe with GEL cushioning and a durable outsole designed for lateral movement.",
+    price: "$79.95",
+    url: "https://www.amazon.com/ASICS-Gel-Renma-Pickleball-Shoes/dp/B0BX4V2RJH",
+    image: "https://m.media-amazon.com/images/I/71Kt1U2pDOL._AC_SL1500_.jpg",
+  },
+  {
+    name: "Nike Court Vapor Lite 2",
+    category: "Shoes",
+    description:
+      "Fast and breathable court shoe with excellent traction for quick pivots on the court.",
+    price: "$84.99",
+    url: "https://www.amazon.com/Nike-Court-Vapor-Lite-Pickleball/dp/B0CSKHP4MH",
+    image: "https://m.media-amazon.com/images/I/71RBvMSQqvL._AC_SL1500_.jpg",
+  },
+  {
+    name: "K-Swiss Express Light Pickleball",
+    category: "Shoes",
+    description:
+      "Purpose-built pickleball shoe with Surge 7.0 cushioning and Durawrap toe protection.",
+    price: "$89.95",
+    url: "https://www.amazon.com/K-Swiss-Express-Light-Pickleball/dp/B0BVKWZ7JG",
+    image: "https://m.media-amazon.com/images/I/71Y9sKdjmjL._AC_SL1500_.jpg",
+  },
+  // Nets
+  {
+    name: "Franklin Sports Portable Pickleball Net",
+    category: "Nets",
+    description:
+      "Official size net with a sturdy steel frame. Sets up in minutes with no tools required.",
+    price: "$119.99",
+    url: "https://www.amazon.com/Franklin-Sports-Pickleball-Net-Portable/dp/B019RDHWKE",
+    image: "https://m.media-amazon.com/images/I/71dFP4tZEDL._AC_SL1500_.jpg",
+  },
+  {
+    name: "JOOLA Portable Pickleball Net System",
+    category: "Nets",
+    description:
+      "Tournament-grade portable net with weather-resistant materials and a carrying bag.",
+    price: "$149.99",
+    url: "https://www.amazon.com/JOOLA-Portable-Pickleball-Net-System/dp/B0C1JGN8NZ",
+    image: "https://m.media-amazon.com/images/I/61yJGDY+VKL._AC_SL1200_.jpg",
+  },
+  {
+    name: "A11N Portable Pickleball Net",
+    category: "Nets",
+    description:
+      "Regulation size net with a powder-coated steel frame and easy snap-on assembly.",
+    price: "$99.99",
+    url: "https://www.amazon.com/A11N-Portable-Pickleball-Net-System/dp/B07Z6RMFK3",
+    image: "https://m.media-amazon.com/images/I/71N3RSHSYFL._AC_SL1500_.jpg",
+  },
   // Balls
   {
     name: "Franklin X-40 Outdoor Pickleballs (12-Pack)",
@@ -76,52 +135,22 @@ const PRODUCTS: Product[] = [
     url: "https://www.amazon.com/JOOLA-Indoor-Pickleball-Balls-Pack/dp/B0CXNKZ23R",
     image: "https://m.media-amazon.com/images/I/71tZ8aiO5SL._AC_SL1500_.jpg",
   },
-  // Accessories
-  {
-    name: "Franklin Pickleball-X Bag",
-    category: "Accessories",
-    description:
-      "Spacious bag with paddle compartment, ball storage, and adjustable shoulder strap.",
-    price: "$39.99",
-    url: "https://www.amazon.com/Franklin-Sports-Pickleball-Bag-Sling/dp/B0BQMKF9VY",
-    image: "https://m.media-amazon.com/images/I/71+YIEhbqSL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Tourna Grip Original Overgrip (10-Pack)",
-    category: "Accessories",
-    description:
-      "Dry-feel overgrip that absorbs moisture. A favorite among pickleball and tennis players.",
-    price: "$14.99",
-    url: "https://www.amazon.com/Tourna-Grip-Original-Blue-Pack/dp/B000GFADQK",
-    image: "https://m.media-amazon.com/images/I/71ZVR2aJxwL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Lead Tape for Pickleball Paddles",
-    category: "Accessories",
-    description:
-      "Add weight and customize the balance of your paddle. Easy to apply and remove.",
-    price: "$9.99",
-    url: "https://www.amazon.com/Gamma-Supreme-Overgrip-Lead-Tape/dp/B000IG5JD0",
-    image: "https://m.media-amazon.com/images/I/71RKSQ3k-JL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Pickleball Court Marker Kit",
-    category: "Accessories",
-    description:
-      "Portable court line markers for setting up a pickleball court on any flat surface.",
-    price: "$34.99",
-    url: "https://www.amazon.com/3M-Pickleball-Court-Marker-Kit/dp/B0B5HK83M7",
-    image: "https://m.media-amazon.com/images/I/71qmJSHSYnL._AC_SL1500_.jpg",
-  },
 ];
 
-const CATEGORIES = ["Paddles", "Balls", "Accessories"] as const;
+const CATEGORIES: Category[] = ["Paddles", "Shoes", "Nets", "Balls"];
 
 const ShopPage = () => {
+  const [activeCategory, setActiveCategory] =
+    React.useState<Category>("Paddles");
+
+  const filteredProducts = PRODUCTS.filter(
+    (p) => p.category === activeCategory
+  );
+
   return (
     <Layout
       title="Shop Pickleball Gear"
-      description="Pickleball paddles, balls, and accessories"
+      description="Pickleball paddles, shoes, nets, and balls"
       selectedMenuItem="shop"
       canonicalUrl="https://www.zitnr.com/shop"
     >
@@ -134,66 +163,78 @@ const ShopPage = () => {
           <div className="content">
             Shop
             <div className="sub header">
-              Pickleball paddles, balls &amp; accessories
+              Pickleball paddles, shoes, nets &amp; balls
             </div>
           </div>
         </h5>
 
-        <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1.5rem" }}>
+        <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1rem" }}>
           Links go to Amazon product pages. As an Amazon Associate, we may earn
           from qualifying purchases.
         </p>
 
-        {CATEGORIES.map((category) => (
-          <div key={category} style={{ marginBottom: "2rem" }}>
-            <h3 className="ui dividing header">{category}</h3>
-            <div className="ui three stackable cards">
-              {PRODUCTS.filter((p) => p.category === category).map(
-                (product) => (
-                  <a
-                    key={product.name}
-                    className="ui card"
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <div className="image">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        style={{
-                          objectFit: "contain",
-                          height: "220px",
-                          width: "100%",
-                          padding: "1rem",
-                          backgroundColor: "#fff",
-                        }}
-                      />
-                    </div>
-                    <div className="content">
-                      <div className="header" style={{ fontSize: "1em" }}>
-                        {product.name}
-                      </div>
-                      <div className="description" style={{ color: "#555" }}>
-                        {product.description}
-                      </div>
-                    </div>
-                    <div className="extra content">
-                      <span style={{ fontWeight: "bold", color: "#1b1c1d" }}>
-                        {product.price}
-                      </span>
-                      <span className="right floated">
-                        View on Amazon{" "}
-                        <i className="external alternate icon"></i>
-                      </span>
-                    </div>
-                  </a>
-                )
-              )}
-            </div>
+        <div className="ui top attached tabular menu">
+          {CATEGORIES.map((category) => (
+            <a
+              key={category}
+              className={classnames("item", {
+                active: activeCategory === category,
+              })}
+              onClick={() => setActiveCategory(category)}
+              style={{ cursor: "pointer" }}
+            >
+              {category}
+            </a>
+          ))}
+        </div>
+        <div
+          className="ui bottom attached segment"
+          style={{ border: "none", boxShadow: "none", padding: "1rem 0" }}
+        >
+          <div className="ui three stackable cards">
+            {filteredProducts.map((product) => (
+              <a
+                key={product.name}
+                className="ui card"
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                <div className="image">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    style={{
+                      objectFit: "contain",
+                      height: "220px",
+                      width: "100%",
+                      padding: "1rem",
+                      backgroundColor: "#fff",
+                    }}
+                  />
+                </div>
+                <div className="content">
+                  <div className="header" style={{ fontSize: "1em" }}>
+                    {product.name}
+                  </div>
+                  <div className="description" style={{ color: "#555" }}>
+                    {product.description}
+                  </div>
+                </div>
+                <div className="extra content">
+                  <span style={{ fontWeight: "bold", color: "#1b1c1d" }}>
+                    {product.price}
+                  </span>
+                  <span className="right floated">
+                    View on Amazon{" "}
+                    <i className="external alternate icon"></i>
+                  </span>
+                </div>
+              </a>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </Layout>
   );
