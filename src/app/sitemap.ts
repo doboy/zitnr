@@ -4,12 +4,12 @@ import type { MetadataRoute } from 'next'
 export default function sitemap() : MetadataRoute.Sitemap {
   const staticUrls: MetadataRoute.Sitemap = [
     {
-      url: 'https://zitnr.com/',
+      url: 'https://www.zitnr.com/',
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://zitnr.com/donate',
+      url: 'https://www.zitnr.com/donate',
       changeFrequency: 'weekly',
       priority: 1,
     },
@@ -17,7 +17,7 @@ export default function sitemap() : MetadataRoute.Sitemap {
 
   PARKS.forEach(park => {
     staticUrls.push({
-      url: `https://zitnr.com/calendar/${park.slug}`,
+      url: `https://www.zitnr.com/calendar/${park.slug}`,
       changeFrequency: 'daily',
       priority: 0.8,
     });
