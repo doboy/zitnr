@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
+import ParksList from "../components/ParksList";
 import { PARKS } from "./calendar/[slug]";
 
 const ParksMap = dynamic(() => import("../components/ParksMap"), {
@@ -10,7 +11,19 @@ const ParksMap = dynamic(() => import("../components/ParksMap"), {
   ),
 });
 
-const MapPage = () => {
+export async function getServerSideProps() {
+  const parks = PARKS.map((park) => ({
+    id: park.id,
+    name: park.name,
+    slug: park.slug,
+    courts: park.courts,
+    location: park.location ?? null,
+  }));
+
+  return { props: { parks } };
+}
+
+const MapPage = ({ parks }) => {
   return (
     <Layout
       title="Parks Map"
@@ -29,7 +42,8 @@ const MapPage = () => {
           </div>
         </h5>
 
-        <ParksMap parks={PARKS} />
+        <ParksMap parks={parks} />
+        <ParksList parks={parks} />
       </div>
     </Layout>
   );
