@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import classnames from "classnames";
+import { Dropdown } from "semantic-ui-react";
 import { useRouter } from "next/router";
 
 import {
@@ -247,25 +248,20 @@ const Calendar = ({ initialEvents }) => {
           <form className="ui small form">
             <div className="fields">
               <div className="inline field">
-                <select
-                  className="ui selection dropdown"
+                <Dropdown
+                  selection
+                  search
+                  options={dropdownOptions}
                   value={park.id}
-                  onChange={(e) => {
-                    const parkId = e.target.value;
-                    if (parkId && parkId !== park.id.toString()) {
+                  onChange={(_, { value: parkId }) => {
+                    if (parkId && parkId !== park.id) {
                       router.push(
-                        `/calendar/${parksById[parkId].slug}`
+                        `/calendar/${parksById[parkId as string].slug}`
                       );
                       setIsLoading(true);
                     }
                   }}
-                >
-                  {dropdownOptions.map((option) => (
-                    <option key={option.key} value={option.value}>
-                      {option.text}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <div className="inline field">
