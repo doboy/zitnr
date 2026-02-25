@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import "./global.css";
 import { parksById } from 'zitnr-utils';
-import { useEffect } from 'react';
 
 const rerouteOldLinks = (router) : string | null | undefined => {
   // #calendar => /calendar/[slug]
@@ -37,21 +36,6 @@ function MyApp({ Component, pageProps }) {
     window.location.href = newLink;
   };
 
-  const initGoogleAnalytics = useEffect(() => {
-    if (typeof window !== "undefined") {
-      // @ts-ignore
-      window.dataLayer = window.dataLayer || [];
-      // @ts-ignore
-      function gtag() {dataLayer.push(arguments); }
-      // @ts-ignore
-      gtag('js', new Date());
-      // @ts-ignore
-      gtag('config', 'G-BM861WX28D');
-
-      console.log("Google Analytics initialized");
-    }
-  }, [typeof window]);
-
   return <div className="my-app">
     <link
       rel="stylesheet"
@@ -59,7 +43,7 @@ function MyApp({ Component, pageProps }) {
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM861WX28D"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="753118b8-8c43-4a88-aa53-3bfee1b8437e"></script>
     <Component {...pageProps} />
   </div>
 }
