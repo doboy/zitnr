@@ -158,9 +158,9 @@ const ParkDropdown = ({
   value,
   onChange,
 }: {
-  options: { key: string; text: string; value: string }[];
-  value: string;
-  onChange: (value: string) => void;
+  options: { key: number; text: string; value: number }[];
+  value: number;
+  onChange: (value: number) => void;
 }) => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
