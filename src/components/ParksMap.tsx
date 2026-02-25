@@ -140,7 +140,6 @@ const ParksMap = ({ parks }: ParksMapProps) => {
       </div>
 
       <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-        <h1 className="ui header">All Parks</h1>
         <div className="ui stackable grid">
           {REGIONS.map((region) => {
             const regionParks = region.slugs
@@ -186,6 +185,9 @@ const ParksMap = ({ parks }: ParksMapProps) => {
                     </div>
                   </div>
                 ))}
+                <div className="sixteen wide column" style={{ paddingTop: 0, paddingBottom: 0 }}>
+                  <div className="ui divider"></div>
+                </div>
               </div>
             );
           })}
