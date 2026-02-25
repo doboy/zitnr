@@ -22,6 +22,79 @@ L.Marker.prototype.options.icon = defaultIcon;
 // Seattle center coordinates
 const SEATTLE_CENTER: [number, number] = [47.6362, -122.3321];
 
+const REGIONS: { name: string; slugs: string[] }[] = [
+  {
+    name: "NorthWest",
+    slugs: [
+      "bitter-lake-playfield",
+      "ingraham-hs",
+      "ballard-hs",
+      "soundview-playfield",
+      "froula-playground",
+      "rogers-playfield",
+    ],
+  },
+  {
+    name: "NorthEast",
+    slugs: [
+      "green-lake-park-east",
+      "green-lake-park-west",
+      "lower-woodland-playfield",
+      "lower-woodland-playfield-tennis",
+      "wallingford-playfield",
+      "bryant-playground",
+      "laurelhurst-playfield",
+      "meadowbrook-playfield",
+    ],
+  },
+  {
+    name: "Magnolia & Queen Anne",
+    slugs: ["magnolia-park", "magnolia-playfield", "discovery-park"],
+  },
+  {
+    name: "Central",
+    slugs: [
+      "miller-playfield",
+      "volunteer-park",
+      "montlake-playfield",
+      "madrona-playground",
+      "madison-park",
+      "garfield-playfield",
+      "observatory-park",
+      "aytc-outdoor",
+    ],
+  },
+  {
+    name: "Downtown",
+    slugs: ["sam-smith-park", "dearborn-park", "david-rodgers-park"],
+  },
+  {
+    name: "SouthEast",
+    slugs: [
+      "beacon-hill-playfield",
+      "mount-baker-park",
+      "rainier-beach-playfield",
+      "jefferson-park-lid",
+      "rainier-playfield",
+      "seward-park",
+      "brighton-playfield",
+      "gilman-playfield",
+    ],
+  },
+  {
+    name: "West & Delridge",
+    slugs: [
+      "alki-playfield",
+      "delridge-playfield",
+      "hiawatha-playfield",
+      "riverview-playfield",
+      "walt-hundley-playfield",
+      "solstice-park",
+      "sealth-hs-complex",
+    ],
+  },
+];
+
 interface ParksMapProps {
   parks: Park[];
 }
@@ -30,6 +103,11 @@ const ParksMap = ({ parks }: ParksMapProps) => {
   const parksWithLocation = parks.filter(
     (park) => park.location?.latitude && park.location?.longitude
   );
+
+  const parksBySlug: Record<string, Park> = {};
+  parks.forEach((p) => {
+    parksBySlug[p.slug] = p;
+  });
 
   return (
     <div>
@@ -61,32 +139,47 @@ const ParksMap = ({ parks }: ParksMapProps) => {
         </MapContainer>
       </div>
 
-      {parks.length > parksWithLocation.length && (
-        <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-          <h5
-            className="ui small header"
-            style={{ marginBottom: ".5rem" }}
-          >
-            Other Parks
-          </h5>
-          <div className="ui list">
-            {parks
-              .filter((p) => !p.location?.latitude || !p.location?.longitude)
-              .map((park) => (
-                <div className="item" key={park.id}>
-                  <i className="map pin icon"></i>
-                  <div className="content">
-                    <a href={`/calendar/${park.slug}`}>{park.name}</a>
-                    <span style={{ color: "#888", marginLeft: "0.5rem" }}>
-                      ({park.courts.length} court
-                      {park.courts.length !== 1 ? "s" : ""})
-                    </span>
+      <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+        <h5
+          className="ui small header"
+          style={{ marginBottom: ".5rem" }}
+        >
+          All Parks
+        </h5>
+        {REGIONS.map((region) => {
+          const regionParks = region.slugs
+            .map((slug) => parksBySlug[slug])
+            .filter(Boolean)
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+          if (regionParks.length === 0) return null;
+
+          return (
+            <div key={region.name} style={{ marginBottom: "1rem" }}>
+              <h5
+                className="ui tiny header"
+                style={{ marginBottom: ".25rem", color: "#555" }}
+              >
+                {region.name}
+              </h5>
+              <div className="ui list" style={{ marginTop: 0 }}>
+                {regionParks.map((park) => (
+                  <div className="item" key={park.id}>
+                    <i className="map pin icon"></i>
+                    <div className="content">
+                      <a href={`/calendar/${park.slug}`}>{park.name}</a>
+                      <span style={{ color: "#888", marginLeft: "0.5rem" }}>
+                        ({park.courts.length} court
+                        {park.courts.length !== 1 ? "s" : ""})
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
-          </div>
-        </div>
-      )}
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
