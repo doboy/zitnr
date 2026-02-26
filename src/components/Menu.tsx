@@ -58,7 +58,7 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
                 { active: selectedMenuItem == "about" },
                 "item",
               ])}
-              href="/about"
+              href="/about-me"
             >
               <i className="info circle icon"></i>
             </a>

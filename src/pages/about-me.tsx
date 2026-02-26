@@ -6,7 +6,7 @@ const About = () => {
     <Layout
       title="About - z.i.t.n.r."
       selectedMenuItem="about"
-      canonicalUrl="https://www.zitnr.com/about"
+      canonicalUrl="https://www.zitnr.com/about-me"
     >
       <div className="ui basic segment">
         <div className="ui center aligned text container">
