@@ -48,7 +48,7 @@ const AboutMe = () => {
           <h2 className="ui header">Other Projects</h2>
           <div className="ui list">
             <div className="item">
-              <img className="ui mini image" src="https://www.algoviz.xyz/favicon.png" alt="algoviz" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
+              <img className="ui mini image" src="https://www.algoviz.xyz/favicon.png" alt="algoviz" style={{ width: "2em", height: "2em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
                 <a href="https://www.algoviz.xyz" target="_blank" rel="noopener noreferrer">
                   <strong>algoviz.xyz</strong>
@@ -57,7 +57,7 @@ const AboutMe = () => {
               </div>
             </div>
             <div className="item">
-              <img className="ui mini image" src="https://www.aloalgo.com/favicon.ico" alt="aloalgo" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
+              <img className="ui mini image" src="https://www.aloalgo.com/favicon.ico" alt="aloalgo" style={{ width: "2em", height: "2em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
                 <a href="https://www.aloalgo.com" target="_blank" rel="noopener noreferrer">
                   <strong>aloalgo.com</strong>
