@@ -20,7 +20,7 @@ const AboutMe = () => {
           <div className="ui center aligned basic segment">
             <img
               className="ui centered medium circular image"
-              src="/zack-profile.jpg"
+              src="/profile.jpeg"
               alt="Zack"
             />
           </div>
