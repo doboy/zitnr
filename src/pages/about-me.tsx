@@ -20,7 +20,7 @@ const AboutMe = () => {
           <div className="ui center aligned basic segment">
             <img
               className="ui centered medium circular image"
-              src="https://via.placeholder.com/300"
+              src="/zack-profile.jpg"
               alt="Zack"
             />
           </div>
@@ -35,7 +35,7 @@ const AboutMe = () => {
           <h2 className="ui header">Other Projects</h2>
           <div className="ui list">
             <div className="item">
-              <i className="code icon"></i>
+              <img className="ui mini image" src="https://algoviz.xyz/favicon.ico" alt="algoviz" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
                 <a href="https://algoviz.xyz" target="_blank" rel="noopener noreferrer">
                   <strong>algoviz.xyz</strong>
@@ -44,7 +44,7 @@ const AboutMe = () => {
               </div>
             </div>
             <div className="item">
-              <i className="terminal icon"></i>
+              <img className="ui mini image" src="https://aloalgo.com/favicon.ico" alt="aloalgo" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
                 <a href="https://aloalgo.com" target="_blank" rel="noopener noreferrer">
                   <strong>aloalgo.com</strong>
