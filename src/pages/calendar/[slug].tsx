@@ -272,7 +272,18 @@ function getNearbyParks(park: Park): NearbyPark[] {
 }
 
 export async function getServerSideProps(context) {
-  const park = PARKS.find((p) => p.slug === context.params.slug);
+  const slug = context.params.slug;
+
+  if (slug.endsWith(".")) {
+    return {
+      redirect: {
+        destination: `/calendar/${slug.replace(/\.+$/, "")}`,
+        permanent: true,
+      },
+    };
+  }
+
+  const park = PARKS.find((p) => p.slug === slug);
   const resolvedPark = park ?? PARKS[0];
   const date = dateToString(new Date());
 
