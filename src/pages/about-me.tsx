@@ -32,8 +32,8 @@ const AboutMe = () => {
 
           <h2 className="ui header">The Story Behind z.i.t.n.r.</h2>
           <p>
-            For years, a pickleball player named Randy used community donations
-            to reserve courts for open play in Seattle. When Randy abruptly
+            For a couple months, a pickleball player named Randy used community
+            donations to reserve courts for open play in Seattle. When Randy abruptly
             stepped away in 2024, there was a gap — no one organizing courts, no
             open play sessions. I decided to step up and become "the new Randy."
             That's how <strong>z.i.t.n.r.</strong> — <strong>Zack is the new
