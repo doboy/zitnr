@@ -30,6 +30,7 @@ const Layout = ({ children, title, description, selectedMenuItem, canonicalUrl }
           {children}
         </div>
       </div>
+
     </div>
   )
 };
