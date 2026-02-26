@@ -30,6 +30,12 @@ const Layout = ({ children, title, description, selectedMenuItem, canonicalUrl }
           {children}
         </div>
       </div>
+
+      <footer className="ui vertical segment" style={{ textAlign: "center", padding: "2em 0" }}>
+        <div className="ui container">
+          <a href="/about-me">About</a>
+        </div>
+      </footer>
     </div>
   )
 };

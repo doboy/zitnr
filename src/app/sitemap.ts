@@ -18,6 +18,11 @@ export default function sitemap() : MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: 'https://www.zitnr.com/about-me',
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
   ];
 
   PARKS.forEach(park => {
