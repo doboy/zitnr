@@ -107,6 +107,7 @@ const Home = ({ }: {}) => {
                   <a className="item" href="/donate">Donate</a>
                   <a className="item" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform" target="_blank">Contact Us</a>
                   <a className="item" href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform" target="_blank">Submit an issue</a>
+                  <a className="item" href="/about-me">About</a>
                 </div>
               </div>
 

@@ -48,18 +48,18 @@ const AboutMe = () => {
           <h2 className="ui header">Other Projects</h2>
           <div className="ui list">
             <div className="item">
-              <img className="ui mini image" src="https://algoviz.xyz/favicon.ico" alt="algoviz" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
+              <img className="ui mini image" src="https://www.algoviz.xyz/favicon.ico" alt="algoviz" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
-                <a href="https://algoviz.xyz" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.algoviz.xyz" target="_blank" rel="noopener noreferrer">
                   <strong>algoviz.xyz</strong>
                 </a>{" "}
                 — Interactive visualizations of algorithms and data structures
               </div>
             </div>
             <div className="item">
-              <img className="ui mini image" src="https://aloalgo.com/favicon.ico" alt="aloalgo" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
+              <img className="ui mini image" src="https://www.aloalgo.com/favicon.ico" alt="aloalgo" style={{ width: "1em", height: "1em", marginRight: "0.5em", verticalAlign: "middle", display: "inline" }} />
               <div className="content">
-                <a href="https://aloalgo.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.aloalgo.com" target="_blank" rel="noopener noreferrer">
                   <strong>aloalgo.com</strong>
                 </a>{" "}
                 — Practice algorithms and data structures
