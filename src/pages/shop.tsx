@@ -1,201 +1,247 @@
 import React from "react";
 import classnames from "classnames";
 import Layout from "../components/Layout";
+import catalog from "../utils/catalog.json";
 
-type Category = "Paddles" | "Shoes" | "Nets" | "Balls";
+type Variant = (typeof catalog)[number];
 
-interface Product {
+interface ProductGroup {
   name: string;
-  category: Category;
   brand: string;
-  color: string;
-  description: string;
-  price: string;
-  url: string;
-  image: string;
+  cost: string;
+  category: string;
+  sales: number;
+  variants: Variant[];
+  colorways: string[];
+  sizes: string[];
 }
 
-const PRODUCTS: Product[] = [
-  // Paddles
-  {
-    name: "JOOLA Ben Johns Hyperion CFS 16",
-    category: "Paddles",
-    brand: "JOOLA",
-    color: "Blue",
-    description:
-      "Carbon fiber surface with a reactive honeycomb polymer core. Used by pro player Ben Johns.",
-    price: "$199.99",
-    url: "https://www.amazon.com/JOOLA-Ben-Johns-Hyperion-Pickleball/dp/B09XDNK7QN",
-    image: "https://m.media-amazon.com/images/I/61mITPKCYhL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Selkirk SLK Halo Power XL",
-    category: "Paddles",
-    brand: "Selkirk",
-    color: "Red",
-    description:
-      "Extended length paddle with a T700 raw carbon fiber face. Great for power and spin.",
-    price: "$149.99",
-    url: "https://www.amazon.com/Selkirk-SLK-Halo-Pickleball-Paddle/dp/B0CPWVBFYQ",
-    image: "https://m.media-amazon.com/images/I/51Kq5BkfhKL._AC_SL1500_.jpg",
-  },
-  {
-    name: "HEAD Radical Elite",
-    category: "Paddles",
-    brand: "HEAD",
-    color: "Orange",
-    description:
-      "Lightweight and maneuverable paddle with an optimized sweet spot. Ideal for beginners and intermediate players.",
-    price: "$79.99",
-    url: "https://www.amazon.com/HEAD-Radical-Elite-Pickleball-Paddle/dp/B0B1HXKDQR",
-    image: "https://m.media-amazon.com/images/I/61xq-yS3VkL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Engage Pursuit Pro MX 6.0",
-    category: "Paddles",
-    brand: "Engage",
-    color: "Black",
-    description:
-      "Wide-body paddle with a large sweet spot and excellent control for all skill levels.",
-    price: "$169.99",
-    url: "https://www.amazon.com/Engage-Pickleball-Pursuit-MX-6-0/dp/B0BXNM8VGC",
-    image: "https://m.media-amazon.com/images/I/61z-FLqJURL._AC_SL1500_.jpg",
-  },
-  // Shoes
-  {
-    name: "ASICS Gel-Renma",
-    category: "Shoes",
-    brand: "ASICS",
-    color: "White",
-    description:
-      "Lightweight court shoe with GEL cushioning and a durable outsole designed for lateral movement.",
-    price: "$79.95",
-    url: "https://www.amazon.com/ASICS-Gel-Renma-Pickleball-Shoes/dp/B0BX4V2RJH",
-    image: "https://m.media-amazon.com/images/I/71Kt1U2pDOL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Nike Court Vapor Lite 2",
-    category: "Shoes",
-    brand: "Nike",
-    color: "Black",
-    description:
-      "Fast and breathable court shoe with excellent traction for quick pivots on the court.",
-    price: "$84.99",
-    url: "https://www.amazon.com/Nike-Court-Vapor-Lite-Pickleball/dp/B0CSKHP4MH",
-    image: "https://m.media-amazon.com/images/I/71RBvMSQqvL._AC_SL1500_.jpg",
-  },
-  {
-    name: "K-Swiss Express Light Pickleball",
-    category: "Shoes",
-    brand: "K-Swiss",
-    color: "White",
-    description:
-      "Purpose-built pickleball shoe with Surge 7.0 cushioning and Durawrap toe protection.",
-    price: "$89.95",
-    url: "https://www.amazon.com/K-Swiss-Express-Light-Pickleball/dp/B0BVKWZ7JG",
-    image: "https://m.media-amazon.com/images/I/71Y9sKdjmjL._AC_SL1500_.jpg",
-  },
-  // Nets
-  {
-    name: "Franklin Sports Portable Pickleball Net",
-    category: "Nets",
-    brand: "Franklin",
-    color: "Black",
-    description:
-      "Official size net with a sturdy steel frame. Sets up in minutes with no tools required.",
-    price: "$119.99",
-    url: "https://www.amazon.com/Franklin-Sports-Pickleball-Net-Portable/dp/B019RDHWKE",
-    image: "https://m.media-amazon.com/images/I/71dFP4tZEDL._AC_SL1500_.jpg",
-  },
-  {
-    name: "JOOLA Portable Pickleball Net System",
-    category: "Nets",
-    brand: "JOOLA",
-    color: "Black",
-    description:
-      "Tournament-grade portable net with weather-resistant materials and a carrying bag.",
-    price: "$149.99",
-    url: "https://www.amazon.com/JOOLA-Portable-Pickleball-Net-System/dp/B0C1JGN8NZ",
-    image: "https://m.media-amazon.com/images/I/61yJGDY+VKL._AC_SL1200_.jpg",
-  },
-  {
-    name: "A11N Portable Pickleball Net",
-    category: "Nets",
-    brand: "A11N",
-    color: "Green",
-    description:
-      "Regulation size net with a powder-coated steel frame and easy snap-on assembly.",
-    price: "$99.99",
-    url: "https://www.amazon.com/A11N-Portable-Pickleball-Net-System/dp/B07Z6RMFK3",
-    image: "https://m.media-amazon.com/images/I/71N3RSHSYFL._AC_SL1500_.jpg",
-  },
-  // Balls
-  {
-    name: "Franklin X-40 Outdoor Pickleballs (12-Pack)",
-    category: "Balls",
-    brand: "Franklin",
-    color: "Yellow",
-    description:
-      "Official ball of USA Pickleball. Durable outdoor ball with consistent bounce and flight.",
-    price: "$29.99",
-    url: "https://www.amazon.com/Franklin-Sports-X-40-Pickleball-Pack/dp/B01M8G1XK5",
-    image: "https://m.media-amazon.com/images/I/81WfNTa1jPL._AC_SL1500_.jpg",
-  },
-  {
-    name: "Onix Pure 2 Outdoor Balls (6-Pack)",
-    category: "Balls",
-    brand: "Onix",
-    color: "Yellow",
-    description:
-      "True flight technology with balanced weight distribution for consistent play.",
-    price: "$19.99",
-    url: "https://www.amazon.com/Onix-Pure-Outdoor-Pickleball-Balls/dp/B07Q3RDD5M",
-    image: "https://m.media-amazon.com/images/I/71dWLjYw9LL._AC_SL1500_.jpg",
-  },
-  {
-    name: "JOOLA Indoor Pickleballs (12-Pack)",
-    category: "Balls",
-    brand: "JOOLA",
-    color: "Orange",
-    description:
-      "Softer ball designed for indoor play with larger holes for slower, controlled games.",
-    price: "$24.99",
-    url: "https://www.amazon.com/JOOLA-Indoor-Pickleball-Balls-Pack/dp/B0CXNKZ23R",
-    image: "https://m.media-amazon.com/images/I/71tZ8aiO5SL._AC_SL1500_.jpg",
-  },
-];
+const COST_LABELS: Record<string, string> = {
+  "$": "$ - Budget",
+  "$$": "$$ - Mid-range",
+  "$$$": "$$$ - Premium",
+};
 
-const CATEGORIES: Category[] = ["Paddles", "Shoes", "Nets", "Balls"];
+const COLOR_HEX: Record<string, string> = {
+  black: "#222",
+  blue: "#4285f4",
+  green: "#34a853",
+  orange: "#f5a623",
+  pink: "#e91e8a",
+  purple: "#8e44ad",
+  red: "#db4437",
+  white: "#e8e8e8",
+  yellow: "#f4b400",
+};
+
+function groupProducts(products: Variant[]): ProductGroup[] {
+  const map = new Map<string, Variant[]>();
+  for (const p of products) {
+    const existing = map.get(p.name) || [];
+    existing.push(p);
+    map.set(p.name, existing);
+  }
+  const groups: ProductGroup[] = [];
+  for (const [name, variants] of map) {
+    groups.push({
+      name,
+      brand: variants[0].brand,
+      cost: variants[0].cost,
+      category: variants[0].category,
+      sales: Math.max(...variants.map((v) => v.sales)),
+      variants,
+      colorways: Array.from(new Set(variants.map((v) => v.colorway))),
+      sizes: Array.from(new Set(variants.map((v) => v.size).filter(Boolean))),
+    });
+  }
+  groups.sort((a, b) => b.sales - a.sales);
+  return groups;
+}
+
+function getDefaultVariant(group: ProductGroup): Variant {
+  return group.variants.find((v) => v.default) || group.variants[0];
+}
+
+const ProductCard = ({ group }: { group: ProductGroup }) => {
+  const defaultVariant = getDefaultVariant(group);
+  const [selectedColorway, setSelectedColorway] = React.useState(
+    defaultVariant.colorway
+  );
+  const [selectedSize, setSelectedSize] = React.useState(
+    defaultVariant.size
+  );
+
+  const activeVariant =
+    group.variants.find(
+      (v) =>
+        v.colorway === selectedColorway &&
+        (group.sizes.length <= 1 || v.size === selectedSize)
+    ) ||
+    group.variants.find((v) => v.colorway === selectedColorway) ||
+    defaultVariant;
+
+  const sizesForColorway = Array.from(
+    new Set(
+      group.variants
+        .filter((v) => v.colorway === selectedColorway)
+        .map((v) => v.size)
+        .filter(Boolean)
+    )
+  );
+
+  return (
+    <div className="ui card" style={{ textDecoration: "none" }}>
+      <a
+        href={activeVariant.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="image">
+          <img
+            src={activeVariant.image}
+            alt={`${group.name} - ${activeVariant.colorway}`}
+            style={{
+              objectFit: "contain",
+              height: "220px",
+              width: "100%",
+              padding: "1rem",
+              backgroundColor: "#fff",
+            }}
+          />
+        </div>
+      </a>
+      <div className="content">
+        <a
+          className="header"
+          href={activeVariant.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: "1em" }}
+        >
+          {group.name}
+        </a>
+        <div className="meta" style={{ marginTop: "0.25rem" }}>
+          {activeVariant.colorway}
+        </div>
+        {group.colorways.length > 1 && (
+          <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+            {group.colorways.map((cw) => {
+              const variant = group.variants.find((v) => v.colorway === cw);
+              const hex = COLOR_HEX[variant?.color || ""] || "#ccc";
+              const isSelected = cw === selectedColorway;
+              return (
+                <button
+                  key={cw}
+                  title={cw}
+                  onClick={() => {
+                    setSelectedColorway(cw);
+                    const firstWithColorway = group.variants.find(
+                      (v) => v.colorway === cw
+                    );
+                    if (firstWithColorway) setSelectedSize(firstWithColorway.size);
+                  }}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    borderRadius: "50%",
+                    backgroundColor: hex,
+                    border: isSelected ? "2px solid #333" : "2px solid #ddd",
+                    outline: isSelected ? "2px solid #333" : "none",
+                    outlineOffset: "1px",
+                    cursor: "pointer",
+                    padding: 0,
+                  }}
+                />
+              );
+            })}
+          </div>
+        )}
+        {sizesForColorway.length > 1 && (
+          <div style={{ marginTop: "0.5rem" }}>
+            {sizesForColorway.map((sz) => (
+              <button
+                key={sz}
+                className={classnames("ui mini basic button", {
+                  active: sz === selectedSize,
+                })}
+                style={{
+                  marginBottom: "0.25rem",
+                  fontWeight: sz === selectedSize ? "bold" : "normal",
+                }}
+                onClick={() => setSelectedSize(sz)}
+              >
+                {sz}
+              </button>
+            ))}
+          </div>
+        )}
+        {sizesForColorway.length === 1 && (
+          <div className="meta">{sizesForColorway[0]}</div>
+        )}
+      </div>
+      <div className="extra content">
+        <span style={{ fontWeight: "bold", color: "#1b1c1d" }}>
+          {COST_LABELS[activeVariant.cost] || activeVariant.cost}
+        </span>
+        <span className="right floated">{group.brand}</span>
+      </div>
+      <a
+        className="ui bottom attached button"
+        href={activeVariant.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
+      >
+        View on Amazon <i className="right arrow icon"></i>
+      </a>
+    </div>
+  );
+};
+
+const CATEGORY_LABELS: Record<string, string> = {
+  paddle: "Paddles",
+  ball: "Balls",
+  net: "Nets",
+};
 
 const ShopPage = () => {
-  const [activeCategory, setActiveCategory] =
-    React.useState<Category>("Paddles");
-  const [selectedBrand, setSelectedBrand] = React.useState<string>("");
-  const [selectedColor, setSelectedColor] = React.useState<string>("");
+  const [selectedCategory, setSelectedCategory] = React.useState("");
+  const [selectedBrand, setSelectedBrand] = React.useState("");
+  const [selectedCost, setSelectedCost] = React.useState("");
+  const [selectedSize, setSelectedSize] = React.useState("");
 
-  const categoryProducts = PRODUCTS.filter(
-    (p) => p.category === activeCategory
+  const groups = groupProducts(catalog);
+
+  const categories = Array.from(new Set(groups.map((g) => g.category))).sort();
+  const brands = Array.from(new Set(
+    groups
+      .filter((g) => !selectedCategory || g.category === selectedCategory)
+      .map((g) => g.brand)
+  )).sort();
+  const costs = Array.from(new Set(
+    groups
+      .filter((g) => !selectedCategory || g.category === selectedCategory)
+      .map((g) => g.cost)
+  )).sort((a, b) => a.length - b.length);
+
+  const sizes = Array.from(new Set(
+    groups
+      .filter((g) => !selectedCategory || g.category === selectedCategory)
+      .flatMap((g) => g.sizes)
+  )).sort();
+
+  const filteredGroups = groups.filter(
+    (g) =>
+      (!selectedCategory || g.category === selectedCategory) &&
+      (!selectedBrand || g.brand === selectedBrand) &&
+      (!selectedCost || g.cost === selectedCost) &&
+      (!selectedSize || g.sizes.includes(selectedSize))
   );
-
-  const brands = Array.from(new Set(categoryProducts.map((p) => p.brand))).sort();
-  const colors = Array.from(new Set(categoryProducts.map((p) => p.color))).sort();
-
-  const filteredProducts = categoryProducts.filter(
-    (p) =>
-      (!selectedBrand || p.brand === selectedBrand) &&
-      (!selectedColor || p.color === selectedColor)
-  );
-
-  const handleCategoryChange = (category: Category) => {
-    setActiveCategory(category);
-    setSelectedBrand("");
-    setSelectedColor("");
-  };
 
   return (
     <Layout
       title="Shop Pickleball Gear"
-      description="Pickleball paddles, shoes, nets, and balls"
+      description="Pickleball paddles, balls, and nets"
       selectedMenuItem="shop"
       canonicalUrl="https://www.zitnr.com/shop"
     >
@@ -208,7 +254,7 @@ const ShopPage = () => {
           <div className="content">
             Shop
             <div className="sub header">
-              Pickleball paddles, shoes, nets &amp; balls
+              Pickleball paddles, balls &amp; nets
             </div>
           </div>
         </h5>
@@ -218,110 +264,60 @@ const ShopPage = () => {
           from qualifying purchases.
         </p>
 
-        <div className="ui top attached tabular menu">
-          {CATEGORIES.map((category) => (
-            <a
-              key={category}
-              className={classnames("item", {
-                active: activeCategory === category,
-              })}
-              onClick={() => handleCategoryChange(category)}
-              style={{ cursor: "pointer" }}
-            >
-              {category}
-            </a>
-          ))}
-        </div>
-        <div
-          className="ui bottom attached segment"
-          style={{ border: "none", boxShadow: "none", padding: "1rem 0" }}
-        >
-          <div className="ui form" style={{ marginBottom: "1rem" }}>
-            <div className="two fields">
+        <div className="ui form" style={{ marginBottom: "1rem" }}>
+          <div className="equal width fields">
+            <div className="field">
+              <label>Category</label>
+              <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                <option value="">All</option>
+                {categories.map((cat) => (
+                  <option key={cat} value={cat}>{CATEGORY_LABELS[cat] || cat}</option>
+                ))}
+              </select>
+            </div>
+            <div className="field">
+              <label>Brand</label>
+              <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}>
+                <option value="">All</option>
+                {brands.map((brand) => (
+                  <option key={brand} value={brand}>{brand}</option>
+                ))}
+              </select>
+            </div>
+            {sizes.length > 0 && (
               <div className="field">
-                <label>Brand</label>
-                <select
-                  className="ui dropdown"
-                  value={selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
-                >
-                  <option value="">All Brands</option>
-                  {brands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand}
-                    </option>
+                <label>Size</label>
+                <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+                  <option value="">All</option>
+                  {sizes.map((size) => (
+                    <option key={size} value={size}>{size}</option>
                   ))}
                 </select>
               </div>
-              <div className="field">
-                <label>Color</label>
-                <select
-                  className="ui dropdown"
-                  value={selectedColor}
-                  onChange={(e) => setSelectedColor(e.target.value)}
-                >
-                  <option value="">All Colors</option>
-                  {colors.map((color) => (
-                    <option key={color} value={color}>
-                      {color}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            )}
+            <div className="field">
+              <label>Price</label>
+              <select value={selectedCost} onChange={(e) => setSelectedCost(e.target.value)}>
+                <option value="">All</option>
+                {costs.map((cost) => (
+                  <option key={cost} value={cost}>{COST_LABELS[cost] || cost}</option>
+                ))}
+              </select>
             </div>
           </div>
-
-          {filteredProducts.length === 0 ? (
-            <div className="ui message">
-              <p>No products match the selected filters.</p>
-            </div>
-          ) : (
-            <div className="ui three stackable cards">
-              {filteredProducts.map((product) => (
-                <a
-                  key={product.name}
-                  className="ui card"
-                  href={product.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="image">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      style={{
-                        objectFit: "contain",
-                        height: "220px",
-                        width: "100%",
-                        padding: "1rem",
-                        backgroundColor: "#fff",
-                      }}
-                    />
-                  </div>
-                  <div className="content">
-                    <div className="header" style={{ fontSize: "1em" }}>
-                      {product.name}
-                    </div>
-                    <div className="meta">{product.color}</div>
-                    <div className="description" style={{ color: "#555" }}>
-                      {product.description}
-                    </div>
-                  </div>
-                  <div className="extra content">
-                    <span style={{ fontWeight: "bold", color: "#1b1c1d" }}>
-                      {product.price}
-                    </span>
-                    <span className="right floated">
-                      View on Amazon{" "}
-                      <i className="external alternate icon"></i>
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
         </div>
+
+        {filteredGroups.length === 0 ? (
+          <div className="ui message">
+            <p>No products match the selected filters.</p>
+          </div>
+        ) : (
+          <div className="ui three stackable cards">
+            {filteredGroups.map((group) => (
+              <ProductCard key={group.name} group={group} />
+            ))}
+          </div>
+        )}
       </div>
     </Layout>
   );

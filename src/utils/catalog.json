@@ -2,6 +2,7 @@
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
+    "sales": 92.0,
     "link": "https://amzn.to/3MS3iHd",
     "colorway": "Haze",
     "color": "purple",
@@ -14,6 +15,7 @@
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
+    "sales": 92.0,
     "link": "https://amzn.to/4ck2O6Z",
     "colorway": "Ghostly",
     "color": "white",
@@ -26,6 +28,7 @@
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
+    "sales": 92.0,
     "link": "https://amzn.to/4r6C912",
     "colorway": "Cardinal",
     "color": "red",
@@ -38,6 +41,7 @@
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
+    "sales": 92.0,
     "link": "https://amzn.to/4aNs0lh",
     "colorway": "Phoenix",
     "color": "orange",
@@ -50,6 +54,7 @@
   {
     "name": "CRBN Pickleball",
     "brand": "CRBN",
+    "sales": 32.0,
     "link": "https://amzn.to/4u7RAsz",
     "colorway": "Neon",
     "color": "green",
@@ -62,6 +67,7 @@
   {
     "name": "CRBN4 Trufoam Waves Hybrid Shape (Aerocurve)",
     "brand": "CRBN",
+    "sales": 35.0,
     "link": "https://amzn.to/4sr7EUW",
     "colorway": "Black",
     "color": "black",
@@ -74,6 +80,7 @@
   {
     "name": "CRBN3 Trufoam Waves Elongated",
     "brand": "CRBN",
+    "sales": 35.0,
     "link": "https://amzn.to/4aLHJ4b",
     "colorway": "Black",
     "color": "black",
@@ -86,6 +93,7 @@
   {
     "name": "CRBN1 Trufoam Waves Elongated (Long Handle)",
     "brand": "CRBN",
+    "sales": 35.0,
     "link": "https://amzn.to/4r3yhhz",
     "colorway": "Black",
     "color": "black",
@@ -98,6 +106,7 @@
   {
     "name": "CRBN2 Trufoam Waves Square",
     "brand": "CRBN",
+    "sales": 35.0,
     "link": "https://amzn.to/4l99KGz",
     "colorway": "Black",
     "color": "black",
@@ -110,6 +119,7 @@
   {
     "name": "CRBNX1 Elongated (Long Handle)",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/4lfV9cf",
     "colorway": "Black",
     "color": "black",
@@ -122,6 +132,7 @@
   {
     "name": "CRBNX1 Elongated (Long Handle)",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/3ODga4z",
     "colorway": "Black",
     "color": "black",
@@ -134,6 +145,7 @@
   {
     "name": "CRBNX3 Elongated",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/4cv9AHf",
     "colorway": "Black",
     "color": "black",
@@ -146,6 +158,7 @@
   {
     "name": "CRBNX3 Elongated",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/4cpujMw",
     "colorway": "Black",
     "color": "black",
@@ -158,6 +171,7 @@
   {
     "name": "CRBNX2 Square",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/4cl9dyM",
     "colorway": "Black",
     "color": "black",
@@ -170,6 +184,7 @@
   {
     "name": "CRBNX2 Square",
     "brand": "CRBN",
+    "sales": 470.0,
     "link": "https://amzn.to/4cYHRib",
     "colorway": "Black",
     "color": "black",
@@ -182,6 +197,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
+    "sales": 24886.0,
     "link": "https://amzn.to/4bl4BYn",
     "colorway": "Yellow",
     "color": "yellow",
@@ -194,7 +210,8 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
-    "link": "https://www.amazon.com/Franklin-Sports-Outdoor-Performance-Pickleballs/dp/B07XN65XRM?th=1",
+    "sales": 24886.0,
+    "link": "https://amzn.to/47nJemS",
     "colorway": "Ember",
     "color": "red",
     "cost": "$",
@@ -206,6 +223,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
+    "sales": 24886.0,
     "link": "https://amzn.to/47nJemS",
     "colorway": "Lava",
     "color": "orange",
@@ -218,6 +236,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
+    "sales": 24886.0,
     "link": "https://amzn.to/4aOXc3q",
     "colorway": "Purple",
     "color": "purple",
@@ -230,6 +249,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
+    "sales": 105.0,
     "link": "https://amzn.to/4b3zI9y",
     "colorway": "Glacier",
     "color": "blue",
@@ -242,6 +262,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
+    "sales": 105.0,
     "link": "https://amzn.to/4aL6XzI",
     "colorway": "Scorch",
     "color": "red",
@@ -254,6 +275,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
+    "sales": 105.0,
     "link": "https://amzn.to/4u7t3Uq",
     "colorway": "Snow",
     "color": "white",
@@ -266,6 +288,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
+    "sales": 105.0,
     "link": "https://amzn.to/3N0VtyW",
     "colorway": "Sunset",
     "color": "orange",
@@ -278,6 +301,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
+    "sales": 105.0,
     "link": "https://amzn.to/4b74O0b",
     "colorway": "Vice",
     "color": "purple",
@@ -290,6 +314,7 @@
   {
     "name": "Holbrook Aero Series Carbon Fiber S",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/46XhfKT",
     "colorway": "Black",
     "color": "black",
@@ -302,6 +327,7 @@
   {
     "name": "Holbrook Aero Series Carbon Fiber S",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/4b776MP",
     "colorway": "Black",
     "color": "black",
@@ -314,6 +340,7 @@
   {
     "name": "Holbrook Aero Series Carbon Fiber T",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/4l6PhlD",
     "colorway": "Black",
     "color": "black",
@@ -326,6 +353,7 @@
   {
     "name": "Holbrook Aero Series Carbon Fiber X",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/4aMxaOn",
     "colorway": "Black",
     "color": "black",
@@ -338,6 +366,7 @@
   {
     "name": "Holbrook Aero Series Carbon Fiber X",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/4rWRfYj",
     "colorway": "Black",
     "color": "black",
@@ -350,6 +379,7 @@
   {
     "name": "Holbrook Aero Series Metallic",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/40HscfM",
     "colorway": "Black",
     "color": "black",
@@ -362,6 +392,7 @@
   {
     "name": "Holbrook Aero Series Metallic",
     "brand": "Holbrook",
+    "sales": 56.0,
     "link": "https://amzn.to/4sfdYP0",
     "colorway": "Black",
     "color": "black",
@@ -374,6 +405,7 @@
   {
     "name": "JOOLA Agassi Edge",
     "brand": "JOOLA",
+    "sales": 358.0,
     "link": "https://amzn.to/4spPpza",
     "colorway": "Red",
     "color": "red",
@@ -386,6 +418,7 @@
   {
     "name": "JOOLA Agassi PRO",
     "brand": "JOOLA",
+    "sales": 359.0,
     "link": "https://amzn.to/3OTqoO7",
     "colorway": "Red",
     "color": "red",
@@ -398,6 +431,7 @@
   {
     "name": "JOOLA Graf PRO",
     "brand": "JOOLA",
+    "sales": 358.0,
     "link": "https://amzn.to/4bpNmUX",
     "colorway": "Red",
     "color": "red",
@@ -410,6 +444,7 @@
   {
     "name": "JOOLA Graf Edge",
     "brand": "JOOLA",
+    "sales": 358.0,
     "link": "https://amzn.to/4cX3u2f",
     "colorway": "Red",
     "color": "red",
@@ -422,6 +457,7 @@
   {
     "name": "JOOLA Agassi PRO",
     "brand": "JOOLA",
+    "sales": 359.0,
     "link": "https://amzn.to/3NfMtGa",
     "colorway": "Red",
     "color": "red",
@@ -434,6 +470,7 @@
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
+    "sales": 122.0,
     "link": "https://amzn.to/4l8X8z2",
     "colorway": "Ignite Blaze Red",
     "color": "red",
@@ -446,6 +483,7 @@
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
+    "sales": 122.0,
     "link": "https://amzn.to/4u6EX10",
     "colorway": "Charge Surge Green",
     "color": "green",
@@ -458,6 +496,7 @@
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
+    "sales": 122.0,
     "link": "https://amzn.to/4cqw24g",
     "colorway": "Flash Yellow",
     "color": "yellow",
@@ -470,6 +509,7 @@
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/4ubUgpo",
     "colorway": "Blaze Red",
     "color": "red",
@@ -482,18 +522,20 @@
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/4ubUtZI",
-    "colorway": "Bolt Blue",
-    "color": "blue",
+    "colorway": "Flash Yellow",
+    "color": "yellow",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-hyperion-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-hyperion-flash-yellow-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/3OH9BOp",
     "colorway": "Surge Green",
     "color": "green",
@@ -506,6 +548,7 @@
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/4bkwSON",
     "colorway": "Blaze Red",
     "color": "red",
@@ -518,18 +561,20 @@
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/4bpNzYf",
-    "colorway": "Bolt Blue",
-    "color": "blue",
+    "colorway": "Flash Yellow",
+    "color": "yellow",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-perseus-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-perseus-flash-yellow-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/46CpHio",
     "colorway": "Surge Green",
     "color": "green",
@@ -542,6 +587,7 @@
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/3MIIUbv",
     "colorway": "Blaze Red",
     "color": "red",
@@ -554,18 +600,20 @@
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/3PeuYGM",
-    "colorway": "Bolt Blue",
-    "color": "blue",
+    "colorway": "Flash Yellow",
+    "color": "yellow",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-scorpeus-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-scorpeus-flash-yellow-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
+    "sales": 109.0,
     "link": "https://amzn.to/4r6SD9y",
     "colorway": "Surge Green",
     "color": "green",
@@ -576,56 +624,9 @@
     "image": "/catalog/joola-double-vision-scorpeus-surge-green-16mm.jpg"
   },
   {
-    "name": "Proton Project Flamingo Elongated",
-    "brand": "Proton Sports",
-    "link": "https://www.amazon.com/Proton-Project-Flamingo-Pickleball-Paddle/dp/B0FNKQC4B8?th=1",
-    "colorway": "Pink",
-    "color": "pink",
-    "cost": "$$$",
-    "category": "paddle",
-    "size": "15mm",
-    "default": false,
-    "image": "/catalog/proton-project-flamingo-elongated-pink-15mm.jpg"
-  },
-  {
-    "name": "Proton Project Flamingo Elongated",
-    "brand": "Proton Sports",
-    "link": "https://www.amazon.com/Proton-Project-Flamingo-Pickleball-Paddle/dp/B0FNKP9KDB?th=1",
-    "colorway": "Blue",
-    "color": "blue",
-    "cost": "$$$",
-    "category": "paddle",
-    "size": "15mm",
-    "default": false,
-    "image": "/catalog/proton-project-flamingo-elongated-blue-15mm.jpg"
-  },
-  {
-    "name": "Proton Project Flamingo Widebody",
-    "brand": "Proton Sports",
-    "link": "https://www.amazon.com/Proton-Project-Flamingo-Pickleball-Paddle/dp/B0G4D3F266",
-    "colorway": "Pink",
-    "color": "pink",
-    "cost": "$$$",
-    "category": "paddle",
-    "size": "15mm",
-    "default": false,
-    "image": "/catalog/proton-project-flamingo-widebody-pink-15mm.jpg"
-  },
-  {
-    "name": "Proton Project Flamingo Widebody",
-    "brand": "Proton Sports",
-    "link": "https://www.amazon.com/Proton-Project-Flamingo-Pickleball-Paddle/dp/B0G4D3V1BZ",
-    "colorway": "Blue",
-    "color": "blue",
-    "cost": "$$$",
-    "category": "paddle",
-    "size": "15mm",
-    "default": false,
-    "image": "/catalog/proton-project-flamingo-widebody-blue-15mm.jpg"
-  },
-  {
     "name": "Proton Series Three Raw Carbon",
     "brand": "Proton Sports",
+    "sales": 3.0,
     "link": "https://amzn.to/4rc2afE",
     "colorway": "Raspberry",
     "color": "purple",
@@ -638,6 +639,7 @@
   {
     "name": "Proton Series Three Raw Carbon",
     "brand": "Proton Sports",
+    "sales": 3.0,
     "link": "https://amzn.to/4sGRPtp",
     "colorway": "Cream",
     "color": "white",
@@ -650,6 +652,7 @@
   {
     "name": "JOOLA Pro IV Hyperion",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4sseycx",
     "colorway": "Black",
     "color": "black",
@@ -662,6 +665,7 @@
   {
     "name": "JOOLA Pro IV Hyperion",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4sGRIOv",
     "colorway": "Black",
     "color": "black",
@@ -674,6 +678,7 @@
   {
     "name": "JOOLA Pro IV Persus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/46Cq6RW",
     "colorway": "Black",
     "color": "black",
@@ -686,6 +691,7 @@
   {
     "name": "JOOLA Pro IV Persus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/47alYZv",
     "colorway": "Black",
     "color": "black",
@@ -698,6 +704,7 @@
   {
     "name": "JOOLA Pro IV Magnus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4cX3ZJF",
     "colorway": "Black",
     "color": "black",
@@ -710,6 +717,7 @@
   {
     "name": "JOOLA Pro IV Magnus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4rOFxz5",
     "colorway": "Black",
     "color": "black",
@@ -722,6 +730,7 @@
   {
     "name": "JOOLA Pro IV Scorpeus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4u3zRCE",
     "colorway": "Black",
     "color": "black",
@@ -734,6 +743,7 @@
   {
     "name": "JOOLA Pro IV Scorpeus",
     "brand": "JOOLA",
+    "sales": 487.0,
     "link": "https://amzn.to/4rLbI21",
     "colorway": "Black",
     "color": "black",
@@ -746,6 +756,7 @@
   {
     "name": "Swiftnet 2.1 Portable Pickleball net System",
     "brand": "Swift",
+    "sales": 279.0,
     "link": "https://amzn.to/46CS0gJ",
     "colorway": "Black",
     "color": "black",
