@@ -225,6 +225,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const ShopPage = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("");
   const [selectedBrand, setSelectedBrand] = React.useState("");
   const [selectedCost, setSelectedCost] = React.useState("");
@@ -250,8 +251,13 @@ const ShopPage = () => {
       .flatMap((g) => g.sizes)
   )).sort();
 
+  const query = searchQuery.toLowerCase().trim();
   const filteredGroups = groups.filter(
     (g) =>
+      (!query ||
+        g.name.toLowerCase().includes(query) ||
+        g.brand.toLowerCase().includes(query) ||
+        g.variants.some((v) => v.colorway.toLowerCase().includes(query))) &&
       (!selectedCategory || g.category === selectedCategory) &&
       (!selectedBrand || g.brand === selectedBrand) &&
       (!selectedCost || g.cost === selectedCost) &&
@@ -284,6 +290,17 @@ const ShopPage = () => {
         </p>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>
+          <div className="field" style={{ marginBottom: "0.75rem" }}>
+            <div className="ui icon input fluid">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <i className="search icon"></i>
+            </div>
+          </div>
           <div className="equal width fields">
             <div className="field">
               <label>Category</label>
