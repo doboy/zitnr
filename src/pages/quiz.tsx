@@ -50,7 +50,7 @@ const QUESTIONS = [
         value: "beginner",
         label: "Beginner",
         description: "Still learning the rules and basic shots",
-        icon: "seedling",
+        icon: "star outline",
       },
       {
         value: "intermediate",
