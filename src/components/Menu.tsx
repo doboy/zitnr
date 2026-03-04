@@ -45,13 +45,23 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
             <a
               className={classnames([
                 "header",
+                { active: selectedMenuItem == "quiz" },
+                "item",
+              ])}
+              href="/quiz"
+            >
+              <i className="question circle icon"></i>
+              <span className="ui red mini label" style={{ fontSize: "0.5em", padding: "2px 4px", marginLeft: "-4px", verticalAlign: "top" }}>NEW</span>
+            </a>
+            <a
+              className={classnames([
+                "header",
                 { active: selectedMenuItem == "shop" },
                 "item",
               ])}
               href="/shop"
             >
               <i className="shop icon"></i>
-              <span className="ui red mini label" style={{ fontSize: "0.5em", padding: "2px 4px", marginLeft: "-4px", verticalAlign: "top" }}>NEW</span>
             </a>
             <a
               className={classnames([
