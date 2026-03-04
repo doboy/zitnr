@@ -89,6 +89,8 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
     )
   );
 
+  const isNew = group.name.includes("Pro V") || group.name === "11six24 Vapor Power 2";
+
   return (
     <div className="ui card" style={{ textDecoration: "none" }}>
       <a
@@ -96,7 +98,25 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="image">
+        <div className="image" style={{ position: "relative" }}>
+          {isNew && (
+            <span
+              style={{
+                position: "absolute",
+                top: "8px",
+                right: "8px",
+                backgroundColor: "#db2828",
+                color: "white",
+                fontSize: "0.7em",
+                fontWeight: "bold",
+                padding: "2px 6px",
+                borderRadius: "3px",
+                zIndex: 1,
+              }}
+            >
+              NEW
+            </span>
+          )}
           <img
             src={activeVariant.image}
             alt={`${group.name} - ${activeVariant.colorway}`}
