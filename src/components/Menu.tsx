@@ -51,6 +51,7 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
               href="/shop"
             >
               <i className="shop icon"></i>
+              <span className="ui red mini label" style={{ fontSize: "0.5em", padding: "2px 4px", marginLeft: "-4px", verticalAlign: "top" }}>NEW</span>
             </a>
             <a
               className={classnames([
