@@ -5,84 +5,188 @@ import catalog from "../utils/catalog.json";
 type Variant = (typeof catalog)[number];
 
 interface QuizAnswers {
-  experience: string;
-  playStyle: string;
+  frequency: string;
+  skillLevel: string;
+  improvement: string;
+  quality: string;
+  gameStyle: string;
+  pain: string;
   budget: string;
   shape: string;
 }
 
 const QUESTIONS = [
   {
-    key: "experience" as const,
-    title: "What's your experience level?",
+    key: "frequency" as const,
+    title: "How often do you play?",
+    icon: "calendar check",
+    options: [
+      {
+        value: "casual",
+        label: "Casually",
+        description: "A few times a month or less",
+        icon: "coffee",
+      },
+      {
+        value: "regular",
+        label: "Regularly",
+        description: "1-3 times per week",
+        icon: "sync",
+      },
+      {
+        value: "competitive",
+        label: "Frequently",
+        description: "4+ times per week or in tournaments",
+        icon: "fire",
+      },
+    ],
+  },
+  {
+    key: "skillLevel" as const,
+    title: "What is your skill level?",
     icon: "star",
     options: [
       {
         value: "beginner",
         label: "Beginner",
-        description: "New to pickleball or just getting started",
+        description: "Still learning the rules and basic shots",
         icon: "seedling",
       },
       {
         value: "intermediate",
         label: "Intermediate",
-        description: "Play regularly and know the basics well",
+        description: "Comfortable with all shots, working on strategy",
         icon: "hand peace",
       },
       {
         value: "advanced",
         label: "Advanced",
-        description: "Competitive player looking for an edge",
+        description: "Strong all-around game, tournament-level play",
         icon: "trophy",
       },
     ],
   },
   {
-    key: "playStyle" as const,
-    title: "What's your play style?",
-    icon: "bullseye",
+    key: "improvement" as const,
+    title: "What aspect of your game do you most want to improve?",
+    icon: "chart line",
     options: [
+      {
+        value: "dinking",
+        label: "Dinking",
+        description: "Soft game, touch, and drop shots at the kitchen",
+        icon: "hand point down",
+      },
+      {
+        value: "driving",
+        label: "Driving",
+        description: "Powerful groundstrokes and deep shots",
+        icon: "bolt",
+      },
+      {
+        value: "fastHands",
+        label: "Fast Hands",
+        description: "Quick exchanges and volleys at the net",
+        icon: "hand rock",
+      },
+    ],
+  },
+  {
+    key: "quality" as const,
+    title: "What paddle quality matters most to you?",
+    icon: "sliders horizontal",
+    options: [
+      {
+        value: "spin",
+        label: "Spin",
+        description: "Maximum spin generation on every shot",
+        icon: "spinner",
+      },
       {
         value: "power",
         label: "Power",
-        description: "Aggressive drives, smashes, and speed-ups",
+        description: "Pop and punch for aggressive play",
         icon: "bolt",
       },
       {
         value: "control",
         label: "Control",
-        description: "Soft game, dinks, and precise placement",
+        description: "Precision placement and soft touch",
         icon: "crosshairs",
       },
       {
         value: "allAround",
         label: "All-Around",
-        description: "A balanced mix of power and finesse",
+        description: "A balanced blend of everything",
         icon: "balance scale",
       },
     ],
   },
   {
+    key: "gameStyle" as const,
+    title: "Is your game more offensive or defensive?",
+    icon: "shield alternate",
+    options: [
+      {
+        value: "offensive",
+        label: "Offensive",
+        description: "I like to attack and put balls away",
+        icon: "bolt",
+      },
+      {
+        value: "defensive",
+        label: "Defensive",
+        description: "I prefer to reset, block, and outlast opponents",
+        icon: "shield alternate",
+      },
+      {
+        value: "balanced",
+        label: "Balanced",
+        description: "I adapt my style based on the situation",
+        icon: "balance scale",
+      },
+    ],
+  },
+  {
+    key: "pain" as const,
+    title: "Do you experience any elbow or wrist pain?",
+    icon: "heartbeat",
+    options: [
+      {
+        value: "yes",
+        label: "Yes",
+        description: "I deal with discomfort during or after play",
+        icon: "band aid",
+      },
+      {
+        value: "no",
+        label: "No",
+        description: "No pain or discomfort",
+        icon: "check circle",
+      },
+    ],
+  },
+  {
     key: "budget" as const,
-    title: "What's your budget?",
+    title: "What is your budget?",
     icon: "dollar sign",
     options: [
       {
         value: "$",
         label: "Great Value ($)",
-        description: "Under $100 - best bang for your buck",
+        description: "Under $100 — best bang for your buck",
         icon: "tag",
       },
       {
         value: "$$",
         label: "Mid-Range ($$)",
-        description: "$100 - $150 - solid upgrade",
+        description: "$100–$150 — solid upgrade",
         icon: "credit card",
       },
       {
         value: "$$$",
         label: "Premium ($$$)",
-        description: "$150+ - top-of-the-line performance",
+        description: "$150+ — top-of-the-line performance",
         icon: "gem",
       },
     ],
@@ -93,22 +197,22 @@ const QUESTIONS = [
     icon: "expand arrows alternate",
     options: [
       {
+        value: "widebody",
+        label: "Widebody",
+        description: "Larger sweet spot — more forgiveness",
+        icon: "expand",
+      },
+      {
         value: "elongated",
         label: "Elongated",
-        description: "More reach and leverage on drives",
+        description: "More reach & power — extra leverage",
         icon: "arrows alternate vertical",
       },
       {
         value: "standard",
-        label: "Standard / Hybrid",
-        description: "Balanced shape for versatility",
+        label: "Standard",
+        description: "Balanced shape — versatile all-around",
         icon: "square outline",
-      },
-      {
-        value: "widebody",
-        label: "Wide-Body",
-        description: "Larger sweet spot and forgiveness",
-        icon: "expand",
       },
     ],
   },
@@ -163,7 +267,6 @@ function scorePaddle(paddle: Variant, answers: QuizAnswers): number {
   if (paddle.cost === answers.budget) {
     score += 40;
   } else {
-    // Adjacent budget gets partial credit
     const costs = ["$", "$$", "$$$"];
     const diff = Math.abs(
       costs.indexOf(paddle.cost) - costs.indexOf(answers.budget)
@@ -176,31 +279,70 @@ function scorePaddle(paddle: Variant, answers: QuizAnswers): number {
     score += 30;
   }
 
-  // Experience + play style considerations
-  if (answers.experience === "beginner") {
-    // Beginners benefit from wider paddles and 16mm (more forgiving)
+  // Skill level
+  if (answers.skillLevel === "beginner") {
     if (paddle.size === "16mm") score += 10;
     if (paddle.cost === "$") score += 5;
-  } else if (answers.experience === "advanced") {
-    // Advanced players may want thinner cores for feel
-    if (paddle.size === "14mm" && answers.playStyle === "power") score += 10;
-    if (paddle.size === "16mm" && answers.playStyle === "control") score += 10;
+  } else if (answers.skillLevel === "advanced") {
     if (paddle.cost === "$$$") score += 5;
+    if (paddle.size === "14mm") score += 5;
   } else {
-    // Intermediate - 16mm is versatile
     if (paddle.size === "16mm") score += 5;
   }
 
-  if (answers.playStyle === "power") {
+  // Frequency — frequent players benefit from premium paddles
+  if (answers.frequency === "competitive") {
+    if (paddle.cost === "$$$") score += 5;
+  } else if (answers.frequency === "casual") {
+    if (paddle.cost === "$") score += 5;
+  }
+
+  // Improvement area
+  if (answers.improvement === "dinking") {
+    if (
+      paddle.name.includes("All Court") ||
+      paddle.name.includes("Perseus") ||
+      paddle.name.includes("Graf") ||
+      paddle.name.includes("Square")
+    )
+      score += 12;
+    if (paddle.size === "16mm") score += 5;
+  } else if (answers.improvement === "driving") {
+    if (
+      paddle.name.includes("Power") ||
+      paddle.name.includes("Hyperion") ||
+      paddle.name.includes("Challenger")
+    )
+      score += 12;
+    if (paddle.size === "14mm") score += 5;
+  } else if (answers.improvement === "fastHands") {
+    if (
+      paddle.name.includes("Hybrid") ||
+      paddle.name.includes("Vapor") ||
+      paddle.name.includes("Agassi")
+    )
+      score += 12;
+    // Widebody paddles help with fast hands
+    if (matchesShape(paddle, "widebody")) score += 5;
+  }
+
+  // Paddle quality preference
+  if (answers.quality === "spin") {
+    if (
+      paddle.brand === "CRBN" ||
+      paddle.name.includes("Aero") ||
+      paddle.name.includes("Alpha")
+    )
+      score += 15;
+  } else if (answers.quality === "power") {
     if (
       paddle.name.includes("Power") ||
       paddle.name.includes("Hyperion") ||
       paddle.name.includes("Challenger")
     )
       score += 15;
-    if (paddle.name.includes("Elongated") || paddle.name.includes("Long Handle"))
-      score += 5;
-  } else if (answers.playStyle === "control") {
+    if (paddle.size === "14mm") score += 5;
+  } else if (answers.quality === "control") {
     if (
       paddle.name.includes("All Court") ||
       paddle.name.includes("Perseus") ||
@@ -210,7 +352,7 @@ function scorePaddle(paddle: Variant, answers: QuizAnswers): number {
       score += 15;
     if (paddle.size === "16mm") score += 5;
   } else {
-    // All-around
+    // all-around
     if (
       paddle.name.includes("Hybrid") ||
       paddle.name.includes("All Court") ||
@@ -218,6 +360,40 @@ function scorePaddle(paddle: Variant, answers: QuizAnswers): number {
       paddle.name.includes("Vapor")
     )
       score += 15;
+  }
+
+  // Game style
+  if (answers.gameStyle === "offensive") {
+    if (
+      paddle.name.includes("Power") ||
+      paddle.name.includes("Hyperion") ||
+      paddle.name.includes("Challenger")
+    )
+      score += 8;
+    if (paddle.size === "14mm") score += 3;
+  } else if (answers.gameStyle === "defensive") {
+    if (
+      paddle.name.includes("All Court") ||
+      paddle.name.includes("Perseus") ||
+      paddle.name.includes("Graf") ||
+      paddle.name.includes("Square")
+    )
+      score += 8;
+    if (paddle.size === "16mm") score += 3;
+  } else {
+    if (
+      paddle.name.includes("Hybrid") ||
+      paddle.name.includes("Vapor") ||
+      paddle.name.includes("Fever")
+    )
+      score += 8;
+  }
+
+  // Pain — thicker cores absorb more vibration
+  if (answers.pain === "yes") {
+    if (paddle.size === "16mm") score += 15;
+    // Penalize thin cores for pain sufferers
+    if (paddle.size === "14mm") score -= 10;
   }
 
   // Popularity bonus (normalized)
@@ -228,14 +404,18 @@ function scorePaddle(paddle: Variant, answers: QuizAnswers): number {
 
 function getRecommendations(answers: QuizAnswers): Variant[] {
   const paddles = getUniquePaddles();
-  const scored = paddles.map((p) => ({ paddle: p, score: scorePaddle(p, answers) }));
+  const scored = paddles.map((p) => ({
+    paddle: p,
+    score: scorePaddle(p, answers),
+  }));
   scored.sort((a, b) => b.score - a.score);
-
-  // Return top 3 unique recommendations
   return scored.slice(0, 3).map((s) => s.paddle);
 }
 
-function getRecommendationReason(paddle: Variant, answers: QuizAnswers): string {
+function getRecommendationReason(
+  paddle: Variant,
+  answers: QuizAnswers
+): string {
   const reasons: string[] = [];
 
   if (paddle.cost === answers.budget) {
@@ -247,44 +427,56 @@ function getRecommendationReason(paddle: Variant, answers: QuizAnswers): string 
       answers.shape === "elongated"
         ? "elongated"
         : answers.shape === "widebody"
-          ? "wide-body"
+          ? "widebody"
           : "standard";
-    reasons.push(`${shapeLabel} shape`);
+    reasons.push(`${shapeLabel} shape you prefer`);
   }
 
-  if (answers.playStyle === "power") {
+  if (answers.quality === "spin") {
+    if (
+      paddle.brand === "CRBN" ||
+      paddle.name.includes("Aero") ||
+      paddle.name.includes("Alpha")
+    )
+      reasons.push("excellent spin generation");
+  } else if (answers.quality === "power") {
     if (
       paddle.name.includes("Power") ||
       paddle.name.includes("Hyperion") ||
       paddle.name.includes("Challenger")
     )
-      reasons.push("great for power players");
-  } else if (answers.playStyle === "control") {
+      reasons.push("great for power");
+  } else if (answers.quality === "control") {
     if (
       paddle.name.includes("All Court") ||
       paddle.name.includes("Perseus") ||
       paddle.name.includes("Graf") ||
       paddle.name.includes("Square")
     )
-      reasons.push("excellent for control");
+      reasons.push("excellent control");
   } else {
     if (
       paddle.name.includes("Hybrid") ||
-      paddle.name.includes("All Court") ||
+      paddle.name.includes("Vapor") ||
       paddle.name.includes("Fever") ||
-      paddle.name.includes("Vapor")
+      paddle.name.includes("All Court")
     )
       reasons.push("versatile all-around paddle");
   }
 
-  if (answers.experience === "beginner" && paddle.size === "16mm") {
-    reasons.push("forgiving 16mm core");
+  if (answers.pain === "yes" && paddle.size === "16mm") {
+    reasons.push("16mm core absorbs vibration — easier on joints");
+  }
+
+  if (answers.improvement === "dinking" && paddle.size === "16mm") {
+    reasons.push("16mm core for soft touch");
+  } else if (answers.improvement === "driving" && paddle.size === "14mm") {
+    reasons.push("14mm core for explosive drives");
   } else if (
-    answers.experience === "advanced" &&
-    paddle.size === "14mm" &&
-    answers.playStyle === "power"
+    answers.improvement === "fastHands" &&
+    matchesShape(paddle, "widebody")
   ) {
-    reasons.push("responsive 14mm core for advanced power");
+    reasons.push("wide face for quick net exchanges");
   }
 
   if (paddle.sales > 400) {
@@ -299,9 +491,9 @@ function getRecommendationReason(paddle: Variant, answers: QuizAnswers): string 
 }
 
 const COST_LABELS: Record<string, string> = {
-  "$": "$ - Great Value",
-  "$$": "$$ - Mid-range",
-  "$$$": "$$$ - Premium",
+  $: "$ - Great Value",
+  $$: "$$ - Mid-range",
+  $$$: "$$$ - Premium",
 };
 
 const QuizPage = () => {
@@ -339,7 +531,7 @@ const QuizPage = () => {
   const question = QUESTIONS[currentStep];
   const progress = showResults
     ? 100
-    : ((currentStep) / QUESTIONS.length) * 100;
+    : (currentStep / QUESTIONS.length) * 100;
 
   return (
     <Layout
@@ -388,7 +580,7 @@ const QuizPage = () => {
               </h3>
 
               <div
-                className="ui stackable three cards"
+                className={`ui stackable ${question.options.length <= 3 ? "three" : "four"} cards`}
                 style={{ marginTop: "1.5rem" }}
               >
                 {question.options.map((option) => {
@@ -418,7 +610,10 @@ const QuizPage = () => {
                         ></i>
                         <div
                           className="header"
-                          style={{ fontSize: "1.1em", marginBottom: "0.5rem" }}
+                          style={{
+                            fontSize: "1.1em",
+                            marginBottom: "0.5rem",
+                          }}
                         >
                           {option.label}
                         </div>
@@ -482,7 +677,12 @@ const QuizPage = () => {
                         {index === 0 && (
                           <div
                             className="ui green ribbon label"
-                            style={{ position: "absolute", top: "12px", left: "-14px", zIndex: 1 }}
+                            style={{
+                              position: "absolute",
+                              top: "12px",
+                              left: "-14px",
+                              zIndex: 1,
+                            }}
                           >
                             Best Match
                           </div>
