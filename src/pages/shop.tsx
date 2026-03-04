@@ -18,8 +18,8 @@ interface ProductGroup {
 
 const COST_LABELS: Record<string, string> = {
   "$": "$ - Great Value",
-  "$$": "$$ - Mid-range",
-  "$$$": "$$$ - Premium",
+  "$$": "$$ - Mid-range ($100-200)",
+  "$$$": "$$$ - Premium ($200+)",
 };
 
 const COLOR_HEX: Record<string, string> = {

@@ -180,13 +180,13 @@ const QUESTIONS = [
       {
         value: "$$",
         label: "Mid-Range ($$)",
-        description: "$100–$150 — solid upgrade",
+        description: "$100–$200 — solid upgrade",
         icon: "credit card",
       },
       {
         value: "$$$",
         label: "Premium ($$$)",
-        description: "$150+ — top-of-the-line performance",
+        description: "$200+ — top-of-the-line performance",
         icon: "gem",
       },
     ],
@@ -492,8 +492,8 @@ function getRecommendationReason(
 
 const COST_LABELS: Record<string, string> = {
   $: "$ - Great Value",
-  $$: "$$ - Mid-range",
-  $$$: "$$$ - Premium",
+  $$: "$$ - Mid-range ($100-200)",
+  $$$: "$$$ - Premium ($200+)",
 };
 
 const QuizPage = () => {
