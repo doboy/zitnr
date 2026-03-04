@@ -57,7 +57,13 @@ function groupProducts(products: Variant[]): ProductGroup[] {
       sizes: Array.from(new Set(variants.map((v) => v.size).filter(Boolean))),
     });
   }
-  groups.sort((a, b) => b.sales - a.sales);
+  const currentYear = new Date().getFullYear();
+  groups.sort((a, b) => {
+    const aIsNew = a.variants.some((v) => (v as any).year === currentYear);
+    const bIsNew = b.variants.some((v) => (v as any).year === currentYear);
+    if (aIsNew !== bIsNew) return aIsNew ? -1 : 1;
+    return b.sales - a.sales;
+  });
   return groups;
 }
 
