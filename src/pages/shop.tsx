@@ -141,7 +141,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
           {group.name}
         </a>
         <div className="meta" style={{ marginTop: "0.25rem" }}>
-          {activeVariant.colorway}
+          {activeVariant.colorway}{activeVariant.size ? ` - ${activeVariant.size}` : ""}
         </div>
         {group.colorways.length > 1 && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
