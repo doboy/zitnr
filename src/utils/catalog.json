@@ -52,7 +52,7 @@
     "image": "/catalog/friday-challenger-paddle-phoenix-16mm.jpg"
   },
   {
-    "name": "CRBN Pickleball",
+    "name": "CRBN CRBN Pickleball",
     "brand": "CRBN",
     "sales": 32.0,
     "link": "https://amzn.to/4u7RAsz",
@@ -62,10 +62,10 @@
     "category": "ball",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbn-pickleball-neon-16mm.jpg"
+    "image": "/catalog/crbn-crbn-pickleball-neon-16mm.jpg"
   },
   {
-    "name": "CRBN4 Trufoam Waves Hybrid Shape (Aerocurve)",
+    "name": "CRBN CRBN4 Trufoam Waves Hybrid Shape (Aerocurve)",
     "brand": "CRBN",
     "sales": 35.0,
     "link": "https://amzn.to/4sr7EUW",
@@ -75,10 +75,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn4-trufoam-waves-hybrid-shape-aerocurve-black-14mm.jpg"
+    "image": "/catalog/crbn-crbn4-trufoam-waves-hybrid-shape-(aerocurve)-black-14mm.jpg"
   },
   {
-    "name": "CRBN3 Trufoam Waves Elongated",
+    "name": "CRBN CRBN3 Trufoam Waves Elongated",
     "brand": "CRBN",
     "sales": 35.0,
     "link": "https://amzn.to/4aLHJ4b",
@@ -88,10 +88,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn3-trufoam-waves-elongated-black-14mm.jpg"
+    "image": "/catalog/crbn-crbn3-trufoam-waves-elongated-black-14mm.jpg"
   },
   {
-    "name": "CRBN1 Trufoam Waves Elongated (Long Handle)",
+    "name": "CRBN CRBN1 Trufoam Waves Elongated (Long Handle)",
     "brand": "CRBN",
     "sales": 35.0,
     "link": "https://amzn.to/4r3yhhz",
@@ -101,10 +101,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn1-trufoam-waves-elongated-long-handle-black-14mm.jpg"
+    "image": "/catalog/crbn-crbn1-trufoam-waves-elongated-(long-handle)-black-14mm.jpg"
   },
   {
-    "name": "CRBN2 Trufoam Waves Square",
+    "name": "CRBN CRBN2 Trufoam Waves Square",
     "brand": "CRBN",
     "sales": 35.0,
     "link": "https://amzn.to/4l99KGz",
@@ -114,10 +114,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn2-trufoam-waves-square-black-14mm.jpg"
+    "image": "/catalog/crbn-crbn2-trufoam-waves-square-black-14mm.jpg"
   },
   {
-    "name": "CRBNX1 Elongated (Long Handle)",
+    "name": "CRBN CRBNX1 Elongated (Long Handle)",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/4lfV9cf",
@@ -127,10 +127,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx1-elongated-long-handle-black-16mm.jpg"
+    "image": "/catalog/crbn-crbnx1-elongated-(long-handle)-black-16mm.jpg"
   },
   {
-    "name": "CRBNX1 Elongated (Long Handle)",
+    "name": "CRBN CRBNX1 Elongated (Long Handle)",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/3ODga4z",
@@ -140,10 +140,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx1-elongated-long-handle-black-14mm.jpg"
+    "image": "/catalog/crbn-crbnx1-elongated-(long-handle)-black-14mm.jpg"
   },
   {
-    "name": "CRBNX3 Elongated",
+    "name": "CRBN CRBNX3 Elongated",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/4cv9AHf",
@@ -153,10 +153,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx3-elongated-black-16mm.jpg"
+    "image": "/catalog/crbn-crbnx3-elongated-black-16mm.jpg"
   },
   {
-    "name": "CRBNX3 Elongated",
+    "name": "CRBN CRBNX3 Elongated",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/4cpujMw",
@@ -166,10 +166,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx3-elongated-black-14mm.jpg"
+    "image": "/catalog/crbn-crbnx3-elongated-black-14mm.jpg"
   },
   {
-    "name": "CRBNX2 Square",
+    "name": "CRBN CRBNX2 Square",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/4cl9dyM",
@@ -179,10 +179,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx2-square-black-16mm.jpg"
+    "image": "/catalog/crbn-crbnx2-square-black-16mm.jpg"
   },
   {
-    "name": "CRBNX2 Square",
+    "name": "CRBN CRBNX2 Square",
     "brand": "CRBN",
     "sales": 470.0,
     "link": "https://amzn.to/4cYHRib",
@@ -192,7 +192,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx2-square-black-14mm.jpg"
+    "image": "/catalog/crbn-crbnx2-square-black-14mm.jpg"
   },
   {
     "name": "Franklin X-40 Pickleball",
@@ -204,7 +204,7 @@
     "cost": "$",
     "category": "ball",
     "size": "",
-    "default": true,
+    "default": false,
     "image": "/catalog/franklin-x-40-pickleball-yellow.jpg"
   },
   {
@@ -624,7 +624,7 @@
     "image": "/catalog/joola-double-vision-scorpeus-surge-green-16mm.jpg"
   },
   {
-    "name": "Proton Series Three Raw Carbon",
+    "name": "Proton Sports Series Three Raw Carbon",
     "brand": "Proton Sports",
     "sales": 3.0,
     "link": "https://amzn.to/4rc2afE",
@@ -634,10 +634,10 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-series-three-raw-carbon-raspberry-15mm.jpg"
+    "image": "/catalog/proton-sports-series-three-raw-carbon-raspberry-15mm.jpg"
   },
   {
-    "name": "Proton Series Three Raw Carbon",
+    "name": "Proton Sports Series Three Raw Carbon",
     "brand": "Proton Sports",
     "sales": 3.0,
     "link": "https://amzn.to/4sGRPtp",
@@ -647,10 +647,10 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-series-three-raw-carbon-cream-15mm.jpg"
+    "image": "/catalog/proton-sports-series-three-raw-carbon-cream-15mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Hyperion",
+    "name": "JOOLA Hyperion Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4sseycx",
@@ -660,10 +660,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-hyperion-black-16mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-iv-black-16mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Hyperion",
+    "name": "JOOLA Hyperion Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4sGRIOv",
@@ -673,10 +673,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-hyperion-black-14mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-iv-black-14mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Persus",
+    "name": "JOOLA Persus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/46Cq6RW",
@@ -686,10 +686,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-persus-black-16mm.jpg"
+    "image": "/catalog/joola-persus-pro-iv-black-16mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Persus",
+    "name": "JOOLA Persus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/47alYZv",
@@ -699,10 +699,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-persus-black-14mm.jpg"
+    "image": "/catalog/joola-persus-pro-iv-black-14mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Magnus",
+    "name": "JOOLA Magnus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4cX3ZJF",
@@ -712,10 +712,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-magnus-black-16mm.jpg"
+    "image": "/catalog/joola-magnus-pro-iv-black-16mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Magnus",
+    "name": "JOOLA Magnus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4rOFxz5",
@@ -725,10 +725,10 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-magnus-black-14mm.jpg"
+    "image": "/catalog/joola-magnus-pro-iv-black-14mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Scorpeus",
+    "name": "JOOLA Scorpeus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4u3zRCE",
@@ -738,10 +738,10 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-scorpeus-black-16mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-iv-black-16mm.jpg"
   },
   {
-    "name": "JOOLA Pro IV Scorpeus",
+    "name": "JOOLA Scorpeus Pro IV",
     "brand": "JOOLA",
     "sales": 487.0,
     "link": "https://amzn.to/4rLbI21",
@@ -751,11 +751,11 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-scorpeus-black-14mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-iv-black-14mm.jpg"
   },
   {
     "name": "Swiftnet 2.1 Portable Pickleball net System",
-    "brand": "Swift",
+    "brand": "Swiftnet",
     "sales": 279.0,
     "link": "https://amzn.to/46CS0gJ",
     "colorway": "Black",
@@ -764,6 +764,526 @@
     "category": "net",
     "size": "",
     "default": false,
-    "image": "/catalog/swiftnet-21-portable-pickleball-net-system-black.jpg"
+    "image": "/catalog/swiftnet-2.1-portable-pickleball-net-system-black.jpg"
+  },
+  {
+    "name": "JOOLA Perseus Pro V",
+    "brand": "JOOLA",
+    "sales": 999.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784217346262",
+    "colorway": "Blaze Red",
+    "color": "red",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Perseus Pro V",
+    "brand": "JOOLA",
+    "sales": 999.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784670888150",
+    "colorway": "Breeze Blue",
+    "color": "blue",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Perseus Pro V",
+    "brand": "JOOLA",
+    "sales": 999.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784217313494",
+    "colorway": "Blaze Red",
+    "color": "red",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg"
+  },
+  {
+    "name": "JOOLA Kosmos Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/kosmos-pro-v-pickleball-paddle?variant=47759986983126",
+    "colorway": "Surge Green",
+    "color": "green",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Kosmos Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/kosmos-pro-v-pickleball-paddle?variant=47759987015894",
+    "colorway": "Surge Green",
+    "color": "green",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671019222",
+    "colorway": "Yellow",
+    "color": "yellow",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671084758",
+    "colorway": "Yellow",
+    "color": "yellow",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-14mm.jpg"
+  },
+  {
+    "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671051990",
+    "colorway": "Club Green",
+    "color": "green",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-club-green-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Hyperion Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-hyperion-pro-v-pickleball-paddle?variant=47784671150294",
+    "colorway": "Bolt Blue",
+    "color": "blue",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Hyperion Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-hyperion-pro-v-pickleball-paddle?variant=47784671183062",
+    "colorway": "Bolt Blue",
+    "color": "blue",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-14mm.jpg"
+  },
+  {
+    "name": "JOOLA Agassi Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-agassi-pro-v-pickleball-paddle-1?variant=47827805896918",
+    "colorway": "Royal Blue",
+    "color": "blue",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-16mm.jpg"
+  },
+  {
+    "name": "JOOLA Agassi Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-agassi-pro-v-pickleball-paddle-1?variant=47827805929686",
+    "colorway": "Royal Blue",
+    "color": "blue",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-14mm.jpg"
+  },
+  {
+    "name": "JOOLA Graf Pro V Pickleball Paddle",
+    "brand": "JOOLA",
+    "sales": 998.0,
+    "link": "https://joola.com/collections/pro-v/products/joola-graf-pro-v-pickleball-paddle-1?variant=47827805995222",
+    "colorway": "Seaside Green",
+    "color": "green",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/joola-graf-pro-v-pickleball-paddle-seaside-green-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Power 2",
+    "brand": "11six24",
+    "sales": 998.0,
+    "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440656687&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-power-2-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Power 2",
+    "brand": "11six24",
+    "sales": 998.0,
+    "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440689455&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Lavender",
+    "color": "purple",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-power-2-lavender-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Power 2",
+    "brand": "11six24",
+    "sales": 998.0,
+    "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440722223&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-power-2-white-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power?variant=50957782581551&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-power-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power?variant=52089908887855&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Lavender",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-power-lavender-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Alpha Pro Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-alpha-pro-power-white-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=50617115410735&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-jelly-bean-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=51362952380719&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Pink",
+    "color": "pink",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-jelly-bean-pink-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=52085193179439&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Cornflower Blue",
+    "color": "blue",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-jelly-bean-cornflower-blue-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X All Court",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-all-court?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-all-court-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Alpha1",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-alpha1-1?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Grey",
+    "color": "grey",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-alpha1-grey-16mm.jpg"
+  },
+  {
+    "name": "11six24 Hurache-X Power Royal Burst",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power-royal-burst?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Royal",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-hurache-x-power-royal-burst-royal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-power?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-power-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Alpha Pro Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-alpha-pro-power-white-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=50851475325231&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-jelly-bean-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=51362975908143&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Pink",
+    "color": "pink",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-jelly-bean-pink-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=52085192687919&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Cornflower Blue",
+    "color": "blue",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-jelly-bean-cornflower-blue-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor All Court",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-all-court?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-all-court-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Vapor All Court Royal Burst",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-all-court-royal-burst?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Royal",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-vapor-all-court-royal-burst-royal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-jelly-bean?variant=50851474768175&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-jelly-bean-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Jelly Bean",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-jelly-bean?variant=51362989146415&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Pink",
+    "color": "pink",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-jelly-bean-pink-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power?variant=50957784940847&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-power-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power?variant=52089894928687&sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Lavender",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-power-lavender-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Alpha Pro Power",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-alpha-pro-power-white-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus All Court",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-all-court?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Teal",
+    "color": "teal",
+    "cost": "$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-all-court-teal-16mm.jpg"
+  },
+  {
+    "name": "11six24 Pegasus Power Royal Burst",
+    "brand": "11six24",
+    "sales": 100.0,
+    "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power-royal-burst?sca_ref=10748848.AHQuNeZGEN",
+    "colorway": "Royal",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "",
+    "default": false,
+    "image": "/catalog/11six24-pegasus-power-royal-burst-royal.jpg"
+  },
+  {
+    "name": " ",
+    "brand": "",
+    "sales": 0,
+    "link": "",
+    "colorway": "",
+    "color": "",
+    "cost": "",
+    "category": "paddle",
+    "size": "",
+    "default": false,
+    "image": "/catalog/--.jpg"
   }
 ]
