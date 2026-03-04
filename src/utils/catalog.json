@@ -2,7 +2,7 @@
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
-    "sales": 92.0,
+    "sales": 92,
     "link": "https://amzn.to/3MS3iHd",
     "colorway": "Haze",
     "color": "purple",
@@ -10,12 +10,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-challenger-paddle-haze-16mm.jpg"
+    "image": "/catalog/friday-challenger-paddle-elongated-haze-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
-    "sales": 92.0,
+    "sales": 92,
     "link": "https://amzn.to/4ck2O6Z",
     "colorway": "Ghostly",
     "color": "white",
@@ -23,12 +24,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-challenger-paddle-ghostly-16mm.jpg"
+    "image": "/catalog/friday-challenger-paddle-elongated-ghostly-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
-    "sales": 92.0,
+    "sales": 92,
     "link": "https://amzn.to/4r6C912",
     "colorway": "Cardinal",
     "color": "red",
@@ -36,12 +38,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-challenger-paddle-cardinal-16mm.jpg"
+    "image": "/catalog/friday-challenger-paddle-elongated-cardinal-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Challenger Paddle",
     "brand": "Friday",
-    "sales": 92.0,
+    "sales": 92,
     "link": "https://amzn.to/4aNs0lh",
     "colorway": "Phoenix",
     "color": "orange",
@@ -49,12 +52,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-challenger-paddle-phoenix-16mm.jpg"
+    "image": "/catalog/friday-challenger-paddle-elongated-phoenix-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "CRBN Pickleball",
     "brand": "CRBN",
-    "sales": 32.0,
+    "sales": 32,
     "link": "https://amzn.to/4u7RAsz",
     "colorway": "Neon",
     "color": "green",
@@ -62,12 +66,12 @@
     "category": "ball",
     "size": "",
     "default": false,
-    "image": "/catalog/crbn-pickleball-neon-16mm.jpg"
+    "image": "/catalog/crbn-pickleball-neon.jpg"
   },
   {
-    "name": "CRBN CRBN4 Trufoam Waves Hybrid Shape (Aerocurve)",
+    "name": "CRBN Trufoam Waves",
     "brand": "CRBN",
-    "sales": 35.0,
+    "sales": 35,
     "link": "https://amzn.to/4sr7EUW",
     "colorway": "Black",
     "color": "black",
@@ -75,12 +79,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn4-trufoam-waves-hybrid-shape-aerocurve-black-14mm.jpg"
+    "image": "/catalog/crbn-trufoam-waves-hybrid-black-14mm.jpg",
+    "shape": "Hybrid"
   },
   {
-    "name": "CRBN CRBN3 Trufoam Waves Elongated",
+    "name": "CRBN Trufoam Waves",
     "brand": "CRBN",
-    "sales": 35.0,
+    "sales": 35,
     "link": "https://amzn.to/4aLHJ4b",
     "colorway": "Black",
     "color": "black",
@@ -88,12 +93,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn3-trufoam-waves-elongated-black-14mm.jpg"
+    "image": "/catalog/crbn-trufoam-waves-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
-    "name": "CRBN CRBN1 Trufoam Waves Elongated (Long Handle)",
+    "name": "CRBN Trufoam Waves",
     "brand": "CRBN",
-    "sales": 35.0,
+    "sales": 35,
     "link": "https://amzn.to/4r3yhhz",
     "colorway": "Black",
     "color": "black",
@@ -101,12 +107,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn1-trufoam-waves-elongated-long-handle-black-14mm.jpg"
+    "image": "/catalog/crbn-trufoam-waves-elongated-long-handle-black-14mm.jpg",
+    "shape": "Elongated (Long Handle)"
   },
   {
-    "name": "CRBN CRBN2 Trufoam Waves Square",
+    "name": "CRBN Trufoam Waves",
     "brand": "CRBN",
-    "sales": 35.0,
+    "sales": 35,
     "link": "https://amzn.to/4l99KGz",
     "colorway": "Black",
     "color": "black",
@@ -114,12 +121,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn2-trufoam-waves-square-black-14mm.jpg"
+    "image": "/catalog/crbn-trufoam-waves-square-black-14mm.jpg",
+    "shape": "Square"
   },
   {
-    "name": "CRBN CRBNX1 Elongated (Long Handle)",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/4lfV9cf",
     "colorway": "Black",
     "color": "black",
@@ -127,12 +135,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx1-elongated-long-handle-black-16mm.jpg"
+    "image": "/catalog/crbn-x-series-elongated-long-handle-black-16mm.jpg",
+    "shape": "Elongated (Long Handle)"
   },
   {
-    "name": "CRBN CRBNX1 Elongated (Long Handle)",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/3ODga4z",
     "colorway": "Black",
     "color": "black",
@@ -140,12 +149,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx1-elongated-long-handle-black-14mm.jpg"
+    "image": "/catalog/crbn-x-series-elongated-long-handle-black-14mm.jpg",
+    "shape": "Elongated (Long Handle)"
   },
   {
-    "name": "CRBN CRBNX3 Elongated",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/4cv9AHf",
     "colorway": "Black",
     "color": "black",
@@ -153,12 +163,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx3-elongated-black-16mm.jpg"
+    "image": "/catalog/crbn-x-series-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
-    "name": "CRBN CRBNX3 Elongated",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/4cpujMw",
     "colorway": "Black",
     "color": "black",
@@ -166,12 +177,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx3-elongated-black-14mm.jpg"
+    "image": "/catalog/crbn-x-series-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
-    "name": "CRBN CRBNX2 Square",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/4cl9dyM",
     "colorway": "Black",
     "color": "black",
@@ -179,12 +191,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbnx2-square-black-16mm.jpg"
+    "image": "/catalog/crbn-x-series-square-black-16mm.jpg",
+    "shape": "Square"
   },
   {
-    "name": "CRBN CRBNX2 Square",
+    "name": "CRBN X Series",
     "brand": "CRBN",
-    "sales": 470.0,
+    "sales": 470,
     "link": "https://amzn.to/4cYHRib",
     "colorway": "Black",
     "color": "black",
@@ -192,12 +205,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbnx2-square-black-14mm.jpg"
+    "image": "/catalog/crbn-x-series-square-black-14mm.jpg",
+    "shape": "Square"
   },
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
-    "sales": 24886.0,
+    "sales": 24886,
     "link": "https://amzn.to/4bl4BYn",
     "colorway": "Yellow",
     "color": "yellow",
@@ -210,7 +224,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
-    "sales": 24886.0,
+    "sales": 24886,
     "link": "https://amzn.to/47nJemS",
     "colorway": "Ember",
     "color": "red",
@@ -223,7 +237,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
-    "sales": 24886.0,
+    "sales": 24886,
     "link": "https://amzn.to/47nJemS",
     "colorway": "Lava",
     "color": "orange",
@@ -236,7 +250,7 @@
   {
     "name": "Franklin X-40 Pickleball",
     "brand": "Franklin",
-    "sales": 24886.0,
+    "sales": 24886,
     "link": "https://amzn.to/4aOXc3q",
     "colorway": "Purple",
     "color": "purple",
@@ -249,7 +263,7 @@
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
-    "sales": 105.0,
+    "sales": 105,
     "link": "https://amzn.to/4b3zI9y",
     "colorway": "Glacier",
     "color": "blue",
@@ -257,12 +271,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-fever-paddle-glacier-16mm.jpg"
+    "image": "/catalog/friday-fever-paddle-elongated-glacier-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
-    "sales": 105.0,
+    "sales": 105,
     "link": "https://amzn.to/4aL6XzI",
     "colorway": "Scorch",
     "color": "red",
@@ -270,12 +285,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-fever-paddle-scorch-16mm.jpg"
+    "image": "/catalog/friday-fever-paddle-elongated-scorch-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
-    "sales": 105.0,
+    "sales": 105,
     "link": "https://amzn.to/4u7t3Uq",
     "colorway": "Snow",
     "color": "white",
@@ -283,12 +299,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-fever-paddle-snow-16mm.jpg"
+    "image": "/catalog/friday-fever-paddle-elongated-snow-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
-    "sales": 105.0,
+    "sales": 105,
     "link": "https://amzn.to/3N0VtyW",
     "colorway": "Sunset",
     "color": "orange",
@@ -296,12 +313,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-fever-paddle-sunset-16mm.jpg"
+    "image": "/catalog/friday-fever-paddle-elongated-sunset-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Friday Fever Paddle",
     "brand": "Friday",
-    "sales": 105.0,
+    "sales": 105,
     "link": "https://amzn.to/4b74O0b",
     "colorway": "Vice",
     "color": "purple",
@@ -309,12 +327,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/friday-fever-paddle-vice-16mm.jpg"
+    "image": "/catalog/friday-fever-paddle-elongated-vice-16mm.jpg",
+    "shape": "Elongated"
   },
   {
-    "name": "Holbrook Aero Series Carbon Fiber S",
+    "name": "Holbrook Aero Series",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/46XhfKT",
     "colorway": "Black",
     "color": "black",
@@ -322,12 +341,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-carbon-fiber-s-black-16mm.jpg"
+    "image": "/catalog/holbrook-aero-series-square-black-16mm.jpg",
+    "shape": "Square"
   },
   {
-    "name": "Holbrook Aero Series Carbon Fiber S",
+    "name": "Holbrook Aero Series",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/4b776MP",
     "colorway": "Black",
     "color": "black",
@@ -335,12 +355,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-carbon-fiber-s-black-14mm.jpg"
+    "image": "/catalog/holbrook-aero-series-square-black-14mm.jpg",
+    "shape": "Square"
   },
   {
-    "name": "Holbrook Aero Series Carbon Fiber T",
+    "name": "Holbrook Aero Series",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/4l6PhlD",
     "colorway": "Black",
     "color": "black",
@@ -348,12 +369,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-carbon-fiber-t-black-16mm.jpg"
+    "image": "/catalog/holbrook-aero-series-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
-    "name": "Holbrook Aero Series Carbon Fiber X",
+    "name": "Holbrook Aero Series",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/4aMxaOn",
     "colorway": "Black",
     "color": "black",
@@ -361,12 +383,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-carbon-fiber-x-black-14mm.jpg"
+    "image": "/catalog/holbrook-aero-series-hybrid-black-14mm.jpg",
+    "shape": "Hybrid"
   },
   {
-    "name": "Holbrook Aero Series Carbon Fiber X",
+    "name": "Holbrook Aero Series",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/4rWRfYj",
     "colorway": "Black",
     "color": "black",
@@ -374,12 +397,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-carbon-fiber-x-black-16mm.jpg"
+    "image": "/catalog/holbrook-aero-series-hybrid-black-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "Holbrook Aero Series Metallic",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/40HscfM",
     "colorway": "Black",
     "color": "black",
@@ -387,12 +411,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-metallic-black-14mm.jpg"
+    "image": "/catalog/holbrook-aero-series-metallic-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Holbrook Aero Series Metallic",
     "brand": "Holbrook",
-    "sales": 56.0,
+    "sales": 56,
     "link": "https://amzn.to/4sfdYP0",
     "colorway": "Black",
     "color": "black",
@@ -400,12 +425,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/holbrook-aero-series-metallic-black-16mm.jpg"
+    "image": "/catalog/holbrook-aero-series-metallic-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi Edge",
     "brand": "JOOLA",
-    "sales": 358.0,
+    "sales": 358,
     "link": "https://amzn.to/4spPpza",
     "colorway": "Red",
     "color": "red",
@@ -413,12 +439,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-edge-red-16mm.jpg"
+    "image": "/catalog/joola-agassi-edge-elongated-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi PRO",
     "brand": "JOOLA",
-    "sales": 359.0,
+    "sales": 359,
     "link": "https://amzn.to/3OTqoO7",
     "colorway": "Red",
     "color": "red",
@@ -426,12 +453,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-red-16mm.jpg"
+    "image": "/catalog/joola-agassi-pro-elongated-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Graf PRO",
     "brand": "JOOLA",
-    "sales": 358.0,
+    "sales": 358,
     "link": "https://amzn.to/4bpNmUX",
     "colorway": "Red",
     "color": "red",
@@ -439,12 +467,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-graf-pro-red-16mm.jpg"
+    "image": "/catalog/joola-graf-pro-elongated-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Graf Edge",
     "brand": "JOOLA",
-    "sales": 358.0,
+    "sales": 358,
     "link": "https://amzn.to/4cX3u2f",
     "colorway": "Red",
     "color": "red",
@@ -452,12 +481,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-graf-edge-red-16mm.jpg"
+    "image": "/catalog/joola-graf-edge-elongated-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi PRO",
     "brand": "JOOLA",
-    "sales": 359.0,
+    "sales": 359,
     "link": "https://amzn.to/3NfMtGa",
     "colorway": "Red",
     "color": "red",
@@ -465,12 +495,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-red-14mm.jpg"
+    "image": "/catalog/joola-agassi-pro-elongated-red-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
-    "sales": 122.0,
+    "sales": 122,
     "link": "https://amzn.to/4l8X8z2",
     "colorway": "Ignite Blaze Red",
     "color": "red",
@@ -478,12 +509,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-heat-vision-ignite-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-agassi-heat-vision-elongated-ignite-blaze-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
-    "sales": 122.0,
+    "sales": 122,
     "link": "https://amzn.to/4u6EX10",
     "colorway": "Charge Surge Green",
     "color": "green",
@@ -491,12 +523,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-heat-vision-charge-surge-green-16mm.jpg"
+    "image": "/catalog/joola-agassi-heat-vision-elongated-charge-surge-green-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Agassi Heat Vision",
     "brand": "JOOLA",
-    "sales": 122.0,
+    "sales": 122,
     "link": "https://amzn.to/4cqw24g",
     "colorway": "Flash Yellow",
     "color": "yellow",
@@ -504,12 +537,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-heat-vision-flash-yellow-16mm.jpg"
+    "image": "/catalog/joola-agassi-heat-vision-elongated-flash-yellow-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/4ubUgpo",
     "colorway": "Blaze Red",
     "color": "red",
@@ -517,12 +551,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-hyperion-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-double-vision-hyperion-elongated-blaze-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/4ubUtZI",
     "colorway": "Bolt Blue",
     "color": "blue",
@@ -530,12 +565,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-hyperion-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-hyperion-elongated-bolt-blue-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Hyperion",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/3OH9BOp",
     "colorway": "Surge Green",
     "color": "green",
@@ -543,12 +579,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-hyperion-surge-green-16mm.jpg"
+    "image": "/catalog/joola-double-vision-hyperion-elongated-surge-green-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/4bkwSON",
     "colorway": "Blaze Red",
     "color": "red",
@@ -556,12 +593,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-perseus-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-double-vision-perseus-elongated-blaze-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/4bpNzYf",
     "colorway": "Bolt Blue",
     "color": "blue",
@@ -569,12 +607,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-perseus-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-perseus-elongated-bolt-blue-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Perseus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/46CpHio",
     "colorway": "Surge Green",
     "color": "green",
@@ -582,12 +621,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-perseus-surge-green-16mm.jpg"
+    "image": "/catalog/joola-double-vision-perseus-elongated-surge-green-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/3MIIUbv",
     "colorway": "Blaze Red",
     "color": "red",
@@ -595,12 +635,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-scorpeus-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-double-vision-scorpeus-elongated-blaze-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/3PeuYGM",
     "colorway": "Bolt Blue",
     "color": "blue",
@@ -608,12 +649,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-scorpeus-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-double-vision-scorpeus-elongated-bolt-blue-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Double Vision Scorpeus",
     "brand": "JOOLA",
-    "sales": 109.0,
+    "sales": 109,
     "link": "https://amzn.to/4r6SD9y",
     "colorway": "Surge Green",
     "color": "green",
@@ -621,12 +663,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-scorpeus-surge-green-16mm.jpg"
+    "image": "/catalog/joola-double-vision-scorpeus-elongated-surge-green-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Proton Sports Series Three Raw Carbon",
     "brand": "Proton Sports",
-    "sales": 3.0,
+    "sales": 3,
     "link": "https://amzn.to/4rc2afE",
     "colorway": "Raspberry",
     "color": "purple",
@@ -634,12 +677,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-series-three-raw-carbon-raspberry-15mm.jpg"
+    "image": "/catalog/proton-sports-series-three-raw-carbon-elongated-raspberry-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Proton Sports Series Three Raw Carbon",
     "brand": "Proton Sports",
-    "sales": 3.0,
+    "sales": 3,
     "link": "https://amzn.to/4sGRPtp",
     "colorway": "Cream",
     "color": "white",
@@ -647,12 +691,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-series-three-raw-carbon-cream-15mm.jpg"
+    "image": "/catalog/proton-sports-series-three-raw-carbon-elongated-cream-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Hyperion Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4sseycx",
     "colorway": "Black",
     "color": "black",
@@ -660,12 +705,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-hyperion-black-16mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-iv-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Hyperion Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4sGRIOv",
     "colorway": "Black",
     "color": "black",
@@ -673,12 +719,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-hyperion-black-14mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-iv-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Persus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/46Cq6RW",
     "colorway": "Black",
     "color": "black",
@@ -686,12 +733,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-persus-black-16mm.jpg"
+    "image": "/catalog/joola-persus-pro-iv-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Persus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/47alYZv",
     "colorway": "Black",
     "color": "black",
@@ -699,12 +747,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-persus-black-14mm.jpg"
+    "image": "/catalog/joola-persus-pro-iv-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Magnus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4cX3ZJF",
     "colorway": "Black",
     "color": "black",
@@ -712,12 +761,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-magnus-black-16mm.jpg"
+    "image": "/catalog/joola-magnus-pro-iv-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Magnus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4rOFxz5",
     "colorway": "Black",
     "color": "black",
@@ -725,12 +775,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-magnus-black-14mm.jpg"
+    "image": "/catalog/joola-magnus-pro-iv-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Scorpeus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4u3zRCE",
     "colorway": "Black",
     "color": "black",
@@ -738,12 +789,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-scorpeus-black-16mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-iv-elongated-black-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "JOOLA Scorpeus Pro IV",
     "brand": "JOOLA",
-    "sales": 487.0,
+    "sales": 487,
     "link": "https://amzn.to/4rLbI21",
     "colorway": "Black",
     "color": "black",
@@ -751,12 +803,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-pro-iv-scorpeus-black-14mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-iv-elongated-black-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "Swiftnet 2.1 Portable Pickleball net System",
     "brand": "Swiftnet",
-    "sales": 279.0,
+    "sales": 279,
     "link": "https://amzn.to/46CS0gJ",
     "colorway": "Black",
     "color": "black",
@@ -764,12 +817,12 @@
     "category": "net",
     "size": "",
     "default": false,
-    "image": "/catalog/swiftnet-21-portable-pickleball-net-system-black.jpg"
+    "image": "/catalog/swiftnet-2-1-portable-pickleball-net-system-black.jpg"
   },
   {
     "name": "JOOLA Perseus Pro V",
     "brand": "JOOLA",
-    "sales": 999.0,
+    "sales": 999,
     "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784217346262",
     "colorway": "Blaze Red",
     "color": "red",
@@ -777,13 +830,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg",
+    "image": "/catalog/joola-perseus-pro-v-elongated-blaze-red-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
     "brand": "JOOLA",
-    "sales": 999.0,
+    "sales": 999,
     "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784670888150",
     "colorway": "Breeze Blue",
     "color": "blue",
@@ -791,13 +845,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg",
+    "image": "/catalog/joola-perseus-pro-v-elongated-breeze-blue-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
     "brand": "JOOLA",
-    "sales": 999.0,
+    "sales": 999,
     "link": "https://joola.com/collections/pro-v/products/joola-perseus-pro-v-pickleball-paddle-1?variant=47784217313494",
     "colorway": "Blaze Red",
     "color": "red",
@@ -805,13 +860,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg",
+    "image": "/catalog/joola-perseus-pro-v-elongated-blaze-red-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/kosmos-pro-v-pickleball-paddle?variant=47759986983126",
     "colorway": "Surge Green",
     "color": "green",
@@ -819,13 +875,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg",
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-elongated-surge-green-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/kosmos-pro-v-pickleball-paddle?variant=47759987015894",
     "colorway": "Surge Green",
     "color": "green",
@@ -833,13 +890,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg",
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-elongated-surge-green-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671019222",
     "colorway": "Yellow",
     "color": "yellow",
@@ -847,13 +905,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-16mm.jpg",
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-elongated-yellow-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671084758",
     "colorway": "Yellow",
     "color": "yellow",
@@ -861,13 +920,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-14mm.jpg",
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-elongated-yellow-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/scorpeus-pro-v-pickleball-paddle?variant=47784671051990",
     "colorway": "Club Green",
     "color": "green",
@@ -875,13 +935,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-club-green-16mm.jpg",
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-elongated-club-green-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/joola-hyperion-pro-v-pickleball-paddle?variant=47784671150294",
     "colorway": "Bolt Blue",
     "color": "blue",
@@ -889,13 +950,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-16mm.jpg",
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-elongated-bolt-blue-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/joola-hyperion-pro-v-pickleball-paddle?variant=47784671183062",
     "colorway": "Bolt Blue",
     "color": "blue",
@@ -903,13 +965,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-14mm.jpg",
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-elongated-bolt-blue-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/joola-agassi-pro-v-pickleball-paddle-1?variant=47827805896918",
     "colorway": "Royal Blue",
     "color": "blue",
@@ -917,13 +980,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-16mm.jpg",
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-elongated-royal-blue-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/joola-agassi-pro-v-pickleball-paddle-1?variant=47827805929686",
     "colorway": "Royal Blue",
     "color": "blue",
@@ -931,13 +995,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-14mm.jpg",
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-elongated-royal-blue-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "JOOLA Graf Pro V Pickleball Paddle",
     "brand": "JOOLA",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://joola.com/collections/pro-v/products/joola-graf-pro-v-pickleball-paddle-1?variant=47827805995222",
     "colorway": "Seaside Green",
     "color": "green",
@@ -945,13 +1010,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-graf-pro-v-pickleball-paddle-seaside-green-16mm.jpg",
+    "image": "/catalog/joola-graf-pro-v-pickleball-paddle-elongated-seaside-green-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
     "brand": "11six24",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440656687&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -959,13 +1025,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-teal-16mm.jpg",
+    "image": "/catalog/11six24-vapor-power-2-hybrid-teal-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
     "brand": "11six24",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440689455&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Lavender",
     "color": "purple",
@@ -973,13 +1040,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-lavender-16mm.jpg",
+    "image": "/catalog/11six24-vapor-power-2-hybrid-lavender-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
     "brand": "11six24",
-    "sales": 998.0,
+    "sales": 998,
     "link": "https://11six24.com/collections/power-2/products/vapor-power-2?variant=52899440722223&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "White",
     "color": "white",
@@ -987,13 +1055,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-white-16mm.jpg",
+    "image": "/catalog/11six24-vapor-power-2-hybrid-white-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
     "name": "11six24 Hurache-X Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power?variant=50957782581551&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1001,12 +1070,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-power-teal-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-power-elongated-teal-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power?variant=52089908887855&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Lavender",
     "color": "purple",
@@ -1014,12 +1084,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-power-lavender-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-power-elongated-lavender-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Alpha Pro Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "White",
     "color": "white",
@@ -1027,12 +1098,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-alpha-pro-power-white-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-alpha-pro-power-elongated-white-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=50617115410735&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1040,12 +1112,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-jelly-bean-teal-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-jelly-bean-elongated-teal-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=51362952380719&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Pink",
     "color": "pink",
@@ -1053,12 +1126,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-jelly-bean-pink-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-jelly-bean-elongated-pink-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-jelly-bean?variant=52085193179439&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Cornflower Blue",
     "color": "blue",
@@ -1066,12 +1140,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-jelly-bean-cornflower-blue-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-jelly-bean-elongated-cornflower-blue-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X All Court",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-all-court?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1079,12 +1154,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-all-court-teal-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-all-court-elongated-teal-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Alpha1",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-alpha1-1?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Grey",
     "color": "grey",
@@ -1092,12 +1168,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-alpha1-grey-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-alpha1-elongated-grey-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Hurache-X Power Royal Burst",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-elongated-paddles/products/hurache-x-power-royal-burst?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Royal",
     "color": "purple",
@@ -1105,12 +1182,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-hurache-x-power-royal-burst-royal-16mm.jpg"
+    "image": "/catalog/11six24-hurache-x-power-royal-burst-elongated-royal-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "11six24 Vapor Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-power?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1118,12 +1196,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-teal-16mm.jpg"
+    "image": "/catalog/11six24-vapor-power-hybrid-teal-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor Alpha Pro Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "White",
     "color": "white",
@@ -1131,12 +1210,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-alpha-pro-power-white-16mm.jpg"
+    "image": "/catalog/11six24-vapor-alpha-pro-power-hybrid-white-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=50851475325231&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1144,12 +1224,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-jelly-bean-teal-16mm.jpg"
+    "image": "/catalog/11six24-vapor-jelly-bean-hybrid-teal-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=51362975908143&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Pink",
     "color": "pink",
@@ -1157,12 +1238,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-jelly-bean-pink-16mm.jpg"
+    "image": "/catalog/11six24-vapor-jelly-bean-hybrid-pink-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-jelly-bean?variant=52085192687919&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Cornflower Blue",
     "color": "blue",
@@ -1170,12 +1252,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-jelly-bean-cornflower-blue-16mm.jpg"
+    "image": "/catalog/11six24-vapor-jelly-bean-hybrid-cornflower-blue-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor All Court",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-all-court?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1183,12 +1266,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-all-court-teal-16mm.jpg"
+    "image": "/catalog/11six24-vapor-all-court-hybrid-teal-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Vapor All Court Royal Burst",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-hybrid-paddles/products/vapor-all-court-royal-burst?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Royal",
     "color": "purple",
@@ -1196,12 +1280,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-all-court-royal-burst-royal-16mm.jpg"
+    "image": "/catalog/11six24-vapor-all-court-royal-burst-hybrid-royal-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "11six24 Pegasus Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-jelly-bean?variant=50851474768175&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1209,12 +1294,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-jelly-bean-teal-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-jelly-bean-widebody-teal-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus Jelly Bean",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-jelly-bean?variant=51362989146415&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Pink",
     "color": "pink",
@@ -1222,12 +1308,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-jelly-bean-pink-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-jelly-bean-widebody-pink-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power?variant=50957784940847&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1235,12 +1322,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-power-teal-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-power-widebody-teal-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power?variant=52089894928687&sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Lavender",
     "color": "purple",
@@ -1248,12 +1336,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-power-lavender-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-power-widebody-lavender-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus Alpha Pro Power",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-alpha-pro-power?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "White",
     "color": "white",
@@ -1261,12 +1350,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-alpha-pro-power-white-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-alpha-pro-power-widebody-white-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus All Court",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-all-court?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Teal",
     "color": "teal",
@@ -1274,12 +1364,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-all-court-teal-16mm.jpg"
+    "image": "/catalog/11six24-pegasus-all-court-widebody-teal-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "11six24 Pegasus Power Royal Burst",
     "brand": "11six24",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://11six24.com/collections/top-widebody-paddles/products/pegasus-power-royal-burst?sca_ref=10748848.AHQuNeZGEN",
     "colorway": "Royal",
     "color": "purple",
@@ -1287,12 +1378,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-pegasus-power-royal-burst-royal.jpg"
+    "image": "/catalog/11six24-pegasus-power-royal-burst-widebody-royal-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "6.0 Black Opal",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-opal-14mm?sca_ref=10749425.u187ARTBJn",
     "colorway": "Black",
     "color": "black",
@@ -1300,13 +1392,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/6.0-black-opal-black-14mm.jpg",
+    "image": "/catalog/6-0-black-opal-elongated-black-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Hybrid",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
     "colorway": "Ocean Blue",
     "color": "blue",
@@ -1314,13 +1407,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-hybrid-ocean-blue.jpg",
+    "image": "/catalog/6-0-coral-hybrid-ocean-blue-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Hybrid",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129509149&sca_ref=10749425.u187ARTBJn",
     "colorway": "Carol Pink",
     "color": "pink",
@@ -1328,13 +1422,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-hybrid-carol-pink.jpg",
+    "image": "/catalog/6-0-coral-hybrid-carol-pink-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Hybrid",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129541917&sca_ref=10749425.u187ARTBJn",
     "colorway": "Black",
     "color": "black",
@@ -1342,13 +1437,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-hybrid-black.jpg",
+    "image": "/catalog/6-0-coral-hybrid-black-16mm.jpg",
+    "shape": "Hybrid",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Elongated",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
     "colorway": "Ocean Blue",
     "color": "blue",
@@ -1356,13 +1452,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-elongated-ocean-blue.jpg",
+    "image": "/catalog/6-0-coral-elongated-ocean-blue-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Elongated",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
     "colorway": "Carol Pink",
     "color": "pink",
@@ -1370,13 +1467,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-elongated-carol-pink.jpg",
+    "image": "/catalog/6-0-coral-elongated-carol-pink-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
-    "name": "6.0 Coral Elongated",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
     "colorway": "Black",
     "color": "black",
@@ -1384,13 +1482,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-coral-elongated-black.jpg",
+    "image": "/catalog/6-0-coral-elongated-black-16mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
-    "name": "6.0 Carol Widebody",
+    "name": "6.0 Coral",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129574685&sca_ref=10749425.u187ARTBJn",
     "colorway": "Ocean Blue",
     "color": "blue",
@@ -1398,41 +1497,14 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-carol-widebody-ocean-blue.jpg",
-    "year": 2026
-  },
-  {
-    "name": "6.0 Carol Widebody",
-    "brand": "6.0",
-    "sales": 100.0,
-    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129607453&sca_ref=10749425.u187ARTBJn",
-    "colorway": "Carol Pink",
-    "color": "pink",
-    "cost": "$$",
-    "category": "paddle",
-    "size": "16mm",
-    "default": false,
-    "image": "/catalog/6.0-carol-widebody-carol-pink.jpg",
-    "year": 2026
-  },
-  {
-    "name": "6.0 Carol Widebody",
-    "brand": "6.0",
-    "sales": 100.0,
-    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129640221&sca_ref=10749425.u187ARTBJn",
-    "colorway": "Black",
-    "color": "black",
-    "cost": "$$",
-    "category": "paddle",
-    "size": "16mm",
-    "default": false,
-    "image": "/catalog/6.0-carol-widebody-black.jpg",
+    "image": "/catalog/6-0-coral-widebody-ocean-blue-16mm.jpg",
+    "shape": "Widebody",
     "year": 2026
   },
   {
     "name": "6.0 Ruby Pro",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/ruby-pro-14mm&sca_ref=10749425.u187ARTBJn",
     "colorway": "Red",
     "color": "red",
@@ -1440,13 +1512,14 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/6.0-ruby-pro-red-14mm.jpg",
+    "image": "/catalog/6-0-ruby-pro-elongated-red-14mm.jpg",
+    "shape": "Elongated",
     "year": 2026
   },
   {
     "name": "6.0 Ruby",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/ruby&sca_ref=10749425.u187ARTBJn",
     "colorway": "Red & White",
     "color": "red",
@@ -1454,12 +1527,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-ruby-red-and-white.jpg"
+    "image": "/catalog/6-0-ruby-elongated-red-white-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Black Diamond Power",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752923421&sca_ref=10749425.u187ARTBJn",
     "colorway": "Grey with Red Highlights",
     "color": "grey",
@@ -1467,12 +1541,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-black-diamond-power-grey-with-red-highlights.jpg"
+    "image": "/catalog/6-0-black-diamond-power-elongated-grey-with-red-highlights-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Black Diamond Power",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752988957&sca_ref=10749425.u187ARTBJn",
     "colorway": "Grey with Red Highlights",
     "color": "grey",
@@ -1480,12 +1555,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/6.0-black-diamond-power-grey-with-red-highlights.jpg"
+    "image": "/catalog/6-0-black-diamond-power-elongated-grey-with-red-highlights-14mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Black Diamond Power",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752956189&sca_ref=10749425.u187ARTBJn",
     "colorway": "Amethyst",
     "color": "purple",
@@ -1493,12 +1569,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-black-diamond-power-amethyst-16mm.jpg"
+    "image": "/catalog/6-0-black-diamond-power-elongated-amethyst-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652863773&sca_ref=10749425.u187ARTBJn",
     "colorway": "Smokey",
     "color": "black",
@@ -1506,12 +1583,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-smokey.jpg"
+    "image": "/catalog/6-0-quartz-elongated-smokey-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652863773&sca_ref=10749425.u187ARTBJn",
     "colorway": "Prasiolite",
     "color": "light blue",
@@ -1519,12 +1597,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-prasiolite-15mm.jpg"
+    "image": "/catalog/6-0-quartz-elongated-prasiolite-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652765469&sca_ref=10749425.u187ARTBJn",
     "colorway": "White",
     "color": "white",
@@ -1532,12 +1611,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-white.jpg"
+    "image": "/catalog/6-0-quartz-elongated-white-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652831005&sca_ref=10749425.u187ARTBJn",
     "colorway": "Rose",
     "color": "light pink",
@@ -1545,12 +1625,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-rose-15mm.jpg"
+    "image": "/catalog/6-0-quartz-elongated-rose-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652798237&sca_ref=10749425.u187ARTBJn",
     "colorway": "Amethyst",
     "color": "purple",
@@ -1558,12 +1639,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-amethyst-15mm.jpg"
+    "image": "/catalog/6-0-quartz-elongated-amethyst-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Quartz",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652896541&sca_ref=10749425.u187ARTBJn",
     "colorway": "Citrine",
     "color": "yellow",
@@ -1571,12 +1653,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-quartz-citrine-15mm.jpg"
+    "image": "/catalog/6-0-quartz-elongated-citrine-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Sapphire",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/sapphire?variant=48988646703389&sca_ref=10749425.u187ARTBJn",
     "colorway": "Neon",
     "color": "green",
@@ -1584,12 +1667,13 @@
     "category": "paddle",
     "size": "13mm",
     "default": false,
-    "image": "/catalog/6.0-sapphire-neon-13mm.jpg"
+    "image": "/catalog/6-0-sapphire-elongated-neon-13mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Sapphire",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/sapphire?variant=48988646670621&sca_ref=10749425.u187ARTBJn",
     "colorway": "Blue",
     "color": "blue",
@@ -1597,12 +1681,13 @@
     "category": "paddle",
     "size": "13mm",
     "default": false,
-    "image": "/catalog/6.0-sapphire-blue-13mm.jpg"
+    "image": "/catalog/6-0-sapphire-elongated-blue-13mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Infinity Edgeless Black Diamond Power",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgless-black-diamond-power?variant=48988642869533&sca_ref=10749425.u187ARTBJn",
     "colorway": "Grey and Red",
     "color": "grey",
@@ -1610,12 +1695,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-infinity-edgeless-black-diamond-power-grey-and-red-16mm.jpg"
+    "image": "/catalog/6-0-infinity-edgeless-black-diamond-power-elongated-grey-and-red-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Infinity Edgeless Black Diamond Power",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgless-black-diamond-power?variant=48988642902301&sca_ref=10749425.u187ARTBJn",
     "colorway": "Amethyst",
     "color": "purple",
@@ -1623,12 +1709,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-infinity-edgeless-black-diamond-power-amethyst-16mm.jpg"
+    "image": "/catalog/6-0-infinity-edgeless-black-diamond-power-elongated-amethyst-16mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Infinity Edgeless Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgeless-series?variant=48988643492125&sca_ref=10749425.u187ARTBJn",
     "colorway": "White",
     "color": "white",
@@ -1636,12 +1723,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-infinity-edgeless-double-black-diamond-control-white-16mm.jpg"
+    "image": "/catalog/6-0-infinity-edgeless-double-black-diamond-control-hybrid-white-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "6.0 Infinity Edgeless Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgeless-series?variant=48988643459357&sca_ref=10749425.u187ARTBJn",
     "colorway": "Cherry Blossom Pink",
     "color": "pink",
@@ -1649,12 +1737,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-infinity-edgeless-double-black-diamond-control-cherry-blossom-pink-16mm.jpg"
+    "image": "/catalog/6-0-infinity-edgeless-double-black-diamond-control-hybrid-cherry-blossom-pink-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "6.0 Double Black Diamond Control Light Weight Edition",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644442397&sca_ref=10749425.u187ARTBJn",
     "colorway": "Black",
     "color": "black",
@@ -1662,12 +1751,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-light-weight-edition-black-16mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-light-weight-edition-hybrid-black-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "6.0 Double Black Diamond Control Pro Weight Edition",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644409629&sca_ref=10749425.u187ARTBJn",
     "colorway": "Black",
     "color": "black",
@@ -1675,51 +1765,13 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-pro-weight-edition-black-16mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-pro-weight-edition-hybrid-black-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "6.0 Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
-    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644311325&sca_ref=10749425.u187ARTBJn",
-    "colorway": "Black",
-    "color": "black",
-    "cost": "$$",
-    "category": "paddle",
-    "size": "16mm",
-    "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-black-16mm.jpg"
-  },
-  {
-    "name": "6.0 Double Black Diamond Control",
-    "brand": "6.0",
-    "sales": 100.0,
-    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644344093&sca_ref=10749425.u187ARTBJn",
-    "colorway": "Cherry Blossom Pink on Pink",
-    "color": "pink",
-    "cost": "$$",
-    "category": "paddle",
-    "size": "16mm",
-    "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-pink.jpg"
-  },
-  {
-    "name": "6.0 Double Black Diamond Control",
-    "brand": "6.0",
-    "sales": 100.0,
-    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644376861&sca_ref=10749425.u187ARTBJn",
-    "colorway": "Cherry Blossom Pink on Black",
-    "color": "pink",
-    "cost": "$$",
-    "category": "paddle",
-    "size": "16mm",
-    "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-black-16mm.jpg"
-  },
-  {
-    "name": "6.0 Double Black Diamond Control",
-    "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644278557&sca_ref=10749425.u187ARTBJn",
     "colorway": "Australian Green and Gold",
     "color": "green",
@@ -1727,12 +1779,55 @@
     "category": "paddle",
     "size": "16mm",
     "default": true,
-    "image": "/catalog/6.0-double-black-diamond-control-australian-green-and-gold-16mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-australian-green-and-gold-16mm.jpg",
+    "shape": "Hybrid"
   },
   {
-    "name": "6.0 Double Black Diamond Control Elongated",
+    "name": "6.0 Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644311325&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-black-16mm.jpg",
+    "shape": "Hybrid"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644344093&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-cherry-blossom-pink-on-pink-16mm.jpg",
+    "shape": "Hybrid"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644376861&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Black",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-cherry-blossom-pink-on-black-16mm.jpg",
+    "shape": "Hybrid"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644475165&sca_ref=10749425.u187ARTBJn",
     "colorway": "White",
     "color": "white",
@@ -1740,12 +1835,13 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-elongated-white-15mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-elongated-white-15mm.jpg",
+    "shape": "Elongated"
   },
   {
     "name": "6.0 Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644507933&sca_ref=10749425.u187ARTBJn",
     "colorway": "Cherry Blossom Pink on Pink",
     "color": "pink",
@@ -1753,12 +1849,13 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-pink-14mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-cherry-blossom-pink-on-pink-14mm.jpg",
+    "shape": "Hybrid"
   },
   {
     "name": "6.0 Double Black Diamond Control",
     "brand": "6.0",
-    "sales": 100.0,
+    "sales": 100,
     "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644507933&sca_ref=10749425.u187ARTBJn",
     "colorway": "Cherry Blossom Pink on Black",
     "color": "pink",
@@ -1766,6 +1863,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-black-14mm.jpg"
+    "image": "/catalog/6-0-double-black-diamond-control-hybrid-cherry-blossom-pink-on-black-14mm.jpg",
+    "shape": "Hybrid"
   }
 ]
