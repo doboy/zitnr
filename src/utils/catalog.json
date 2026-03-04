@@ -777,7 +777,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -790,7 +791,8 @@
     "category": "",
     "size": "",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -803,7 +805,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",

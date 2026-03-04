@@ -209,7 +209,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on 6.0" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
+        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on SIX ZERO" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );
