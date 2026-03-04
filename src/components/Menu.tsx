@@ -63,13 +63,6 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
             >
               <i className="beer icon"></i>
             </a>
-            <a
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform?usp=sf_link"
-              className={classnames(["header item"])}
-            >
-              <i className="mail icon"></i>
-            </a>
           </div>
         </div>
       </div>
