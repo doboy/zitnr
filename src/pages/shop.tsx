@@ -19,8 +19,8 @@ interface ProductGroup {
 
 const COST_LABELS: Record<string, string> = {
   "$": "$ - Great Value",
-  "$$": "$$ - Mid-range",
-  "$$$": "$$$ - Premium",
+  "$$": "$$ - Mid-range ($100-200)",
+  "$$$": "$$$ - Premium ($200+)",
 };
 
 const COLOR_HEX: Record<string, string> = {
@@ -59,13 +59,88 @@ function groupProducts(products: Variant[]): ProductGroup[] {
       shapes: Array.from(new Set(variants.map((v) => (v as any).shape).filter(Boolean))),
     });
   }
-  groups.sort((a, b) => b.sales - a.sales);
+  const currentYear = new Date().getFullYear();
+  groups.sort((a, b) => {
+    const aIsNew = a.variants.some((v) => (v as any).year === currentYear);
+    const bIsNew = b.variants.some((v) => (v as any).year === currentYear);
+    if (aIsNew !== bIsNew) return aIsNew ? -1 : 1;
+    return b.sales - a.sales;
+  });
   return groups;
 }
 
 function getDefaultVariant(group: ProductGroup): Variant {
   return group.variants.find((v) => v.default) || group.variants[0];
 }
+
+const ImageModal = ({
+  src,
+  alt,
+  onClose,
+}: {
+  src: string;
+  alt: string;
+  onClose: () => void;
+}) => {
+  React.useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0,0,0,0.8)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1000,
+        cursor: "pointer",
+      }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          maxWidth: "90vw",
+          maxHeight: "90vh",
+          objectFit: "contain",
+          backgroundColor: "#fff",
+          borderRadius: "8px",
+          padding: "1rem",
+          cursor: "default",
+        }}
+      />
+      <button
+        onClick={onClose}
+        style={{
+          position: "absolute",
+          top: "1rem",
+          right: "1rem",
+          background: "none",
+          border: "none",
+          color: "#fff",
+          fontSize: "2rem",
+          cursor: "pointer",
+          lineHeight: 1,
+        }}
+        aria-label="Close"
+      >
+        &times;
+      </button>
+    </div>
+  );
+};
 
 const ProductCard = ({ group }: { group: ProductGroup }) => {
   const defaultVariant = getDefaultVariant(group);
@@ -78,6 +153,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
   const [selectedShape, setSelectedShape] = React.useState(
     (defaultVariant as any).shape || ""
   );
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   const activeVariant =
     group.variants.find(
@@ -115,43 +191,48 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
 
   return (
     <div className="ui card" style={{ textDecoration: "none" }}>
-      <a
-        href={activeVariant.link}
-        target="_blank"
-        rel="noopener noreferrer"
+      {modalOpen && (
+        <ImageModal
+          src={activeVariant.image}
+          alt={`${group.name} - ${activeVariant.colorway}`}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+      <div
+        className="image"
+        style={{ position: "relative", cursor: "zoom-in" }}
+        onClick={() => setModalOpen(true)}
       >
-        <div className="image" style={{ position: "relative" }}>
-          {isNew && (
-            <span
-              style={{
-                position: "absolute",
-                top: "8px",
-                right: "8px",
-                backgroundColor: "#db2828",
-                color: "white",
-                fontSize: "0.7em",
-                fontWeight: "bold",
-                padding: "2px 6px",
-                borderRadius: "3px",
-                zIndex: 1,
-              }}
-            >
-              NEW
-            </span>
-          )}
-          <img
-            src={activeVariant.image}
-            alt={`${group.name} - ${activeVariant.colorway}`}
+        {isNew && (
+          <span
             style={{
-              objectFit: "contain",
-              height: "220px",
-              width: "100%",
-              padding: "1rem",
-              backgroundColor: "#fff",
+              position: "absolute",
+              top: "8px",
+              right: "8px",
+              backgroundColor: "#db2828",
+              color: "white",
+              fontSize: "0.7em",
+              fontWeight: "bold",
+              padding: "2px 6px",
+              borderRadius: "3px",
+              zIndex: 1,
             }}
-          />
-        </div>
-      </a>
+          >
+            NEW
+          </span>
+        )}
+        <img
+          src={activeVariant.image}
+          alt={`${group.name} - ${activeVariant.colorway}`}
+          style={{
+            objectFit: "contain",
+            height: "280px",
+            width: "100%",
+            padding: "1rem",
+            backgroundColor: "#fff",
+          }}
+        />
+      </div>
       <div className="content">
         <a
           className="header"
@@ -343,6 +424,16 @@ const ShopPage = () => {
         <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1rem" }}>
           Some links are affiliate links. We may earn a commission from qualifying purchases.
         </p>
+
+        <a
+          className="ui blue message"
+          href="/quiz"
+          style={{ display: "block", textDecoration: "none", marginBottom: "1rem" }}
+        >
+          <i className="question circle icon"></i>
+          <strong>Not sure which paddle to get?</strong> Take our paddle quiz to find your perfect match.
+          <i className="arrow right icon" style={{ marginLeft: "0.5em" }}></i>
+        </a>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>
           <div className="field" style={{ marginBottom: "0.75rem" }}>
