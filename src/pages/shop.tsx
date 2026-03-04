@@ -25,6 +25,9 @@ const COST_LABELS: Record<string, string> = {
 const COLOR_HEX: Record<string, string> = {
   black: "#222",
   blue: "#4285f4",
+  "light blue": "#87CEEB",
+  "light pink": "#FFB6C1",
+  teal: "#008080",
   green: "#34a853",
   orange: "#f5a623",
   pink: "#e91e8a",
@@ -54,7 +57,13 @@ function groupProducts(products: Variant[]): ProductGroup[] {
       sizes: Array.from(new Set(variants.map((v) => v.size).filter(Boolean))),
     });
   }
-  groups.sort((a, b) => b.sales - a.sales);
+  const currentYear = new Date().getFullYear();
+  groups.sort((a, b) => {
+    const aIsNew = a.variants.some((v) => (v as any).year === currentYear);
+    const bIsNew = b.variants.some((v) => (v as any).year === currentYear);
+    if (aIsNew !== bIsNew) return aIsNew ? -1 : 1;
+    return b.sales - a.sales;
+  });
   return groups;
 }
 
@@ -89,7 +98,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
     )
   );
 
-  const isNew = group.name.includes("Pro V") || group.name === "11six24 Vapor Power 2";
+  const isNew = (activeVariant as any).year === new Date().getFullYear();
 
   return (
     <div className="ui card" style={{ textDecoration: "none" }}>
@@ -122,7 +131,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
             alt={`${group.name} - ${activeVariant.colorway}`}
             style={{
               objectFit: "contain",
-              height: "220px",
+              height: "280px",
               width: "100%",
               padding: "1rem",
               backgroundColor: "#fff",
@@ -143,7 +152,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         <div className="meta" style={{ marginTop: "0.25rem" }}>
           {activeVariant.colorway}{activeVariant.size ? ` - ${activeVariant.size}` : ""}
         </div>
-        {group.colorways.length > 1 && (
+        {group.colorways.length > 0 && group.category === "paddle" && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
             {group.colorways.map((cw) => {
               const variant = group.variants.find((v) => v.colorway === cw);
@@ -209,7 +218,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
+        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on SIX ZERO" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );
@@ -222,6 +231,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const ShopPage = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("");
   const [selectedBrand, setSelectedBrand] = React.useState("");
   const [selectedCost, setSelectedCost] = React.useState("");
@@ -247,8 +257,13 @@ const ShopPage = () => {
       .flatMap((g) => g.sizes)
   )).sort();
 
+  const query = searchQuery.toLowerCase().trim();
   const filteredGroups = groups.filter(
     (g) =>
+      (!query ||
+        g.name.toLowerCase().includes(query) ||
+        g.brand.toLowerCase().includes(query) ||
+        g.variants.some((v) => v.colorway.toLowerCase().includes(query))) &&
       (!selectedCategory || g.category === selectedCategory) &&
       (!selectedBrand || g.brand === selectedBrand) &&
       (!selectedCost || g.cost === selectedCost) &&
@@ -281,6 +296,17 @@ const ShopPage = () => {
         </p>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>
+          <div className="field" style={{ marginBottom: "0.75rem" }}>
+            <div className="ui icon input fluid">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <i className="search icon"></i>
+            </div>
+          </div>
           <div className="equal width fields">
             <div className="field">
               <label>Category</label>
