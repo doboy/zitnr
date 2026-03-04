@@ -25,6 +25,9 @@ const COST_LABELS: Record<string, string> = {
 const COLOR_HEX: Record<string, string> = {
   black: "#222",
   blue: "#4285f4",
+  "light blue": "#87CEEB",
+  "light pink": "#FFB6C1",
+  teal: "#008080",
   green: "#34a853",
   orange: "#f5a623",
   pink: "#e91e8a",
