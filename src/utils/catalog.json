@@ -530,7 +530,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-hyperion-flash-yellow-16mm.jpg"
+    "image": "/catalog/joola-double-vision-hyperion-bolt-blue-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Hyperion",
@@ -569,7 +569,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-perseus-flash-yellow-16mm.jpg"
+    "image": "/catalog/joola-double-vision-perseus-bolt-blue-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Perseus",
@@ -608,7 +608,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-double-vision-scorpeus-flash-yellow-16mm.jpg"
+    "image": "/catalog/joola-double-vision-scorpeus-bolt-blue-16mm.jpg"
   },
   {
     "name": "JOOLA Double Vision Scorpeus",
@@ -1272,18 +1272,5 @@
     "size": "",
     "default": false,
     "image": "/catalog/11six24-pegasus-power-royal-burst-royal.jpg"
-  },
-  {
-    "name": " ",
-    "brand": "",
-    "sales": 0,
-    "link": "",
-    "colorway": "",
-    "color": "",
-    "cost": "",
-    "category": "paddle",
-    "size": "",
-    "default": false,
-    "image": "/catalog/--.jpg"
   }
 ]
