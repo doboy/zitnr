@@ -51,6 +51,7 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
               href="/shop"
             >
               <i className="shop icon"></i>
+              <span className="ui red mini label" style={{ fontSize: "0.5em", padding: "2px 4px", marginLeft: "-4px", verticalAlign: "top" }}>NEW</span>
             </a>
             <a
               className={classnames([
@@ -61,13 +62,6 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
               href="/donate"
             >
               <i className="beer icon"></i>
-            </a>
-            <a
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd85TIFziQZHXxZm_9uQ4YDjJVCo4yyrhrvCESlu0ryS-ptZg/viewform?usp=sf_link"
-              className={classnames(["header item"])}
-            >
-              <i className="mail icon"></i>
             </a>
           </div>
         </div>
