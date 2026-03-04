@@ -89,7 +89,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
     )
   );
 
-  const isNew = group.name.includes("Pro V") || group.name === "11six24 Vapor Power 2";
+  const isNew = (activeVariant as any).year === new Date().getFullYear();
 
   return (
     <div className="ui card" style={{ textDecoration: "none" }}>
@@ -209,7 +209,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
+        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on 6.0" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );
