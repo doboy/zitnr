@@ -210,7 +210,7 @@ const QUESTIONS = [
       },
       {
         value: "standard",
-        label: "Standard",
+        label: "Balanced",
         description: "Balanced shape — versatile all-around",
         icon: "square outline",
       },
