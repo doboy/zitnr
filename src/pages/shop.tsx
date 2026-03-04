@@ -42,7 +42,7 @@ function groupProducts(products: Variant[]): ProductGroup[] {
     map.set(p.name, existing);
   }
   const groups: ProductGroup[] = [];
-  for (const [name, variants] of map) {
+  for (const [name, variants] of Array.from(map)) {
     groups.push({
       name,
       brand: variants[0].brand,
