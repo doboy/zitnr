@@ -59,5 +59,5 @@ export interface Court {
   endTime: string;
 }
 
-export type MenuItem = "home" | "calendar" | "donate" | "map" | "shop" | "about";
+export type MenuItem = "home" | "calendar" | "donate" | "map" | "shop" | "quiz" | "about";
 

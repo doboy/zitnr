@@ -19,8 +19,8 @@ interface ProductGroup {
 
 const COST_LABELS: Record<string, string> = {
   "$": "$ - Great Value",
-  "$$": "$$ - Mid-range",
-  "$$$": "$$$ - Premium",
+  "$$": "$$ - Mid-range ($100-200)",
+  "$$$": "$$$ - Premium ($200+)",
 };
 
 const COLOR_HEX: Record<string, string> = {
@@ -379,6 +379,16 @@ const ShopPage = () => {
         <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1rem" }}>
           Some links are affiliate links. We may earn a commission from qualifying purchases.
         </p>
+
+        <a
+          className="ui blue message"
+          href="/quiz"
+          style={{ display: "block", textDecoration: "none", marginBottom: "1rem" }}
+        >
+          <i className="question circle icon"></i>
+          <strong>Not sure which paddle to get?</strong> Take our paddle quiz to find your perfect match.
+          <i className="arrow right icon" style={{ marginLeft: "0.5em" }}></i>
+        </a>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>
           <div className="field" style={{ marginBottom: "0.75rem" }}>
