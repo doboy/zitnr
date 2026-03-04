@@ -25,6 +25,9 @@ const COST_LABELS: Record<string, string> = {
 const COLOR_HEX: Record<string, string> = {
   black: "#222",
   blue: "#4285f4",
+  "light blue": "#87CEEB",
+  "light pink": "#FFB6C1",
+  teal: "#008080",
   green: "#34a853",
   orange: "#f5a623",
   pink: "#e91e8a",
@@ -89,7 +92,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
     )
   );
 
-  const isNew = group.name.includes("Pro V") || group.name === "11six24 Vapor Power 2";
+  const isNew = (activeVariant as any).year === new Date().getFullYear();
 
   return (
     <div className="ui card" style={{ textDecoration: "none" }}>
@@ -143,7 +146,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         <div className="meta" style={{ marginTop: "0.25rem" }}>
           {activeVariant.colorway}
         </div>
-        {group.colorways.length > 1 && (
+        {group.colorways.length > 0 && group.category === "paddle" && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
             {group.colorways.map((cw) => {
               const variant = group.variants.find((v) => v.colorway === cw);
@@ -209,7 +212,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
+        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on SIX ZERO" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );

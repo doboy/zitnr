@@ -52,7 +52,7 @@
     "image": "/catalog/friday-challenger-paddle-phoenix-16mm.jpg"
   },
   {
-    "name": "CRBN CRBN Pickleball",
+    "name": "CRBN Pickleball",
     "brand": "CRBN",
     "sales": 32.0,
     "link": "https://amzn.to/4u7RAsz",
@@ -60,7 +60,7 @@
     "color": "green",
     "cost": "$",
     "category": "ball",
-    "size": "16mm",
+    "size": "",
     "default": false,
     "image": "/catalog/crbn-pickleball-neon-16mm.jpg"
   },
@@ -204,7 +204,7 @@
     "cost": "$",
     "category": "ball",
     "size": "",
-    "default": false,
+    "default": true,
     "image": "/catalog/franklin-x-40-pickleball-yellow.jpg"
   },
   {
@@ -524,8 +524,8 @@
     "brand": "JOOLA",
     "sales": 109.0,
     "link": "https://amzn.to/4ubUtZI",
-    "colorway": "Flash Yellow",
-    "color": "yellow",
+    "colorway": "Bolt Blue",
+    "color": "blue",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
@@ -563,8 +563,8 @@
     "brand": "JOOLA",
     "sales": 109.0,
     "link": "https://amzn.to/4bpNzYf",
-    "colorway": "Flash Yellow",
-    "color": "yellow",
+    "colorway": "Bolt Blue",
+    "color": "blue",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
@@ -602,8 +602,8 @@
     "brand": "JOOLA",
     "sales": 109.0,
     "link": "https://amzn.to/3PeuYGM",
-    "colorway": "Flash Yellow",
-    "color": "yellow",
+    "colorway": "Bolt Blue",
+    "color": "blue",
     "cost": "$",
     "category": "paddle",
     "size": "16mm",
@@ -777,7 +777,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -790,7 +791,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-breeze-blue-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -803,7 +805,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg"
+    "image": "/catalog/joola-perseus-pro-v-blaze-red-14mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
@@ -816,7 +819,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg"
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
@@ -829,7 +833,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg"
+    "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-surge-green-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -842,7 +847,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-16mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -855,7 +861,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-14mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-yellow-14mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -868,7 +875,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-club-green-16mm.jpg"
+    "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-club-green-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
@@ -881,7 +889,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-16mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
@@ -894,7 +903,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-14mm.jpg"
+    "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-bolt-blue-14mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
@@ -907,7 +917,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-16mm.jpg"
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
@@ -920,7 +931,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-14mm.jpg"
+    "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-royal-blue-14mm.jpg",
+    "year": 2026
   },
   {
     "name": "JOOLA Graf Pro V Pickleball Paddle",
@@ -933,7 +945,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-graf-pro-v-pickleball-paddle-seaside-green-16mm.jpg"
+    "image": "/catalog/joola-graf-pro-v-pickleball-paddle-seaside-green-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -946,7 +959,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-teal-16mm.jpg"
+    "image": "/catalog/11six24-vapor-power-2-teal-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -959,7 +973,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-lavender-16mm.jpg"
+    "image": "/catalog/11six24-vapor-power-2-lavender-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -972,7 +987,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/11six24-vapor-power-2-white-16mm.jpg"
+    "image": "/catalog/11six24-vapor-power-2-white-16mm.jpg",
+    "year": 2026
   },
   {
     "name": "11six24 Hurache-X Power",
@@ -1269,8 +1285,487 @@
     "color": "purple",
     "cost": "$",
     "category": "paddle",
-    "size": "",
+    "size": "16mm",
     "default": false,
     "image": "/catalog/11six24-pegasus-power-royal-burst-royal.jpg"
+  },
+  {
+    "name": "6.0 Black Opal",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-opal-14mm?sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/6.0-black-opal-black-14mm.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Hybrid",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Ocean Blue",
+    "color": "blue",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-hybrid-ocean-blue.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Hybrid",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129509149&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Carol Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-hybrid-carol-pink.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Hybrid",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129541917&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-hybrid-black.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Elongated",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Ocean Blue",
+    "color": "blue",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-elongated-ocean-blue.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Elongated",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Carol Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-elongated-carol-pink.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Coral Elongated",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129476381&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-coral-elongated-black.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Carol Widebody",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129574685&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Ocean Blue",
+    "color": "blue",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-carol-widebody-ocean-blue.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Carol Widebody",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129607453&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Carol Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-carol-widebody-carol-pink.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Carol Widebody",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/coral-16mm?variant=50729129640221&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-carol-widebody-black.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Ruby Pro",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/ruby-pro-14mm&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Red",
+    "color": "red",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/6.0-ruby-pro-red-14mm.jpg",
+    "year": 2026
+  },
+  {
+    "name": "6.0 Ruby",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/ruby&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Red & White",
+    "color": "red",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-ruby-red-and-white.jpg"
+  },
+  {
+    "name": "6.0 Black Diamond Power",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752923421&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Grey with Red Highlights",
+    "color": "grey",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-black-diamond-power-grey-with-red-highlights.jpg"
+  },
+  {
+    "name": "6.0 Black Diamond Power",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752988957&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Grey with Red Highlights",
+    "color": "grey",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/6.0-black-diamond-power-grey-with-red-highlights.jpg"
+  },
+  {
+    "name": "6.0 Black Diamond Power",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/black-diamond-power?variant=50523752956189&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Amethyst",
+    "color": "purple",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-black-diamond-power-amethyst-16mm.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652863773&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Smokey",
+    "color": "black",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-smokey.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652863773&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Prasiolite",
+    "color": "light blue",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-prasiolite-15mm.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652765469&sca_ref=10749425.u187ARTBJn",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-white.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652831005&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Rose",
+    "color": "light pink",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-rose-15mm.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652798237&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Amethyst",
+    "color": "purple",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-amethyst-15mm.jpg"
+  },
+  {
+    "name": "6.0 Quartz",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/quartz?variant=48988652896541&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Citrine",
+    "color": "yellow",
+    "cost": "$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-quartz-citrine-15mm.jpg"
+  },
+  {
+    "name": "6.0 Sapphire",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/sapphire?variant=48988646703389&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Neon",
+    "color": "green",
+    "cost": "$",
+    "category": "paddle",
+    "size": "13mm",
+    "default": false,
+    "image": "/catalog/6.0-sapphire-neon-13mm.jpg"
+  },
+  {
+    "name": "6.0 Sapphire",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/sapphire?variant=48988646670621&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Blue",
+    "color": "blue",
+    "cost": "$",
+    "category": "paddle",
+    "size": "13mm",
+    "default": false,
+    "image": "/catalog/6.0-sapphire-blue-13mm.jpg"
+  },
+  {
+    "name": "6.0 Infinity Edgeless Black Diamond Power",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgless-black-diamond-power?variant=48988642869533&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Grey and Red",
+    "color": "grey",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-infinity-edgeless-black-diamond-power-grey-and-red-16mm.jpg"
+  },
+  {
+    "name": "6.0 Infinity Edgeless Black Diamond Power",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgless-black-diamond-power?variant=48988642902301&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Amethyst",
+    "color": "purple",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-infinity-edgeless-black-diamond-power-amethyst-16mm.jpg"
+  },
+  {
+    "name": "6.0 Infinity Edgeless Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgeless-series?variant=48988643492125&sca_ref=10749425.u187ARTBJn",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-infinity-edgeless-double-black-diamond-control-white-16mm.jpg"
+  },
+  {
+    "name": "6.0 Infinity Edgeless Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/infinity-edgeless-series?variant=48988643459357&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink",
+    "color": "pink",
+    "cost": "$$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-infinity-edgeless-double-black-diamond-control-cherry-blossom-pink-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control Light Weight Edition",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644442397&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-light-weight-edition-black-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control Pro Weight Edition",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644409629&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-pro-weight-edition-black-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644311325&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Black",
+    "color": "black",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-black-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644344093&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-pink.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644376861&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Black",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-black-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644278557&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Australian Green and Gold",
+    "color": "green",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "16mm",
+    "default": true,
+    "image": "/catalog/6.0-double-black-diamond-control-australian-green-and-gold-16mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control Elongated",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644475165&sca_ref=10749425.u187ARTBJn",
+    "colorway": "White",
+    "color": "white",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "15mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-elongated-white-15mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644507933&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Pink",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-pink-14mm.jpg"
+  },
+  {
+    "name": "6.0 Double Black Diamond Control",
+    "brand": "6.0",
+    "sales": 100.0,
+    "link": "https://us.sixzeropickleball.com/collections/paddles/products/double-black-diamond?variant=48988644507933&sca_ref=10749425.u187ARTBJn",
+    "colorway": "Cherry Blossom Pink on Black",
+    "color": "pink",
+    "cost": "$$",
+    "category": "paddle",
+    "size": "14mm",
+    "default": false,
+    "image": "/catalog/6.0-double-black-diamond-control-cherry-blossom-pink-on-black-14mm.jpg"
   }
 ]
