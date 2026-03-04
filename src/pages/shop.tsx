@@ -150,7 +150,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
           {group.name}
         </a>
         <div className="meta" style={{ marginTop: "0.25rem" }}>
-          {activeVariant.colorway}{activeVariant.size ? ` - ${activeVariant.size}` : ""}
+          {activeVariant.colorway}
         </div>
         {group.colorways.length > 0 && group.category === "paddle" && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
@@ -294,6 +294,16 @@ const ShopPage = () => {
         <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1rem" }}>
           Some links are affiliate links. We may earn a commission from qualifying purchases.
         </p>
+
+        <a
+          className="ui blue message"
+          href="/quiz"
+          style={{ display: "block", textDecoration: "none", marginBottom: "1rem" }}
+        >
+          <i className="question circle icon"></i>
+          <strong>Not sure which paddle to get?</strong> Take our paddle quiz to find your perfect match.
+          <i className="arrow right icon" style={{ marginLeft: "0.5em" }}></i>
+        </a>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>
           <div className="field" style={{ marginBottom: "0.75rem" }}>
