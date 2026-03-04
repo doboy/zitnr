@@ -75,19 +75,36 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
   const [selectedSize, setSelectedSize] = React.useState(
     defaultVariant.size
   );
+  const [selectedShape, setSelectedShape] = React.useState(
+    (defaultVariant as any).shape || ""
+  );
 
   const activeVariant =
     group.variants.find(
       (v) =>
         v.colorway === selectedColorway &&
-        (group.sizes.length <= 1 || v.size === selectedSize)
+        (group.sizes.length <= 1 || v.size === selectedSize) &&
+        (group.shapes.length <= 1 || (v as any).shape === selectedShape)
+    ) ||
+    group.variants.find(
+      (v) =>
+        v.colorway === selectedColorway &&
+        (group.shapes.length <= 1 || (v as any).shape === selectedShape)
     ) ||
     group.variants.find((v) => v.colorway === selectedColorway) ||
     defaultVariant;
 
-  const sizesForColorway = Array.from(
+  const relevantVariants = group.variants.filter(
+    (v) => group.shapes.length <= 1 || (v as any).shape === selectedShape
+  );
+
+  const colorwaysForShape = Array.from(
+    new Set(relevantVariants.map((v) => v.colorway))
+  );
+
+  const sizesForSelection = Array.from(
     new Set(
-      group.variants
+      relevantVariants
         .filter((v) => v.colorway === selectedColorway)
         .map((v) => v.size)
         .filter(Boolean)
@@ -148,10 +165,10 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         <div className="meta" style={{ marginTop: "0.25rem" }}>
           {activeVariant.colorway}
         </div>
-        {group.colorways.length > 0 && group.category === "paddle" && (
+        {colorwaysForShape.length > 0 && group.category === "paddle" && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-            {group.colorways.map((cw) => {
-              const variant = group.variants.find((v) => v.colorway === cw);
+            {colorwaysForShape.map((cw) => {
+              const variant = relevantVariants.find((v) => v.colorway === cw);
               const hex = COLOR_HEX[variant?.color || ""] || "#ccc";
               const isSelected = cw === selectedColorway;
               return (
@@ -160,7 +177,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
                   title={cw}
                   onClick={() => {
                     setSelectedColorway(cw);
-                    const firstWithColorway = group.variants.find(
+                    const firstWithColorway = relevantVariants.find(
                       (v) => v.colorway === cw
                     );
                     if (firstWithColorway) setSelectedSize(firstWithColorway.size);
@@ -181,9 +198,9 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
             })}
           </div>
         )}
-        {sizesForColorway.length > 0 && (
-          <div style={{ marginTop: "0.5rem" }}>
-            {sizesForColorway.map((sz) => (
+        {sizesForSelection.length > 0 && (
+          <div style={{ marginTop: "1rem" }}>
+            {sizesForSelection.map((sz) => (
               <button
                 key={sz}
                 className={classnames("ui mini basic button", {
@@ -196,6 +213,34 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
                 onClick={() => setSelectedSize(sz)}
               >
                 {sz}
+              </button>
+            ))}
+          </div>
+        )}
+        {group.shapes.length > 0 && (
+          <div style={{ marginTop: "0.5rem" }}>
+            {group.shapes.map((sh) => (
+              <button
+                key={sh}
+                className={classnames("ui mini basic button", {
+                  active: sh === selectedShape,
+                })}
+                style={{
+                  marginBottom: "0.25rem",
+                  fontWeight: sh === selectedShape ? "bold" : "normal",
+                }}
+                onClick={() => {
+                  setSelectedShape(sh);
+                  const firstWithShape = group.variants.find(
+                    (v) => (v as any).shape === sh
+                  );
+                  if (firstWithShape) {
+                    setSelectedColorway(firstWithShape.colorway);
+                    setSelectedSize(firstWithShape.size);
+                  }
+                }}
+              >
+                {sh}
               </button>
             ))}
           </div>
