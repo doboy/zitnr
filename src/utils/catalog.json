@@ -62,7 +62,7 @@
     "category": "ball",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbn-crbn-pickleball-neon-16mm.jpg"
+    "image": "/catalog/crbn-pickleball-neon-16mm.jpg"
   },
   {
     "name": "CRBN CRBN4 Trufoam Waves Hybrid Shape (Aerocurve)",
@@ -75,7 +75,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbn4-trufoam-waves-hybrid-shape-(aerocurve)-black-14mm.jpg"
+    "image": "/catalog/crbn4-trufoam-waves-hybrid-shape-aerocurve-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBN3 Trufoam Waves Elongated",
@@ -88,7 +88,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbn3-trufoam-waves-elongated-black-14mm.jpg"
+    "image": "/catalog/crbn3-trufoam-waves-elongated-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBN1 Trufoam Waves Elongated (Long Handle)",
@@ -101,7 +101,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbn1-trufoam-waves-elongated-(long-handle)-black-14mm.jpg"
+    "image": "/catalog/crbn1-trufoam-waves-elongated-long-handle-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBN2 Trufoam Waves Square",
@@ -114,7 +114,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbn2-trufoam-waves-square-black-14mm.jpg"
+    "image": "/catalog/crbn2-trufoam-waves-square-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBNX1 Elongated (Long Handle)",
@@ -127,7 +127,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx1-elongated-(long-handle)-black-16mm.jpg"
+    "image": "/catalog/crbnx1-elongated-long-handle-black-16mm.jpg"
   },
   {
     "name": "CRBN CRBNX1 Elongated (Long Handle)",
@@ -140,7 +140,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx1-elongated-(long-handle)-black-14mm.jpg"
+    "image": "/catalog/crbnx1-elongated-long-handle-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBNX3 Elongated",
@@ -153,7 +153,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx3-elongated-black-16mm.jpg"
+    "image": "/catalog/crbnx3-elongated-black-16mm.jpg"
   },
   {
     "name": "CRBN CRBNX3 Elongated",
@@ -166,7 +166,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx3-elongated-black-14mm.jpg"
+    "image": "/catalog/crbnx3-elongated-black-14mm.jpg"
   },
   {
     "name": "CRBN CRBNX2 Square",
@@ -179,7 +179,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx2-square-black-16mm.jpg"
+    "image": "/catalog/crbnx2-square-black-16mm.jpg"
   },
   {
     "name": "CRBN CRBNX2 Square",
@@ -192,7 +192,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/crbn-crbnx2-square-black-14mm.jpg"
+    "image": "/catalog/crbnx2-square-black-14mm.jpg"
   },
   {
     "name": "Franklin X-40 Pickleball",
@@ -634,7 +634,7 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-sports-series-three-raw-carbon-raspberry-15mm.jpg"
+    "image": "/catalog/proton-series-three-raw-carbon-raspberry-15mm.jpg"
   },
   {
     "name": "Proton Sports Series Three Raw Carbon",
@@ -647,7 +647,7 @@
     "category": "paddle",
     "size": "15mm",
     "default": false,
-    "image": "/catalog/proton-sports-series-three-raw-carbon-cream-15mm.jpg"
+    "image": "/catalog/proton-series-three-raw-carbon-cream-15mm.jpg"
   },
   {
     "name": "JOOLA Hyperion Pro IV",
@@ -660,7 +660,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-iv-black-16mm.jpg"
+    "image": "/catalog/joola-pro-iv-hyperion-black-16mm.jpg"
   },
   {
     "name": "JOOLA Hyperion Pro IV",
@@ -673,7 +673,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-hyperion-pro-iv-black-14mm.jpg"
+    "image": "/catalog/joola-pro-iv-hyperion-black-14mm.jpg"
   },
   {
     "name": "JOOLA Persus Pro IV",
@@ -686,7 +686,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-persus-pro-iv-black-16mm.jpg"
+    "image": "/catalog/joola-pro-iv-persus-black-16mm.jpg"
   },
   {
     "name": "JOOLA Persus Pro IV",
@@ -699,7 +699,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-persus-pro-iv-black-14mm.jpg"
+    "image": "/catalog/joola-pro-iv-persus-black-14mm.jpg"
   },
   {
     "name": "JOOLA Magnus Pro IV",
@@ -712,7 +712,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-magnus-pro-iv-black-16mm.jpg"
+    "image": "/catalog/joola-pro-iv-magnus-black-16mm.jpg"
   },
   {
     "name": "JOOLA Magnus Pro IV",
@@ -725,7 +725,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-magnus-pro-iv-black-14mm.jpg"
+    "image": "/catalog/joola-pro-iv-magnus-black-14mm.jpg"
   },
   {
     "name": "JOOLA Scorpeus Pro IV",
@@ -738,7 +738,7 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-iv-black-16mm.jpg"
+    "image": "/catalog/joola-pro-iv-scorpeus-black-16mm.jpg"
   },
   {
     "name": "JOOLA Scorpeus Pro IV",
@@ -751,7 +751,7 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-iv-black-14mm.jpg"
+    "image": "/catalog/joola-pro-iv-scorpeus-black-14mm.jpg"
   },
   {
     "name": "Swiftnet 2.1 Portable Pickleball net System",
@@ -764,7 +764,7 @@
     "category": "net",
     "size": "",
     "default": false,
-    "image": "/catalog/swiftnet-2.1-portable-pickleball-net-system-black.jpg"
+    "image": "/catalog/swiftnet-21-portable-pickleball-net-system-black.jpg"
   },
   {
     "name": "JOOLA Perseus Pro V",
