@@ -17,7 +17,7 @@ interface ProductGroup {
 }
 
 const COST_LABELS: Record<string, string> = {
-  "$": "$ - Budget",
+  "$": "$ - Great Value",
   "$$": "$$ - Mid-range",
   "$$$": "$$$ - Premium",
 };
@@ -156,7 +156,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
             })}
           </div>
         )}
-        {sizesForColorway.length > 1 && (
+        {sizesForColorway.length > 0 && (
           <div style={{ marginTop: "0.5rem" }}>
             {sizesForColorway.map((sz) => (
               <button
@@ -175,9 +175,6 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
             ))}
           </div>
         )}
-        {sizesForColorway.length === 1 && (
-          <div className="meta">{sizesForColorway[0]}</div>
-        )}
       </div>
       <div className="extra content">
         <span style={{ fontWeight: "bold", color: "#1b1c1d" }}>
@@ -192,7 +189,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        View on Amazon <i className="right arrow icon"></i>
+        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );
@@ -260,8 +257,7 @@ const ShopPage = () => {
         </h5>
 
         <p style={{ color: "gray", fontSize: "0.9em", marginBottom: "1rem" }}>
-          Links go to Amazon product pages. As an Amazon Associate, we may earn
-          from qualifying purchases.
+          Some links are affiliate links. We may earn a commission from qualifying purchases.
         </p>
 
         <div className="ui form" style={{ marginBottom: "1rem" }}>

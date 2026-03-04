@@ -45,6 +45,16 @@ export const Menu = ({ selectedMenuItem }: {selectedMenuItem: MenuItem }) => {
             <a
               className={classnames([
                 "header",
+                { active: selectedMenuItem == "shop" },
+                "item",
+              ])}
+              href="/shop"
+            >
+              <i className="shop icon"></i>
+            </a>
+            <a
+              className={classnames([
+                "header",
                 { active: selectedMenuItem == "donate" },
                 "item",
               ])}
