@@ -131,7 +131,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
             alt={`${group.name} - ${activeVariant.colorway}`}
             style={{
               objectFit: "contain",
-              height: "220px",
+              height: "280px",
               width: "100%",
               padding: "1rem",
               backgroundColor: "#fff",
