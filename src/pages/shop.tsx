@@ -14,6 +14,7 @@ interface ProductGroup {
   variants: Variant[];
   colorways: string[];
   sizes: string[];
+  shapes: string[];
 }
 
 const COST_LABELS: Record<string, string> = {
@@ -55,6 +56,7 @@ function groupProducts(products: Variant[]): ProductGroup[] {
       variants,
       colorways: Array.from(new Set(variants.map((v) => v.colorway))),
       sizes: Array.from(new Set(variants.map((v) => v.size).filter(Boolean))),
+      shapes: Array.from(new Set(variants.map((v) => (v as any).shape).filter(Boolean))),
     });
   }
   groups.sort((a, b) => b.sales - a.sales);
@@ -230,6 +232,7 @@ const ShopPage = () => {
   const [selectedBrand, setSelectedBrand] = React.useState("");
   const [selectedCost, setSelectedCost] = React.useState("");
   const [selectedSize, setSelectedSize] = React.useState("");
+  const [selectedShape, setSelectedShape] = React.useState("");
 
   const groups = groupProducts(catalog);
 
@@ -251,6 +254,12 @@ const ShopPage = () => {
       .flatMap((g) => g.sizes)
   )).sort();
 
+  const shapes = Array.from(new Set(
+    groups
+      .filter((g) => !selectedCategory || g.category === selectedCategory)
+      .flatMap((g) => g.shapes)
+  )).sort();
+
   const query = searchQuery.toLowerCase().trim();
   const filteredGroups = groups.filter(
     (g) =>
@@ -261,7 +270,8 @@ const ShopPage = () => {
       (!selectedCategory || g.category === selectedCategory) &&
       (!selectedBrand || g.brand === selectedBrand) &&
       (!selectedCost || g.cost === selectedCost) &&
-      (!selectedSize || g.sizes.includes(selectedSize))
+      (!selectedSize || g.sizes.includes(selectedSize)) &&
+      (!selectedShape || g.shapes.includes(selectedShape))
   );
 
   return (
@@ -320,6 +330,17 @@ const ShopPage = () => {
                 ))}
               </select>
             </div>
+            {shapes.length > 0 && (
+              <div className="field">
+                <label>Shape</label>
+                <select value={selectedShape} onChange={(e) => setSelectedShape(e.target.value)}>
+                  <option value="">All</option>
+                  {shapes.map((shape) => (
+                    <option key={shape} value={shape}>{shape}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             {sizes.length > 0 && (
               <div className="field">
                 <label>Size</label>
