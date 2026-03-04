@@ -143,7 +143,7 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         <div className="meta" style={{ marginTop: "0.25rem" }}>
           {activeVariant.colorway}
         </div>
-        {group.colorways.length > 1 && (
+        {group.colorways.length > 0 && group.category === "paddle" && (
           <div style={{ marginTop: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
             {group.colorways.map((cw) => {
               const variant = group.variants.find((v) => v.colorway === cw);
