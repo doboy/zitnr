@@ -150,13 +150,17 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
   const [selectedSize, setSelectedSize] = React.useState(
     defaultVariant.size
   );
+  const [selectedShape, setSelectedShape] = React.useState(
+    (defaultVariant as any).shape || group.shapes[0] || ""
+  );
   const [modalOpen, setModalOpen] = React.useState(false);
 
   const activeVariant =
     group.variants.find(
       (v) =>
         v.colorway === selectedColorway &&
-        (group.sizes.length <= 1 || v.size === selectedSize)
+        (group.sizes.length <= 1 || v.size === selectedSize) &&
+        (group.shapes.length <= 1 || (v as any).shape === selectedShape)
     ) ||
     group.variants.find((v) => v.colorway === selectedColorway) ||
     defaultVariant;
@@ -166,6 +170,15 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
       group.variants
         .filter((v) => v.colorway === selectedColorway)
         .map((v) => v.size)
+        .filter(Boolean)
+    )
+  );
+
+  const shapesForColorway = Array.from(
+    new Set(
+      group.variants
+        .filter((v) => v.colorway === selectedColorway)
+        .map((v) => (v as any).shape)
         .filter(Boolean)
     )
   );
@@ -277,6 +290,25 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
                 onClick={() => setSelectedSize(sz)}
               >
                 {sz}
+              </button>
+            ))}
+          </div>
+        )}
+        {shapesForColorway.length > 0 && (
+          <div style={{ marginTop: "0.5rem" }}>
+            {shapesForColorway.map((sh) => (
+              <button
+                key={sh}
+                className={classnames("ui mini basic button", {
+                  active: sh === selectedShape,
+                })}
+                style={{
+                  marginBottom: "0.25rem",
+                  fontWeight: sh === selectedShape ? "bold" : "normal",
+                }}
+                onClick={() => setSelectedShape(sh)}
+              >
+                {sh}
               </button>
             ))}
           </div>
