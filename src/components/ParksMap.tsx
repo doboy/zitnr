@@ -2,7 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { Park } from "zitnr-utils";
-import { isTennis } from "../utils/parkTypes";
+import { isTennisPark } from "../utils/parkTypes";
 
 import "leaflet/dist/leaflet.css";
 
@@ -45,7 +45,7 @@ const ParksMap = ({ parks }: ParksMapProps) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {parksWithLocation.map((park) => {
-          const tennis = isTennis(park);
+          const tennis = isTennisPark(park);
           return (
             <Marker
               key={park.id}

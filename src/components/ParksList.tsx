@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Park } from "zitnr-utils";
-import { isPickleball, isTennis } from "../utils/parkTypes";
+import { isPickleballPark, isTennisPark } from "../utils/parkTypes";
 
 const REGIONS: { name: string; slugs: string[] }[] = [
   {
@@ -110,8 +110,8 @@ const ParksList = ({ parks }: ParksListProps) => {
 
         if (regionParks.length === 0) return null;
 
-        const pickleballParks = regionParks.filter(isPickleball);
-        const tennisParks = regionParks.filter(isTennis);
+        const pickleballParks = regionParks.filter(isPickleballPark);
+        const tennisParks = regionParks.filter(isTennisPark);
 
         return (
           <div key={region.name} style={{ marginBottom: "3rem" }}>

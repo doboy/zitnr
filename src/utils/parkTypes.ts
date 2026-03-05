@@ -1,9 +1,9 @@
 import { Park, PARKS } from "zitnr-utils";
 
-export const isTennis = (park: Park): boolean =>
+export const isTennisPark = (park: Park): boolean =>
   park.tennisCourtsCount > 0 && park.pickleballCourtsCount === 0;
 
-export const isPickleball = (park: Park): boolean =>
+export const isPickleballPark = (park: Park): boolean =>
   park.pickleballCourtsCount > 0;
 
 export const tennisCourtCount = PARKS.reduce(
