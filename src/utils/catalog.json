@@ -789,8 +789,8 @@
     "category": "paddle",
     "size": "16mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-iv-elongated-black-16mm.jpg",
-    "shape": "Elongated"
+    "image": "/catalog/joola-scorpeus-pro-iv-widebody-black-16mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "JOOLA Scorpeus Pro IV",
@@ -803,8 +803,8 @@
     "category": "paddle",
     "size": "14mm",
     "default": false,
-    "image": "/catalog/joola-scorpeus-pro-iv-elongated-black-14mm.jpg",
-    "shape": "Elongated"
+    "image": "/catalog/joola-scorpeus-pro-iv-widebody-black-14mm.jpg",
+    "shape": "Widebody"
   },
   {
     "name": "Swiftnet 2.1 Portable Pickleball net System",
