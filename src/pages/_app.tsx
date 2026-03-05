@@ -44,7 +44,6 @@ function MyApp({ Component, pageProps }) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="753118b8-8c43-4a88-aa53-3bfee1b8437e"></script>
-    <script type="text/javascript" src="https://classic.avantlink.com/affiliate_app_confirm.php?mode=js&authResponse=c5c57e90099e1ecf445f304047b4b4cb22b3f7e5"></script>
     <Component {...pageProps} />
   </div>
 }
