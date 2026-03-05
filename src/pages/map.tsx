@@ -38,7 +38,7 @@ const MapPage = ({ parks }) => {
           <i className="map marker alternate icon"></i>
           <div className="content">
             Parks Map
-            <div className="sub header">Pickleball courts around Seattle</div>
+            <div className="sub header">Pickleball / Tennis courts around Seattle</div>
           </div>
         </h5>
 

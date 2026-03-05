@@ -109,7 +109,11 @@ const ParksList = ({ parks }: ParksListProps) => {
                       {park.name}
                     </Link>
                     <div className="description">
-                      {park.courts.length} court
+                      {park.courts.length}{" "}
+                      {park.slug.includes("tennis")
+                        ? "tennis"
+                        : "pickleball"}{" "}
+                      court
                       {park.courts.length !== 1 ? "s" : ""}
                     </div>
                   </div>
