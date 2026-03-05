@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Park } from "zitnr-utils";
+import { isPickleball, isTennis } from "../utils/parkTypes";
 
 const REGIONS: { name: string; slugs: string[] }[] = [
   {
@@ -109,12 +110,8 @@ const ParksList = ({ parks }: ParksListProps) => {
 
         if (regionParks.length === 0) return null;
 
-        const pickleballParks = regionParks.filter(
-          (p) => !p.slug.includes("tennis")
-        );
-        const tennisParks = regionParks.filter((p) =>
-          p.slug.includes("tennis")
-        );
+        const pickleballParks = regionParks.filter(isPickleball);
+        const tennisParks = regionParks.filter(isTennis);
 
         return (
           <div key={region.name} style={{ marginBottom: "3rem" }}>

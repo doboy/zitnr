@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { Park } from "zitnr-utils";
+import { isTennis } from "../utils/parkTypes";
 
 import "leaflet/dist/leaflet.css";
 
@@ -44,17 +45,17 @@ const ParksMap = ({ parks }: ParksMapProps) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {parksWithLocation.map((park) => {
-          const isTennis = park.slug.includes("tennis");
+          const tennis = isTennis(park);
           return (
             <Marker
               key={park.id}
               position={[park.location!.latitude, park.location!.longitude]}
-              icon={isTennis ? tennisIcon : pickleballIcon}
+              icon={tennis ? tennisIcon : pickleballIcon}
             >
               <Popup>
                 <strong>{park.name}</strong>
                 <br />
-                {park.courts.length} {isTennis ? "tennis" : "pickleball"} court
+                {park.courts.length} {tennis ? "tennis" : "pickleball"} court
                 {park.courts.length !== 1 ? "s" : ""}
                 <br />
                 <a href={`/calendar/${park.slug}`}>View calendar</a>
