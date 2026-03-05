@@ -296,16 +296,21 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         )}
         {shapesForColorway.length > 0 && (
           <div style={{ marginTop: "0.5rem" }}>
-            <select
-              className="ui mini dropdown"
-              value={selectedShape}
-              onChange={(e) => setSelectedShape(e.target.value)}
-              style={{ fontSize: "0.85em", padding: "0.3em 0.5em" }}
-            >
-              {shapesForColorway.map((sh) => (
-                <option key={sh} value={sh}>{sh}</option>
-              ))}
-            </select>
+            {shapesForColorway.map((sh) => (
+              <button
+                key={sh}
+                className={classnames("ui mini basic button", {
+                  active: sh === selectedShape,
+                })}
+                style={{
+                  marginBottom: "0.25rem",
+                  fontWeight: sh === selectedShape ? "bold" : "normal",
+                }}
+                onClick={() => setSelectedShape(sh)}
+              >
+                {sh}
+              </button>
+            ))}
           </div>
         )}
       </div>
