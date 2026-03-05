@@ -4,7 +4,6 @@ import { useTransactions } from "../hooks/useTransactions";
 import Layout from "../components/Layout";
 import Image from 'next/image';
 import { PARKS } from "zitnr-utils";
-import { pickleballCourtCount, tennisCourtCount } from "../utils/parkTypes";
 
 const Home = ({ }: {}) => {
   const [isLoadingTransactions, totalCost, totalDonations] = useTransactions();
@@ -39,7 +38,7 @@ const Home = ({ }: {}) => {
             </h1>
             <div>
               Plan your next session with our <strong>FREE</strong> easy to use calendar view. <br />
-              See when courts are available for open play — <strong>{pickleballCourtCount} pickleball</strong> and <strong>{tennisCourtCount} tennis</strong> courts across <strong>{PARKS.length} parks</strong>.<br />
+              See when courts are available for open play in <strong>40+ parks</strong>.<br />
             </div>
             <br />
             <div >
