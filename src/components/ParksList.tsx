@@ -79,6 +79,20 @@ interface ParksListProps {
   parks: Park[];
 }
 
+const ParkItem = ({ park }: { park: Park }) => (
+  <div className="item">
+    <div className="content">
+      <Link className="header" href={`/calendar/${park.slug}`}>
+        {park.name}
+      </Link>
+      <div className="description">
+        {park.courts.length} court
+        {park.courts.length !== 1 ? "s" : ""}
+      </div>
+    </div>
+  </div>
+);
+
 const ParksList = ({ parks }: ParksListProps) => {
   const parksBySlug: Record<string, Park> = {};
   parks.forEach((p) => {
@@ -95,30 +109,42 @@ const ParksList = ({ parks }: ParksListProps) => {
 
         if (regionParks.length === 0) return null;
 
+        const pickleballParks = regionParks.filter(
+          (p) => !p.slug.includes("tennis")
+        );
+        const tennisParks = regionParks.filter((p) =>
+          p.slug.includes("tennis")
+        );
+
         return (
           <div key={region.name} style={{ marginBottom: "3rem" }}>
             <h5 className="ui small header">
               <i className="map marker alternate icon"></i>
               <div className="content">{region.name}</div>
             </h5>
-            <div className="ui relaxed divided list">
-              {regionParks.map((park) => (
-                <div key={park.id} className="item">
-                  <div className="content">
-                    <Link className="header" href={`/calendar/${park.slug}`}>
-                      {park.name}
-                    </Link>
-                    <div className="description">
-                      {park.courts.length}{" "}
-                      {park.slug.includes("tennis")
-                        ? "tennis"
-                        : "pickleball"}{" "}
-                      court
-                      {park.courts.length !== 1 ? "s" : ""}
-                    </div>
-                  </div>
+            <div className="ui two column grid">
+              <div className="column">
+                <h6 className="ui tiny header">Pickleball</h6>
+                <div className="ui relaxed divided list">
+                  {pickleballParks.map((park) => (
+                    <ParkItem key={park.id} park={park} />
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="column">
+                <h6 className="ui tiny header">Tennis</h6>
+                <div className="ui relaxed divided list">
+                  {tennisParks.length > 0 ? (
+                    tennisParks.map((park) => (
+                      <ParkItem key={park.id} park={park} />
+                    ))
+                  ) : (
+                    <div className="item" style={{ color: "grey" }}>
+                      None
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         );
