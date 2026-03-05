@@ -2,22 +2,23 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { Park } from "zitnr-utils";
+import { isTennisPark } from "../utils/parkTypes";
 
 import "leaflet/dist/leaflet.css";
 
-// Fix default marker icon issue with webpack/next.js
-const defaultIcon = L.icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
+const createColoredIcon = (color: string) =>
+  new L.Icon({
+    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
+    shadowUrl:
+      "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
 
-L.Marker.prototype.options.icon = defaultIcon;
+const pickleballIcon = createColoredIcon("blue");
+const tennisIcon = createColoredIcon("green");
 
 // Seattle center coordinates
 const SEATTLE_CENTER: [number, number] = [47.6362, -122.3321];
@@ -43,21 +44,51 @@ const ParksMap = ({ parks }: ParksMapProps) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {parksWithLocation.map((park) => (
-          <Marker
-            key={park.id}
-            position={[park.location!.latitude, park.location!.longitude]}
-          >
-            <Popup>
-              <strong>{park.name}</strong>
-              <br />
-              {park.courts.length} court{park.courts.length !== 1 ? "s" : ""}
-              <br />
-              <a href={`/calendar/${park.slug}`}>View calendar</a>
-            </Popup>
-          </Marker>
-        ))}
+        {parksWithLocation.map((park) => {
+          const tennis = isTennisPark(park);
+          return (
+            <Marker
+              key={park.id}
+              position={[park.location!.latitude, park.location!.longitude]}
+              icon={tennis ? tennisIcon : pickleballIcon}
+            >
+              <Popup>
+                <strong>{park.name}</strong>
+                <br />
+                {park.courts.length} {tennis ? "tennis" : "pickleball"} court
+                {park.courts.length !== 1 ? "s" : ""}
+                <br />
+                <a href={`/calendar/${park.slug}`}>View calendar</a>
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
+      <div
+        style={{
+          display: "flex",
+          gap: "1.5rem",
+          marginTop: "0.5rem",
+          fontSize: "0.9em",
+        }}
+      >
+        <span>
+          <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png"
+            alt=""
+            style={{ height: 16, verticalAlign: "middle", marginRight: 4 }}
+          />
+          Pickleball
+        </span>
+        <span>
+          <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
+            alt=""
+            style={{ height: 16, verticalAlign: "middle", marginRight: 4 }}
+          />
+          Tennis
+        </span>
+      </div>
     </div>
   );
 };

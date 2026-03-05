@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Park } from "zitnr-utils";
+import { isPickleballPark, isTennisPark } from "../utils/parkTypes";
 
 const REGIONS: { name: string; slugs: string[] }[] = [
   {
@@ -79,6 +80,23 @@ interface ParksListProps {
   parks: Park[];
 }
 
+const ParkItem = ({ park, courtType }: { park: Park; courtType: "pickleball" | "tennis" }) => {
+  const count = courtType === "pickleball" ? park.pickleballCourtsCount : park.tennisCourtsCount;
+  const label = courtType === "pickleball" ? "pickleball" : "tennis";
+  return (
+    <div className="item">
+      <div className="content">
+        <Link className="header" href={`/calendar/${park.slug}`}>
+          {park.name}
+        </Link>
+        <div className="description">
+          {count} {label} court{count !== 1 ? "s" : ""}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ParksList = ({ parks }: ParksListProps) => {
   const parksBySlug: Record<string, Park> = {};
   parks.forEach((p) => {
@@ -95,26 +113,38 @@ const ParksList = ({ parks }: ParksListProps) => {
 
         if (regionParks.length === 0) return null;
 
+        const pickleballParks = regionParks.filter(isPickleballPark);
+        const tennisParks = regionParks.filter(isTennisPark);
+
         return (
           <div key={region.name} style={{ marginBottom: "3rem" }}>
             <h5 className="ui small header">
               <i className="map marker alternate icon"></i>
               <div className="content">{region.name}</div>
             </h5>
-            <div className="ui relaxed divided list">
-              {regionParks.map((park) => (
-                <div key={park.id} className="item">
-                  <div className="content">
-                    <Link className="header" href={`/calendar/${park.slug}`}>
-                      {park.name}
-                    </Link>
-                    <div className="description">
-                      {park.courts.length} court
-                      {park.courts.length !== 1 ? "s" : ""}
-                    </div>
-                  </div>
+            <div className="ui two column grid">
+              <div className="column">
+                <h6 className="ui tiny header">Pickleball</h6>
+                <div className="ui relaxed divided list">
+                  {pickleballParks.map((park) => (
+                    <ParkItem key={park.id} park={park} courtType="pickleball" />
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="column">
+                <h6 className="ui tiny header">Tennis</h6>
+                <div className="ui relaxed divided list">
+                  {tennisParks.length > 0 ? (
+                    tennisParks.map((park) => (
+                      <ParkItem key={park.id} park={park} courtType="tennis" />
+                    ))
+                  ) : (
+                    <div className="item" style={{ color: "grey" }}>
+                      None
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         );
