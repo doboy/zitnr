@@ -80,19 +80,22 @@ interface ParksListProps {
   parks: Park[];
 }
 
-const ParkItem = ({ park }: { park: Park }) => (
-  <div className="item">
-    <div className="content">
-      <Link className="header" href={`/calendar/${park.slug}`}>
-        {park.name}
-      </Link>
-      <div className="description">
-        {park.courts.length} court
-        {park.courts.length !== 1 ? "s" : ""}
+const ParkItem = ({ park, courtType }: { park: Park; courtType: "pickleball" | "tennis" }) => {
+  const count = courtType === "pickleball" ? park.pickleballCourtsCount : park.tennisCourtsCount;
+  const label = courtType === "pickleball" ? "pickleball" : "tennis";
+  return (
+    <div className="item">
+      <div className="content">
+        <Link className="header" href={`/calendar/${park.slug}`}>
+          {park.name}
+        </Link>
+        <div className="description">
+          {count} {label} court{count !== 1 ? "s" : ""}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ParksList = ({ parks }: ParksListProps) => {
   const parksBySlug: Record<string, Park> = {};
@@ -124,7 +127,7 @@ const ParksList = ({ parks }: ParksListProps) => {
                 <h6 className="ui tiny header">Pickleball</h6>
                 <div className="ui relaxed divided list">
                   {pickleballParks.map((park) => (
-                    <ParkItem key={park.id} park={park} />
+                    <ParkItem key={park.id} park={park} courtType="pickleball" />
                   ))}
                 </div>
               </div>
@@ -133,7 +136,7 @@ const ParksList = ({ parks }: ParksListProps) => {
                 <div className="ui relaxed divided list">
                   {tennisParks.length > 0 ? (
                     tennisParks.map((park) => (
-                      <ParkItem key={park.id} park={park} />
+                      <ParkItem key={park.id} park={park} courtType="tennis" />
                     ))
                   ) : (
                     <div className="item" style={{ color: "grey" }}>

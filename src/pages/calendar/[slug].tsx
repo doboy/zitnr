@@ -54,8 +54,8 @@ import {
 const MAIN_PARKS = [
   MillerPark,
   GreenLakeParkEast,
-  MountBakerPark,
   BeaconHillPlayfield,
+  MountBakerPark,
   BitterLakePlayfield,
   RainierBeachPlayfield,
   MagnoliaPark,
@@ -250,7 +250,7 @@ const ParkDropdown = ({
   );
 };
 
-const NUM_NEARBY = 5;
+const NUM_NEARBY = 4;
 
 function getNearbyParks(park: Park): NearbyPark[] {
   if (!park.location) return [];
@@ -260,6 +260,7 @@ function getNearbyParks(park: Park): NearbyPark[] {
       name: p.name,
       slug: p.slug,
       courtCount: p.courts.length,
+      pickleballCourtsCount: p.pickleballCourtsCount,
       distance: calculateDistanceBetweenCoordsInMiles(
         park.location!.latitude,
         park.location!.longitude,
@@ -346,11 +347,24 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
   }, [date, park]);
 
   const dropdownOptions = useMemo(() => {
-    return PARKS.map((park) => ({
-      key: park.id,
-      text: park.name,
-      value: park.id,
-    }));
+    const pinned = [MillerPark.id, GreenLakeParkEast.id, BeaconHillPlayfield.id, MontlakePlayfield.id];
+    return [...PARKS]
+      .sort((a, b) => {
+        const aPin = pinned.indexOf(a.id);
+        const bPin = pinned.indexOf(b.id);
+        if (aPin !== -1 && bPin !== -1) return aPin - bPin;
+        if (aPin !== -1) return -1;
+        if (bPin !== -1) return 1;
+        const aHasPb = a.pickleballCourtsCount > 0;
+        const bHasPb = b.pickleballCourtsCount > 0;
+        if (aHasPb !== bHasPb) return aHasPb ? -1 : 1;
+        return a.name.localeCompare(b.name);
+      })
+      .map((park) => ({
+        key: park.id,
+        text: park.pickleballCourtsCount === 0 ? `${park.name} (Tennis only)` : park.name,
+        value: park.id,
+      }));
   }, []);
 
   return (
@@ -377,6 +391,11 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
             {park.address}
           </div>
         )}
+        <div style={{ marginBottom: ".5rem", color: "gray" }}>
+          {park.pickleballCourtsCount > 0
+            ? `${park.pickleballCourtsCount} pickleball court${park.pickleballCourtsCount !== 1 ? "s" : ""}`
+            : `${park.tennisCourtsCount} tennis court${park.tennisCourtsCount !== 1 ? "s" : ""}`}
+        </div>
 
         <div className="very basic segment">
           <form className="ui small form">
