@@ -18,6 +18,8 @@ export async function getServerSideProps() {
     slug: park.slug,
     courts: park.courts,
     location: park.location ?? null,
+    tennisCourtsCount: park.tennisCourtsCount || 0,
+    pickleballCourtsCount: park.pickleballCourtsCount || 0,
   }));
 
   return { props: { parks } };
