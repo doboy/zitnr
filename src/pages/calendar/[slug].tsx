@@ -252,14 +252,14 @@ const ParkDropdown = ({
 
 const NUM_NEARBY = 4;
 
-function getNearbyParks(park: Park): NearbyPark[] {
-  if (!park.location) return [];
+function getNearbyParks(park: Park): { pickleball: NearbyPark[]; tennis: NearbyPark[] } {
+  if (!park.location) return { pickleball: [], tennis: [] };
 
-  return PARKS.filter((p) => p.id !== park.id && p.location)
+  const all = PARKS.filter((p) => p.id !== park.id && p.location)
     .map((p) => ({
       name: p.name,
       slug: p.slug,
-      courtCount: p.courts.length,
+      tennisCourtsCount: p.tennisCourtsCount,
       pickleballCourtsCount: p.pickleballCourtsCount,
       distance: calculateDistanceBetweenCoordsInMiles(
         park.location!.latitude,
@@ -268,8 +268,12 @@ function getNearbyParks(park: Park): NearbyPark[] {
         p.location!.longitude
       ),
     }))
-    .sort((a, b) => a.distance - b.distance)
-    .slice(0, NUM_NEARBY);
+    .sort((a, b) => a.distance - b.distance);
+
+  return {
+    pickleball: all.filter((p) => p.pickleballCourtsCount > 0).slice(0, NUM_NEARBY),
+    tennis: all.filter((p) => p.pickleballCourtsCount === 0).slice(0, NUM_NEARBY),
+  };
 }
 
 export async function getServerSideProps(context) {
@@ -294,7 +298,7 @@ export async function getServerSideProps(context) {
   return { props: { initialEvents: res, nearbyParks } };
 }
 
-const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: NearbyPark[] }) => {
+const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: { pickleball: NearbyPark[]; tennis: NearbyPark[] } }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
@@ -347,7 +351,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
   }, [date, park]);
 
   const dropdownOptions = useMemo(() => {
-    const pinned = [MillerPark.id, GreenLakeParkEast.id, BeaconHillPlayfield.id, MontlakePlayfield.id];
+    const pinned = [MillerPark.id, GreenLakeParkEast.id, BeaconHillPlayfield.id];
     return [...PARKS]
       .sort((a, b) => {
         const aPin = pinned.indexOf(a.id);
@@ -494,7 +498,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
         </div>
 
         <div className="ui basic segment">
-          <NearbyParks parks={nearbyParks} />
+          <NearbyParks pickleball={nearbyParks.pickleball} tennis={nearbyParks.tennis} />
         </div>
       </div>
     </Layout>
