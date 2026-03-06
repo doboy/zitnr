@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import catalog from "../utils/catalog.json";
-import { withAffiliateCode, getStoreName } from "../utils/affiliate";
+import { getStoreName } from "../utils/affiliate";
 
 type Variant = (typeof catalog)[number];
 
@@ -689,7 +689,7 @@ const QuizPage = () => {
                           </div>
                         )}
                         <a
-                          href={withAffiliateCode(paddle.link)}
+                          href={paddle.link}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -709,7 +709,7 @@ const QuizPage = () => {
                       <div className="content">
                         <a
                           className="header"
-                          href={withAffiliateCode(paddle.link)}
+                          href={paddle.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ fontSize: "1em" }}
@@ -750,7 +750,7 @@ const QuizPage = () => {
                       </div>
                       <a
                         className="ui bottom attached button"
-                        href={withAffiliateCode(paddle.link)}
+                        href={paddle.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ textDecoration: "none" }}
