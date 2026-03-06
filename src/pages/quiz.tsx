@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import catalog from "../utils/catalog.json";
+import { getStoreName } from "../utils/affiliate";
 
 type Variant = (typeof catalog)[number];
 
@@ -754,11 +755,7 @@ const QuizPage = () => {
                         rel="noopener noreferrer"
                         style={{ textDecoration: "none" }}
                       >
-                        {paddle.link.includes("https://11six24.com")
-                          ? "View on 11six24"
-                          : paddle.link.includes("https://joola.com")
-                            ? "View on JOOLA"
-                            : "View on Amazon"}
+                        {getStoreName(paddle.link)}
                         <i
                           className="external alternate icon"
                           style={{ marginLeft: "0.5em" }}
