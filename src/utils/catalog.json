@@ -831,7 +831,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-perseus-pro-v-elongated-blaze-red-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -845,7 +846,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-perseus-pro-v-elongated-breeze-blue-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Perseus Pro V",
@@ -859,7 +861,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/joola-perseus-pro-v-elongated-blaze-red-14mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
@@ -873,7 +876,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-elongated-surge-green-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Kosmos Pro V Pickleball Paddle",
@@ -887,7 +891,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-kosmos-pro-v-pickleball-paddle-elongated-surge-green-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -901,7 +906,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-widebody-yellow-16mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -915,7 +921,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-widebody-yellow-14mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2026
   },
   {
     "name": "JOOLA Scorpeus Pro V Pickleball Paddle",
@@ -929,7 +936,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-scorpeus-pro-v-pickleball-paddle-widebody-club-green-16mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
@@ -943,7 +951,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-elongated-bolt-blue-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Hyperion Pro V Pickleball Paddle",
@@ -957,7 +966,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/joola-hyperion-pro-v-pickleball-paddle-elongated-bolt-blue-14mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
@@ -971,7 +981,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-elongated-royal-blue-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Agassi Pro V Pickleball Paddle",
@@ -985,7 +996,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/joola-agassi-pro-v-pickleball-paddle-elongated-royal-blue-14mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "JOOLA Graf Pro V Pickleball Paddle",
@@ -999,7 +1011,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/joola-graf-pro-v-pickleball-paddle-elongated-seaside-green-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -1013,7 +1026,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/11six24-vapor-power-2-hybrid-teal-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -1027,7 +1041,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/11six24-vapor-power-2-hybrid-lavender-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "11six24 Vapor Power 2",
@@ -1041,7 +1056,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/11six24-vapor-power-2-hybrid-white-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "11six24 Hurache-X Power",
@@ -1377,7 +1393,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/6-0-black-opal-elongated-black-14mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1391,7 +1408,8 @@
     "size": "16mm",
     "default": true,
     "image": "/catalog/6-0-coral-hybrid-ocean-blue-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1405,7 +1423,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-hybrid-carol-pink-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1419,7 +1438,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-hybrid-black-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1433,7 +1453,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-elongated-ocean-blue-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1447,7 +1468,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-elongated-carol-pink-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1461,7 +1483,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-elongated-black-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "6.0 Coral",
@@ -1475,7 +1498,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/6-0-coral-widebody-ocean-blue-16mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2026
   },
   {
     "name": "6.0 Ruby Pro",
@@ -1489,7 +1513,8 @@
     "size": "14mm",
     "default": false,
     "image": "/catalog/6-0-ruby-pro-elongated-red-14mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2026
   },
   {
     "name": "6.0 Ruby",
@@ -1852,7 +1877,8 @@
     "category": "bag",
     "size": "",
     "default": true,
-    "image": "/catalog/6-0-pro-tour-bag-black-grey.jpg"
+    "image": "/catalog/6-0-pro-tour-bag-black-grey.jpg",
+    "year": 2025
   },
   {
     "name": "6.0 Pro Tour Bag",
@@ -1865,7 +1891,8 @@
     "category": "bag",
     "size": "",
     "default": false,
-    "image": "/catalog/6-0-pro-tour-bag-black-cherry.jpg"
+    "image": "/catalog/6-0-pro-tour-bag-black-cherry.jpg",
+    "year": 2025
   },
   {
     "name": "6.0 Pro Tour Bag",
@@ -1878,7 +1905,8 @@
     "category": "bag",
     "size": "",
     "default": false,
-    "image": "/catalog/6-0-pro-tour-bag-red.jpg"
+    "image": "/catalog/6-0-pro-tour-bag-red.jpg",
+    "year": 2025
   },
   {
     "name": "11six24 Essentials Backpack 2",
@@ -1905,7 +1933,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-pro-hybrid-blue-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2025
   },
   {
     "name": "Vatic Pro V-Sol Pro",
@@ -1919,7 +1948,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-pro-elongated-blue-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2025
   },
   {
     "name": "Vatic Pro V-Sol Pro",
@@ -1933,7 +1963,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-pro-widebody-blue-16mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2025
   },
   {
     "name": "Vatic Pro V-Sol Power",
@@ -1947,7 +1978,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-power-hybrid-red-16mm.jpg",
-    "shape": "Hybrid"
+    "shape": "Hybrid",
+    "year": 2025
   },
   {
     "name": "Vatic Pro V-Sol Power",
@@ -1961,7 +1993,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-power-elongated-red-16mm.jpg",
-    "shape": "Elongated"
+    "shape": "Elongated",
+    "year": 2025
   },
   {
     "name": "Vatic Pro V-Sol Power",
@@ -1975,7 +2008,8 @@
     "size": "16mm",
     "default": false,
     "image": "/catalog/vatic-pro-v-sol-power-widebody-red-16mm.jpg",
-    "shape": "Widebody"
+    "shape": "Widebody",
+    "year": 2025
   },
   {
     "name": "Vatic Pro PRISM",
