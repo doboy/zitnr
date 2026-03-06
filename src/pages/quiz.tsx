@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import catalog from "../utils/catalog.json";
+import { withAffiliateCode, getStoreName } from "../utils/affiliate";
 
 type Variant = (typeof catalog)[number];
 
@@ -688,7 +689,7 @@ const QuizPage = () => {
                           </div>
                         )}
                         <a
-                          href={paddle.link}
+                          href={withAffiliateCode(paddle.link)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -708,7 +709,7 @@ const QuizPage = () => {
                       <div className="content">
                         <a
                           className="header"
-                          href={paddle.link}
+                          href={withAffiliateCode(paddle.link)}
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ fontSize: "1em" }}
@@ -749,16 +750,12 @@ const QuizPage = () => {
                       </div>
                       <a
                         className="ui bottom attached button"
-                        href={paddle.link}
+                        href={withAffiliateCode(paddle.link)}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ textDecoration: "none" }}
                       >
-                        {paddle.link.includes("https://11six24.com")
-                          ? "View on 11six24"
-                          : paddle.link.includes("https://joola.com")
-                            ? "View on JOOLA"
-                            : "View on Amazon"}
+                        {getStoreName(paddle.link)}
                         <i
                           className="external alternate icon"
                           style={{ marginLeft: "0.5em" }}

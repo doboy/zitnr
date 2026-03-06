@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import Layout from "../components/Layout";
 import catalog from "../utils/catalog.json";
+import { withAffiliateCode, getStoreName } from "../utils/affiliate";
 
 type Variant = (typeof catalog)[number];
 
@@ -322,12 +323,12 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
       </div>
       <a
         className="ui bottom attached button"
-        href={activeVariant.link}
+        href={withAffiliateCode(activeVariant.link)}
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
-        {activeVariant.link.includes("https://11six24.com") ? "View on 11six24" : activeVariant.link.includes("https://joola.com") ? "View on JOOLA" : activeVariant.link.includes("sixzeropickleball.com") ? "View on SIX ZERO" : "View on Amazon"}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
+        {getStoreName(activeVariant.link)}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
     </div>
   );
