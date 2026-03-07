@@ -338,6 +338,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   paddle: "Paddles",
   ball: "Balls",
   net: "Nets",
+  bag: "Bags",
 };
 
 const ShopPage = () => {
