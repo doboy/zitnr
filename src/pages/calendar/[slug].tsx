@@ -474,15 +474,6 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                 October 1st since rainy season is coming 🌧️ 💦 😅. We will
                 start reserving the courts again next year.
               </p>
-              <p style={{ marginBottom: 0 }}>
-                <a
-                  href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join the Miller Park WhatsApp group
-                </a>
-              </p>
             </div>
           )}
 
@@ -504,6 +495,16 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
               />
             )}
           </div>
+
+          {showMessage2 && (
+            <a
+              href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the Miller Park WhatsApp group
+            </a>
+          )}
         </div>
 
         <div className="ui basic segment">
