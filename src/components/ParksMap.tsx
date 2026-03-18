@@ -57,7 +57,18 @@ const ParksMap = ({ parks }: ParksMapProps) => {
                 {park.courts.length} {tennis ? "tennis" : "pickleball"} court
                 {park.courts.length !== 1 ? "s" : ""}
                 <br />
-                <a href={`/calendar/${park.slug}`}>View calendar</a>
+                <a
+                  href={`/calendar/${park.slug}`}
+                  onClick={() =>
+                    window.umami?.track("map-park-click", {
+                      park: park.name,
+                      slug: park.slug,
+                      courtType: tennis ? "tennis" : "pickleball",
+                    })
+                  }
+                >
+                  View calendar
+                </a>
               </Popup>
             </Marker>
           );
