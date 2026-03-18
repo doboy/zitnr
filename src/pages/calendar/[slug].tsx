@@ -410,6 +410,10 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                   value={park.id}
                   onChange={(parkId) => {
                     if (parkId !== park.id) {
+                      window.umami?.track("park-change", {
+                        from: park.name,
+                        to: parksById[parkId].name,
+                      });
                       router.push(
                         `/calendar/${parksById[parkId].slug}`
                       );
@@ -425,6 +429,10 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                     type="date"
                     value={date}
                     onChange={(e) => {
+                      window.umami?.track("date-change", {
+                        park: park.name,
+                        date: e.target.value,
+                      });
                       setDate(e.target.value);
                       setCalendar([]);
                       setIsLoading(true);

@@ -15,7 +15,18 @@ const NearbyParkItem = ({ park, courtType }: { park: NearbyPark; courtType: "pic
   return (
     <div key={park.slug} className="item">
       <div className="content">
-        <Link className="header" href={`/calendar/${park.slug}`}>
+        <Link
+          className="header"
+          href={`/calendar/${park.slug}`}
+          onClick={() =>
+            window.umami?.track("nearby-park-click", {
+              park: park.name,
+              slug: park.slug,
+              courtType,
+              distance: park.distance,
+            })
+          }
+        >
           {park.name}
         </Link>
         <div className="description">
