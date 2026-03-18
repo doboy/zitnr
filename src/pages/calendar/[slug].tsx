@@ -413,7 +413,6 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                       window.umami?.track("park-change", {
                         from: park.name,
                         to: parksById[parkId].name,
-                        toSlug: parksById[parkId].slug,
                       });
                       router.push(
                         `/calendar/${parksById[parkId].slug}`
