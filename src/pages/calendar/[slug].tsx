@@ -106,6 +106,7 @@ import { CalendarEntry } from "../../types";
 import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
+import { Icon } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import { NearbyParks, NearbyPark } from "../../components/NearbyParks";
 import { calculateDistanceBetweenCoordsInMiles } from "../../utils/calculateDistanceBetweenCoordsInMiles";
@@ -502,6 +503,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
               target="_blank"
               rel="noopener noreferrer"
             >
+              <Icon name="whatsapp" />
               Join the Miller Park WhatsApp group
             </a>
           )}
