@@ -106,7 +106,7 @@ import { CalendarEntry } from "../../types";
 import { DayCalendar } from "../../components/DayCalendar";
 import { timeToNumber } from "../../utils/timeToNumber";
 import { getReservationsByParkId } from "../../utils/getReservationsByParkId";
-import { Icon } from "semantic-ui-react";
+import { Icon, Message } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import { NearbyParks, NearbyPark } from "../../components/NearbyParks";
 import { calculateDistanceBetweenCoordsInMiles } from "../../utils/calculateDistanceBetweenCoordsInMiles";
@@ -498,7 +498,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
           </div>
 
           {showMessage2 && (
-            <div style={{ textAlign: "center" }}>
+            <Message info style={{ textAlign: "center" }}>
               <a
                 href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
                 target="_blank"
@@ -507,7 +507,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                 <Icon name="whatsapp" />
                 Join the Miller Park WhatsApp group
               </a>
-            </div>
+            </Message>
           )}
         </div>
 
