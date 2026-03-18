@@ -498,14 +498,16 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
           </div>
 
           {showMessage2 && (
-            <a
-              href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="whatsapp" />
-              Join the Miller Park WhatsApp group
-            </a>
+            <div style={{ textAlign: "center" }}>
+              <a
+                href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="whatsapp" />
+                Join the Miller Park WhatsApp group
+              </a>
+            </div>
           )}
         </div>
 
