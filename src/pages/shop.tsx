@@ -237,6 +237,13 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontSize: "1em" }}
+          onClick={() => {
+            window.umami?.track("external-link-click", {
+              product: group.name,
+              store: getStoreName(activeVariant.link),
+              url: activeVariant.link,
+            });
+          }}
         >
           {group.name}
         </a>
@@ -327,6 +334,13 @@ const ProductCard = ({ group }: { group: ProductGroup }) => {
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
+        onClick={() => {
+          window.umami?.track("external-link-click", {
+            product: group.name,
+            store: getStoreName(activeVariant.link),
+            url: activeVariant.link,
+          });
+        }}
       >
         {getStoreName(activeVariant.link)}<i className="external alternate icon" style={{ marginLeft: "0.5em" }}></i>
       </a>
