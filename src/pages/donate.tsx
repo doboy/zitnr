@@ -9,6 +9,7 @@ import classNames from "classnames";
 import { GoalProgress } from "../components/GoalProgress";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import { DAILY_COST } from "../utils/constants";
 
 export const Donate = () => {
   const venmoUsername = "zack-do";
@@ -60,7 +61,7 @@ export const Donate = () => {
         </h2>
         <div className="ui center aligned text container">
           <h3 className="ui header">
-            Reservation costs <strong>$37.50</strong> per day — help keep the games going by donating today. <br />
+            Reservation costs <strong>{DAILY_COST}</strong> per day — help keep the games going by donating today. <br />
           </h3>
         </div>
 
@@ -80,10 +81,10 @@ export const Donate = () => {
           {activeTab === "fundraising-progress" && (
             <div className="ui center aligned very basic segment">
               <h2>Fundraising Progress 2026</h2>
-              {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations - 3500} goal={4125} />}
+              {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations} goal={4000} />}
               <div className="ui divider"></div>
               <h2>Fundraising Progress 2025</h2>
-              {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={totalDonations} goal={3500} />}
+              {isLoading ? <div className="ui active inline loader"></div> : <GoalProgress totalDonations={3500} goal={3500} />}
             </div>
           )}
           {activeTab === "balance-stats" && (

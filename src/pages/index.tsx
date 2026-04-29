@@ -4,6 +4,7 @@ import { useTransactions } from "../hooks/useTransactions";
 import Layout from "../components/Layout";
 import Image from 'next/image';
 import { PARKS } from "zitnr-utils";
+import { DAILY_COST } from "../utils/constants";
 
 const Home = ({ }: {}) => {
   const [isLoadingTransactions, totalCost, totalDonations] = useTransactions();
@@ -21,7 +22,7 @@ const Home = ({ }: {}) => {
               Open play schedule is <br />
               <strong>Monday-Friday: 5:45-8:15 PM.</strong><br />
               <strong>Monday, Wednesday, Friday: 10:00-12:00 PM.</strong><br /><br />
-              It costs <strong>$37.50</strong> per day — help keep the games going by donating today.
+              It costs <strong>{DAILY_COST}</strong> per day — help keep the games going by donating today.
             </div>
             <br />
             <a href="/donate" className="ui black button">DONATE</a>

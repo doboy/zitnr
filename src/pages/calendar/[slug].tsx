@@ -1,4 +1,10 @@
-import React, { useMemo, useState, useRef, useEffect, useCallback } from "react";
+import React, {
+  useMemo,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from "react";
 import classnames from "classnames";
 import { useRouter } from "next/router";
 
@@ -253,7 +259,10 @@ const ParkDropdown = ({
 
 const NUM_NEARBY = 4;
 
-function getNearbyParks(park: Park): { pickleball: NearbyPark[]; tennis: NearbyPark[] } {
+function getNearbyParks(park: Park): {
+  pickleball: NearbyPark[];
+  tennis: NearbyPark[];
+} {
   if (!park.location) return { pickleball: [], tennis: [] };
 
   const all = PARKS.filter((p) => p.id !== park.id && p.location)
@@ -272,8 +281,12 @@ function getNearbyParks(park: Park): { pickleball: NearbyPark[]; tennis: NearbyP
     .sort((a, b) => a.distance - b.distance);
 
   return {
-    pickleball: all.filter((p) => p.pickleballCourtsCount > 0).slice(0, NUM_NEARBY),
-    tennis: all.filter((p) => p.pickleballCourtsCount === 0).slice(0, NUM_NEARBY),
+    pickleball: all
+      .filter((p) => p.pickleballCourtsCount > 0)
+      .slice(0, NUM_NEARBY),
+    tennis: all
+      .filter((p) => p.pickleballCourtsCount === 0)
+      .slice(0, NUM_NEARBY),
   };
 }
 
@@ -299,7 +312,13 @@ export async function getServerSideProps(context) {
   return { props: { initialEvents: res, nearbyParks } };
 }
 
-const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyParks: { pickleball: NearbyPark[]; tennis: NearbyPark[] } }) => {
+const Calendar = ({
+  initialEvents,
+  nearbyParks,
+}: {
+  initialEvents: any;
+  nearbyParks: { pickleball: NearbyPark[]; tennis: NearbyPark[] };
+}) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [date, setDate] = React.useState(dateToString(new Date()));
 
@@ -334,8 +353,8 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
     return courtEndTime(park, park.courts[0], dayOfWeek);
   }, [park]);
 
-  const showMessage2 = React.useMemo(() => {
-    return park.id == MillerPark.id
+  const showMessage = React.useMemo(() => {
+    return park.id == MillerPark.id;
   }, [park]);
 
   React.useEffect(() => {
@@ -352,7 +371,11 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
   }, [date, park]);
 
   const dropdownOptions = useMemo(() => {
-    const pinned = [MillerPark.id, GreenLakeParkEast.id, BeaconHillPlayfield.id];
+    const pinned = [
+      MillerPark.id,
+      GreenLakeParkEast.id,
+      BeaconHillPlayfield.id,
+    ];
     return [...PARKS]
       .sort((a, b) => {
         const aPin = pinned.indexOf(a.id);
@@ -367,7 +390,10 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
       })
       .map((park) => ({
         key: park.id,
-        text: park.pickleballCourtsCount === 0 ? `${park.name} (Tennis only)` : park.name,
+        text:
+          park.pickleballCourtsCount === 0
+            ? `${park.name} (Tennis only)`
+            : park.name,
         value: park.id,
       }));
   }, []);
@@ -415,9 +441,7 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
                         from: park.name,
                         to: parksById[parkId].name,
                       });
-                      router.push(
-                        `/calendar/${parksById[parkId].slug}`
-                      );
+                      router.push(`/calendar/${parksById[parkId].slug}`);
                       setIsLoading(true);
                     }
                   }}
@@ -468,20 +492,11 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
             </div>
           </form>
 
-          {showMessage2 && (
-            <div className="ui visible blue message">
-              {/* <i
-                className="close icon"
-                onClick={() => {
-                  localStorage.setItem("m1", "1");
-                  setshowMessage2(false);
-                }}
-              /> */}
-
+          {showMessage && (
+            <div className="ui visible green message">
               <p style={{ marginTop: 0 }}>
-                The last day that z.i.t.n.r. will be reserving the courts is
-                October 1st since rainy season is coming 🌧️ 💦 😅. We will
-                start reserving the courts again next year.
+                Open play reservations starts on May 11th!{" "}
+                <a href="/donate">Donate</a> to keep the reservations going!
               </p>
             </div>
           )}
@@ -505,22 +520,23 @@ const Calendar = ({ initialEvents, nearbyParks }: { initialEvents: any; nearbyPa
             )}
           </div>
 
-          {showMessage2 && (
-            <Message info style={{ textAlign: "center" }}>
-              <a
-                href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="whatsapp" />
-                Join the Miller Park WhatsApp group
-              </a>
-            </Message>
-          )}
+          <Message info style={{ textAlign: "center" }}>
+            <a
+              href="https://chat.whatsapp.com/D0vYymTvC3kH0sgMC1L8xd?mode=gi_t"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="whatsapp" />
+              Join the Miller Park WhatsApp group
+            </a>
+          </Message>
         </div>
 
         <div className="ui basic segment">
-          <NearbyParks pickleball={nearbyParks.pickleball} tennis={nearbyParks.tennis} />
+          <NearbyParks
+            pickleball={nearbyParks.pickleball}
+            tennis={nearbyParks.tennis}
+          />
         </div>
       </div>
     </Layout>
