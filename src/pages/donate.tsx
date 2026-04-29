@@ -116,7 +116,7 @@ export const Donate = () => {
                     <tr key={index}>
                       <td>{txn.type == "charge" ? "permit" : txn.type}</td>
                       <td className="right aligned">
-                        {txn.amount.toLocaleString("en-US", {
+                        {(-txn.amount).toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
                         })}
